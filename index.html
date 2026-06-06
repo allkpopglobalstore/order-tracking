@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
 body {
   margin: 0;
   font-family: Arial;
@@ -33,7 +40,7 @@ button {
   cursor: pointer;
 }
 
-/* CARD */
+/* CARD fallback */
 .card {
   background: white;
   padding: 15px;
@@ -42,15 +49,14 @@ button {
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
-/* TABLE CLAVE */
+/* TABLE */
 table {
   width: 100%;
   border-collapse: collapse;
   background: white;
   border-radius: 10px;
   overflow: hidden;
-
-  table-layout: fixed; /* 🔥 clave para que no se desborde */
+  table-layout: fixed;
 }
 
 th, td {
@@ -59,9 +65,10 @@ th, td {
   text-align: left;
   font-size: 14px;
 
+  /* 🔥 evita que se parta el texto */
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis; /* 👈 si es largo, corta bonito */
+  text-overflow: ellipsis;
   vertical-align: middle;
 }
 
@@ -95,11 +102,11 @@ th {
   border-radius: 8px;
 }
 
-/* 📱 SOLO MÓVIL (más pequeño, SIN scroll) */
+/* 📱 MOBILE (sin romper tabla, solo más pequeño) */
 @media (max-width: 768px) {
 
   th, td {
-    font-size: 10px;
+    font-size: 11px;
     padding: 6px;
   }
 
@@ -107,4 +114,133 @@ th {
     font-size: 9px;
     padding: 3px 6px;
   }
+
+  input, select, button {
+    font-size: 13px;
+    padding: 10px;
+  }
 }
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="top">
+    <input id="userid" placeholder="User ID">
+
+    <select id="month">
+      <option value="">All Months</option>
+      <option>MAY</option>
+      <option>JUNE</option>
+      <option>JULY</option>
+      <option>AUGUST</option>
+    </select>
+
+    <button onclick="search()">Search</button>
+  </div>
+
+  <div id="results"></div>
+
+</div>
+
+<script>
+
+const API_URL =
+"https://script.google.com/macros/s/AKfycbz80y4d-Ot7gRRKQBr0HZ_iO4stEpMIAMC6NjPy5dOiwXRzHkPkzKsmFq97cPWcf9i_/exec";
+
+async function search() {
+
+  const userId = document.getElementById("userid").value.trim();
+  const month = document.getElementById("month").value;
+
+  if (!userId) {
+    document.getElementById("results").innerHTML =
+      "<div class='error'>Enter User ID</div>";
+    return;
+  }
+
+  document.getElementById("results").innerHTML =
+    "<div class='loading'>Loading orders...</div>";
+
+  try {
+
+    const res = await fetch(API_URL + "?userId=" + encodeURIComponent(userId));
+    const data = await res.json();
+
+    if (!Array.isArray(data)) {
+      throw new Error("API error");
+    }
+
+    renderTable(data, month);
+
+  } catch (err) {
+
+    document.getElementById("results").innerHTML =
+      "<div class='error'>Error loading data</div>";
+
+    console.error(err);
+  }
+}
+
+function renderTable(data, month) {
+
+  if (month) {
+    data = data.filter(d => (d.MES || "").toUpperCase() === month);
+  }
+
+  if (!data || data.length === 0) {
+    document.getElementById("results").innerHTML =
+      "<div class='card'>No orders found</div>";
+    return;
+  }
+
+  const keys = Object.keys(data[0]);
+
+  let html = "<table><tr>";
+
+  keys.forEach(k => html += "<th>" + k + "</th>");
+  html += "</tr>";
+
+  data.forEach(row => {
+
+    html += "<tr>";
+
+    keys.forEach(k => {
+
+      let value = row[k] ?? "-";
+
+      if (k.toLowerCase().includes("status")) {
+
+        let v = (value || "").toString().trim().toUpperCase();
+
+        let color = "#999";
+
+        if (v === "DELIVERED") color = "#2ecc71";
+        else if (v === "PURCHASED") color = "#f1c40f";
+        else if (v === "IN WAREHOUSE KR") color = "#9b59b6";
+        else if (v === "IN SPAIN") color = "#3498db";
+        else if (v === "TO BUY") color = "#e74c3c";
+        else if (v === "IN WAREHOUSE CH") color = "#e67e22";
+        else if (v === "IN TRANSIT TO ES") color = "#ff69b4";
+
+        value = `<span class="status" style="background:${color}">${value}</span>`;
+      }
+
+      html += "<td>" + value + "</td>";
+    });
+
+    html += "</tr>";
+  });
+
+  html += "</table>";
+
+  document.getElementById("results").innerHTML = html;
+}
+
+</script>
+
+</body>
+</html>
