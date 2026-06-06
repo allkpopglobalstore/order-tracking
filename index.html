@@ -56,6 +56,9 @@ table {
   background: white;
   border-radius: 10px;
   overflow: hidden;
+
+  /* 🔥 IMPORTANTE */
+  table-layout: auto;
 }
 
 th, td {
@@ -63,11 +66,10 @@ th, td {
   border-bottom: 1px solid #eee;
   text-align: left;
   font-size: 14px;
-}
 
-/* 🔥 FIX IMPORTANTE: evita salto de línea en STATUS */
-th, td {
+  /* 🔥 FIX REAL ANTI BREAK LINE */
   white-space: nowrap;
+  vertical-align: middle;
 }
 
 th {
@@ -81,10 +83,12 @@ th {
   border-radius: 20px;
   color: white;
   font-size: 12px;
-  display: inline-block;
+  display: inline-flex;
 
-  /* 🔥 CLAVE FINAL */
+  /* 🔥 FIX FINAL */
   white-space: nowrap;
+  word-break: keep-all;
+  overflow-wrap: normal;
 }
 
 /* LOADING */
@@ -192,7 +196,6 @@ function renderTable(data, month) {
 
       let value = row[k] ?? "-";
 
-      // STATUS COLOR
       if (k.toLowerCase().includes("status")) {
 
         let v = (value || "").toString().trim().toUpperCase();
