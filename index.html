@@ -40,13 +40,11 @@ button {
   cursor: pointer;
 }
 
-/* CARD fallback */
-.card {
-  background: white;
-  padding: 15px;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+/* 🔥 WRAPPER RESPONSIVE (CLAVE) */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* TABLE */
@@ -56,8 +54,6 @@ table {
   background: white;
   border-radius: 10px;
   overflow: hidden;
-
-  /* 🔥 IMPORTANTE */
   table-layout: auto;
 }
 
@@ -66,8 +62,6 @@ th, td {
   border-bottom: 1px solid #eee;
   text-align: left;
   font-size: 14px;
-
-  /* 🔥 FIX REAL ANTI BREAK LINE */
   white-space: nowrap;
   vertical-align: middle;
 }
@@ -85,7 +79,6 @@ th {
   font-size: 12px;
   display: inline-flex;
 
-  /* 🔥 FIX FINAL */
   white-space: nowrap;
   word-break: keep-all;
   overflow-wrap: normal;
@@ -103,6 +96,24 @@ th {
   color: #b30000;
   padding: 10px;
   border-radius: 8px;
+}
+
+/* 📱 MOBILE OPTIMIZATION */
+@media (max-width: 768px) {
+
+  th, td {
+    font-size: 11px;
+    padding: 8px;
+  }
+
+  .status {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+
+  table {
+    min-width: 700px; /* activa scroll horizontal */
+  }
 }
 
 </style>
@@ -183,7 +194,7 @@ function renderTable(data, month) {
 
   const keys = Object.keys(data[0]);
 
-  let html = "<table><tr>";
+  let html = "<div class='table-wrapper'><table><tr>";
 
   keys.forEach(k => html += "<th>" + k + "</th>");
   html += "</tr>";
@@ -219,7 +230,7 @@ function renderTable(data, month) {
     html += "</tr>";
   });
 
-  html += "</table>";
+  html += "</table></div>";
 
   document.getElementById("results").innerHTML = html;
 }
