@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<style>
-
 body {
   margin: 0;
   font-family: Arial;
@@ -40,21 +33,24 @@ button {
   cursor: pointer;
 }
 
-/* 🔥 WRAPPER RESPONSIVE (CLAVE) */
-.table-wrapper {
-  width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+/* CARD */
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
-/* TABLE */
+/* TABLE CLAVE */
 table {
   width: 100%;
   border-collapse: collapse;
   background: white;
   border-radius: 10px;
   overflow: hidden;
-  table-layout: auto;
+
+  table-layout: fixed; /* 🔥 clave para que no se desborde */
 }
 
 th, td {
@@ -62,7 +58,10 @@ th, td {
   border-bottom: 1px solid #eee;
   text-align: left;
   font-size: 14px;
+
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* 👈 si es largo, corta bonito */
   vertical-align: middle;
 }
 
@@ -77,11 +76,9 @@ th {
   border-radius: 20px;
   color: white;
   font-size: 12px;
-  display: inline-flex;
+  display: inline-block;
 
   white-space: nowrap;
-  word-break: keep-all;
-  overflow-wrap: normal;
 }
 
 /* LOADING */
@@ -98,144 +95,16 @@ th {
   border-radius: 8px;
 }
 
-/* 📱 MOBILE OPTIMIZATION */
+/* 📱 SOLO MÓVIL (más pequeño, SIN scroll) */
 @media (max-width: 768px) {
 
   th, td {
-    font-size: 11px;
-    padding: 8px;
+    font-size: 10px;
+    padding: 6px;
   }
 
   .status {
-    font-size: 10px;
-    padding: 4px 8px;
-  }
-
-  table {
-    min-width: 700px; /* activa scroll horizontal */
+    font-size: 9px;
+    padding: 3px 6px;
   }
 }
-
-</style>
-</head>
-
-<body>
-
-<div class="container">
-
-  <div class="top">
-    <input id="userid" placeholder="User ID">
-
-    <select id="month">
-      <option value="">All Months</option>
-      <option>MAY</option>
-      <option>JUNE</option>
-      <option>JULY</option>
-      <option>AUGUST</option>
-    </select>
-
-    <button onclick="search()">Search</button>
-  </div>
-
-  <div id="results"></div>
-
-</div>
-
-<script>
-
-const API_URL =
-"https://script.google.com/macros/s/AKfycbz80y4d-Ot7gRRKQBr0HZ_iO4stEpMIAMC6NjPy5dOiwXRzHkPkzKsmFq97cPWcf9i_/exec";
-
-async function search() {
-
-  const userId = document.getElementById("userid").value.trim();
-  const month = document.getElementById("month").value;
-
-  if (!userId) {
-    document.getElementById("results").innerHTML =
-      "<div class='error'>Enter User ID</div>";
-    return;
-  }
-
-  document.getElementById("results").innerHTML =
-    "<div class='loading'>Loading orders...</div>";
-
-  try {
-
-    const res = await fetch(API_URL + "?userId=" + encodeURIComponent(userId));
-    const data = await res.json();
-
-    if (!Array.isArray(data)) {
-      throw new Error("API error");
-    }
-
-    renderTable(data, month);
-
-  } catch (err) {
-
-    document.getElementById("results").innerHTML =
-      "<div class='error'>Error loading data</div>";
-
-    console.error(err);
-  }
-}
-
-function renderTable(data, month) {
-
-  if (month) {
-    data = data.filter(d => (d.MES || "").toUpperCase() === month);
-  }
-
-  if (!data || data.length === 0) {
-    document.getElementById("results").innerHTML =
-      "<div class='card'>No orders found</div>";
-    return;
-  }
-
-  const keys = Object.keys(data[0]);
-
-  let html = "<div class='table-wrapper'><table><tr>";
-
-  keys.forEach(k => html += "<th>" + k + "</th>");
-  html += "</tr>";
-
-  data.forEach(row => {
-
-    html += "<tr>";
-
-    keys.forEach(k => {
-
-      let value = row[k] ?? "-";
-
-      if (k.toLowerCase().includes("status")) {
-
-        let v = (value || "").toString().trim().toUpperCase();
-
-        let color = "#999";
-
-        if (v === "DELIVERED") color = "#2ecc71";
-        else if (v === "PURCHASED") color = "#f1c40f";
-        else if (v === "IN WAREHOUSE KR") color = "#9b59b6";
-        else if (v === "IN SPAIN") color = "#3498db";
-        else if (v === "TO BUY") color = "#e74c3c";
-        else if (v === "IN WAREHOUSE CH") color = "#e67e22";
-        else if (v === "IN TRANSIT TO ES") color = "#ff69b4";
-
-        value = `<span class="status" style="background:${color}">${value}</span>`;
-      }
-
-      html += "<td>" + value + "</td>";
-    });
-
-    html += "</tr>";
-  });
-
-  html += "</table></div>";
-
-  document.getElementById("results").innerHTML = html;
-}
-
-</script>
-
-</body>
-</html>
