@@ -65,6 +65,11 @@ th, td {
   font-size: 14px;
 }
 
+/* 🔥 FIX IMPORTANTE: evita salto de línea en STATUS */
+th, td {
+  white-space: nowrap;
+}
+
 th {
   background: #111;
   color: white;
@@ -77,6 +82,9 @@ th {
   color: white;
   font-size: 12px;
   display: inline-block;
+
+  /* 🔥 CLAVE FINAL */
+  white-space: nowrap;
 }
 
 /* LOADING */
@@ -120,7 +128,8 @@ th {
 
 <script>
 
-const API_URL = "https://script.google.com/macros/s/AKfycbz80y4d-Ot7gRRKQBr0HZ_iO4stEpMIAMC6NjPy5dOiwXRzHkPkzKsmFq97cPWcf9i_/exec";
+const API_URL =
+"https://script.google.com/macros/s/AKfycbz80y4d-Ot7gRRKQBr0HZ_iO4stEpMIAMC6NjPy5dOiwXRzHkPkzKsmFq97cPWcf9i_/exec";
 
 async function search() {
 
