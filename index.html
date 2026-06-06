@@ -12,7 +12,7 @@ body {
 }
 
 .container {
-  max-width: 900px;
+  max-width: 1000px;
   margin: auto;
   padding: 20px;
 }
@@ -40,6 +40,7 @@ button {
   cursor: pointer;
 }
 
+/* CARD fallback */
 .card {
   background: white;
   padding: 15px;
@@ -48,32 +49,37 @@ button {
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
+/* TABLE */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+  font-size: 14px;
+}
+
+th {
+  background: #111;
+  color: white;
+}
+
+/* STATUS */
 .status {
   padding: 5px 10px;
   border-radius: 20px;
   color: white;
   font-size: 12px;
+  display: inline-block;
 }
 
-/* TRACKING STYLE */
-.step {
-  display: flex;
-  gap: 10px;
-  margin: 6px 0;
-  font-size: 13px;
-  align-items: center;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #ccc;
-}
-
-.done { background: #2ecc71; }
-.active { background: #3498db; }
-
+/* LOADING */
 .loading {
   text-align: center;
   padding: 20px;
@@ -96,7 +102,7 @@ button {
 
   <div class="top">
     <input id="userid" placeholder="User ID">
-    
+
     <select id="month">
       <option value="">All Months</option>
       <option>MAY</option>
@@ -114,17 +120,6 @@ button {
 
 <script>
 
-const steps = [
-  "TO BUY",
-  "PURCHASED",
-  "IN WAREHOUSE CH",
-  "IN WAREHOUSE KR",
-  "IN TRANSIT TO ES",
-  "IN SPAIN",
-  "DELIVERED"
-];
-
-// 🔥 TU API
 const API_URL = "https://script.google.com/macros/s/AKfycbz80y4d-Ot7gRRKQBr0HZ_iO4stEpMIAMC6NjPy5dOiwXRzHkPkzKsmFq97cPWcf9i_/exec";
 
 async function search() {
@@ -144,14 +139,13 @@ async function search() {
   try {
 
     const res = await fetch(API_URL + "?userId=" + encodeURIComponent(userId));
-
     const data = await res.json();
 
     if (!Array.isArray(data)) {
-      throw new Error(data.error || "API error");
+      throw new Error("API error");
     }
 
-    render(data, month);
+    renderTable(data, month);
 
   } catch (err) {
 
@@ -162,64 +156,60 @@ async function search() {
   }
 }
 
-function render(data, month) {
+function renderTable(data, month) {
 
   if (month) {
     data = data.filter(d => (d.MES || "").toUpperCase() === month);
   }
 
-  if (data.length === 0) {
+  if (!data || data.length === 0) {
     document.getElementById("results").innerHTML =
       "<div class='card'>No orders found</div>";
     return;
   }
 
-  let html = "";
+  const keys = Object.keys(data[0]);
 
-  data.forEach(o => {
+  let html = "<table><tr>";
 
-    const status = (o.STATUS || "").trim();
+  keys.forEach(k => html += "<th>" + k + "</th>");
+  html += "</tr>";
 
-    html += `
-      <div class="card">
-        <b>${o.PRODUCTO || "Order"}</b>
-        <br><br>
+  data.forEach(row => {
 
-        <b>Status:</b> ${status}
+    html += "<tr>";
 
-        <div style="margin-top:10px;">
-          ${renderSteps(status)}
-        </div>
-      </div>
-    `;
+    keys.forEach(k => {
+
+      let value = row[k] ?? "-";
+
+      // STATUS COLOR
+      if (k.toLowerCase().includes("status")) {
+
+        let v = (value || "").toString().trim().toUpperCase();
+
+        let color = "#999";
+
+        if (v === "DELIVERED") color = "#2ecc71";
+        else if (v === "PURCHASED") color = "#f1c40f";
+        else if (v === "IN WAREHOUSE KR") color = "#9b59b6";
+        else if (v === "IN SPAIN") color = "#3498db";
+        else if (v === "TO BUY") color = "#e74c3c";
+        else if (v === "IN WAREHOUSE CH") color = "#e67e22";
+        else if (v === "IN TRANSIT TO ES") color = "#ff69b4";
+
+        value = `<span class="status" style="background:${color}">${value}</span>`;
+      }
+
+      html += "<td>" + value + "</td>";
+    });
+
+    html += "</tr>";
   });
+
+  html += "</table>";
 
   document.getElementById("results").innerHTML = html;
-}
-
-function renderSteps(status) {
-
-  const cleanStatus = (status || "").trim().toUpperCase();
-
-  let i = steps.indexOf(cleanStatus);
-  let html = "";
-
-  steps.forEach((s, index) => {
-
-    let cls = "dot";
-
-    if (index < i) cls = "dot done";
-    if (index === i) cls = "dot active";
-
-    html += `
-      <div class="step">
-        <div class="${cls}"></div>
-        <div>${s}</div>
-      </div>
-    `;
-  });
-
-  return html;
 }
 
 </script>
