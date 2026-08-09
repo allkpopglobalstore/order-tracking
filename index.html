@@ -1,66 +1,91 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
+
+/* =====================================================
+   GENERAL
+===================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
 body {
   margin: 0;
-  font-family: Arial;
+  padding: 0;
+  width: 100%;
+}
+
+body {
+  font-family: Arial, sans-serif;
   background: #f4f4f4;
 }
 
 .container {
-  max-width: 1000px;
-  margin: auto;
+  width: 96%;
+  max-width: 1500px;
+  margin: 0 auto;
   padding: 20px;
 }
 
-/* BUSCADOR */
+
+/* =====================================================
+   BUSCADOR
+===================================================== */
+
 .top {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  width: 100%;
   max-width: 700px;
-  margin: 0 auto 20px auto;
+  margin: 0 auto 22px auto;
 }
 
-.top input,
-.top select {
+.top input {
   width: 100%;
-  min-width: 0;
-  box-sizing: border-box;
+  padding: 14px;
+  border: 1px solid #ccc;
+  border-radius: 9px;
+  background: white;
+  font-size: 15px;
+  outline: none;
+}
+
+.top input:focus {
+  border-color: #777;
 }
 
 .top button {
-  grid-column: 1 / -1;
   width: 100%;
-}
+  margin-top: 10px;
+  padding: 14px 16px;
 
-input,
-select {
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-sizing: border-box;
-}
-
-button {
-  padding: 13px 16px;
   background: black;
   color: white;
+
   border: none;
-  border-radius: 8px;
+  border-radius: 9px;
+
   cursor: pointer;
+
   font-size: 15px;
+  font-weight: 600;
 }
 
-/* MENSAJES */
+
+/* =====================================================
+   MENSAJES
+===================================================== */
+
 .card {
   background: white;
   padding: 15px;
   border-radius: 10px;
   margin-bottom: 10px;
+
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
@@ -73,13 +98,40 @@ button {
 .error {
   background: #ffe6e6;
   color: #b30000;
-  padding: 10px;
+
+  padding: 12px;
   border-radius: 8px;
 }
 
-/* =========================
-   DESKTOP TABLE
-   ========================= */
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+.status {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 5px 10px;
+
+  border-radius: 20px;
+
+  color: white;
+
+  font-size: 12px;
+
+  white-space: nowrap;
+
+  word-break: keep-all;
+  overflow-wrap: normal;
+}
+
+
+/* =====================================================
+   DESKTOP
+===================================================== */
 
 .desktop-view {
   display: block;
@@ -91,54 +143,63 @@ button {
 
 table {
   width: 100%;
+
   border-collapse: collapse;
+
   background: white;
+
   border-radius: 10px;
+
   overflow: hidden;
+
   table-layout: auto;
 }
 
 th,
 td {
-  padding: 12px;
+  padding: 12px 10px;
+
   border-bottom: 1px solid #eee;
+
   text-align: left;
+
   font-size: 14px;
-  white-space: nowrap;
+
   vertical-align: middle;
 }
 
 th {
   background: #111;
   color: white;
-}
 
-.status {
-  padding: 5px 10px;
-  border-radius: 20px;
-  color: white;
-  font-size: 12px;
-  display: inline-flex;
   white-space: nowrap;
-  word-break: keep-all;
-  overflow-wrap: normal;
 }
 
-/* =========================
-   MOBILE
-   ========================= */
+
+/* =====================================================
+   MOBILE ORDERS
+===================================================== */
 
 .mobile-order {
   background: white;
-  border-radius: 10px;
-  margin-bottom: 14px;
+
+  border: 1px solid #e7e7e7;
+
+  border-radius: 12px;
+
+  margin-bottom: 16px;
+
   overflow: hidden;
-  border: 1px solid #e8e8e8;
 }
+
+
+/* FILA */
 
 .mobile-row {
   display: grid;
+
   grid-template-columns: 38% 62%;
+
   border-bottom: 1px solid #eee;
 }
 
@@ -146,188 +207,572 @@ th {
   border-bottom: none;
 }
 
+
+/* LABEL */
+
 .mobile-label {
   background: #f7f7f7;
-  padding: 10px;
+
+  padding: 11px 10px;
+
   font-size: 11px;
-  font-weight: bold;
-  word-break: break-word;
+
+  font-weight: 600;
+
+  color: #444;
+
+  display: flex;
+
+  align-items: center;
 }
 
+
+/* VALUE */
+
 .mobile-value {
-  padding: 10px;
+  padding: 11px 10px;
+
   font-size: 12px;
+
+  color: #222;
+
   min-width: 0;
-  word-break: break-word;
+
+  overflow-wrap: anywhere;
 }
+
+
+/* PRODUCTO */
+
+.mobile-product .mobile-label {
+  background: #f3f3f3;
+}
+
+.mobile-product .mobile-value {
+  font-weight: 600;
+
+  font-size: 13px;
+}
+
+
+/* STATUS MOBILE */
 
 .mobile-value .status {
   font-size: 10px;
+
   padding: 4px 7px;
 }
 
-/* SOLO MÓVIL */
+
+/* =====================================================
+   DETALLES OCULTOS
+===================================================== */
+
+.mobile-extra {
+  display: none;
+}
+
+.mobile-extra.open {
+  display: block;
+}
+
+
+/* =====================================================
+   MOSTRAR MÁS
+===================================================== */
+
+.show-more-button {
+  width: 100%;
+
+  padding: 11px;
+
+  background: #fafafa;
+
+  border: none;
+
+  border-top: 1px solid #eee;
+
+  color: #333;
+
+  font-size: 12px;
+
+  cursor: pointer;
+
+  text-align: center;
+}
+
+.show-more-button:hover {
+  background: #f3f3f3;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
 @media (max-width: 768px) {
 
+  body {
+    overflow-x: hidden;
+  }
+
   .container {
+    width: 100%;
+
+    max-width: 100%;
+
     padding: 12px;
   }
 
+
+  /* BUSCADOR */
+
   .top {
-    gap: 7px;
-    margin-bottom: 15px;
+    margin-bottom: 16px;
   }
 
-  .top input,
-  .top select {
-    padding: 10px;
-    font-size: 13px;
+  .top input {
+    padding: 13px;
+
+    font-size: 14px;
   }
 
   .top button {
-    padding: 11px;
+    margin-top: 8px;
+
+    padding: 12px;
+
     font-size: 14px;
   }
+
+
+  /* OCULTAR TABLA */
 
   .desktop-view {
     display: none;
   }
 
+
+  /* MOSTRAR PEDIDOS MOBILE */
+
   .mobile-view {
     display: block;
   }
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
+
 <div class="container">
+
+
+  <!-- =================================================
+       BUSCADOR
+  ================================================== -->
 
   <div class="top">
 
-    <input id="userid" placeholder="User ID">
+    <input
+      id="userid"
+      type="text"
+      placeholder="Instagram User ID"
+      autocomplete="off"
+    >
 
-    <select id="month">
-      <option value="">All Months</option>
-      <option>MAY</option>
-      <option>JUNE</option>
-      <option>JULY</option>
-      <option>AUGUST</option>
-    </select>
-
-    <button onclick="search()">Search</button>
+    <button
+      id="searchButton"
+      type="button"
+    >
+      🔎 Search
+    </button>
 
   </div>
 
+
+  <!-- =================================================
+       RESULTADOS
+  ================================================== -->
+
   <div id="results"></div>
+
 
 </div>
 
+
 <script>
+
+
+/* =====================================================
+   API
+===================================================== */
 
 const API_URL =
 "https://script.google.com/macros/s/AKfycbz80y4d-Ot7gRRKQBr0HZ_iO4stEpMIAMC6NjPy5dOiwXRzHkPkzKsmFq97cPWcf9i_/exec";
 
 
+/* =====================================================
+   NORMALIZAR ENCABEZADOS
+===================================================== */
+
+function normalizeHeader(key) {
+
+  return (key || "")
+    .toString()
+    .trim()
+    .toLowerCase()
+    .replace(/[👤📍📅🏢✈️📦🚩]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+
+}
+
+
+/* =====================================================
+   ESCAPAR HTML
+===================================================== */
+
+function escapeHTML(value) {
+
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+
+}
+
+
+/* =====================================================
+   IDENTIFICAR COLUMNAS
+===================================================== */
+
+function isIdColumn(key) {
+
+  const k = normalizeHeader(key);
+
+  return k === "id";
+
+}
+
+
+function isUserIdColumn(key) {
+
+  const k = normalizeHeader(key);
+
+  return (
+    k === "user id" ||
+    k === "userid"
+  );
+
+}
+
+
+function isProductColumn(key) {
+
+  return normalizeHeader(key) === "producto";
+
+}
+
+
+function isItemColumn(key) {
+
+  const k = normalizeHeader(key);
+
+  return (
+    k === "" ||
+    k === "item" ||
+    k.includes("producto comprado") ||
+    k.includes("product name") ||
+    k.includes("description")
+  );
+
+}
+
+
+function isPaymentColumn(key) {
+
+  return normalizeHeader(key).includes("payment");
+
+}
+
+
+function isShippingColumn(key) {
+
+  return normalizeHeader(key).includes("shipping");
+
+}
+
+
+function isStatusColumn(key) {
+
+  return normalizeHeader(key).includes("status");
+
+}
+
+
+function isMonthColumn(key) {
+
+  const k = normalizeHeader(key);
+
+  return (
+    k === "mes" ||
+    k === "month"
+  );
+
+}
+
+
+/* =====================================================
+   LABEL MOBILE
+===================================================== */
+
+function getMobileLabel(key) {
+
+  if (isProductColumn(key)) {
+    return "PRODUCTO";
+  }
+
+  if (isItemColumn(key)) {
+    return "ITEM";
+  }
+
+  if (isPaymentColumn(key)) {
+    return "PAYMENT";
+  }
+
+  if (isShippingColumn(key)) {
+    return "SHIPPING TO ES";
+  }
+
+  if (isStatusColumn(key)) {
+    return "STATUS";
+  }
+
+  if (isMonthColumn(key)) {
+    return "MONTH";
+  }
+
+  const clean = normalizeHeader(key);
+
+  if (clean === "pob") {
+    return "POB";
+  }
+
+  if (clean === "#") {
+    return "#";
+  }
+
+  if (clean.includes("purchase")) {
+    return "PURCHASE DATE";
+  }
+
+  if (clean.includes("warehouse")) {
+    return "WAREHOUSE";
+  }
+
+  if (clean.includes("departure")) {
+    return "DEPARTURE";
+  }
+
+  if (clean.includes("arrival")) {
+    return "ARRIVAL";
+  }
+
+  return key || "DETAIL";
+
+}
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
 function getStatusHTML(value) {
 
-  const v = (value || "").toString().trim().toUpperCase();
+  const originalValue =
+    value ?? "-";
+
+  const v =
+    String(originalValue)
+      .trim()
+      .toUpperCase();
+
 
   let color = "#999";
 
+
   if (v === "DELIVERED") {
+
     color = "#2ecc71";
+
   }
+
   else if (v === "PURCHASED") {
+
     color = "#f1c40f";
+
   }
+
   else if (v === "IN WAREHOUSE KR") {
+
     color = "#9b59b6";
+
   }
+
   else if (v === "IN SPAIN") {
+
     color = "#3498db";
+
   }
+
   else if (v === "TO BUY") {
+
     color = "#e74c3c";
+
   }
+
   else if (v === "IN WAREHOUSE CH") {
+
     color = "#e67e22";
+
   }
+
   else if (v === "IN TRANSIT TO ES") {
+
     color = "#ff69b4";
+
   }
+
 
   return `
-    <span class="status" style="background:${color}">
-      ${value}
+    <span
+      class="status"
+      style="background:${color};"
+    >
+      ${escapeHTML(originalValue)}
     </span>
   `;
+
 }
 
+
+/* =====================================================
+   BUSCAR
+===================================================== */
 
 async function search() {
-
-  const userId =
-    document.getElementById("userid").value.trim();
-
-  const month =
-    document.getElementById("month").value;
-
-  if (!userId) {
-    document.getElementById("results").innerHTML =
-      "<div class='error'>Enter User ID</div>";
-    return;
-  }
-
-  document.getElementById("results").innerHTML =
-    "<div class='loading'>Loading orders...</div>";
-
-  try {
-
-    const res = await fetch(
-      API_URL +
-      "?userId=" +
-      encodeURIComponent(userId)
-    );
-
-    const data = await res.json();
-
-    if (!Array.isArray(data)) {
-      throw new Error("API error");
-    }
-
-    renderOrders(data, month);
-
-  }
-  catch (err) {
-
-    document.getElementById("results").innerHTML =
-      "<div class='error'>Error loading data</div>";
-
-    console.error(err);
-  }
-}
-
-
-function renderOrders(data, month) {
 
   const results =
     document.getElementById("results");
 
-  if (month) {
 
-    data = data.filter(row => {
+  const userId =
+    document
+      .getElementById("userid")
+      .value
+      .trim();
 
-      const rowMonth =
-        (row["MES"] || row["Month"] || "")
-          .toString()
-          .trim()
-          .toUpperCase();
 
-      return rowMonth === month;
-    });
+  if (!userId) {
+
+    results.innerHTML =
+      "<div class='error'>Enter your Instagram User ID</div>";
+
+    return;
+
   }
+
+
+  results.innerHTML =
+    "<div class='loading'>Loading orders...</div>";
+
+
+  try {
+
+    const url =
+      API_URL +
+      "?userId=" +
+      encodeURIComponent(userId);
+
+
+    const response =
+      await fetch(url);
+
+
+    if (!response.ok) {
+
+      throw new Error("HTTP error");
+
+    }
+
+
+    const data =
+      await response.json();
+
+
+    if (!Array.isArray(data)) {
+
+      throw new Error("API error");
+
+    }
+
+
+    renderOrders(data);
+
+  }
+
+  catch (error) {
+
+    console.error(error);
+
+
+    results.innerHTML =
+      "<div class='error'>Error loading data</div>";
+
+  }
+
+}
+
+
+/* =====================================================
+   FILA MOBILE
+===================================================== */
+
+function createMobileRow(label, value, extraClass = "") {
+
+  return `
+    <div class="mobile-row ${extraClass}">
+
+      <div class="mobile-label">
+        ${escapeHTML(label)}
+      </div>
+
+      <div class="mobile-value">
+        ${value}
+      </div>
+
+    </div>
+  `;
+
+}
+
+
+/* =====================================================
+   RENDER
+===================================================== */
+
+function renderOrders(data) {
+
+  const results =
+    document.getElementById("results");
+
 
   if (!data || data.length === 0) {
 
@@ -335,107 +780,395 @@ function renderOrders(data, month) {
       "<div class='card'>No orders found</div>";
 
     return;
+
   }
 
-  const keys = Object.keys(data[0]);
+
+  const keys =
+    Object.keys(data[0]);
 
 
-  /* =========================
+  /* ===================================================
      DESKTOP
-     ========================= */
+  =================================================== */
 
   let desktop =
-    "<div class='desktop-view'><table><tr>";
+    "<div class='desktop-view'>";
+
+  desktop +=
+    "<table>";
+
+  desktop +=
+    "<thead><tr>";
+
 
   keys.forEach(key => {
-    desktop += "<th>" + key + "</th>";
+
+    desktop += `
+      <th>
+        ${escapeHTML(key)}
+      </th>
+    `;
+
   });
 
-  desktop += "</tr>";
+
+  desktop +=
+    "</tr></thead>";
+
+
+  desktop +=
+    "<tbody>";
+
 
   data.forEach(row => {
 
-    desktop += "<tr>";
+    desktop +=
+      "<tr>";
+
 
     keys.forEach(key => {
 
       let value =
         row[key] ?? "-";
 
-      if (
-        key
-          .toLowerCase()
-          .includes("status")
-      ) {
+
+      if (isStatusColumn(key)) {
+
         value =
           getStatusHTML(value);
+
       }
 
-      desktop +=
-        "<td>" +
-        value +
-        "</td>";
+      else {
+
+        value =
+          escapeHTML(value);
+
+      }
+
+
+      desktop += `
+        <td>
+          ${value}
+        </td>
+      `;
+
     });
 
-    desktop += "</tr>";
+
+    desktop +=
+      "</tr>";
+
   });
 
+
   desktop +=
-    "</table></div>";
+    "</tbody></table>";
 
 
-  /* =========================
+  desktop +=
+    "</div>";
+
+
+  /* ===================================================
      MOBILE
-     ========================= */
+  =================================================== */
 
   let mobile =
     "<div class='mobile-view'>";
 
-  data.forEach(row => {
 
-    mobile +=
-      "<div class='mobile-order'>";
+  data.forEach((row, orderIndex) => {
 
-    keys.forEach(key => {
+
+    /* -----------------------------------------------
+       PRINCIPALES
+    ----------------------------------------------- */
+
+    const mainKeys =
+      keys.filter(key => {
+
+        return (
+
+          isProductColumn(key) ||
+
+          isItemColumn(key) ||
+
+          isPaymentColumn(key) ||
+
+          isShippingColumn(key) ||
+
+          isStatusColumn(key) ||
+
+          isMonthColumn(key)
+
+        );
+
+      });
+
+
+    /* -----------------------------------------------
+       EXTRAS
+       NO ID
+       NO USER ID
+       NO CAMPOS PRINCIPALES
+    ----------------------------------------------- */
+
+    const extraKeys =
+      keys.filter(key => {
+
+        if (isIdColumn(key)) {
+          return false;
+        }
+
+        if (isUserIdColumn(key)) {
+          return false;
+        }
+
+        if (mainKeys.includes(key)) {
+          return false;
+        }
+
+        return true;
+
+      });
+
+
+    mobile += `
+      <div class="mobile-order">
+    `;
+
+
+    /* PRINCIPALES */
+
+    mainKeys.forEach(key => {
 
       let value =
         row[key] ?? "-";
 
-      if (
-        key
-          .toLowerCase()
-          .includes("status")
-      ) {
+
+      if (isStatusColumn(key)) {
+
         value =
           getStatusHTML(value);
+
       }
 
-      mobile += `
-        <div class="mobile-row">
+      else {
 
-          <div class="mobile-label">
-            ${key}
-          </div>
+        value =
+          escapeHTML(value);
 
-          <div class="mobile-value">
-            ${value}
-          </div>
+      }
 
-        </div>
-      `;
+
+      const rowClass =
+        isProductColumn(key)
+          ? "mobile-product"
+          : "";
+
+
+      mobile +=
+        createMobileRow(
+          getMobileLabel(key),
+          value,
+          rowClass
+        );
+
     });
 
-    mobile += "</div>";
+
+    /* EXTRAS */
+
+    if (extraKeys.length > 0) {
+
+
+      mobile += `
+        <div
+          class="mobile-extra"
+          id="extra-${orderIndex}"
+        >
+      `;
+
+
+      extraKeys.forEach(key => {
+
+        let value =
+          row[key] ?? "-";
+
+
+        if (isStatusColumn(key)) {
+
+          value =
+            getStatusHTML(value);
+
+        }
+
+        else {
+
+          value =
+            escapeHTML(value);
+
+        }
+
+
+        mobile +=
+          createMobileRow(
+            getMobileLabel(key),
+            value
+          );
+
+      });
+
+
+      mobile +=
+        "</div>";
+
+
+      mobile += `
+        <button
+          type="button"
+          class="show-more-button"
+          data-target="extra-${orderIndex}"
+        >
+          Mostrar más ▼
+        </button>
+      `;
+
+    }
+
+
+    mobile +=
+      "</div>";
+
   });
 
-  mobile += "</div>";
 
+  mobile +=
+    "</div>";
+
+
+  /* ===================================================
+     FINAL
+  =================================================== */
 
   results.innerHTML =
     desktop + mobile;
+
+
+  activateShowMoreButtons();
+
 }
 
+
+/* =====================================================
+   MOSTRAR MÁS / MENOS
+===================================================== */
+
+function activateShowMoreButtons() {
+
+  const buttons =
+    document.querySelectorAll(
+      ".show-more-button"
+    );
+
+
+  buttons.forEach(button => {
+
+    button.addEventListener(
+      "click",
+      function() {
+
+        const targetId =
+          this.dataset.target;
+
+
+        const extra =
+          document.getElementById(
+            targetId
+          );
+
+
+        if (!extra) {
+          return;
+        }
+
+
+        const isOpen =
+          extra.classList.contains(
+            "open"
+          );
+
+
+        if (isOpen) {
+
+          extra.classList.remove(
+            "open"
+          );
+
+
+          this.textContent =
+            "Mostrar más ▼";
+
+        }
+
+        else {
+
+          extra.classList.add(
+            "open"
+          );
+
+
+          this.textContent =
+            "Mostrar menos ▲";
+
+        }
+
+      }
+    );
+
+  });
+
+}
+
+
+/* =====================================================
+   SEARCH BUTTON
+===================================================== */
+
+document
+  .getElementById("searchButton")
+  .addEventListener(
+    "click",
+    search
+  );
+
+
+/* =====================================================
+   ENTER = SEARCH
+===================================================== */
+
+document
+  .getElementById("userid")
+  .addEventListener(
+    "keydown",
+    function(event) {
+
+      if (event.key === "Enter") {
+
+        event.preventDefault();
+
+        search();
+
+      }
+
+    }
+  );
+
+
 </script>
+
 
 </body>
 </html>
