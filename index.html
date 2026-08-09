@@ -1,10 +1,9 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
-
 body {
   margin: 0;
   font-family: Arial;
@@ -17,6 +16,7 @@ body {
   padding: 20px;
 }
 
+/* BUSCADOR */
 .top {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -25,27 +25,37 @@ body {
   margin: 0 auto 20px auto;
 }
 
+.top input,
+.top select {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
 .top button {
   grid-column: 1 / -1;
   width: 100%;
 }
 
-input, select {
+input,
+select {
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 8px;
+  box-sizing: border-box;
 }
 
 button {
-  padding: 12px 16px;
+  padding: 13px 16px;
   background: black;
   color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  font-size: 15px;
 }
 
-/* CARD fallback */
+/* MENSAJES */
 .card {
   background: white;
   padding: 15px;
@@ -54,49 +64,6 @@ button {
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
-/* TABLE */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: white;
-  border-radius: 10px;
-  overflow: hidden;
-
-  /* 🔥 IMPORTANTE */
-  table-layout: auto;
-}
-
-th, td {
-  padding: 12px;
-  border-bottom: 1px solid #eee;
-  text-align: left;
-  font-size: 14px;
-
-  /* 🔥 FIX REAL ANTI BREAK LINE */
-  white-space: nowrap;
-  vertical-align: middle;
-}
-
-th {
-  background: #111;
-  color: white;
-}
-
-/* STATUS */
-.status {
-  padding: 5px 10px;
-  border-radius: 20px;
-  color: white;
-  font-size: 12px;
-  display: inline-flex;
-
-  /* 🔥 FIX FINAL */
-  white-space: nowrap;
-  word-break: keep-all;
-  overflow-wrap: normal;
-}
-
-/* LOADING */
 .loading {
   text-align: center;
   padding: 20px;
@@ -110,6 +77,126 @@ th {
   border-radius: 8px;
 }
 
+/* =========================
+   DESKTOP TABLE
+   ========================= */
+
+.desktop-view {
+  display: block;
+}
+
+.mobile-view {
+  display: none;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  table-layout: auto;
+}
+
+th,
+td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+  font-size: 14px;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+th {
+  background: #111;
+  color: white;
+}
+
+.status {
+  padding: 5px 10px;
+  border-radius: 20px;
+  color: white;
+  font-size: 12px;
+  display: inline-flex;
+  white-space: nowrap;
+  word-break: keep-all;
+  overflow-wrap: normal;
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
+.mobile-order {
+  background: white;
+  border-radius: 10px;
+  margin-bottom: 14px;
+  overflow: hidden;
+  border: 1px solid #e8e8e8;
+}
+
+.mobile-row {
+  display: grid;
+  grid-template-columns: 38% 62%;
+  border-bottom: 1px solid #eee;
+}
+
+.mobile-row:last-child {
+  border-bottom: none;
+}
+
+.mobile-label {
+  background: #f7f7f7;
+  padding: 10px;
+  font-size: 11px;
+  font-weight: bold;
+  word-break: break-word;
+}
+
+.mobile-value {
+  padding: 10px;
+  font-size: 12px;
+  min-width: 0;
+  word-break: break-word;
+}
+
+.mobile-value .status {
+  font-size: 10px;
+  padding: 4px 7px;
+}
+
+/* SOLO MÓVIL */
+@media (max-width: 768px) {
+
+  .container {
+    padding: 12px;
+  }
+
+  .top {
+    gap: 7px;
+    margin-bottom: 15px;
+  }
+
+  .top input,
+  .top select {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .top button {
+    padding: 11px;
+    font-size: 14px;
+  }
+
+  .desktop-view {
+    display: none;
+  }
+
+  .mobile-view {
+    display: block;
+  }
+}
 </style>
 </head>
 
@@ -118,6 +205,7 @@ th {
 <div class="container">
 
   <div class="top">
+
     <input id="userid" placeholder="User ID">
 
     <select id="month">
@@ -129,6 +217,7 @@ th {
     </select>
 
     <button onclick="search()">Search</button>
+
   </div>
 
   <div id="results"></div>
@@ -140,10 +229,50 @@ th {
 const API_URL =
 "https://script.google.com/macros/s/AKfycbz80y4d-Ot7gRRKQBr0HZ_iO4stEpMIAMC6NjPy5dOiwXRzHkPkzKsmFq97cPWcf9i_/exec";
 
+
+function getStatusHTML(value) {
+
+  const v = (value || "").toString().trim().toUpperCase();
+
+  let color = "#999";
+
+  if (v === "DELIVERED") {
+    color = "#2ecc71";
+  }
+  else if (v === "PURCHASED") {
+    color = "#f1c40f";
+  }
+  else if (v === "IN WAREHOUSE KR") {
+    color = "#9b59b6";
+  }
+  else if (v === "IN SPAIN") {
+    color = "#3498db";
+  }
+  else if (v === "TO BUY") {
+    color = "#e74c3c";
+  }
+  else if (v === "IN WAREHOUSE CH") {
+    color = "#e67e22";
+  }
+  else if (v === "IN TRANSIT TO ES") {
+    color = "#ff69b4";
+  }
+
+  return `
+    <span class="status" style="background:${color}">
+      ${value}
+    </span>
+  `;
+}
+
+
 async function search() {
 
-  const userId = document.getElementById("userid").value.trim();
-  const month = document.getElementById("month").value;
+  const userId =
+    document.getElementById("userid").value.trim();
+
+  const month =
+    document.getElementById("month").value;
 
   if (!userId) {
     document.getElementById("results").innerHTML =
@@ -156,16 +285,22 @@ async function search() {
 
   try {
 
-    const res = await fetch(API_URL + "?userId=" + encodeURIComponent(userId));
+    const res = await fetch(
+      API_URL +
+      "?userId=" +
+      encodeURIComponent(userId)
+    );
+
     const data = await res.json();
 
     if (!Array.isArray(data)) {
       throw new Error("API error");
     }
 
-    renderTable(data, month);
+    renderOrders(data, month);
 
-  } catch (err) {
+  }
+  catch (err) {
 
     document.getElementById("results").innerHTML =
       "<div class='error'>Error loading data</div>";
@@ -174,59 +309,130 @@ async function search() {
   }
 }
 
-function renderTable(data, month) {
+
+function renderOrders(data, month) {
+
+  const results =
+    document.getElementById("results");
 
   if (month) {
-    data = data.filter(d => (d.MES || "").toUpperCase() === month);
+
+    data = data.filter(row => {
+
+      const rowMonth =
+        (row["MES"] || row["Month"] || "")
+          .toString()
+          .trim()
+          .toUpperCase();
+
+      return rowMonth === month;
+    });
   }
 
   if (!data || data.length === 0) {
-    document.getElementById("results").innerHTML =
+
+    results.innerHTML =
       "<div class='card'>No orders found</div>";
+
     return;
   }
 
   const keys = Object.keys(data[0]);
 
-  let html = "<table><tr>";
 
-  keys.forEach(k => html += "<th>" + k + "</th>");
-  html += "</tr>";
+  /* =========================
+     DESKTOP
+     ========================= */
+
+  let desktop =
+    "<div class='desktop-view'><table><tr>";
+
+  keys.forEach(key => {
+    desktop += "<th>" + key + "</th>";
+  });
+
+  desktop += "</tr>";
 
   data.forEach(row => {
 
-    html += "<tr>";
+    desktop += "<tr>";
 
-    keys.forEach(k => {
+    keys.forEach(key => {
 
-      let value = row[k] ?? "-";
+      let value =
+        row[key] ?? "-";
 
-      if (k.toLowerCase().includes("status")) {
-
-        let v = (value || "").toString().trim().toUpperCase();
-
-        let color = "#999";
-
-        if (v === "DELIVERED") color = "#2ecc71";
-        else if (v === "PURCHASED") color = "#f1c40f";
-        else if (v === "IN WAREHOUSE KR") color = "#9b59b6";
-        else if (v === "IN SPAIN") color = "#3498db";
-        else if (v === "TO BUY") color = "#e74c3c";
-        else if (v === "IN WAREHOUSE CH") color = "#e67e22";
-        else if (v === "IN TRANSIT TO ES") color = "#ff69b4";
-
-        value = `<span class="status" style="background:${color}">${value}</span>`;
+      if (
+        key
+          .toLowerCase()
+          .includes("status")
+      ) {
+        value =
+          getStatusHTML(value);
       }
 
-      html += "<td>" + value + "</td>";
+      desktop +=
+        "<td>" +
+        value +
+        "</td>";
     });
 
-    html += "</tr>";
+    desktop += "</tr>";
   });
 
-  html += "</table>";
+  desktop +=
+    "</table></div>";
 
-  document.getElementById("results").innerHTML = html;
+
+  /* =========================
+     MOBILE
+     ========================= */
+
+  let mobile =
+    "<div class='mobile-view'>";
+
+  data.forEach(row => {
+
+    mobile +=
+      "<div class='mobile-order'>";
+
+    keys.forEach(key => {
+
+      let value =
+        row[key] ?? "-";
+
+      if (
+        key
+          .toLowerCase()
+          .includes("status")
+      ) {
+        value =
+          getStatusHTML(value);
+      }
+
+      mobile += `
+        <div class="mobile-row">
+
+          <div class="mobile-label">
+            ${key}
+          </div>
+
+          <div class="mobile-value">
+            ${value}
+          </div>
+
+        </div>
+      `;
+    });
+
+    mobile += "</div>";
+  });
+
+  mobile += "</div>";
+
+
+  results.innerHTML =
+    desktop + mobile;
 }
 
 </script>
