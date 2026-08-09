@@ -4,20 +4,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
-
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Arial;
   background: #f4f4f4;
 }
 
-/* CONTENEDOR GENERAL */
 .container {
-  width: 96%;
-  max-width: 1500px;
-  margin: 0 auto;
+  max-width: 1000px;
+  margin: auto;
   padding: 20px;
-  box-sizing: border-box;
 }
 
 /* BUSCADOR */
@@ -59,7 +55,7 @@ button {
   font-size: 15px;
 }
 
-/* CARD fallback */
+/* MENSAJES */
 .card {
   background: white;
   padding: 15px;
@@ -68,45 +64,6 @@ button {
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
-/* TABLA */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: white;
-  border-radius: 10px;
-  overflow: hidden;
-  table-layout: auto;
-}
-
-th,
-td {
-  padding: 12px 10px;
-  border-bottom: 1px solid #eee;
-  text-align: left;
-  font-size: 14px;
-  vertical-align: middle;
-  white-space: normal;
-}
-
-th {
-  background: #111;
-  color: white;
-  white-space: nowrap;
-}
-
-/* STATUS */
-.status {
-  padding: 5px 10px;
-  border-radius: 20px;
-  color: white;
-  font-size: 12px;
-  display: inline-flex;
-  white-space: nowrap;
-  word-break: keep-all;
-  overflow-wrap: normal;
-}
-
-/* LOADING */
 .loading {
   text-align: center;
   padding: 20px;
@@ -120,57 +77,126 @@ th {
   border-radius: 8px;
 }
 
+/* =========================
+   DESKTOP TABLE
+   ========================= */
+
+.desktop-view {
+  display: block;
+}
+
+.mobile-view {
+  display: none;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  table-layout: auto;
+}
+
+th,
+td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+  font-size: 14px;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+th {
+  background: #111;
+  color: white;
+}
+
+.status {
+  padding: 5px 10px;
+  border-radius: 20px;
+  color: white;
+  font-size: 12px;
+  display: inline-flex;
+  white-space: nowrap;
+  word-break: keep-all;
+  overflow-wrap: normal;
+}
 
 /* =========================
-   MÓVIL
-========================= */
+   MOBILE
+   ========================= */
 
+.mobile-order {
+  background: white;
+  border-radius: 10px;
+  margin-bottom: 14px;
+  overflow: hidden;
+  border: 1px solid #e8e8e8;
+}
+
+.mobile-row {
+  display: grid;
+  grid-template-columns: 38% 62%;
+  border-bottom: 1px solid #eee;
+}
+
+.mobile-row:last-child {
+  border-bottom: none;
+}
+
+.mobile-label {
+  background: #f7f7f7;
+  padding: 10px;
+  font-size: 11px;
+  font-weight: bold;
+  word-break: break-word;
+}
+
+.mobile-value {
+  padding: 10px;
+  font-size: 12px;
+  min-width: 0;
+  word-break: break-word;
+}
+
+.mobile-value .status {
+  font-size: 10px;
+  padding: 4px 7px;
+}
+
+/* SOLO MÓVIL */
 @media (max-width: 768px) {
 
   .container {
-    width: 100%;
-    padding: 10px;
+    padding: 12px;
   }
 
   .top {
     gap: 7px;
-    margin-bottom: 14px;
+    margin-bottom: 15px;
   }
 
   .top input,
   .top select {
-    padding: 9px;
-    font-size: 12px;
-  }
-
-  .top button {
     padding: 10px;
     font-size: 13px;
   }
 
-  th,
-  td {
-    padding: 5px 4px;
-    font-size: 9px;
+  .top button {
+    padding: 11px;
+    font-size: 14px;
   }
 
-  th {
-    white-space: normal;
+  .desktop-view {
+    display: none;
   }
 
-  .status {
-    font-size: 8px;
-    padding: 3px 5px;
+  .mobile-view {
+    display: block;
   }
-
-  /* OCULTAR SOLO ID Y USER ID EN MÓVIL */
-  .col-id,
-  .col-user-id {
-    display: none !important;
-  }
-
 }
-
 </style>
 </head>
 
@@ -180,10 +206,7 @@ th {
 
   <div class="top">
 
-    <input
-      id="userid"
-      placeholder="User ID"
-    >
+    <input id="userid" placeholder="User ID">
 
     <select id="month">
       <option value="">All Months</option>
@@ -193,9 +216,7 @@ th {
       <option>AUGUST</option>
     </select>
 
-    <button onclick="search()">
-      Search
-    </button>
+    <button onclick="search()">Search</button>
 
   </div>
 
@@ -209,55 +230,53 @@ const API_URL =
 "https://script.google.com/macros/s/AKfycbz80y4d-Ot7gRRKQBr0HZ_iO4stEpMIAMC6NjPy5dOiwXRzHkPkzKsmFq97cPWcf9i_/exec";
 
 
-/* ==========================================
-   IDENTIFICAR COLUMNAS ID / USER ID
-========================================== */
+function getStatusHTML(value) {
 
-function getColumnClass(key) {
+  const v = (value || "").toString().trim().toUpperCase();
 
-  const cleanKey = (key || "")
-    .toString()
-    .trim()
-    .toLowerCase()
-    .replace(/[👤]/g, "")
-    .replace(/\s+/g, " ")
-    .trim();
+  let color = "#999";
 
-  if (cleanKey === "id") {
-    return "col-id";
+  if (v === "DELIVERED") {
+    color = "#2ecc71";
+  }
+  else if (v === "PURCHASED") {
+    color = "#f1c40f";
+  }
+  else if (v === "IN WAREHOUSE KR") {
+    color = "#9b59b6";
+  }
+  else if (v === "IN SPAIN") {
+    color = "#3498db";
+  }
+  else if (v === "TO BUY") {
+    color = "#e74c3c";
+  }
+  else if (v === "IN WAREHOUSE CH") {
+    color = "#e67e22";
+  }
+  else if (v === "IN TRANSIT TO ES") {
+    color = "#ff69b4";
   }
 
-  if (
-    cleanKey === "user id" ||
-    cleanKey === "userid"
-  ) {
-    return "col-user-id";
-  }
-
-  return "";
+  return `
+    <span class="status" style="background:${color}">
+      ${value}
+    </span>
+  `;
 }
 
-
-/* ==========================================
-   SEARCH
-========================================== */
 
 async function search() {
 
   const userId =
-    document.getElementById("userid")
-      .value
-      .trim();
+    document.getElementById("userid").value.trim();
 
   const month =
-    document.getElementById("month")
-      .value;
+    document.getElementById("month").value;
 
   if (!userId) {
-
     document.getElementById("results").innerHTML =
       "<div class='error'>Enter User ID</div>";
-
     return;
   }
 
@@ -272,20 +291,15 @@ async function search() {
       encodeURIComponent(userId)
     );
 
-    const data =
-      await res.json();
+    const data = await res.json();
 
     if (!Array.isArray(data)) {
       throw new Error("API error");
     }
 
-    renderTable(
-      data,
-      month
-    );
+    renderOrders(data, month);
 
   }
-
   catch (err) {
 
     document.getElementById("results").innerHTML =
@@ -296,189 +310,130 @@ async function search() {
 }
 
 
-/* ==========================================
-   STATUS
-========================================== */
+function renderOrders(data, month) {
 
-function getStatusHTML(value) {
-
-  const v = (value || "")
-    .toString()
-    .trim()
-    .toUpperCase();
-
-  let color = "#999";
-
-  if (v === "DELIVERED") {
-    color = "#2ecc71";
-  }
-
-  else if (v === "PURCHASED") {
-    color = "#f1c40f";
-  }
-
-  else if (v === "IN WAREHOUSE KR") {
-    color = "#9b59b6";
-  }
-
-  else if (v === "IN SPAIN") {
-    color = "#3498db";
-  }
-
-  else if (v === "TO BUY") {
-    color = "#e74c3c";
-  }
-
-  else if (v === "IN WAREHOUSE CH") {
-    color = "#e67e22";
-  }
-
-  else if (v === "IN TRANSIT TO ES") {
-    color = "#ff69b4";
-  }
-
-  return `
-    <span
-      class="status"
-      style="background:${color}"
-    >
-      ${value}
-    </span>
-  `;
-}
-
-
-/* ==========================================
-   RENDER TABLE
-========================================== */
-
-function renderTable(data, month) {
+  const results =
+    document.getElementById("results");
 
   if (month) {
 
     data = data.filter(row => {
 
       const rowMonth =
-        (
-          row["MES"] ||
-          row["Month"] ||
-          ""
-        )
-        .toString()
-        .trim()
-        .toUpperCase();
+        (row["MES"] || row["Month"] || "")
+          .toString()
+          .trim()
+          .toUpperCase();
 
       return rowMonth === month;
     });
-
   }
 
+  if (!data || data.length === 0) {
 
-  if (
-    !data ||
-    data.length === 0
-  ) {
-
-    document.getElementById("results").innerHTML =
+    results.innerHTML =
       "<div class='card'>No orders found</div>";
 
     return;
   }
 
-
-  const keys =
-    Object.keys(data[0]);
+  const keys = Object.keys(data[0]);
 
 
-  let html =
-    "<table><thead><tr>";
+  /* =========================
+     DESKTOP
+     ========================= */
 
-
-  /* HEADERS */
+  let desktop =
+    "<div class='desktop-view'><table><tr>";
 
   keys.forEach(key => {
-
-    const columnClass =
-      getColumnClass(key);
-
-    html += `
-      <th class="${columnClass}">
-        ${key}
-      </th>
-    `;
-
+    desktop += "<th>" + key + "</th>";
   });
 
-
-  html +=
-    "</tr></thead><tbody>";
-
-
-  /* ROWS */
+  desktop += "</tr>";
 
   data.forEach(row => {
 
-    html += "<tr>";
-
+    desktop += "<tr>";
 
     keys.forEach(key => {
 
-      const columnClass =
-        getColumnClass(key);
-
       let value =
         row[key] ?? "-";
-
 
       if (
         key
           .toLowerCase()
           .includes("status")
       ) {
-
         value =
           getStatusHTML(value);
-
       }
 
-
-      html += `
-        <td class="${columnClass}">
-          ${value}
-        </td>
-      `;
-
+      desktop +=
+        "<td>" +
+        value +
+        "</td>";
     });
 
-
-    html += "</tr>";
-
+    desktop += "</tr>";
   });
 
-
-  html +=
-    "</tbody></table>";
-
-
-  document.getElementById("results").innerHTML =
-    html;
-}
+  desktop +=
+    "</table></div>";
 
 
-/* ENTER PARA BUSCAR */
+  /* =========================
+     MOBILE
+     ========================= */
 
-document
-  .getElementById("userid")
-  .addEventListener(
-    "keydown",
-    function(event) {
+  let mobile =
+    "<div class='mobile-view'>";
 
-      if (event.key === "Enter") {
-        search();
+  data.forEach(row => {
+
+    mobile +=
+      "<div class='mobile-order'>";
+
+    keys.forEach(key => {
+
+      let value =
+        row[key] ?? "-";
+
+      if (
+        key
+          .toLowerCase()
+          .includes("status")
+      ) {
+        value =
+          getStatusHTML(value);
       }
 
-    }
-  );
+      mobile += `
+        <div class="mobile-row">
+
+          <div class="mobile-label">
+            ${key}
+          </div>
+
+          <div class="mobile-value">
+            ${value}
+          </div>
+
+        </div>
+      `;
+    });
+
+    mobile += "</div>";
+  });
+
+  mobile += "</div>";
+
+
+  results.innerHTML =
+    desktop + mobile;
+}
 
 </script>
 
