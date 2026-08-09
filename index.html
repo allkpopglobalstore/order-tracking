@@ -5,22 +5,32 @@
 
 <style>
 
+/* =========================
+   GENERAL
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: #f4f4f4;
 }
 
-/* CONTENEDOR GENERAL */
 .container {
   width: 96%;
   max-width: 1500px;
   margin: 0 auto;
   padding: 20px;
-  box-sizing: border-box;
 }
 
-/* BUSCADOR */
+
+/* =========================
+   SEARCH AREA
+========================= */
+
 .top {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -33,7 +43,6 @@ body {
 .top select {
   width: 100%;
   min-width: 0;
-  box-sizing: border-box;
 }
 
 .top button {
@@ -46,7 +55,8 @@ select {
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  box-sizing: border-box;
+  background: white;
+  font-size: 14px;
 }
 
 button {
@@ -59,7 +69,11 @@ button {
   font-size: 15px;
 }
 
-/* CARD fallback */
+
+/* =========================
+   CARDS / MESSAGES
+========================= */
+
 .card {
   background: white;
   padding: 15px;
@@ -68,7 +82,24 @@ button {
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
-/* TABLA */
+.loading {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+}
+
+.error {
+  background: #ffe6e6;
+  color: #b30000;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+
+/* =========================
+   DESKTOP TABLE
+========================= */
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -85,9 +116,6 @@ td {
   text-align: left;
   font-size: 14px;
   vertical-align: middle;
-
-  /* permite que la tabla se adapte */
-  white-space: normal;
 }
 
 th {
@@ -96,50 +124,52 @@ th {
   white-space: nowrap;
 }
 
-/* STATUS */
+
+/* =========================
+   STATUS
+========================= */
+
 .status {
   padding: 5px 10px;
   border-radius: 20px;
   color: white;
   font-size: 12px;
   display: inline-flex;
-
-  /* status siempre en una línea */
   white-space: nowrap;
   word-break: keep-all;
   overflow-wrap: normal;
 }
 
-/* LOADING */
-.loading {
-  text-align: center;
-  padding: 20px;
-  color: #666;
-}
 
-.error {
-  background: #ffe6e6;
-  color: #b30000;
-  padding: 10px;
-  border-radius: 8px;
-}
+/* =========================
+   MOBILE
+========================= */
 
-/* MÓVIL */
 @media (max-width: 768px) {
+
+  body {
+    width: 100%;
+    overflow-x: hidden;
+  }
 
   .container {
     width: 100%;
-    padding: 10px;
+    max-width: 100%;
+    padding: 7px;
   }
 
+  /* SEARCH */
+
   .top {
-    gap: 7px;
-    margin-bottom: 14px;
+    width: 100%;
+    max-width: 100%;
+    gap: 6px;
+    margin-bottom: 12px;
   }
 
   .top input,
   .top select {
-    padding: 9px;
+    padding: 9px 7px;
     font-size: 12px;
   }
 
@@ -148,20 +178,117 @@ th {
     font-size: 13px;
   }
 
+
+  /* TABLE */
+
+  table {
+    width: 100%;
+    max-width: 100%;
+    table-layout: fixed;
+  }
+
   th,
   td {
-    padding: 5px 4px;
-    font-size: 9px;
+    padding: 4px 2px;
+    font-size: 7px;
+    line-height: 1.15;
+    vertical-align: middle;
+
+    /* permite comprimir la tabla */
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: normal;
   }
 
   th {
-    white-space: normal;
+    font-size: 6.5px;
+    line-height: 1.1;
+    text-align: center;
   }
 
-  .status {
-    font-size: 8px;
-    padding: 3px 5px;
+
+  /* =========================
+     OCULTAR SOLO:
+     ID + USER ID
+  ========================= */
+
+  .col-id,
+  .col-user-id {
+    display: none !important;
   }
+
+
+  /* =========================
+     AJUSTE DE COLUMNAS
+  ========================= */
+
+  .col-producto {
+    width: 15%;
+  }
+
+  .col-item {
+    width: 20%;
+  }
+
+  .col-pob {
+    width: 5%;
+    text-align: center;
+  }
+
+  .col-source {
+    width: 7%;
+  }
+
+  .col-payment {
+    width: 7%;
+    text-align: center;
+  }
+
+  .col-shipping {
+    width: 8%;
+    text-align: center;
+  }
+
+  .col-status {
+    width: 15%;
+    text-align: center;
+  }
+
+  .col-purchase-date {
+    width: 9%;
+  }
+
+  .col-warehouse {
+    width: 7%;
+    text-align: center;
+  }
+
+  .col-departure {
+    width: 10%;
+  }
+
+  .col-arrival {
+    width: 8%;
+  }
+
+  .col-month {
+    width: 6%;
+    text-align: center;
+  }
+
+
+  /* STATUS MÁS PEQUEÑO EN MÓVIL */
+
+  .status {
+    max-width: 100%;
+    padding: 3px 4px;
+    font-size: 6.5px;
+    line-height: 1;
+    white-space: normal;
+    text-align: center;
+    justify-content: center;
+  }
+
 }
 
 </style>
@@ -173,7 +300,10 @@ th {
 
   <div class="top">
 
-    <input id="userid" placeholder="User ID">
+    <input
+      id="userid"
+      placeholder="User ID"
+    >
 
     <select id="month">
       <option value="">All Months</option>
@@ -183,7 +313,9 @@ th {
       <option>AUGUST</option>
     </select>
 
-    <button onclick="search()">Search</button>
+    <button onclick="search()">
+      Search
+    </button>
 
   </div>
 
@@ -191,27 +323,191 @@ th {
 
 </div>
 
+
 <script>
 
 const API_URL =
 "https://script.google.com/macros/s/AKfycbz80y4d-Ot7gRRKQBr0HZ_iO4stEpMIAMC6NjPy5dOiwXRzHkPkzKsmFq97cPWcf9i_/exec";
 
+
+/* =========================
+   COLUMN CLASS
+========================= */
+
+function getColumnClass(key) {
+
+  const k = (key || "")
+    .toString()
+    .trim()
+    .toLowerCase()
+    .replace(/[👤📍📅🏢✈️📦]/g, "")
+    .trim();
+
+  if (k === "id") {
+    return "col-id";
+  }
+
+  if (
+    k === "user id" ||
+    k === "userid"
+  ) {
+    return "col-user-id";
+  }
+
+  if (k === "producto") {
+    return "col-producto";
+  }
+
+  /*
+    En tu tabla hay una columna de descripción/item
+    cuyo encabezado puede variar.
+  */
+  if (
+    k === "" ||
+    k.includes("item") ||
+    k.includes("product name") ||
+    k.includes("description")
+  ) {
+    return "col-item";
+  }
+
+  if (k === "pob") {
+    return "col-pob";
+  }
+
+  if (k === "#") {
+    return "col-source";
+  }
+
+  if (k.includes("payment")) {
+    return "col-payment";
+  }
+
+  if (
+    k.includes("shipping to es") ||
+    k.includes("shipping")
+  ) {
+    return "col-shipping";
+  }
+
+  if (k.includes("status")) {
+    return "col-status";
+  }
+
+  if (
+    k.includes("purchase date") ||
+    k.includes("purchase")
+  ) {
+    return "col-purchase-date";
+  }
+
+  if (k.includes("warehouse")) {
+    return "col-warehouse";
+  }
+
+  if (k.includes("departure")) {
+    return "col-departure";
+  }
+
+  if (k.includes("arrival")) {
+    return "col-arrival";
+  }
+
+  if (
+    k === "mes" ||
+    k === "month"
+  ) {
+    return "col-month";
+  }
+
+  return "";
+}
+
+
+/* =========================
+   STATUS COLOR
+========================= */
+
+function getStatusHTML(value) {
+
+  const v = (value || "")
+    .toString()
+    .trim()
+    .toUpperCase();
+
+  let color = "#999";
+
+
+  if (v === "DELIVERED") {
+    color = "#2ecc71";
+  }
+
+  else if (v === "PURCHASED") {
+    color = "#f1c40f";
+  }
+
+  else if (v === "IN WAREHOUSE KR") {
+    color = "#9b59b6";
+  }
+
+  else if (v === "IN SPAIN") {
+    color = "#3498db";
+  }
+
+  else if (v === "TO BUY") {
+    color = "#e74c3c";
+  }
+
+  else if (v === "IN WAREHOUSE CH") {
+    color = "#e67e22";
+  }
+
+  else if (v === "IN TRANSIT TO ES") {
+    color = "#ff69b4";
+  }
+
+
+  return `
+    <span
+      class="status"
+      style="background:${color};"
+    >
+      ${value}
+    </span>
+  `;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
 async function search() {
 
   const userId =
-    document.getElementById("userid").value.trim();
+    document
+      .getElementById("userid")
+      .value
+      .trim();
 
   const month =
-    document.getElementById("month").value;
+    document
+      .getElementById("month")
+      .value;
+
 
   if (!userId) {
+
     document.getElementById("results").innerHTML =
       "<div class='error'>Enter User ID</div>";
+
     return;
   }
 
+
   document.getElementById("results").innerHTML =
     "<div class='loading'>Loading orders...</div>";
+
 
   try {
 
@@ -221,15 +517,24 @@ async function search() {
       encodeURIComponent(userId)
     );
 
-    const data = await res.json();
+
+    const data =
+      await res.json();
+
 
     if (!Array.isArray(data)) {
       throw new Error("API error");
     }
 
-    renderTable(data, month);
 
-  } catch (err) {
+    renderTable(
+      data,
+      month
+    );
+
+  }
+
+  catch (err) {
 
     document.getElementById("results").innerHTML =
       "<div class='error'>Error loading data</div>";
@@ -239,47 +544,17 @@ async function search() {
 }
 
 
-function getStatusHTML(value) {
-
-  const v =
-    (value || "")
-      .toString()
-      .trim()
-      .toUpperCase();
-
-  let color = "#999";
-
-  if (v === "DELIVERED") {
-    color = "#2ecc71";
-  }
-  else if (v === "PURCHASED") {
-    color = "#f1c40f";
-  }
-  else if (v === "IN WAREHOUSE KR") {
-    color = "#9b59b6";
-  }
-  else if (v === "IN SPAIN") {
-    color = "#3498db";
-  }
-  else if (v === "TO BUY") {
-    color = "#e74c3c";
-  }
-  else if (v === "IN WAREHOUSE CH") {
-    color = "#e67e22";
-  }
-  else if (v === "IN TRANSIT TO ES") {
-    color = "#ff69b4";
-  }
-
-  return `
-    <span class="status" style="background:${color}">
-      ${value}
-    </span>
-  `;
-}
-
+/* =========================
+   RENDER TABLE
+========================= */
 
 function renderTable(data, month) {
+
+  const results =
+    document.getElementById("results");
+
+
+  /* FILTER MONTH */
 
   if (month) {
 
@@ -296,36 +571,71 @@ function renderTable(data, month) {
         .toUpperCase();
 
       return rowMonth === month;
+
     });
+
   }
 
-  if (!data || data.length === 0) {
 
-    document.getElementById("results").innerHTML =
+  /* NO RESULTS */
+
+  if (
+    !data ||
+    data.length === 0
+  ) {
+
+    results.innerHTML =
       "<div class='card'>No orders found</div>";
 
     return;
   }
 
-  const keys = Object.keys(data[0]);
 
-  let html = "<table><tr>";
+  const keys =
+    Object.keys(data[0]);
+
+
+  /* TABLE START */
+
+  let html =
+    "<table><thead><tr>";
+
+
+  /* HEADERS */
 
   keys.forEach(key => {
-    html += "<th>" + key + "</th>";
+
+    const columnClass =
+      getColumnClass(key);
+
+    html += `
+      <th class="${columnClass}">
+        ${key}
+      </th>
+    `;
+
   });
 
-  html += "</tr>";
 
+  html +=
+    "</tr></thead><tbody>";
+
+
+  /* ROWS */
 
   data.forEach(row => {
 
     html += "<tr>";
 
+
     keys.forEach(key => {
+
+      const columnClass =
+        getColumnClass(key);
 
       let value =
         row[key] ?? "-";
+
 
       if (
         key
@@ -335,22 +645,50 @@ function renderTable(data, month) {
 
         value =
           getStatusHTML(value);
+
       }
 
-      html +=
-        "<td>" +
-        value +
-        "</td>";
+
+      html += `
+        <td class="${columnClass}">
+          ${value}
+        </td>
+      `;
+
     });
 
+
     html += "</tr>";
+
   });
 
-  html += "</table>";
 
-  document.getElementById("results").innerHTML =
+  html +=
+    "</tbody></table>";
+
+
+  results.innerHTML =
     html;
+
 }
+
+
+/* =========================
+   ENTER = SEARCH
+========================= */
+
+document
+  .getElementById("userid")
+  .addEventListener(
+    "keydown",
+    function(event) {
+
+      if (event.key === "Enter") {
+        search();
+      }
+
+    }
+  );
 
 </script>
 
