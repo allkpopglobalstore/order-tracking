@@ -51,8 +51,10 @@ body {
 .search-label {
   display: block;
   margin: 0 0 6px 2px;
+
   font-size: 12px;
   font-weight: 600;
+
   color: #555;
 }
 
@@ -104,9 +106,13 @@ body {
 
 .result-summary {
   max-width: 700px;
+
   margin: -8px auto 16px auto;
+
   font-size: 12px;
+
   color: #666;
+
   text-align: center;
 }
 
@@ -117,22 +123,31 @@ body {
 
 .card {
   background: white;
+
   padding: 15px;
+
   border-radius: 10px;
+
   margin-bottom: 10px;
+
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .loading {
   text-align: center;
+
   padding: 20px;
+
   color: #666;
 }
 
 .error {
   background: #ffe6e6;
+
   color: #b30000;
+
   padding: 12px;
+
   border-radius: 8px;
 }
 
@@ -143,6 +158,7 @@ body {
 
 .status {
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
 
@@ -172,25 +188,36 @@ body {
 
 table {
   width: 100%;
+
   border-collapse: collapse;
+
   background: white;
+
   border-radius: 10px;
+
   overflow: hidden;
+
   table-layout: auto;
 }
 
 th,
 td {
   padding: 12px 10px;
+
   border-bottom: 1px solid #eee;
+
   text-align: left;
+
   font-size: 14px;
+
   vertical-align: middle;
 }
 
 th {
   background: #111;
+
   color: white;
+
   white-space: nowrap;
 }
 
@@ -201,15 +228,21 @@ th {
 
 .mobile-order {
   background: white;
+
   border: 1px solid #e7e7e7;
+
   border-radius: 12px;
+
   margin-bottom: 16px;
+
   overflow: hidden;
 }
 
 .mobile-row {
   display: grid;
+
   grid-template-columns: 38% 62%;
+
   border-bottom: 1px solid #eee;
 }
 
@@ -219,19 +252,29 @@ th {
 
 .mobile-label {
   background: #f7f7f7;
+
   padding: 11px 10px;
+
   font-size: 11px;
+
   font-weight: 600;
+
   color: #444;
+
   display: flex;
+
   align-items: center;
 }
 
 .mobile-value {
   padding: 11px 10px;
+
   font-size: 12px;
+
   color: #222;
+
   min-width: 0;
+
   overflow-wrap: anywhere;
 }
 
@@ -241,11 +284,13 @@ th {
 
 .mobile-product .mobile-value {
   font-weight: 600;
+
   font-size: 13px;
 }
 
 .mobile-value .status {
   font-size: 10px;
+
   padding: 4px 7px;
 }
 
@@ -264,13 +309,20 @@ th {
 
 .show-more-button {
   width: 100%;
+
   padding: 11px;
+
   background: #fafafa;
+
   border: none;
   border-top: 1px solid #eee;
+
   color: #333;
+
   font-size: 12px;
+
   cursor: pointer;
+
   text-align: center;
 }
 
@@ -288,11 +340,13 @@ th {
   .container {
     width: 100%;
     max-width: 100%;
+
     padding: 12px;
   }
 
   .top {
     gap: 7px;
+
     margin-bottom: 15px;
   }
 
@@ -303,11 +357,13 @@ th {
   .top input,
   .top select {
     padding: 11px 9px;
+
     font-size: 12px;
   }
 
   .top button {
     padding: 12px;
+
     font-size: 14px;
   }
 
@@ -318,17 +374,21 @@ th {
   .mobile-view {
     display: block;
   }
+
 }
 
 </style>
 
 </head>
 
+
 <body>
 
 <div class="container">
 
+
   <div class="top">
+
 
     <div class="field-group">
 
@@ -404,6 +464,7 @@ th {
       🔎 Search
     </button>
 
+
   </div>
 
 
@@ -415,10 +476,12 @@ th {
 
   <div id="results"></div>
 
+
 </div>
 
 
 <script>
+
 
 const API_URL =
 "https://script.google.com/macros/s/AKfycbz80y4d-Ot7gRRKQBr0HZ_iO4stEpMIAMC6NjPy5dOiwXRzHkPkzKsmFq97cPWcf9i_/exec";
@@ -428,7 +491,7 @@ let allOrders = [];
 
 
 /* =========================
-   HELPERS
+   NORMALIZE HEADER
 ========================= */
 
 function normalizeHeader(key) {
@@ -437,12 +500,40 @@ function normalizeHeader(key) {
     .toString()
     .trim()
     .toLowerCase()
-    .replace(/[👤📍📅🏢✈️📦🚩]/g, "")
+    .replace(/[👤📍📅🏢✈️📦🚩🗓️]/g, "")
     .replace(/\s+/g, " ")
     .trim();
 
 }
 
+
+/* =========================
+   NORMALIZE STATUS
+========================= */
+
+function normalizeStatus(value) {
+
+  return (value || "")
+    .toString()
+
+    /* elimina espacios invisibles */
+    .replace(/\u00A0/g, " ")
+    .replace(/\u200B/g, "")
+    .replace(/\u200C/g, "")
+    .replace(/\u200D/g, "")
+
+    /* elimina espacios dobles */
+    .replace(/\s+/g, " ")
+
+    .trim()
+    .toUpperCase();
+
+}
+
+
+/* =========================
+   ESCAPE HTML
+========================= */
 
 function escapeHTML(value) {
 
@@ -456,6 +547,10 @@ function escapeHTML(value) {
 }
 
 
+/* =========================
+   COLUMN TYPES
+========================= */
+
 function isIdColumn(key) {
 
   return normalizeHeader(key) === "id";
@@ -465,7 +560,8 @@ function isIdColumn(key) {
 
 function isUserIdColumn(key) {
 
-  const k = normalizeHeader(key);
+  const k =
+    normalizeHeader(key);
 
   return (
     k === "user id" ||
@@ -484,7 +580,8 @@ function isProductColumn(key) {
 
 function isItemColumn(key) {
 
-  const k = normalizeHeader(key);
+  const k =
+    normalizeHeader(key);
 
   return (
     k === "" ||
@@ -523,7 +620,8 @@ function isStatusColumn(key) {
 
 function isMonthColumn(key) {
 
-  const k = normalizeHeader(key);
+  const k =
+    normalizeHeader(key);
 
   return (
     k === "mes" ||
@@ -533,17 +631,27 @@ function isMonthColumn(key) {
 }
 
 
-function findValueByTest(row, testFunction) {
+/* =========================
+   GET STATUS VALUE
+========================= */
 
-  const key =
+function getOrderStatus(row) {
+
+  const statusKey =
     Object.keys(row)
-      .find(testFunction);
+      .find(key =>
+        isStatusColumn(key)
+      );
 
-  if (!key) {
+
+  if (!statusKey) {
     return "";
   }
 
-  return row[key] ?? "";
+
+  return normalizeStatus(
+    row[statusKey]
+  );
 
 }
 
@@ -578,8 +686,10 @@ function getMobileLabel(key) {
     return "MONTH";
   }
 
+
   const clean =
     normalizeHeader(key);
+
 
   if (clean === "pob") {
     return "POB";
@@ -605,6 +715,7 @@ function getMobileLabel(key) {
     return "ARRIVAL";
   }
 
+
   return key || "DETAIL";
 
 }
@@ -619,40 +730,64 @@ function getStatusHTML(value) {
   const originalValue =
     value ?? "-";
 
-  const v =
-    String(originalValue)
-      .trim()
-      .toUpperCase();
 
-  let color = "#999";
+  const v =
+    normalizeStatus(
+      originalValue
+    );
+
+
+  let color =
+    "#999";
 
 
   if (v === "DELIVERED") {
-    color = "#2ecc71";
+
+    color =
+      "#2ecc71";
+
   }
 
   else if (v === "PURCHASED") {
-    color = "#f1c40f";
+
+    color =
+      "#f1c40f";
+
   }
 
   else if (v === "IN WAREHOUSE KR") {
-    color = "#9b59b6";
+
+    color =
+      "#9b59b6";
+
   }
 
   else if (v === "IN SPAIN") {
-    color = "#3498db";
+
+    color =
+      "#3498db";
+
   }
 
   else if (v === "TO BUY") {
-    color = "#e74c3c";
+
+    color =
+      "#e74c3c";
+
   }
 
   else if (v === "IN WAREHOUSE CH") {
-    color = "#e67e22";
+
+    color =
+      "#e67e22";
+
   }
 
   else if (v === "IN TRANSIT TO ES") {
-    color = "#ff69b4";
+
+    color =
+      "#ff69b4";
+
   }
 
 
@@ -675,10 +810,16 @@ function getStatusHTML(value) {
 async function search() {
 
   const results =
-    document.getElementById("results");
+    document.getElementById(
+      "results"
+    );
+
 
   const summary =
-    document.getElementById("resultSummary");
+    document.getElementById(
+      "resultSummary"
+    );
+
 
   const userId =
     document
@@ -692,19 +833,26 @@ async function search() {
     results.innerHTML =
       "<div class='error'>Enter your Instagram User ID</div>";
 
-    summary.innerHTML = "";
+
+    summary.innerHTML =
+      "";
+
 
     return;
+
   }
 
 
   results.innerHTML =
     "<div class='loading'>Loading orders...</div>";
 
-  summary.innerHTML = "";
+
+  summary.innerHTML =
+    "";
 
 
   try {
+
 
     const url =
       API_URL +
@@ -717,7 +865,11 @@ async function search() {
 
 
     if (!response.ok) {
-      throw new Error("HTTP error");
+
+      throw new Error(
+        "HTTP error"
+      );
+
     }
 
 
@@ -726,24 +878,37 @@ async function search() {
 
 
     if (!Array.isArray(data)) {
-      throw new Error("API error");
+
+      throw new Error(
+        "API error"
+      );
+
     }
 
 
-    allOrders = data;
+    allOrders =
+      data;
+
 
     applyStatusFilter();
+
 
   }
 
   catch (error) {
 
-    console.error(error);
+
+    console.error(
+      error
+    );
+
 
     results.innerHTML =
       "<div class='error'>Error loading data</div>";
 
-    summary.innerHTML = "";
+
+    summary.innerHTML =
+      "";
 
   }
 
@@ -751,17 +916,20 @@ async function search() {
 
 
 /* =========================
-   FILTER
+   STATUS FILTER
 ========================= */
 
 function applyStatusFilter() {
 
+
   const selectedStatus =
-    document
-      .getElementById("statusFilter")
-      .value
-      .trim()
-      .toUpperCase();
+    normalizeStatus(
+      document
+        .getElementById(
+          "statusFilter"
+        )
+        .value
+    );
 
 
   let filtered =
@@ -770,28 +938,32 @@ function applyStatusFilter() {
 
   if (selectedStatus) {
 
+
     filtered =
-      allOrders.filter(order => {
-
-        const orderStatus =
-          String(
-            findValueByTest(
-              order,
-              isStatusColumn
-            )
-          )
-          .trim()
-          .toUpperCase();
+      allOrders.filter(
+        order => {
 
 
-        return orderStatus === selectedStatus;
+          const orderStatus =
+            getOrderStatus(
+              order
+            );
 
-      });
+
+          return (
+            orderStatus ===
+            selectedStatus
+          );
+
+        }
+      );
 
   }
 
 
-  renderOrders(filtered);
+  renderOrders(
+    filtered
+  );
 
 
   updateResultSummary(
@@ -813,15 +985,21 @@ function updateResultSummary(
   status
 ) {
 
+
   const summary =
     document.getElementById(
       "resultSummary"
     );
 
 
-  if (total === 0) {
+  if (
+    total === 0
+  ) {
 
-    summary.innerHTML = "";
+
+    summary.innerHTML =
+      "";
+
 
     return;
 
@@ -830,15 +1008,19 @@ function updateResultSummary(
 
   if (!status) {
 
+
     summary.textContent =
       total +
-      (total === 1
-        ? " order"
-        : " orders");
+      (
+        total === 1
+          ? " order"
+          : " orders"
+      );
 
   }
 
   else {
+
 
     summary.textContent =
       visible +
@@ -884,14 +1066,22 @@ function createMobileRow(
 
 function renderOrders(data) {
 
+
   const results =
-    document.getElementById("results");
+    document.getElementById(
+      "results"
+    );
 
 
-  if (!data || data.length === 0) {
+  if (
+    !data ||
+    data.length === 0
+  ) {
+
 
     results.innerHTML =
       "<div class='card'>No orders found for this status</div>";
+
 
     return;
 
@@ -899,12 +1089,15 @@ function renderOrders(data) {
 
 
   const keys =
-    Object.keys(data[0]);
+    Object.keys(
+      data[0]
+    );
 
 
   /* =========================
      DESKTOP
   ========================= */
+
 
   let desktop =
     "<div class='desktop-view'>";
@@ -918,15 +1111,18 @@ function renderOrders(data) {
     "<thead><tr>";
 
 
-  keys.forEach(key => {
+  keys.forEach(
+    key => {
 
-    desktop += `
-      <th>
-        ${escapeHTML(key)}
-      </th>
-    `;
 
-  });
+      desktop += `
+        <th>
+          ${escapeHTML(key)}
+        </th>
+      `;
+
+    }
+  );
 
 
   desktop +=
@@ -937,46 +1133,63 @@ function renderOrders(data) {
     "<tbody>";
 
 
-  data.forEach(row => {
-
-    desktop +=
-      "<tr>";
+  data.forEach(
+    row => {
 
 
-    keys.forEach(key => {
-
-      let value =
-        row[key] ?? "-";
+      desktop +=
+        "<tr>";
 
 
-      if (isStatusColumn(key)) {
-
-        value =
-          getStatusHTML(value);
-
-      }
-
-      else {
-
-        value =
-          escapeHTML(value);
-
-      }
+      keys.forEach(
+        key => {
 
 
-      desktop += `
-        <td>
-          ${value}
-        </td>
-      `;
-
-    });
+          let value =
+            row[key] ??
+            "-";
 
 
-    desktop +=
-      "</tr>";
+          if (
+            isStatusColumn(
+              key
+            )
+          ) {
 
-  });
+
+            value =
+              getStatusHTML(
+                value
+              );
+
+          }
+
+          else {
+
+
+            value =
+              escapeHTML(
+                value
+              );
+
+          }
+
+
+          desktop += `
+            <td>
+              ${value}
+            </td>
+          `;
+
+        }
+      );
+
+
+      desktop +=
+        "</tr>";
+
+    }
+  );
 
 
   desktop +=
@@ -991,6 +1204,7 @@ function renderOrders(data) {
      MOBILE
   ========================= */
 
+
   let mobile =
     "<div class='mobile-view'>";
 
@@ -1000,45 +1214,78 @@ function renderOrders(data) {
 
 
       const mainKeys =
-        keys.filter(key => {
+        keys.filter(
+          key => {
 
-          return (
 
-            isProductColumn(key) ||
+            return (
 
-            isItemColumn(key) ||
+              isProductColumn(
+                key
+              ) ||
 
-            isPaymentColumn(key) ||
+              isItemColumn(
+                key
+              ) ||
 
-            isShippingColumn(key) ||
+              isPaymentColumn(
+                key
+              ) ||
 
-            isStatusColumn(key) ||
+              isShippingColumn(
+                key
+              ) ||
 
-            isMonthColumn(key)
+              isStatusColumn(
+                key
+              ) ||
 
-          );
+              isMonthColumn(
+                key
+              )
 
-        });
+            );
+
+          }
+        );
 
 
       const extraKeys =
-        keys.filter(key => {
+        keys.filter(
+          key => {
 
-          if (isIdColumn(key)) {
-            return false;
+
+            if (
+              isIdColumn(
+                key
+              )
+            ) {
+              return false;
+            }
+
+
+            if (
+              isUserIdColumn(
+                key
+              )
+            ) {
+              return false;
+            }
+
+
+            if (
+              mainKeys.includes(
+                key
+              )
+            ) {
+              return false;
+            }
+
+
+            return true;
+
           }
-
-          if (isUserIdColumn(key)) {
-            return false;
-          }
-
-          if (mainKeys.includes(key)) {
-            return false;
-          }
-
-          return true;
-
-        });
+        );
 
 
       mobile += `
@@ -1046,45 +1293,70 @@ function renderOrders(data) {
       `;
 
 
-      mainKeys.forEach(key => {
+      /* MAIN */
 
 
-        let value =
-          row[key] ?? "-";
+      mainKeys.forEach(
+        key => {
 
 
-        if (isStatusColumn(key)) {
+          let value =
+            row[key] ??
+            "-";
 
-          value =
-            getStatusHTML(value);
+
+          if (
+            isStatusColumn(
+              key
+            )
+          ) {
+
+
+            value =
+              getStatusHTML(
+                value
+              );
+
+          }
+
+          else {
+
+
+            value =
+              escapeHTML(
+                value
+              );
+
+          }
+
+
+          const rowClass =
+            isProductColumn(
+              key
+            )
+              ? "mobile-product"
+              : "";
+
+
+          mobile +=
+            createMobileRow(
+              getMobileLabel(
+                key
+              ),
+              value,
+              rowClass
+            );
 
         }
-
-        else {
-
-          value =
-            escapeHTML(value);
-
-        }
+      );
 
 
-        const rowClass =
-          isProductColumn(key)
-            ? "mobile-product"
-            : "";
+      /* EXTRA */
 
 
-        mobile +=
-          createMobileRow(
-            getMobileLabel(key),
-            value,
-            rowClass
-          );
-
-      });
-
-
-      if (extraKeys.length > 0) {
+      if (
+        extraKeys.length > 0
+      ) {
 
 
         mobile += `
@@ -1095,24 +1367,31 @@ function renderOrders(data) {
         `;
 
 
-        extraKeys.forEach(key => {
+        extraKeys.forEach(
+          key => {
 
 
-          let value =
-            row[key] ?? "-";
+            let value =
+              row[key] ??
+              "-";
 
 
-          value =
-            escapeHTML(value);
+            value =
+              escapeHTML(
+                value
+              );
 
 
-          mobile +=
-            createMobileRow(
-              getMobileLabel(key),
-              value
-            );
+            mobile +=
+              createMobileRow(
+                getMobileLabel(
+                  key
+                ),
+                value
+              );
 
-        });
+          }
+        );
 
 
         mobile +=
@@ -1144,7 +1423,8 @@ function renderOrders(data) {
 
 
   results.innerHTML =
-    desktop + mobile;
+    desktop +
+    mobile;
 
 
   activateShowMoreButtons();
@@ -1158,65 +1438,70 @@ function renderOrders(data) {
 
 function activateShowMoreButtons() {
 
+
   const buttons =
     document.querySelectorAll(
       ".show-more-button"
     );
 
 
-  buttons.forEach(button => {
+  buttons.forEach(
+    button => {
 
 
-    button.addEventListener(
-      "click",
-      function() {
+      button.addEventListener(
+        "click",
+        function() {
 
 
-        const target =
-          document.getElementById(
-            this.dataset.target
-          );
+          const target =
+            document.getElementById(
+              this.dataset.target
+            );
 
 
-        if (!target) {
-          return;
+          if (!target) {
+            return;
+          }
+
+
+          const isOpen =
+            target.classList.contains(
+              "open"
+            );
+
+
+          if (isOpen) {
+
+
+            target.classList.remove(
+              "open"
+            );
+
+
+            this.textContent =
+              "Show more ▼";
+
+          }
+
+          else {
+
+
+            target.classList.add(
+              "open"
+            );
+
+
+            this.textContent =
+              "Show less ▲";
+
+          }
+
         }
+      );
 
-
-        const isOpen =
-          target.classList.contains(
-            "open"
-          );
-
-
-        if (isOpen) {
-
-          target.classList.remove(
-            "open"
-          );
-
-
-          this.textContent =
-            "Show more ▼";
-
-        }
-
-        else {
-
-          target.classList.add(
-            "open"
-          );
-
-
-          this.textContent =
-            "Show less ▲";
-
-        }
-
-      }
-    );
-
-  });
+    }
+  );
 
 }
 
@@ -1225,8 +1510,11 @@ function activateShowMoreButtons() {
    EVENTS
 ========================= */
 
+
 document
-  .getElementById("searchButton")
+  .getElementById(
+    "searchButton"
+  )
   .addEventListener(
     "click",
     search
@@ -1234,13 +1522,21 @@ document
 
 
 document
-  .getElementById("statusFilter")
+  .getElementById(
+    "statusFilter"
+  )
   .addEventListener(
     "change",
     function() {
 
-      if (allOrders.length > 0) {
+
+      if (
+        allOrders.length > 0
+      ) {
+
+
         applyStatusFilter();
+
       }
 
     }
@@ -1248,14 +1544,21 @@ document
 
 
 document
-  .getElementById("userid")
+  .getElementById(
+    "userid"
+  )
   .addEventListener(
     "keydown",
     function(event) {
 
-      if (event.key === "Enter") {
+
+      if (
+        event.key === "Enter"
+      ) {
+
 
         event.preventDefault();
+
 
         search();
 
@@ -1264,7 +1567,9 @@ document
     }
   );
 
+
 </script>
+
 
 </body>
 </html>
