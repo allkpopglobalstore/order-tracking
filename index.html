@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1"
+>
 
 <style>
+
+/* =====================================================
+   GENERAL
+===================================================== */
 
 * {
   box-sizing: border-box;
@@ -30,14 +38,14 @@ body {
 }
 
 
-/* =========================
+/* =====================================================
    SEARCH AREA
-========================= */
+===================================================== */
 
 .top {
   width: 100%;
   max-width: 700px;
-  margin: 0 auto 22px auto;
+  margin: 0 auto 12px auto;
 
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -100,14 +108,93 @@ body {
 }
 
 
-/* =========================
+/* =====================================================
+   NOTE
+===================================================== */
+
+.order-note {
+  width: 100%;
+  max-width: 700px;
+
+  margin: 0 auto 10px auto;
+
+  padding: 9px 12px;
+
+  background: white;
+
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+
+  color: #666;
+
+  text-align: center;
+
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+
+/* =====================================================
+   LIKE
+===================================================== */
+
+.like-area {
+  width: 100%;
+  max-width: 700px;
+
+  margin: 0 auto 18px auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+}
+
+.like-button {
+  padding: 8px 14px;
+
+  border: 1px solid #ddd;
+  border-radius: 20px;
+
+  background: white;
+
+  color: #333;
+
+  cursor: pointer;
+
+  font-size: 12px;
+
+  transition: 0.2s;
+}
+
+.like-button:hover {
+  background: #f5f5f5;
+}
+
+.like-button.liked {
+  background: #fff0f3;
+
+  border-color: #ffc5d0;
+
+  color: #d63357;
+}
+
+.like-count {
+  color: #777;
+
+  font-size: 11px;
+}
+
+
+/* =====================================================
    RESULT SUMMARY
-========================= */
+===================================================== */
 
 .result-summary {
   max-width: 700px;
 
-  margin: -8px auto 16px auto;
+  margin: 0 auto 16px auto;
 
   font-size: 12px;
 
@@ -117,9 +204,9 @@ body {
 }
 
 
-/* =========================
+/* =====================================================
    MESSAGES
-========================= */
+===================================================== */
 
 .card {
   background: white;
@@ -130,7 +217,8 @@ body {
 
   margin-bottom: 10px;
 
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-shadow:
+    0 2px 8px rgba(0,0,0,0.05);
 }
 
 .loading {
@@ -152,9 +240,9 @@ body {
 }
 
 
-/* =========================
+/* =====================================================
    STATUS
-========================= */
+===================================================== */
 
 .status {
   display: inline-flex;
@@ -174,9 +262,9 @@ body {
 }
 
 
-/* =========================
-   DESKTOP
-========================= */
+/* =====================================================
+   DESKTOP TABLE
+===================================================== */
 
 .desktop-view {
   display: block;
@@ -204,7 +292,8 @@ th,
 td {
   padding: 12px 10px;
 
-  border-bottom: 1px solid #eee;
+  border-bottom:
+    1px solid #eee;
 
   text-align: left;
 
@@ -222,14 +311,15 @@ th {
 }
 
 
-/* =========================
+/* =====================================================
    MOBILE ORDER
-========================= */
+===================================================== */
 
 .mobile-order {
   background: white;
 
-  border: 1px solid #e7e7e7;
+  border:
+    1px solid #e7e7e7;
 
   border-radius: 12px;
 
@@ -241,9 +331,11 @@ th {
 .mobile-row {
   display: grid;
 
-  grid-template-columns: 38% 62%;
+  grid-template-columns:
+    38% 62%;
 
-  border-bottom: 1px solid #eee;
+  border-bottom:
+    1px solid #eee;
 }
 
 .mobile-row:last-child {
@@ -295,9 +387,9 @@ th {
 }
 
 
-/* =========================
-   EXTRA DETAILS
-========================= */
+/* =====================================================
+   SHOW MORE
+===================================================== */
 
 .mobile-extra {
   display: none;
@@ -315,7 +407,9 @@ th {
   background: #fafafa;
 
   border: none;
-  border-top: 1px solid #eee;
+
+  border-top:
+    1px solid #eee;
 
   color: #333;
 
@@ -327,9 +421,9 @@ th {
 }
 
 
-/* =========================
+/* =====================================================
    MOBILE
-========================= */
+===================================================== */
 
 @media (max-width: 768px) {
 
@@ -347,7 +441,7 @@ th {
   .top {
     gap: 7px;
 
-    margin-bottom: 15px;
+    margin-bottom: 10px;
   }
 
   .search-label {
@@ -365,6 +459,16 @@ th {
     padding: 12px;
 
     font-size: 14px;
+  }
+
+  .order-note {
+    font-size: 10px;
+
+    padding: 8px;
+  }
+
+  .like-area {
+    margin-bottom: 15px;
   }
 
   .desktop-view {
@@ -386,6 +490,10 @@ th {
 
 <div class="container">
 
+
+  <!-- =================================================
+       SEARCH
+  ================================================== -->
 
   <div class="top">
 
@@ -448,10 +556,6 @@ th {
           In Spain
         </option>
 
-        <option value="DELIVERED">
-          Delivered
-        </option>
-
       </select>
 
     </div>
@@ -468,11 +572,55 @@ th {
   </div>
 
 
+  <!-- =================================================
+       NOTE
+  ================================================== -->
+
+  <div class="order-note">
+
+    <strong>Note:</strong>
+    All delivered orders will automatically disappear from the list.
+
+  </div>
+
+
+  <!-- =================================================
+       LIKE
+  ================================================== -->
+
+  <div class="like-area">
+
+    <button
+      id="likeButton"
+      class="like-button"
+      type="button"
+    >
+      ♡ Like this page
+    </button>
+
+    <span
+      id="likeCount"
+      class="like-count"
+    >
+      Loading...
+    </span>
+
+  </div>
+
+
+  <!-- =================================================
+       RESULT COUNT
+  ================================================== -->
+
   <div
     id="resultSummary"
     class="result-summary"
   ></div>
 
+
+  <!-- =================================================
+       RESULTS
+  ================================================== -->
 
   <div id="results"></div>
 
@@ -483,6 +631,10 @@ th {
 <script>
 
 
+/* =====================================================
+   API
+===================================================== */
+
 const API_URL =
 "https://script.google.com/macros/s/AKfycbz80y4d-Ot7gRRKQBr0HZ_iO4stEpMIAMC6NjPy5dOiwXRzHkPkzKsmFq97cPWcf9i_/exec";
 
@@ -490,9 +642,9 @@ const API_URL =
 let allOrders = [];
 
 
-/* =========================
+/* =====================================================
    NORMALIZE HEADER
-========================= */
+===================================================== */
 
 function normalizeHeader(key) {
 
@@ -500,40 +652,42 @@ function normalizeHeader(key) {
     .toString()
     .trim()
     .toLowerCase()
-    .replace(/[👤📍📅🏢✈️📦🚩🗓️]/g, "")
+    .replace(
+      /[👤📍📅🏢✈️📦🚩🗓️]/g,
+      ""
+    )
     .replace(/\s+/g, " ")
     .trim();
 
 }
 
 
-/* =========================
+/* =====================================================
    NORMALIZE STATUS
-========================= */
+===================================================== */
 
 function normalizeStatus(value) {
 
   return (value || "")
     .toString()
 
-    /* elimina espacios invisibles */
     .replace(/\u00A0/g, " ")
     .replace(/\u200B/g, "")
     .replace(/\u200C/g, "")
     .replace(/\u200D/g, "")
 
-    /* elimina espacios dobles */
     .replace(/\s+/g, " ")
 
     .trim()
+
     .toUpperCase();
 
 }
 
 
-/* =========================
+/* =====================================================
    ESCAPE HTML
-========================= */
+===================================================== */
 
 function escapeHTML(value) {
 
@@ -547,13 +701,15 @@ function escapeHTML(value) {
 }
 
 
-/* =========================
+/* =====================================================
    COLUMN TYPES
-========================= */
+===================================================== */
 
 function isIdColumn(key) {
 
-  return normalizeHeader(key) === "id";
+  return (
+    normalizeHeader(key) === "id"
+  );
 
 }
 
@@ -573,7 +729,9 @@ function isUserIdColumn(key) {
 
 function isProductColumn(key) {
 
-  return normalizeHeader(key) === "producto";
+  return (
+    normalizeHeader(key) === "producto"
+  );
 
 }
 
@@ -631,34 +789,20 @@ function isMonthColumn(key) {
 }
 
 
-/* =========================
-   GET STATUS VALUE
-========================= */
+/* =====================================================
+   LABELS
+===================================================== */
 
-function getOrderStatus(row) {
+function getDesktopLabel(key) {
 
-  const statusKey =
-    Object.keys(row)
-      .find(key =>
-        isStatusColumn(key)
-      );
-
-
-  if (!statusKey) {
-    return "";
+  if (isItemColumn(key)) {
+    return "ITEM";
   }
 
-
-  return normalizeStatus(
-    row[statusKey]
-  );
+  return key;
 
 }
 
-
-/* =========================
-   MOBILE LABEL
-========================= */
 
 function getMobileLabel(key) {
 
@@ -721,9 +865,31 @@ function getMobileLabel(key) {
 }
 
 
-/* =========================
-   STATUS COLOR
-========================= */
+/* =====================================================
+   STATUS
+===================================================== */
+
+function getOrderStatus(row) {
+
+  const statusKey =
+    Object.keys(row)
+      .find(
+        key =>
+          isStatusColumn(key)
+      );
+
+
+  if (!statusKey) {
+    return "";
+  }
+
+
+  return normalizeStatus(
+    row[statusKey]
+  );
+
+}
+
 
 function getStatusHTML(value) {
 
@@ -803,9 +969,222 @@ function getStatusHTML(value) {
 }
 
 
-/* =========================
+/* =====================================================
+   LIKE SYSTEM
+===================================================== */
+
+function hasLiked() {
+
+  try {
+
+    return (
+      localStorage.getItem(
+        "allkpopOrderTrackingLiked"
+      ) === "yes"
+    );
+
+  }
+
+  catch (error) {
+
+    return false;
+
+  }
+
+}
+
+
+function saveLikeLocally() {
+
+  try {
+
+    localStorage.setItem(
+      "allkpopOrderTrackingLiked",
+      "yes"
+    );
+
+  }
+
+  catch (error) {
+
+    console.error(error);
+
+  }
+
+}
+
+
+function setLikedButton() {
+
+  const button =
+    document.getElementById(
+      "likeButton"
+    );
+
+
+  if (hasLiked()) {
+
+    button.textContent =
+      "♥ Liked";
+
+
+    button.classList.add(
+      "liked"
+    );
+
+
+    button.disabled =
+      true;
+
+  }
+
+}
+
+
+/* =====================================================
+   LOAD LIKES
+===================================================== */
+
+async function loadLikes() {
+
+  const countElement =
+    document.getElementById(
+      "likeCount"
+    );
+
+
+  try {
+
+    const response =
+      await fetch(
+        API_URL +
+        "?action=getLikes"
+      );
+
+
+    const data =
+      await response.json();
+
+
+    const likes =
+      Number(data.likes) || 0;
+
+
+    countElement.textContent =
+      likes +
+      (
+        likes === 1
+          ? " like"
+          : " likes"
+      );
+
+  }
+
+  catch (error) {
+
+    console.error(error);
+
+
+    countElement.textContent =
+      "";
+
+  }
+
+}
+
+
+/* =====================================================
+   GIVE LIKE
+===================================================== */
+
+async function likePage() {
+
+  if (hasLiked()) {
+
+    setLikedButton();
+
+    return;
+
+  }
+
+
+  const button =
+    document.getElementById(
+      "likeButton"
+    );
+
+
+  button.disabled =
+    true;
+
+
+  button.textContent =
+    "♥ Liking...";
+
+
+  try {
+
+    const response =
+      await fetch(
+        API_URL +
+        "?action=like"
+      );
+
+
+    const data =
+      await response.json();
+
+
+    const likes =
+      Number(data.likes) || 0;
+
+
+    saveLikeLocally();
+
+
+    button.textContent =
+      "♥ Liked";
+
+
+    button.classList.add(
+      "liked"
+    );
+
+
+    document
+      .getElementById(
+        "likeCount"
+      )
+      .textContent =
+      likes +
+      (
+        likes === 1
+          ? " like"
+          : " likes"
+      );
+
+  }
+
+  catch (error) {
+
+    console.error(error);
+
+
+    button.disabled =
+      false;
+
+
+    button.textContent =
+      "♡ Like this page";
+
+  }
+
+}
+
+
+/* =====================================================
    SEARCH
-========================= */
+===================================================== */
 
 async function search() {
 
@@ -823,7 +1202,9 @@ async function search() {
 
   const userId =
     document
-      .getElementById("userid")
+      .getElementById(
+        "userid"
+      )
       .value
       .trim();
 
@@ -857,7 +1238,9 @@ async function search() {
     const url =
       API_URL +
       "?userId=" +
-      encodeURIComponent(userId);
+      encodeURIComponent(
+        userId
+      );
 
 
     const response =
@@ -886,8 +1269,17 @@ async function search() {
     }
 
 
+    /*
+     * DELIVERED ORDERS
+     * ARE REMOVED FROM RESULTS
+    */
+
     allOrders =
-      data;
+      data.filter(
+        order =>
+          getOrderStatus(order)
+          !== "DELIVERED"
+      );
 
 
     applyStatusFilter();
@@ -898,9 +1290,7 @@ async function search() {
   catch (error) {
 
 
-    console.error(
-      error
-    );
+    console.error(error);
 
 
     results.innerHTML =
@@ -915,9 +1305,9 @@ async function search() {
 }
 
 
-/* =========================
-   STATUS FILTER
-========================= */
+/* =====================================================
+   FILTER STATUS
+===================================================== */
 
 function applyStatusFilter() {
 
@@ -941,21 +1331,11 @@ function applyStatusFilter() {
 
     filtered =
       allOrders.filter(
-        order => {
+        order =>
 
+          getOrderStatus(order)
+          === selectedStatus
 
-          const orderStatus =
-            getOrderStatus(
-              order
-            );
-
-
-          return (
-            orderStatus ===
-            selectedStatus
-          );
-
-        }
       );
 
   }
@@ -975,9 +1355,9 @@ function applyStatusFilter() {
 }
 
 
-/* =========================
+/* =====================================================
    RESULT SUMMARY
-========================= */
+===================================================== */
 
 function updateResultSummary(
   visible,
@@ -992,14 +1372,10 @@ function updateResultSummary(
     );
 
 
-  if (
-    total === 0
-  ) {
-
+  if (total === 0) {
 
     summary.innerHTML =
       "";
-
 
     return;
 
@@ -1033,9 +1409,9 @@ function updateResultSummary(
 }
 
 
-/* =========================
+/* =====================================================
    MOBILE ROW
-========================= */
+===================================================== */
 
 function createMobileRow(
   label,
@@ -1044,13 +1420,19 @@ function createMobileRow(
 ) {
 
   return `
-    <div class="mobile-row ${extraClass}">
+    <div
+      class="mobile-row ${extraClass}"
+    >
 
-      <div class="mobile-label">
+      <div
+        class="mobile-label"
+      >
         ${escapeHTML(label)}
       </div>
 
-      <div class="mobile-value">
+      <div
+        class="mobile-value"
+      >
         ${value}
       </div>
 
@@ -1060,9 +1442,9 @@ function createMobileRow(
 }
 
 
-/* =========================
-   RENDER
-========================= */
+/* =====================================================
+   RENDER ORDERS
+===================================================== */
 
 function renderOrders(data) {
 
@@ -1094,9 +1476,28 @@ function renderOrders(data) {
     );
 
 
-  /* =========================
+  /* ===================================================
      DESKTOP
-  ========================= */
+     NO ID
+     NO USER ID
+  =================================================== */
+
+  const desktopKeys =
+    keys.filter(
+      key => {
+
+        if (isIdColumn(key)) {
+          return false;
+        }
+
+        if (isUserIdColumn(key)) {
+          return false;
+        }
+
+        return true;
+
+      }
+    );
 
 
   let desktop =
@@ -1111,13 +1512,15 @@ function renderOrders(data) {
     "<thead><tr>";
 
 
-  keys.forEach(
+  desktopKeys.forEach(
     key => {
 
 
       desktop += `
         <th>
-          ${escapeHTML(key)}
+          ${escapeHTML(
+            getDesktopLabel(key)
+          )}
         </th>
       `;
 
@@ -1141,7 +1544,7 @@ function renderOrders(data) {
         "<tr>";
 
 
-      keys.forEach(
+      desktopKeys.forEach(
         key => {
 
 
@@ -1151,16 +1554,12 @@ function renderOrders(data) {
 
 
           if (
-            isStatusColumn(
-              key
-            )
+            isStatusColumn(key)
           ) {
 
 
             value =
-              getStatusHTML(
-                value
-              );
+              getStatusHTML(value);
 
           }
 
@@ -1168,9 +1567,7 @@ function renderOrders(data) {
 
 
             value =
-              escapeHTML(
-                value
-              );
+              escapeHTML(value);
 
           }
 
@@ -1200,10 +1597,9 @@ function renderOrders(data) {
     "</div>";
 
 
-  /* =========================
+  /* ===================================================
      MOBILE
-  ========================= */
-
+  =================================================== */
 
   let mobile =
     "<div class='mobile-view'>";
@@ -1217,32 +1613,19 @@ function renderOrders(data) {
         keys.filter(
           key => {
 
-
             return (
 
-              isProductColumn(
-                key
-              ) ||
+              isProductColumn(key) ||
 
-              isItemColumn(
-                key
-              ) ||
+              isItemColumn(key) ||
 
-              isPaymentColumn(
-                key
-              ) ||
+              isPaymentColumn(key) ||
 
-              isShippingColumn(
-                key
-              ) ||
+              isShippingColumn(key) ||
 
-              isStatusColumn(
-                key
-              ) ||
+              isStatusColumn(key) ||
 
-              isMonthColumn(
-                key
-              )
+              isMonthColumn(key)
 
             );
 
@@ -1255,28 +1638,18 @@ function renderOrders(data) {
           key => {
 
 
-            if (
-              isIdColumn(
-                key
-              )
-            ) {
+            if (isIdColumn(key)) {
+              return false;
+            }
+
+
+            if (isUserIdColumn(key)) {
               return false;
             }
 
 
             if (
-              isUserIdColumn(
-                key
-              )
-            ) {
-              return false;
-            }
-
-
-            if (
-              mainKeys.includes(
-                key
-              )
+              mainKeys.includes(key)
             ) {
               return false;
             }
@@ -1293,8 +1666,7 @@ function renderOrders(data) {
       `;
 
 
-      /* MAIN */
-
+      /* MAIN INFORMATION */
 
       mainKeys.forEach(
         key => {
@@ -1306,16 +1678,12 @@ function renderOrders(data) {
 
 
           if (
-            isStatusColumn(
-              key
-            )
+            isStatusColumn(key)
           ) {
 
 
             value =
-              getStatusHTML(
-                value
-              );
+              getStatusHTML(value);
 
           }
 
@@ -1323,26 +1691,20 @@ function renderOrders(data) {
 
 
             value =
-              escapeHTML(
-                value
-              );
+              escapeHTML(value);
 
           }
 
 
           const rowClass =
-            isProductColumn(
-              key
-            )
+            isProductColumn(key)
               ? "mobile-product"
               : "";
 
 
           mobile +=
             createMobileRow(
-              getMobileLabel(
-                key
-              ),
+              getMobileLabel(key),
               value,
               rowClass
             );
@@ -1351,8 +1713,7 @@ function renderOrders(data) {
       );
 
 
-      /* EXTRA */
-
+      /* EXTRA INFORMATION */
 
       if (
         extraKeys.length > 0
@@ -1377,16 +1738,12 @@ function renderOrders(data) {
 
 
             value =
-              escapeHTML(
-                value
-              );
+              escapeHTML(value);
 
 
             mobile +=
               createMobileRow(
-                getMobileLabel(
-                  key
-                ),
+                getMobileLabel(key),
                 value
               );
 
@@ -1432,9 +1789,9 @@ function renderOrders(data) {
 }
 
 
-/* =========================
-   SHOW MORE
-========================= */
+/* =====================================================
+   SHOW MORE / SHOW LESS
+===================================================== */
 
 function activateShowMoreButtons() {
 
@@ -1506,10 +1863,9 @@ function activateShowMoreButtons() {
 }
 
 
-/* =========================
+/* =====================================================
    EVENTS
-========================= */
-
+===================================================== */
 
 document
   .getElementById(
@@ -1568,8 +1924,27 @@ document
   );
 
 
+document
+  .getElementById(
+    "likeButton"
+  )
+  .addEventListener(
+    "click",
+    likePage
+  );
+
+
+/* =====================================================
+   PAGE LOAD
+===================================================== */
+
+loadLikes();
+
+setLikedButton();
+
+
 </script>
 
-
 </body>
+
 </html>
