@@ -6,10 +6,6 @@
 
 <style>
 
-/* =====================================================
-   GENERAL
-===================================================== */
-
 * {
   box-sizing: border-box;
 }
@@ -34,33 +30,59 @@ body {
 }
 
 
-/* =====================================================
-   BUSCADOR
-===================================================== */
+/* =========================
+   SEARCH AREA
+========================= */
 
 .top {
   width: 100%;
   max-width: 700px;
   margin: 0 auto 22px auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
 }
 
-.top input {
+.field-group {
+  min-width: 0;
+}
+
+.search-label {
+  display: block;
+  margin: 0 0 6px 2px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #555;
+}
+
+.top input,
+.top select {
   width: 100%;
+  min-width: 0;
+
   padding: 14px;
+
   border: 1px solid #ccc;
   border-radius: 9px;
+
   background: white;
+
   font-size: 15px;
+
   outline: none;
 }
 
-.top input:focus {
+.top input:focus,
+.top select:focus {
   border-color: #777;
 }
 
 .top button {
+  grid-column: 1 / -1;
+
   width: 100%;
-  margin-top: 10px;
+
   padding: 14px 16px;
 
   background: black;
@@ -76,16 +98,28 @@ body {
 }
 
 
-/* =====================================================
-   MENSAJES
-===================================================== */
+/* =========================
+   RESULT SUMMARY
+========================= */
+
+.result-summary {
+  max-width: 700px;
+  margin: -8px auto 16px auto;
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+}
+
+
+/* =========================
+   MESSAGES
+========================= */
 
 .card {
   background: white;
   padding: 15px;
   border-radius: 10px;
   margin-bottom: 10px;
-
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
@@ -98,19 +132,17 @@ body {
 .error {
   background: #ffe6e6;
   color: #b30000;
-
   padding: 12px;
   border-radius: 8px;
 }
 
 
-/* =====================================================
+/* =========================
    STATUS
-===================================================== */
+========================= */
 
 .status {
   display: inline-flex;
-
   align-items: center;
   justify-content: center;
 
@@ -123,15 +155,12 @@ body {
   font-size: 12px;
 
   white-space: nowrap;
-
-  word-break: keep-all;
-  overflow-wrap: normal;
 }
 
 
-/* =====================================================
+/* =========================
    DESKTOP
-===================================================== */
+========================= */
 
 .desktop-view {
   display: block;
@@ -143,63 +172,44 @@ body {
 
 table {
   width: 100%;
-
   border-collapse: collapse;
-
   background: white;
-
   border-radius: 10px;
-
   overflow: hidden;
-
   table-layout: auto;
 }
 
 th,
 td {
   padding: 12px 10px;
-
   border-bottom: 1px solid #eee;
-
   text-align: left;
-
   font-size: 14px;
-
   vertical-align: middle;
 }
 
 th {
   background: #111;
   color: white;
-
   white-space: nowrap;
 }
 
 
-/* =====================================================
-   MOBILE ORDERS
-===================================================== */
+/* =========================
+   MOBILE ORDER
+========================= */
 
 .mobile-order {
   background: white;
-
   border: 1px solid #e7e7e7;
-
   border-radius: 12px;
-
   margin-bottom: 16px;
-
   overflow: hidden;
 }
 
-
-/* FILA */
-
 .mobile-row {
   display: grid;
-
   grid-template-columns: 38% 62%;
-
   border-bottom: 1px solid #eee;
 }
 
@@ -207,66 +217,42 @@ th {
   border-bottom: none;
 }
 
-
-/* LABEL */
-
 .mobile-label {
   background: #f7f7f7;
-
   padding: 11px 10px;
-
   font-size: 11px;
-
   font-weight: 600;
-
   color: #444;
-
   display: flex;
-
   align-items: center;
 }
 
-
-/* VALUE */
-
 .mobile-value {
   padding: 11px 10px;
-
   font-size: 12px;
-
   color: #222;
-
   min-width: 0;
-
   overflow-wrap: anywhere;
 }
 
-
-/* PRODUCTO */
-
 .mobile-product .mobile-label {
-  background: #f3f3f3;
+  background: #f1f1f1;
 }
 
 .mobile-product .mobile-value {
   font-weight: 600;
-
   font-size: 13px;
 }
 
-
-/* STATUS MOBILE */
-
 .mobile-value .status {
   font-size: 10px;
-
   padding: 4px 7px;
 }
 
 
-/* =====================================================
-   DETALLES OCULTOS
-===================================================== */
+/* =========================
+   EXTRA DETAILS
+========================= */
 
 .mobile-extra {
   display: none;
@@ -276,39 +262,22 @@ th {
   display: block;
 }
 
-
-/* =====================================================
-   MOSTRAR MÁS
-===================================================== */
-
 .show-more-button {
   width: 100%;
-
   padding: 11px;
-
   background: #fafafa;
-
   border: none;
-
   border-top: 1px solid #eee;
-
   color: #333;
-
   font-size: 12px;
-
   cursor: pointer;
-
   text-align: center;
 }
 
-.show-more-button:hover {
-  background: #f3f3f3;
-}
 
-
-/* =====================================================
+/* =========================
    MOBILE
-===================================================== */
+========================= */
 
 @media (max-width: 768px) {
 
@@ -318,72 +287,115 @@ th {
 
   .container {
     width: 100%;
-
     max-width: 100%;
-
     padding: 12px;
   }
 
-
-  /* BUSCADOR */
-
   .top {
-    margin-bottom: 16px;
+    gap: 7px;
+    margin-bottom: 15px;
   }
 
-  .top input {
-    padding: 13px;
+  .search-label {
+    font-size: 10px;
+  }
 
-    font-size: 14px;
+  .top input,
+  .top select {
+    padding: 11px 9px;
+    font-size: 12px;
   }
 
   .top button {
-    margin-top: 8px;
-
     padding: 12px;
-
     font-size: 14px;
   }
-
-
-  /* OCULTAR TABLA */
 
   .desktop-view {
     display: none;
   }
 
-
-  /* MOSTRAR PEDIDOS MOBILE */
-
   .mobile-view {
     display: block;
   }
-
 }
 
 </style>
 
 </head>
 
-
 <body>
-
 
 <div class="container">
 
-
-  <!-- =================================================
-       BUSCADOR
-  ================================================== -->
-
   <div class="top">
 
-    <input
-      id="userid"
-      type="text"
-      placeholder="Instagram User ID"
-      autocomplete="off"
-    >
+    <div class="field-group">
+
+      <label
+        class="search-label"
+        for="userid"
+      >
+        Instagram User ID
+      </label>
+
+      <input
+        id="userid"
+        type="text"
+        placeholder="Instagram User ID"
+        autocomplete="off"
+      >
+
+    </div>
+
+
+    <div class="field-group">
+
+      <label
+        class="search-label"
+        for="statusFilter"
+      >
+        Order Status
+      </label>
+
+      <select id="statusFilter">
+
+        <option value="">
+          All Status
+        </option>
+
+        <option value="TO BUY">
+          To Buy
+        </option>
+
+        <option value="PURCHASED">
+          Purchased
+        </option>
+
+        <option value="IN WAREHOUSE CH">
+          In Warehouse CH
+        </option>
+
+        <option value="IN WAREHOUSE KR">
+          In Warehouse KR
+        </option>
+
+        <option value="IN TRANSIT TO ES">
+          In Transit to ES
+        </option>
+
+        <option value="IN SPAIN">
+          In Spain
+        </option>
+
+        <option value="DELIVERED">
+          Delivered
+        </option>
+
+      </select>
+
+    </div>
+
 
     <button
       id="searchButton"
@@ -395,30 +407,29 @@ th {
   </div>
 
 
-  <!-- =================================================
-       RESULTADOS
-  ================================================== -->
+  <div
+    id="resultSummary"
+    class="result-summary"
+  ></div>
+
 
   <div id="results"></div>
-
 
 </div>
 
 
 <script>
 
-
-/* =====================================================
-   API
-===================================================== */
-
 const API_URL =
 "https://script.google.com/macros/s/AKfycbz80y4d-Ot7gRRKQBr0HZ_iO4stEpMIAMC6NjPy5dOiwXRzHkPkzKsmFq97cPWcf9i_/exec";
 
 
-/* =====================================================
-   NORMALIZAR ENCABEZADOS
-===================================================== */
+let allOrders = [];
+
+
+/* =========================
+   HELPERS
+========================= */
 
 function normalizeHeader(key) {
 
@@ -433,10 +444,6 @@ function normalizeHeader(key) {
 }
 
 
-/* =====================================================
-   ESCAPAR HTML
-===================================================== */
-
 function escapeHTML(value) {
 
   return String(value ?? "")
@@ -449,15 +456,9 @@ function escapeHTML(value) {
 }
 
 
-/* =====================================================
-   IDENTIFICAR COLUMNAS
-===================================================== */
-
 function isIdColumn(key) {
 
-  const k = normalizeHeader(key);
-
-  return k === "id";
+  return normalizeHeader(key) === "id";
 
 }
 
@@ -498,21 +499,24 @@ function isItemColumn(key) {
 
 function isPaymentColumn(key) {
 
-  return normalizeHeader(key).includes("payment");
+  return normalizeHeader(key)
+    .includes("payment");
 
 }
 
 
 function isShippingColumn(key) {
 
-  return normalizeHeader(key).includes("shipping");
+  return normalizeHeader(key)
+    .includes("shipping");
 
 }
 
 
 function isStatusColumn(key) {
 
-  return normalizeHeader(key).includes("status");
+  return normalizeHeader(key)
+    .includes("status");
 
 }
 
@@ -529,14 +533,29 @@ function isMonthColumn(key) {
 }
 
 
-/* =====================================================
-   LABEL MOBILE
-===================================================== */
+function findValueByTest(row, testFunction) {
+
+  const key =
+    Object.keys(row)
+      .find(testFunction);
+
+  if (!key) {
+    return "";
+  }
+
+  return row[key] ?? "";
+
+}
+
+
+/* =========================
+   MOBILE LABEL
+========================= */
 
 function getMobileLabel(key) {
 
   if (isProductColumn(key)) {
-    return "PRODUCTO";
+    return "PRODUCT";
   }
 
   if (isItemColumn(key)) {
@@ -559,7 +578,8 @@ function getMobileLabel(key) {
     return "MONTH";
   }
 
-  const clean = normalizeHeader(key);
+  const clean =
+    normalizeHeader(key);
 
   if (clean === "pob") {
     return "POB";
@@ -590,9 +610,9 @@ function getMobileLabel(key) {
 }
 
 
-/* =====================================================
-   STATUS
-===================================================== */
+/* =========================
+   STATUS COLOR
+========================= */
 
 function getStatusHTML(value) {
 
@@ -604,50 +624,35 @@ function getStatusHTML(value) {
       .trim()
       .toUpperCase();
 
-
   let color = "#999";
 
 
   if (v === "DELIVERED") {
-
     color = "#2ecc71";
-
   }
 
   else if (v === "PURCHASED") {
-
     color = "#f1c40f";
-
   }
 
   else if (v === "IN WAREHOUSE KR") {
-
     color = "#9b59b6";
-
   }
 
   else if (v === "IN SPAIN") {
-
     color = "#3498db";
-
   }
 
   else if (v === "TO BUY") {
-
     color = "#e74c3c";
-
   }
 
   else if (v === "IN WAREHOUSE CH") {
-
     color = "#e67e22";
-
   }
 
   else if (v === "IN TRANSIT TO ES") {
-
     color = "#ff69b4";
-
   }
 
 
@@ -663,15 +668,17 @@ function getStatusHTML(value) {
 }
 
 
-/* =====================================================
-   BUSCAR
-===================================================== */
+/* =========================
+   SEARCH
+========================= */
 
 async function search() {
 
   const results =
     document.getElementById("results");
 
+  const summary =
+    document.getElementById("resultSummary");
 
   const userId =
     document
@@ -685,13 +692,16 @@ async function search() {
     results.innerHTML =
       "<div class='error'>Enter your Instagram User ID</div>";
 
-    return;
+    summary.innerHTML = "";
 
+    return;
   }
 
 
   results.innerHTML =
     "<div class='loading'>Loading orders...</div>";
+
+  summary.innerHTML = "";
 
 
   try {
@@ -707,9 +717,7 @@ async function search() {
 
 
     if (!response.ok) {
-
       throw new Error("HTTP error");
-
     }
 
 
@@ -718,13 +726,13 @@ async function search() {
 
 
     if (!Array.isArray(data)) {
-
       throw new Error("API error");
-
     }
 
 
-    renderOrders(data);
+    allOrders = data;
+
+    applyStatusFilter();
 
   }
 
@@ -732,20 +740,126 @@ async function search() {
 
     console.error(error);
 
-
     results.innerHTML =
       "<div class='error'>Error loading data</div>";
+
+    summary.innerHTML = "";
 
   }
 
 }
 
 
-/* =====================================================
-   FILA MOBILE
-===================================================== */
+/* =========================
+   FILTER
+========================= */
 
-function createMobileRow(label, value, extraClass = "") {
+function applyStatusFilter() {
+
+  const selectedStatus =
+    document
+      .getElementById("statusFilter")
+      .value
+      .trim()
+      .toUpperCase();
+
+
+  let filtered =
+    [...allOrders];
+
+
+  if (selectedStatus) {
+
+    filtered =
+      allOrders.filter(order => {
+
+        const orderStatus =
+          String(
+            findValueByTest(
+              order,
+              isStatusColumn
+            )
+          )
+          .trim()
+          .toUpperCase();
+
+
+        return orderStatus === selectedStatus;
+
+      });
+
+  }
+
+
+  renderOrders(filtered);
+
+
+  updateResultSummary(
+    filtered.length,
+    allOrders.length,
+    selectedStatus
+  );
+
+}
+
+
+/* =========================
+   RESULT SUMMARY
+========================= */
+
+function updateResultSummary(
+  visible,
+  total,
+  status
+) {
+
+  const summary =
+    document.getElementById(
+      "resultSummary"
+    );
+
+
+  if (total === 0) {
+
+    summary.innerHTML = "";
+
+    return;
+
+  }
+
+
+  if (!status) {
+
+    summary.textContent =
+      total +
+      (total === 1
+        ? " order"
+        : " orders");
+
+  }
+
+  else {
+
+    summary.textContent =
+      visible +
+      " of " +
+      total +
+      " orders";
+
+  }
+
+}
+
+
+/* =========================
+   MOBILE ROW
+========================= */
+
+function createMobileRow(
+  label,
+  value,
+  extraClass = ""
+) {
 
   return `
     <div class="mobile-row ${extraClass}">
@@ -764,9 +878,9 @@ function createMobileRow(label, value, extraClass = "") {
 }
 
 
-/* =====================================================
+/* =========================
    RENDER
-===================================================== */
+========================= */
 
 function renderOrders(data) {
 
@@ -777,7 +891,7 @@ function renderOrders(data) {
   if (!data || data.length === 0) {
 
     results.innerHTML =
-      "<div class='card'>No orders found</div>";
+      "<div class='card'>No orders found for this status</div>";
 
     return;
 
@@ -788,15 +902,17 @@ function renderOrders(data) {
     Object.keys(data[0]);
 
 
-  /* ===================================================
+  /* =========================
      DESKTOP
-  =================================================== */
+  ========================= */
 
   let desktop =
     "<div class='desktop-view'>";
 
+
   desktop +=
     "<table>";
+
 
   desktop +=
     "<thead><tr>";
@@ -871,128 +987,67 @@ function renderOrders(data) {
     "</div>";
 
 
-  /* ===================================================
+  /* =========================
      MOBILE
-  =================================================== */
+  ========================= */
 
   let mobile =
     "<div class='mobile-view'>";
 
 
-  data.forEach((row, orderIndex) => {
+  data.forEach(
+    (row, orderIndex) => {
 
 
-    /* -----------------------------------------------
-       PRINCIPALES
-    ----------------------------------------------- */
+      const mainKeys =
+        keys.filter(key => {
 
-    const mainKeys =
-      keys.filter(key => {
+          return (
 
-        return (
+            isProductColumn(key) ||
 
-          isProductColumn(key) ||
+            isItemColumn(key) ||
 
-          isItemColumn(key) ||
+            isPaymentColumn(key) ||
 
-          isPaymentColumn(key) ||
+            isShippingColumn(key) ||
 
-          isShippingColumn(key) ||
+            isStatusColumn(key) ||
 
-          isStatusColumn(key) ||
+            isMonthColumn(key)
 
-          isMonthColumn(key)
+          );
 
-        );
-
-      });
+        });
 
 
-    /* -----------------------------------------------
-       EXTRAS
-       NO ID
-       NO USER ID
-       NO CAMPOS PRINCIPALES
-    ----------------------------------------------- */
+      const extraKeys =
+        keys.filter(key => {
 
-    const extraKeys =
-      keys.filter(key => {
+          if (isIdColumn(key)) {
+            return false;
+          }
 
-        if (isIdColumn(key)) {
-          return false;
-        }
+          if (isUserIdColumn(key)) {
+            return false;
+          }
 
-        if (isUserIdColumn(key)) {
-          return false;
-        }
+          if (mainKeys.includes(key)) {
+            return false;
+          }
 
-        if (mainKeys.includes(key)) {
-          return false;
-        }
+          return true;
 
-        return true;
-
-      });
-
-
-    mobile += `
-      <div class="mobile-order">
-    `;
-
-
-    /* PRINCIPALES */
-
-    mainKeys.forEach(key => {
-
-      let value =
-        row[key] ?? "-";
-
-
-      if (isStatusColumn(key)) {
-
-        value =
-          getStatusHTML(value);
-
-      }
-
-      else {
-
-        value =
-          escapeHTML(value);
-
-      }
-
-
-      const rowClass =
-        isProductColumn(key)
-          ? "mobile-product"
-          : "";
-
-
-      mobile +=
-        createMobileRow(
-          getMobileLabel(key),
-          value,
-          rowClass
-        );
-
-    });
-
-
-    /* EXTRAS */
-
-    if (extraKeys.length > 0) {
+        });
 
 
       mobile += `
-        <div
-          class="mobile-extra"
-          id="extra-${orderIndex}"
-        >
+        <div class="mobile-order">
       `;
 
 
-      extraKeys.forEach(key => {
+      mainKeys.forEach(key => {
+
 
         let value =
           row[key] ?? "-";
@@ -1013,45 +1068,80 @@ function renderOrders(data) {
         }
 
 
+        const rowClass =
+          isProductColumn(key)
+            ? "mobile-product"
+            : "";
+
+
         mobile +=
           createMobileRow(
             getMobileLabel(key),
-            value
+            value,
+            rowClass
           );
 
       });
 
 
+      if (extraKeys.length > 0) {
+
+
+        mobile += `
+          <div
+            class="mobile-extra"
+            id="extra-${orderIndex}"
+          >
+        `;
+
+
+        extraKeys.forEach(key => {
+
+
+          let value =
+            row[key] ?? "-";
+
+
+          value =
+            escapeHTML(value);
+
+
+          mobile +=
+            createMobileRow(
+              getMobileLabel(key),
+              value
+            );
+
+        });
+
+
+        mobile +=
+          "</div>";
+
+
+        mobile += `
+          <button
+            type="button"
+            class="show-more-button"
+            data-target="extra-${orderIndex}"
+          >
+            Show more ▼
+          </button>
+        `;
+
+      }
+
+
       mobile +=
         "</div>";
 
-
-      mobile += `
-        <button
-          type="button"
-          class="show-more-button"
-          data-target="extra-${orderIndex}"
-        >
-          Mostrar más ▼
-        </button>
-      `;
-
     }
-
-
-    mobile +=
-      "</div>";
-
-  });
+  );
 
 
   mobile +=
     "</div>";
 
-
-  /* ===================================================
-     FINAL
-  =================================================== */
 
   results.innerHTML =
     desktop + mobile;
@@ -1062,9 +1152,9 @@ function renderOrders(data) {
 }
 
 
-/* =====================================================
-   MOSTRAR MÁS / MENOS
-===================================================== */
+/* =========================
+   SHOW MORE
+========================= */
 
 function activateShowMoreButtons() {
 
@@ -1076,52 +1166,50 @@ function activateShowMoreButtons() {
 
   buttons.forEach(button => {
 
+
     button.addEventListener(
       "click",
       function() {
 
-        const targetId =
-          this.dataset.target;
 
-
-        const extra =
+        const target =
           document.getElementById(
-            targetId
+            this.dataset.target
           );
 
 
-        if (!extra) {
+        if (!target) {
           return;
         }
 
 
         const isOpen =
-          extra.classList.contains(
+          target.classList.contains(
             "open"
           );
 
 
         if (isOpen) {
 
-          extra.classList.remove(
+          target.classList.remove(
             "open"
           );
 
 
           this.textContent =
-            "Mostrar más ▼";
+            "Show more ▼";
 
         }
 
         else {
 
-          extra.classList.add(
+          target.classList.add(
             "open"
           );
 
 
           this.textContent =
-            "Mostrar menos ▲";
+            "Show less ▲";
 
         }
 
@@ -1133,9 +1221,9 @@ function activateShowMoreButtons() {
 }
 
 
-/* =====================================================
-   SEARCH BUTTON
-===================================================== */
+/* =========================
+   EVENTS
+========================= */
 
 document
   .getElementById("searchButton")
@@ -1145,9 +1233,19 @@ document
   );
 
 
-/* =====================================================
-   ENTER = SEARCH
-===================================================== */
+document
+  .getElementById("statusFilter")
+  .addEventListener(
+    "change",
+    function() {
+
+      if (allOrders.length > 0) {
+        applyStatusFilter();
+      }
+
+    }
+  );
+
 
 document
   .getElementById("userid")
@@ -1166,9 +1264,7 @@ document
     }
   );
 
-
 </script>
-
 
 </body>
 </html>
