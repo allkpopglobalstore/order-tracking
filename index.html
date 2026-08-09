@@ -10,10 +10,6 @@
 
 <style>
 
-/* =====================================================
-   GENERAL
-===================================================== */
-
 * {
   box-sizing: border-box;
 }
@@ -38,17 +34,22 @@ body {
 }
 
 
-/* =====================================================
-   SEARCH AREA
-===================================================== */
+/* =========================
+   SEARCH
+========================= */
 
 .top {
   width: 100%;
   max-width: 700px;
-  margin: 0 auto 12px auto;
+
+  margin:
+    0 auto 10px auto;
 
   display: grid;
-  grid-template-columns: 1fr 1fr;
+
+  grid-template-columns:
+    1fr 1fr;
+
   gap: 10px;
 }
 
@@ -58,9 +59,12 @@ body {
 
 .search-label {
   display: block;
-  margin: 0 0 6px 2px;
+
+  margin:
+    0 0 6px 2px;
 
   font-size: 12px;
+
   font-weight: 600;
 
   color: #555;
@@ -68,12 +72,15 @@ body {
 
 .top input,
 .top select {
+
   width: 100%;
   min-width: 0;
 
   padding: 14px;
 
-  border: 1px solid #ccc;
+  border:
+    1px solid #ccc;
+
   border-radius: 9px;
 
   background: white;
@@ -85,116 +92,171 @@ body {
 
 .top input:focus,
 .top select:focus {
+
   border-color: #777;
 }
 
 .top button {
-  grid-column: 1 / -1;
+
+  grid-column:
+    1 / -1;
 
   width: 100%;
 
-  padding: 14px 16px;
+  padding:
+    14px 16px;
 
   background: black;
+
   color: white;
 
   border: none;
+
   border-radius: 9px;
 
   cursor: pointer;
 
   font-size: 15px;
+
   font-weight: 600;
 }
 
 
-/* =====================================================
-   NOTE
-===================================================== */
+/* =========================
+   INFO + LIKE
+========================= */
 
-.order-note {
+.info-bar {
+
   width: 100%;
   max-width: 700px;
 
-  margin: 0 auto 10px auto;
+  margin:
+    0 auto 18px auto;
 
-  padding: 9px 12px;
+  padding:
+    9px 12px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content:
+    space-between;
+
+  gap: 12px;
 
   background: white;
 
-  border: 1px solid #e6e6e6;
+  border:
+    1px solid #e6e6e6;
+
   border-radius: 8px;
+}
+
+.info-message {
 
   color: #666;
 
-  text-align: center;
-
   font-size: 11px;
-  line-height: 1.4;
+
+  line-height: 1.35;
+
+  flex: 1;
 }
 
+.info-icon {
 
-/* =====================================================
-   LIKE
-===================================================== */
+  margin-right: 4px;
+}
 
 .like-area {
-  width: 100%;
-  max-width: 700px;
-
-  margin: 0 auto 18px auto;
 
   display: flex;
-  align-items: center;
-  justify-content: center;
 
-  gap: 8px;
+  align-items: center;
+
+  justify-content:
+    flex-end;
+
+  gap: 6px;
+
+  flex-shrink: 0;
 }
 
 .like-button {
-  padding: 8px 14px;
 
-  border: 1px solid #ddd;
-  border-radius: 20px;
+  width: 30px;
+  height: 30px;
+
+  padding: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid #ddd;
+
+  border-radius: 50%;
 
   background: white;
 
-  color: #333;
+  color: #555;
 
   cursor: pointer;
 
-  font-size: 12px;
+  font-size: 16px;
+
+  line-height: 1;
 
   transition: 0.2s;
 }
 
 .like-button:hover {
-  background: #f5f5f5;
+
+  background: #fff4f6;
+
+  border-color: #ffc5d0;
 }
 
 .like-button.liked {
+
   background: #fff0f3;
 
   border-color: #ffc5d0;
 
-  color: #d63357;
+  color: #e63961;
+}
+
+.like-button:disabled {
+
+  cursor: default;
+
+  opacity: 1;
 }
 
 .like-count {
+
   color: #777;
 
-  font-size: 11px;
+  font-size: 10px;
+
+  white-space: nowrap;
 }
 
 
-/* =====================================================
+/* =========================
    RESULT SUMMARY
-===================================================== */
+========================= */
 
 .result-summary {
+
   max-width: 700px;
 
-  margin: 0 auto 16px auto;
+  margin:
+    0 auto 16px auto;
 
   font-size: 12px;
 
@@ -204,11 +266,12 @@ body {
 }
 
 
-/* =====================================================
+/* =========================
    MESSAGES
-===================================================== */
+========================= */
 
 .card {
+
   background: white;
 
   padding: 15px;
@@ -218,10 +281,12 @@ body {
   margin-bottom: 10px;
 
   box-shadow:
-    0 2px 8px rgba(0,0,0,0.05);
+    0 2px 8px
+    rgba(0,0,0,0.05);
 }
 
 .loading {
+
   text-align: center;
 
   padding: 20px;
@@ -230,6 +295,7 @@ body {
 }
 
 .error {
+
   background: #ffe6e6;
 
   color: #b30000;
@@ -240,17 +306,20 @@ body {
 }
 
 
-/* =====================================================
+/* =========================
    STATUS
-===================================================== */
+========================= */
 
 .status {
+
   display: inline-flex;
 
   align-items: center;
+
   justify-content: center;
 
-  padding: 5px 10px;
+  padding:
+    5px 10px;
 
   border-radius: 20px;
 
@@ -262,9 +331,9 @@ body {
 }
 
 
-/* =====================================================
-   DESKTOP TABLE
-===================================================== */
+/* =========================
+   DESKTOP
+========================= */
 
 .desktop-view {
   display: block;
@@ -275,9 +344,11 @@ body {
 }
 
 table {
+
   width: 100%;
 
-  border-collapse: collapse;
+  border-collapse:
+    collapse;
 
   background: white;
 
@@ -290,7 +361,9 @@ table {
 
 th,
 td {
-  padding: 12px 10px;
+
+  padding:
+    12px 10px;
 
   border-bottom:
     1px solid #eee;
@@ -303,6 +376,7 @@ td {
 }
 
 th {
+
   background: #111;
 
   color: white;
@@ -311,11 +385,12 @@ th {
 }
 
 
-/* =====================================================
+/* =========================
    MOBILE ORDER
-===================================================== */
+========================= */
 
 .mobile-order {
+
   background: white;
 
   border:
@@ -329,6 +404,7 @@ th {
 }
 
 .mobile-row {
+
   display: grid;
 
   grid-template-columns:
@@ -339,13 +415,16 @@ th {
 }
 
 .mobile-row:last-child {
+
   border-bottom: none;
 }
 
 .mobile-label {
+
   background: #f7f7f7;
 
-  padding: 11px 10px;
+  padding:
+    11px 10px;
 
   font-size: 11px;
 
@@ -359,7 +438,9 @@ th {
 }
 
 .mobile-value {
-  padding: 11px 10px;
+
+  padding:
+    11px 10px;
 
   font-size: 12px;
 
@@ -370,36 +451,46 @@ th {
   overflow-wrap: anywhere;
 }
 
-.mobile-product .mobile-label {
+.mobile-product
+.mobile-label {
+
   background: #f1f1f1;
 }
 
-.mobile-product .mobile-value {
+.mobile-product
+.mobile-value {
+
   font-weight: 600;
 
   font-size: 13px;
 }
 
-.mobile-value .status {
+.mobile-value
+.status {
+
   font-size: 10px;
 
-  padding: 4px 7px;
+  padding:
+    4px 7px;
 }
 
 
-/* =====================================================
+/* =========================
    SHOW MORE
-===================================================== */
+========================= */
 
 .mobile-extra {
+
   display: none;
 }
 
 .mobile-extra.open {
+
   display: block;
 }
 
 .show-more-button {
+
   width: 100%;
 
   padding: 11px;
@@ -421,61 +512,91 @@ th {
 }
 
 
-/* =====================================================
+/* =========================
    MOBILE
-===================================================== */
+========================= */
 
-@media (max-width: 768px) {
+@media
+(max-width: 768px) {
 
   body {
+
     overflow-x: hidden;
   }
 
   .container {
+
     width: 100%;
+
     max-width: 100%;
 
     padding: 12px;
   }
 
   .top {
+
     gap: 7px;
 
-    margin-bottom: 10px;
+    margin-bottom: 9px;
   }
 
   .search-label {
+
     font-size: 10px;
   }
 
   .top input,
   .top select {
-    padding: 11px 9px;
+
+    padding:
+      11px 9px;
 
     font-size: 12px;
   }
 
   .top button {
+
     padding: 12px;
 
     font-size: 14px;
   }
 
-  .order-note {
-    font-size: 10px;
+  .info-bar {
 
-    padding: 8px;
+    padding:
+      8px 9px;
+
+    gap: 7px;
+
+    margin-bottom: 14px;
   }
 
-  .like-area {
-    margin-bottom: 15px;
+  .info-message {
+
+    font-size: 9px;
+  }
+
+  .like-button {
+
+    width: 28px;
+
+    height: 28px;
+
+    font-size: 15px;
+  }
+
+  .like-count {
+
+    font-size: 9px;
   }
 
   .desktop-view {
+
     display: none;
   }
 
   .mobile-view {
+
     display: block;
   }
 
@@ -491,9 +612,7 @@ th {
 <div class="container">
 
 
-  <!-- =================================================
-       SEARCH
-  ================================================== -->
+  <!-- SEARCH -->
 
   <div class="top">
 
@@ -526,7 +645,9 @@ th {
         Order Status
       </label>
 
-      <select id="statusFilter">
+      <select
+        id="statusFilter"
+      >
 
         <option value="">
           All Status
@@ -556,6 +677,10 @@ th {
           In Spain
         </option>
 
+        <option value="DELIVERED">
+          Delivered
+        </option>
+
       </select>
 
     </div>
@@ -572,45 +697,48 @@ th {
   </div>
 
 
-  <!-- =================================================
-       NOTE
-  ================================================== -->
+  <!-- INFO + LIKE -->
 
-  <div class="order-note">
+  <div class="info-bar">
 
-    <strong>Note:</strong>
-    All delivered orders will automatically disappear from the list.
+
+    <div class="info-message">
+
+      <span class="info-icon">
+        ⓘ
+      </span>
+
+      Delivered orders remain visible for 30 days.
+
+    </div>
+
+
+    <div class="like-area">
+
+      <button
+        id="likeButton"
+        class="like-button"
+        type="button"
+        aria-label="Like this page"
+        title="Like this page"
+      >
+        ♡
+      </button>
+
+      <span
+        id="likeCount"
+        class="like-count"
+      >
+        Loading...
+      </span>
+
+    </div>
+
 
   </div>
 
 
-  <!-- =================================================
-       LIKE
-  ================================================== -->
-
-  <div class="like-area">
-
-    <button
-      id="likeButton"
-      class="like-button"
-      type="button"
-    >
-      ♡ Like this page
-    </button>
-
-    <span
-      id="likeCount"
-      class="like-count"
-    >
-      Loading...
-    </span>
-
-  </div>
-
-
-  <!-- =================================================
-       RESULT COUNT
-  ================================================== -->
+  <!-- RESULT SUMMARY -->
 
   <div
     id="resultSummary"
@@ -618,9 +746,7 @@ th {
   ></div>
 
 
-  <!-- =================================================
-       RESULTS
-  ================================================== -->
+  <!-- RESULTS -->
 
   <div id="results"></div>
 
@@ -631,10 +757,6 @@ th {
 <script>
 
 
-/* =====================================================
-   API
-===================================================== */
-
 const API_URL =
 "https://script.google.com/macros/s/AKfycbz80y4d-Ot7gRRKQBr0HZ_iO4stEpMIAMC6NjPy5dOiwXRzHkPkzKsmFq97cPWcf9i_/exec";
 
@@ -642,9 +764,9 @@ const API_URL =
 let allOrders = [];
 
 
-/* =====================================================
-   NORMALIZE HEADER
-===================================================== */
+/* =========================
+   NORMALIZE
+========================= */
 
 function normalizeHeader(key) {
 
@@ -656,27 +778,46 @@ function normalizeHeader(key) {
       /[👤📍📅🏢✈️📦🚩🗓️]/g,
       ""
     )
-    .replace(/\s+/g, " ")
+    .replace(
+      /\s+/g,
+      " "
+    )
     .trim();
 
 }
 
 
-/* =====================================================
-   NORMALIZE STATUS
-===================================================== */
-
-function normalizeStatus(value) {
+function normalizeStatus(
+  value
+) {
 
   return (value || "")
     .toString()
 
-    .replace(/\u00A0/g, " ")
-    .replace(/\u200B/g, "")
-    .replace(/\u200C/g, "")
-    .replace(/\u200D/g, "")
+    .replace(
+      /\u00A0/g,
+      " "
+    )
 
-    .replace(/\s+/g, " ")
+    .replace(
+      /\u200B/g,
+      ""
+    )
+
+    .replace(
+      /\u200C/g,
+      ""
+    )
+
+    .replace(
+      /\u200D/g,
+      ""
+    )
+
+    .replace(
+      /\s+/g,
+      " "
+    )
 
     .trim()
 
@@ -685,30 +826,55 @@ function normalizeStatus(value) {
 }
 
 
-/* =====================================================
-   ESCAPE HTML
-===================================================== */
+/* =========================
+   ESCAPE
+========================= */
 
-function escapeHTML(value) {
+function escapeHTML(
+  value
+) {
 
-  return String(value ?? "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
+  return String(
+    value ?? ""
+  )
+
+    .replace(
+      /&/g,
+      "&amp;"
+    )
+
+    .replace(
+      /</g,
+      "&lt;"
+    )
+
+    .replace(
+      />/g,
+      "&gt;"
+    )
+
+    .replace(
+      /"/g,
+      "&quot;"
+    )
+
+    .replace(
+      /'/g,
+      "&#039;"
+    );
 
 }
 
 
-/* =====================================================
+/* =========================
    COLUMN TYPES
-===================================================== */
+========================= */
 
 function isIdColumn(key) {
 
   return (
-    normalizeHeader(key) === "id"
+    normalizeHeader(key)
+    === "id"
   );
 
 }
@@ -730,7 +896,8 @@ function isUserIdColumn(key) {
 function isProductColumn(key) {
 
   return (
-    normalizeHeader(key) === "producto"
+    normalizeHeader(key)
+    === "producto"
   );
 
 }
@@ -742,11 +909,23 @@ function isItemColumn(key) {
     normalizeHeader(key);
 
   return (
+
     k === "" ||
+
     k === "item" ||
-    k.includes("producto comprado") ||
-    k.includes("product name") ||
-    k.includes("description")
+
+    k.includes(
+      "producto comprado"
+    ) ||
+
+    k.includes(
+      "product name"
+    ) ||
+
+    k.includes(
+      "description"
+    )
+
   );
 
 }
@@ -789,14 +968,18 @@ function isMonthColumn(key) {
 }
 
 
-/* =====================================================
+/* =========================
    LABELS
-===================================================== */
+========================= */
 
 function getDesktopLabel(key) {
 
-  if (isItemColumn(key)) {
+  if (
+    isItemColumn(key)
+  ) {
+
     return "ITEM";
+
   }
 
   return key;
@@ -806,27 +989,44 @@ function getDesktopLabel(key) {
 
 function getMobileLabel(key) {
 
-  if (isProductColumn(key)) {
+  if (
+    isProductColumn(key)
+  ) {
     return "PRODUCT";
   }
 
-  if (isItemColumn(key)) {
+
+  if (
+    isItemColumn(key)
+  ) {
     return "ITEM";
   }
 
-  if (isPaymentColumn(key)) {
+
+  if (
+    isPaymentColumn(key)
+  ) {
     return "PAYMENT";
   }
 
-  if (isShippingColumn(key)) {
+
+  if (
+    isShippingColumn(key)
+  ) {
     return "SHIPPING TO ES";
   }
 
-  if (isStatusColumn(key)) {
+
+  if (
+    isStatusColumn(key)
+  ) {
     return "STATUS";
   }
 
-  if (isMonthColumn(key)) {
+
+  if (
+    isMonthColumn(key)
+  ) {
     return "MONTH";
   }
 
@@ -835,27 +1035,52 @@ function getMobileLabel(key) {
     normalizeHeader(key);
 
 
-  if (clean === "pob") {
+  if (
+    clean === "pob"
+  ) {
     return "POB";
   }
 
-  if (clean === "#") {
+
+  if (
+    clean === "#"
+  ) {
     return "#";
   }
 
-  if (clean.includes("purchase")) {
+
+  if (
+    clean.includes(
+      "purchase"
+    )
+  ) {
     return "PURCHASE DATE";
   }
 
-  if (clean.includes("warehouse")) {
+
+  if (
+    clean.includes(
+      "warehouse"
+    )
+  ) {
     return "WAREHOUSE";
   }
 
-  if (clean.includes("departure")) {
+
+  if (
+    clean.includes(
+      "departure"
+    )
+  ) {
     return "DEPARTURE";
   }
 
-  if (clean.includes("arrival")) {
+
+  if (
+    clean.includes(
+      "arrival"
+    )
+  ) {
     return "ARRIVAL";
   }
 
@@ -865,14 +1090,15 @@ function getMobileLabel(key) {
 }
 
 
-/* =====================================================
+/* =========================
    STATUS
-===================================================== */
+========================= */
 
 function getOrderStatus(row) {
 
   const statusKey =
-    Object.keys(row)
+    Object
+      .keys(row)
       .find(
         key =>
           isStatusColumn(key)
@@ -880,7 +1106,9 @@ function getOrderStatus(row) {
 
 
   if (!statusKey) {
+
     return "";
+
   }
 
 
@@ -891,7 +1119,9 @@ function getOrderStatus(row) {
 }
 
 
-function getStatusHTML(value) {
+function getStatusHTML(
+  value
+) {
 
   const originalValue =
     value ?? "-";
@@ -907,49 +1137,63 @@ function getStatusHTML(value) {
     "#999";
 
 
-  if (v === "DELIVERED") {
+  if (
+    v === "DELIVERED"
+  ) {
 
     color =
       "#2ecc71";
 
   }
 
-  else if (v === "PURCHASED") {
+  else if (
+    v === "PURCHASED"
+  ) {
 
     color =
       "#f1c40f";
 
   }
 
-  else if (v === "IN WAREHOUSE KR") {
+  else if (
+    v === "IN WAREHOUSE KR"
+  ) {
 
     color =
       "#9b59b6";
 
   }
 
-  else if (v === "IN SPAIN") {
+  else if (
+    v === "IN SPAIN"
+  ) {
 
     color =
       "#3498db";
 
   }
 
-  else if (v === "TO BUY") {
+  else if (
+    v === "TO BUY"
+  ) {
 
     color =
       "#e74c3c";
 
   }
 
-  else if (v === "IN WAREHOUSE CH") {
+  else if (
+    v === "IN WAREHOUSE CH"
+  ) {
 
     color =
       "#e67e22";
 
   }
 
-  else if (v === "IN TRANSIT TO ES") {
+  else if (
+    v === "IN TRANSIT TO ES"
+  ) {
 
     color =
       "#ff69b4";
@@ -962,30 +1206,38 @@ function getStatusHTML(value) {
       class="status"
       style="background:${color};"
     >
-      ${escapeHTML(originalValue)}
+      ${escapeHTML(
+        originalValue
+      )}
     </span>
   `;
 
 }
 
 
-/* =====================================================
-   LIKE SYSTEM
-===================================================== */
+/* =========================
+   LIKE
+========================= */
 
 function hasLiked() {
 
   try {
 
     return (
-      localStorage.getItem(
-        "allkpopOrderTrackingLiked"
-      ) === "yes"
+
+      localStorage
+        .getItem(
+          "allkpopOrderTrackingLiked"
+        )
+      === "yes"
+
     );
 
   }
 
-  catch (error) {
+  catch (
+    error
+  ) {
 
     return false;
 
@@ -998,16 +1250,21 @@ function saveLikeLocally() {
 
   try {
 
-    localStorage.setItem(
-      "allkpopOrderTrackingLiked",
-      "yes"
-    );
+    localStorage
+      .setItem(
+        "allkpopOrderTrackingLiked",
+        "yes"
+      );
 
   }
 
-  catch (error) {
+  catch (
+    error
+  ) {
 
-    console.error(error);
+    console.error(
+      error
+    );
 
   }
 
@@ -1017,20 +1274,24 @@ function saveLikeLocally() {
 function setLikedButton() {
 
   const button =
-    document.getElementById(
-      "likeButton"
-    );
+    document
+      .getElementById(
+        "likeButton"
+      );
 
 
-  if (hasLiked()) {
+  if (
+    hasLiked()
+  ) {
 
     button.textContent =
-      "♥ Liked";
+      "♥";
 
 
-    button.classList.add(
-      "liked"
-    );
+    button.classList
+      .add(
+        "liked"
+      );
 
 
     button.disabled =
@@ -1041,16 +1302,17 @@ function setLikedButton() {
 }
 
 
-/* =====================================================
+/* =========================
    LOAD LIKES
-===================================================== */
+========================= */
 
 async function loadLikes() {
 
-  const countElement =
-    document.getElementById(
-      "likeCount"
-    );
+  const count =
+    document
+      .getElementById(
+        "likeCount"
+      );
 
 
   try {
@@ -1063,14 +1325,17 @@ async function loadLikes() {
 
 
     const data =
-      await response.json();
+      await response
+        .json();
 
 
     const likes =
-      Number(data.likes) || 0;
+      Number(
+        data.likes
+      ) || 0;
 
 
-    countElement.textContent =
+    count.textContent =
       likes +
       (
         likes === 1
@@ -1080,12 +1345,16 @@ async function loadLikes() {
 
   }
 
-  catch (error) {
+  catch (
+    error
+  ) {
 
-    console.error(error);
+    console.error(
+      error
+    );
 
 
-    countElement.textContent =
+    count.textContent =
       "";
 
   }
@@ -1093,13 +1362,15 @@ async function loadLikes() {
 }
 
 
-/* =====================================================
+/* =========================
    GIVE LIKE
-===================================================== */
+========================= */
 
 async function likePage() {
 
-  if (hasLiked()) {
+  if (
+    hasLiked()
+  ) {
 
     setLikedButton();
 
@@ -1109,9 +1380,10 @@ async function likePage() {
 
 
   const button =
-    document.getElementById(
-      "likeButton"
-    );
+    document
+      .getElementById(
+        "likeButton"
+      );
 
 
   button.disabled =
@@ -1119,7 +1391,7 @@ async function likePage() {
 
 
   button.textContent =
-    "♥ Liking...";
+    "♥";
 
 
   try {
@@ -1132,23 +1404,31 @@ async function likePage() {
 
 
     const data =
-      await response.json();
+      await response
+        .json();
 
 
     const likes =
-      Number(data.likes) || 0;
+      Number(
+        data.likes
+      ) || 0;
 
 
     saveLikeLocally();
 
 
     button.textContent =
-      "♥ Liked";
+      "♥";
 
 
-    button.classList.add(
-      "liked"
-    );
+    button.classList
+      .add(
+        "liked"
+      );
+
+
+    button.disabled =
+      true;
 
 
     document
@@ -1165,9 +1445,13 @@ async function likePage() {
 
   }
 
-  catch (error) {
+  catch (
+    error
+  ) {
 
-    console.error(error);
+    console.error(
+      error
+    );
 
 
     button.disabled =
@@ -1175,29 +1459,31 @@ async function likePage() {
 
 
     button.textContent =
-      "♡ Like this page";
+      "♡";
 
   }
 
 }
 
 
-/* =====================================================
+/* =========================
    SEARCH
-===================================================== */
+========================= */
 
 async function search() {
 
   const results =
-    document.getElementById(
-      "results"
-    );
+    document
+      .getElementById(
+        "results"
+      );
 
 
   const summary =
-    document.getElementById(
-      "resultSummary"
-    );
+    document
+      .getElementById(
+        "resultSummary"
+      );
 
 
   const userId =
@@ -1209,7 +1495,9 @@ async function search() {
       .trim();
 
 
-  if (!userId) {
+  if (
+    !userId
+  ) {
 
     results.innerHTML =
       "<div class='error'>Enter your Instagram User ID</div>";
@@ -1247,7 +1535,9 @@ async function search() {
       await fetch(url);
 
 
-    if (!response.ok) {
+    if (
+      !response.ok
+    ) {
 
       throw new Error(
         "HTTP error"
@@ -1257,10 +1547,15 @@ async function search() {
 
 
     const data =
-      await response.json();
+      await response
+        .json();
 
 
-    if (!Array.isArray(data)) {
+    if (
+      !Array.isArray(
+        data
+      )
+    ) {
 
       throw new Error(
         "API error"
@@ -1270,27 +1565,27 @@ async function search() {
 
 
     /*
-     * DELIVERED ORDERS
-     * ARE REMOVED FROM RESULTS
-    */
+     * Backend already removes
+     * DELIVERED orders older
+     * than 30 days.
+     */
 
     allOrders =
-      data.filter(
-        order =>
-          getOrderStatus(order)
-          !== "DELIVERED"
-      );
+      data;
 
 
     applyStatusFilter();
 
-
   }
 
-  catch (error) {
+  catch (
+    error
+  ) {
 
 
-    console.error(error);
+    console.error(
+      error
+    );
 
 
     results.innerHTML =
@@ -1305,20 +1600,21 @@ async function search() {
 }
 
 
-/* =====================================================
-   FILTER STATUS
-===================================================== */
+/* =========================
+   FILTER
+========================= */
 
 function applyStatusFilter() {
 
-
   const selectedStatus =
     normalizeStatus(
+
       document
         .getElementById(
           "statusFilter"
         )
         .value
+
     );
 
 
@@ -1326,17 +1622,23 @@ function applyStatusFilter() {
     [...allOrders];
 
 
-  if (selectedStatus) {
+  if (
+    selectedStatus
+  ) {
 
 
     filtered =
-      allOrders.filter(
-        order =>
+      allOrders
+        .filter(
+          order =>
 
-          getOrderStatus(order)
-          === selectedStatus
+            getOrderStatus(
+              order
+            )
+            ===
+            selectedStatus
 
-      );
+        );
 
   }
 
@@ -1355,9 +1657,9 @@ function applyStatusFilter() {
 }
 
 
-/* =====================================================
-   RESULT SUMMARY
-===================================================== */
+/* =========================
+   SUMMARY
+========================= */
 
 function updateResultSummary(
   visible,
@@ -1365,14 +1667,16 @@ function updateResultSummary(
   status
 ) {
 
-
   const summary =
-    document.getElementById(
-      "resultSummary"
-    );
+    document
+      .getElementById(
+        "resultSummary"
+      );
 
 
-  if (total === 0) {
+  if (
+    total === 0
+  ) {
 
     summary.innerHTML =
       "";
@@ -1382,8 +1686,9 @@ function updateResultSummary(
   }
 
 
-  if (!status) {
-
+  if (
+    !status
+  ) {
 
     summary.textContent =
       total +
@@ -1397,7 +1702,6 @@ function updateResultSummary(
 
   else {
 
-
     summary.textContent =
       visible +
       " of " +
@@ -1409,9 +1713,9 @@ function updateResultSummary(
 }
 
 
-/* =====================================================
+/* =========================
    MOBILE ROW
-===================================================== */
+========================= */
 
 function createMobileRow(
   label,
@@ -1442,24 +1746,25 @@ function createMobileRow(
 }
 
 
-/* =====================================================
-   RENDER ORDERS
-===================================================== */
+/* =========================
+   RENDER
+========================= */
 
-function renderOrders(data) {
-
+function renderOrders(
+  data
+) {
 
   const results =
-    document.getElementById(
-      "results"
-    );
+    document
+      .getElementById(
+        "results"
+      );
 
 
   if (
     !data ||
     data.length === 0
   ) {
-
 
     results.innerHTML =
       "<div class='card'>No orders found for this status</div>";
@@ -1476,23 +1781,25 @@ function renderOrders(data) {
     );
 
 
-  /* ===================================================
-     DESKTOP
-     NO ID
-     NO USER ID
-  =================================================== */
+  /* DESKTOP */
 
   const desktopKeys =
     keys.filter(
       key => {
 
-        if (isIdColumn(key)) {
+        if (
+          isIdColumn(key)
+        ) {
           return false;
         }
 
-        if (isUserIdColumn(key)) {
+
+        if (
+          isUserIdColumn(key)
+        ) {
           return false;
         }
+
 
         return true;
 
@@ -1512,20 +1819,21 @@ function renderOrders(data) {
     "<thead><tr>";
 
 
-  desktopKeys.forEach(
-    key => {
+  desktopKeys
+    .forEach(
+      key => {
 
 
-      desktop += `
-        <th>
-          ${escapeHTML(
-            getDesktopLabel(key)
-          )}
-        </th>
-      `;
+        desktop += `
+          <th>
+            ${escapeHTML(
+              getDesktopLabel(key)
+            )}
+          </th>
+        `;
 
-    }
-  );
+      }
+    );
 
 
   desktop +=
@@ -1544,42 +1852,47 @@ function renderOrders(data) {
         "<tr>";
 
 
-      desktopKeys.forEach(
-        key => {
+      desktopKeys
+        .forEach(
+          key => {
 
 
-          let value =
-            row[key] ??
-            "-";
+            let value =
+              row[key] ??
+              "-";
 
 
-          if (
-            isStatusColumn(key)
-          ) {
+            if (
+              isStatusColumn(
+                key
+              )
+            ) {
+
+              value =
+                getStatusHTML(
+                  value
+                );
+
+            }
+
+            else {
+
+              value =
+                escapeHTML(
+                  value
+                );
+
+            }
 
 
-            value =
-              getStatusHTML(value);
+            desktop += `
+              <td>
+                ${value}
+              </td>
+            `;
 
           }
-
-          else {
-
-
-            value =
-              escapeHTML(value);
-
-          }
-
-
-          desktop += `
-            <td>
-              ${value}
-            </td>
-          `;
-
-        }
-      );
+        );
 
 
       desktop +=
@@ -1597,16 +1910,17 @@ function renderOrders(data) {
     "</div>";
 
 
-  /* ===================================================
-     MOBILE
-  =================================================== */
+  /* MOBILE */
 
   let mobile =
     "<div class='mobile-view'>";
 
 
   data.forEach(
-    (row, orderIndex) => {
+    (
+      row,
+      orderIndex
+    ) => {
 
 
       const mainKeys =
@@ -1615,17 +1929,29 @@ function renderOrders(data) {
 
             return (
 
-              isProductColumn(key) ||
+              isProductColumn(
+                key
+              ) ||
 
-              isItemColumn(key) ||
+              isItemColumn(
+                key
+              ) ||
 
-              isPaymentColumn(key) ||
+              isPaymentColumn(
+                key
+              ) ||
 
-              isShippingColumn(key) ||
+              isShippingColumn(
+                key
+              ) ||
 
-              isStatusColumn(key) ||
+              isStatusColumn(
+                key
+              ) ||
 
-              isMonthColumn(key)
+              isMonthColumn(
+                key
+              )
 
             );
 
@@ -1638,18 +1964,25 @@ function renderOrders(data) {
           key => {
 
 
-            if (isIdColumn(key)) {
-              return false;
-            }
-
-
-            if (isUserIdColumn(key)) {
+            if (
+              isIdColumn(key)
+            ) {
               return false;
             }
 
 
             if (
-              mainKeys.includes(key)
+              isUserIdColumn(key)
+            ) {
+              return false;
+            }
+
+
+            if (
+              mainKeys
+                .includes(
+                  key
+                )
             ) {
               return false;
             }
@@ -1662,61 +1995,69 @@ function renderOrders(data) {
 
 
       mobile += `
-        <div class="mobile-order">
+        <div
+          class="mobile-order"
+        >
       `;
 
 
-      /* MAIN INFORMATION */
-
-      mainKeys.forEach(
-        key => {
-
-
-          let value =
-            row[key] ??
-            "-";
+      mainKeys
+        .forEach(
+          key => {
 
 
-          if (
-            isStatusColumn(key)
-          ) {
+            let value =
+              row[key] ??
+              "-";
 
 
-            value =
-              getStatusHTML(value);
+            if (
+              isStatusColumn(
+                key
+              )
+            ) {
+
+              value =
+                getStatusHTML(
+                  value
+                );
+
+            }
+
+            else {
+
+              value =
+                escapeHTML(
+                  value
+                );
+
+            }
+
+
+            const rowClass =
+              isProductColumn(
+                key
+              )
+                ? "mobile-product"
+                : "";
+
+
+            mobile +=
+              createMobileRow(
+                getMobileLabel(
+                  key
+                ),
+                value,
+                rowClass
+              );
 
           }
+        );
 
-          else {
-
-
-            value =
-              escapeHTML(value);
-
-          }
-
-
-          const rowClass =
-            isProductColumn(key)
-              ? "mobile-product"
-              : "";
-
-
-          mobile +=
-            createMobileRow(
-              getMobileLabel(key),
-              value,
-              rowClass
-            );
-
-        }
-      );
-
-
-      /* EXTRA INFORMATION */
 
       if (
-        extraKeys.length > 0
+        extraKeys.length >
+        0
       ) {
 
 
@@ -1728,27 +2069,32 @@ function renderOrders(data) {
         `;
 
 
-        extraKeys.forEach(
-          key => {
+        extraKeys
+          .forEach(
+            key => {
 
 
-            let value =
-              row[key] ??
-              "-";
+              let value =
+                row[key] ??
+                "-";
 
 
-            value =
-              escapeHTML(value);
+              value =
+                escapeHTML(
+                  value
+                );
 
 
-            mobile +=
-              createMobileRow(
-                getMobileLabel(key),
-                value
-              );
+              mobile +=
+                createMobileRow(
+                  getMobileLabel(
+                    key
+                  ),
+                  value
+                );
 
-          }
-        );
+            }
+          );
 
 
         mobile +=
@@ -1789,83 +2135,98 @@ function renderOrders(data) {
 }
 
 
-/* =====================================================
-   SHOW MORE / SHOW LESS
-===================================================== */
+/* =========================
+   SHOW MORE
+========================= */
 
 function activateShowMoreButtons() {
 
-
   const buttons =
-    document.querySelectorAll(
-      ".show-more-button"
-    );
-
-
-  buttons.forEach(
-    button => {
-
-
-      button.addEventListener(
-        "click",
-        function() {
-
-
-          const target =
-            document.getElementById(
-              this.dataset.target
-            );
-
-
-          if (!target) {
-            return;
-          }
-
-
-          const isOpen =
-            target.classList.contains(
-              "open"
-            );
-
-
-          if (isOpen) {
-
-
-            target.classList.remove(
-              "open"
-            );
-
-
-            this.textContent =
-              "Show more ▼";
-
-          }
-
-          else {
-
-
-            target.classList.add(
-              "open"
-            );
-
-
-            this.textContent =
-              "Show less ▲";
-
-          }
-
-        }
+    document
+      .querySelectorAll(
+        ".show-more-button"
       );
 
-    }
-  );
+
+  buttons
+    .forEach(
+      button => {
+
+
+        button
+          .addEventListener(
+            "click",
+            function() {
+
+
+              const target =
+                document
+                  .getElementById(
+                    this
+                      .dataset
+                      .target
+                  );
+
+
+              if (
+                !target
+              ) {
+                return;
+              }
+
+
+              const isOpen =
+                target
+                  .classList
+                  .contains(
+                    "open"
+                  );
+
+
+              if (
+                isOpen
+              ) {
+
+                target
+                  .classList
+                  .remove(
+                    "open"
+                  );
+
+
+                this
+                  .textContent =
+                  "Show more ▼";
+
+              }
+
+              else {
+
+                target
+                  .classList
+                  .add(
+                    "open"
+                  );
+
+
+                this
+                  .textContent =
+                  "Show less ▲";
+
+              }
+
+            }
+          );
+
+      }
+    );
 
 }
 
 
-/* =====================================================
+/* =========================
    EVENTS
-===================================================== */
+========================= */
 
 document
   .getElementById(
@@ -1885,11 +2246,10 @@ document
     "change",
     function() {
 
-
       if (
-        allOrders.length > 0
+        allOrders.length >
+        0
       ) {
-
 
         applyStatusFilter();
 
@@ -1907,14 +2267,13 @@ document
     "keydown",
     function(event) {
 
-
       if (
-        event.key === "Enter"
+        event.key ===
+        "Enter"
       ) {
 
-
-        event.preventDefault();
-
+        event
+          .preventDefault();
 
         search();
 
@@ -1934,9 +2293,7 @@ document
   );
 
 
-/* =====================================================
-   PAGE LOAD
-===================================================== */
+/* PAGE LOAD */
 
 loadLikes();
 
