@@ -41,15 +41,10 @@ body {
 .top {
   width: 100%;
   max-width: 700px;
-
-  margin:
-    0 auto 10px auto;
+  margin: 0 auto 10px auto;
 
   display: grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
+  grid-template-columns: 1fr 1fr;
   gap: 10px;
 }
 
@@ -64,7 +59,6 @@ body {
     0 0 6px 2px;
 
   font-size: 12px;
-
   font-weight: 600;
 
   color: #555;
@@ -194,6 +188,7 @@ body {
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
   border:
@@ -230,11 +225,11 @@ body {
   color: #e63961;
 }
 
-.like-button:disabled {
+.like-button.busy {
 
-  cursor: default;
+  opacity: 0.6;
 
-  opacity: 1;
+  pointer-events: none;
 }
 
 .like-count {
@@ -480,12 +475,10 @@ th {
 ========================= */
 
 .mobile-extra {
-
   display: none;
 }
 
 .mobile-extra.open {
-
   display: block;
 }
 
@@ -612,8 +605,6 @@ th {
 <div class="container">
 
 
-  <!-- SEARCH -->
-
   <div class="top">
 
 
@@ -738,15 +729,11 @@ th {
   </div>
 
 
-  <!-- RESULT SUMMARY -->
-
   <div
     id="resultSummary"
     class="result-summary"
   ></div>
 
-
-  <!-- RESULTS -->
 
   <div id="results"></div>
 
@@ -793,34 +780,27 @@ function normalizeStatus(
 
   return (value || "")
     .toString()
-
     .replace(
       /\u00A0/g,
       " "
     )
-
     .replace(
       /\u200B/g,
       ""
     )
-
     .replace(
       /\u200C/g,
       ""
     )
-
     .replace(
       /\u200D/g,
       ""
     )
-
     .replace(
       /\s+/g,
       " "
     )
-
     .trim()
-
     .toUpperCase();
 
 }
@@ -837,27 +817,22 @@ function escapeHTML(
   return String(
     value ?? ""
   )
-
     .replace(
       /&/g,
       "&amp;"
     )
-
     .replace(
       /</g,
       "&lt;"
     )
-
     .replace(
       />/g,
       "&gt;"
     )
-
     .replace(
       /"/g,
       "&quot;"
     )
-
     .replace(
       /'/g,
       "&#039;"
@@ -1216,7 +1191,7 @@ function getStatusHTML(
 
 
 /* =========================
-   LIKE
+   LIKE STATE
 ========================= */
 
 function hasLiked() {
@@ -1224,13 +1199,11 @@ function hasLiked() {
   try {
 
     return (
-
       localStorage
         .getItem(
           "allkpopOrderTrackingLiked"
         )
       === "yes"
-
     );
 
   }
@@ -1246,15 +1219,32 @@ function hasLiked() {
 }
 
 
-function saveLikeLocally() {
+function saveLikedState(
+  liked
+) {
 
   try {
 
-    localStorage
-      .setItem(
-        "allkpopOrderTrackingLiked",
-        "yes"
-      );
+    if (
+      liked
+    ) {
+
+      localStorage
+        .setItem(
+          "allkpopOrderTrackingLiked",
+          "yes"
+        );
+
+    }
+
+    else {
+
+      localStorage
+        .removeItem(
+          "allkpopOrderTrackingLiked"
+        );
+
+    }
 
   }
 
@@ -1271,7 +1261,11 @@ function saveLikeLocally() {
 }
 
 
-function setLikedButton() {
+/* =========================
+   UPDATE LIKE UI
+========================= */
+
+function updateLikeUI() {
 
   const button =
     document
@@ -1294,10 +1288,72 @@ function setLikedButton() {
       );
 
 
-    button.disabled =
-      true;
+    button.title =
+      "Remove like";
+
+
+    button.setAttribute(
+      "aria-label",
+      "Remove like"
+    );
 
   }
+
+  else {
+
+    button.textContent =
+      "♡";
+
+
+    button.classList
+      .remove(
+        "liked"
+      );
+
+
+    button.title =
+      "Like this page";
+
+
+    button.setAttribute(
+      "aria-label",
+      "Like this page"
+    );
+
+  }
+
+}
+
+
+/* =========================
+   LIKE COUNT
+========================= */
+
+function updateLikeCount(
+  likes
+) {
+
+  const count =
+    document
+      .getElementById(
+        "likeCount"
+      );
+
+
+  const safeLikes =
+    Math.max(
+      0,
+      Number(likes) || 0
+    );
+
+
+  count.textContent =
+    safeLikes +
+    (
+      safeLikes === 1
+        ? " like"
+        : " likes"
+    );
 
 }
 
@@ -1307,13 +1363,6 @@ function setLikedButton() {
 ========================= */
 
 async function loadLikes() {
-
-  const count =
-    document
-      .getElementById(
-        "likeCount"
-      );
-
 
   try {
 
@@ -1329,19 +1378,9 @@ async function loadLikes() {
         .json();
 
 
-    const likes =
-      Number(
-        data.likes
-      ) || 0;
-
-
-    count.textContent =
-      likes +
-      (
-        likes === 1
-          ? " like"
-          : " likes"
-      );
+    updateLikeCount(
+      data.likes
+    );
 
   }
 
@@ -1354,7 +1393,11 @@ async function loadLikes() {
     );
 
 
-    count.textContent =
+    document
+      .getElementById(
+        "likeCount"
+      )
+      .textContent =
       "";
 
   }
@@ -1363,21 +1406,10 @@ async function loadLikes() {
 
 
 /* =========================
-   GIVE LIKE
+   TOGGLE LIKE
 ========================= */
 
-async function likePage() {
-
-  if (
-    hasLiked()
-  ) {
-
-    setLikedButton();
-
-    return;
-
-  }
-
+async function toggleLike() {
 
   const button =
     document
@@ -1386,12 +1418,32 @@ async function likePage() {
       );
 
 
-  button.disabled =
-    true;
+  if (
+    button.classList
+      .contains(
+        "busy"
+      )
+  ) {
+
+    return;
+
+  }
 
 
-  button.textContent =
-    "♥";
+  button.classList
+    .add(
+      "busy"
+    );
+
+
+  const currentlyLiked =
+    hasLiked();
+
+
+  const action =
+    currentlyLiked
+      ? "unlike"
+      : "like";
 
 
   try {
@@ -1399,7 +1451,8 @@ async function likePage() {
     const response =
       await fetch(
         API_URL +
-        "?action=like"
+        "?action=" +
+        action
       );
 
 
@@ -1408,40 +1461,21 @@ async function likePage() {
         .json();
 
 
-    const likes =
-      Number(
-        data.likes
-      ) || 0;
+    /*
+     * Save opposite state
+     */
+
+    saveLikedState(
+      !currentlyLiked
+    );
 
 
-    saveLikeLocally();
+    updateLikeUI();
 
 
-    button.textContent =
-      "♥";
-
-
-    button.classList
-      .add(
-        "liked"
-      );
-
-
-    button.disabled =
-      true;
-
-
-    document
-      .getElementById(
-        "likeCount"
-      )
-      .textContent =
-      likes +
-      (
-        likes === 1
-          ? " like"
-          : " likes"
-      );
+    updateLikeCount(
+      data.likes
+    );
 
   }
 
@@ -1453,13 +1487,14 @@ async function likePage() {
       error
     );
 
+  }
 
-    button.disabled =
-      false;
+  finally {
 
-
-    button.textContent =
-      "♡";
+    button.classList
+      .remove(
+        "busy"
+      );
 
   }
 
@@ -1565,9 +1600,9 @@ async function search() {
 
 
     /*
-     * Backend already removes
-     * DELIVERED orders older
-     * than 30 days.
+     * Apps Script removes
+     * delivered orders only
+     * after 30 days.
      */
 
     allOrders =
@@ -1781,7 +1816,9 @@ function renderOrders(
     );
 
 
-  /* DESKTOP */
+  /* =========================
+     DESKTOP
+  ========================= */
 
   const desktopKeys =
     keys.filter(
@@ -1910,7 +1947,9 @@ function renderOrders(
     "</div>";
 
 
-  /* MOBILE */
+  /* =========================
+     MOBILE
+  ========================= */
 
   let mobile =
     "<div class='mobile-view'>";
@@ -2289,15 +2328,17 @@ document
   )
   .addEventListener(
     "click",
-    likePage
+    toggleLike
   );
 
 
-/* PAGE LOAD */
+/* =========================
+   PAGE LOAD
+========================= */
 
 loadLikes();
 
-setLikedButton();
+updateLikeUI();
 
 
 </script>
