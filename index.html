@@ -13,8 +13,14 @@
   box-sizing: border-box;
 }
 
+html,
 body {
   margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+body {
   font-family: Arial, sans-serif;
   background: #f4f4f4;
 }
@@ -28,7 +34,7 @@ body {
 
 
 /* =========================
-   SEARCH AREA
+   SEARCH
 ========================= */
 
 .top {
@@ -71,7 +77,7 @@ button {
 
 
 /* =========================
-   CARDS / MESSAGES
+   MESSAGES
 ========================= */
 
 .card {
@@ -135,6 +141,9 @@ th {
   color: white;
   font-size: 12px;
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
   white-space: nowrap;
   word-break: keep-all;
   overflow-wrap: normal;
@@ -147,33 +156,42 @@ th {
 
 @media (max-width: 768px) {
 
+  html,
   body {
     width: 100%;
+    max-width: 100%;
     overflow-x: hidden;
   }
 
   .container {
     width: 100%;
     max-width: 100%;
-    padding: 7px;
+    margin: 0;
+    padding: 6px;
+    overflow: hidden;
   }
+
 
   /* SEARCH */
 
   .top {
     width: 100%;
     max-width: 100%;
+    grid-template-columns: 1fr 1fr;
     gap: 6px;
-    margin-bottom: 12px;
+    margin: 0 0 12px 0;
   }
 
   .top input,
   .top select {
-    padding: 9px 7px;
+    width: 100%;
+    min-width: 0;
+    padding: 9px 6px;
     font-size: 12px;
   }
 
   .top button {
+    width: 100%;
     padding: 10px;
     font-size: 13px;
   }
@@ -182,9 +200,10 @@ th {
   /* TABLE */
 
   table {
-    width: 100%;
-    max-width: 100%;
+    width: 100% !important;
+    max-width: 100% !important;
     table-layout: fixed;
+    border-collapse: collapse;
   }
 
   th,
@@ -194,22 +213,21 @@ th {
     line-height: 1.15;
     vertical-align: middle;
 
-    /* permite comprimir la tabla */
     white-space: normal;
-    overflow-wrap: break-word;
     word-break: normal;
+    overflow-wrap: anywhere;
+    overflow: hidden;
   }
 
   th {
     font-size: 6.5px;
-    line-height: 1.1;
+    line-height: 1.05;
     text-align: center;
   }
 
 
   /* =========================
-     OCULTAR SOLO:
-     ID + USER ID
+     HIDE ONLY ID + USER ID
   ========================= */
 
   .col-id,
@@ -219,80 +237,116 @@ th {
 
 
   /* =========================
-     AJUSTE DE COLUMNAS
+     COLUMN WIDTHS
+     TOTAL = 100%
   ========================= */
 
   .col-producto {
-    width: 15%;
+    width: 14%;
   }
 
   .col-item {
-    width: 20%;
+    width: 18%;
   }
 
   .col-pob {
-    width: 5%;
+    width: 4%;
     text-align: center;
   }
 
   .col-source {
-    width: 7%;
+    width: 4%;
+    text-align: center;
   }
 
   .col-payment {
-    width: 7%;
-    text-align: center;
-  }
-
-  .col-shipping {
-    width: 8%;
-    text-align: center;
-  }
-
-  .col-status {
-    width: 15%;
-    text-align: center;
-  }
-
-  .col-purchase-date {
-    width: 9%;
-  }
-
-  .col-warehouse {
-    width: 7%;
-    text-align: center;
-  }
-
-  .col-departure {
-    width: 10%;
-  }
-
-  .col-arrival {
-    width: 8%;
-  }
-
-  .col-month {
     width: 6%;
     text-align: center;
   }
 
+  .col-shipping {
+    width: 7%;
+    text-align: center;
+  }
 
-  /* STATUS MÁS PEQUEÑO EN MÓVIL */
+  .col-status {
+    width: 13%;
+    text-align: center;
+  }
+
+  .col-purchase-date {
+    width: 8%;
+  }
+
+  .col-warehouse {
+    width: 6%;
+    text-align: center;
+  }
+
+  .col-departure {
+    width: 8%;
+  }
+
+  .col-arrival {
+    width: 7%;
+  }
+
+  .col-month {
+    width: 5%;
+    text-align: center;
+  }
+
+
+  /* MOBILE STATUS */
 
   .status {
+    display: inline-flex;
     max-width: 100%;
-    padding: 3px 4px;
-    font-size: 6.5px;
-    line-height: 1;
+    padding: 3px 3px;
+
+    font-size: 6px;
+    line-height: 1.05;
+
     white-space: normal;
-    text-align: center;
+    word-break: normal;
+    overflow-wrap: anywhere;
+
+    align-items: center;
     justify-content: center;
+    text-align: center;
+  }
+
+}
+
+
+/* EXTRA SMALL PHONES */
+
+@media (max-width: 420px) {
+
+  .container {
+    padding: 4px;
+  }
+
+  th,
+  td {
+    padding: 3px 1px;
+    font-size: 6.5px;
+  }
+
+  th {
+    font-size: 6px;
+  }
+
+  .status {
+    font-size: 5.5px;
+    padding: 2px;
   }
 
 }
 
 </style>
 </head>
+
 
 <body>
 
@@ -302,15 +356,32 @@ th {
 
     <input
       id="userid"
+      type="text"
       placeholder="User ID"
     >
 
     <select id="month">
-      <option value="">All Months</option>
-      <option>MAY</option>
-      <option>JUNE</option>
-      <option>JULY</option>
-      <option>AUGUST</option>
+
+      <option value="">
+        All Months
+      </option>
+
+      <option value="MAY">
+        MAY
+      </option>
+
+      <option value="JUNE">
+        JUNE
+      </option>
+
+      <option value="JULY">
+        JULY
+      </option>
+
+      <option value="AUGUST">
+        AUGUST
+      </option>
+
     </select>
 
     <button onclick="search()">
@@ -318,6 +389,7 @@ th {
     </button>
 
   </div>
+
 
   <div id="results"></div>
 
@@ -331,21 +403,38 @@ const API_URL =
 
 
 /* =========================
+   NORMALIZE HEADER
+========================= */
+
+function normalizeHeader(key) {
+
+  return (key || "")
+    .toString()
+    .trim()
+    .toLowerCase()
+    .replace(/[👤📍📅🏢✈️📦🚩]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+
+/* =========================
    COLUMN CLASS
 ========================= */
 
 function getColumnClass(key) {
 
-  const k = (key || "")
-    .toString()
-    .trim()
-    .toLowerCase()
-    .replace(/[👤📍📅🏢✈️📦]/g, "")
-    .trim();
+  const k = normalizeHeader(key);
+
+
+  /* ID */
 
   if (k === "id") {
     return "col-id";
   }
+
+
+  /* USER ID */
 
   if (
     k === "user id" ||
@@ -354,64 +443,94 @@ function getColumnClass(key) {
     return "col-user-id";
   }
 
+
+  /* PRODUCTO */
+
   if (k === "producto") {
     return "col-producto";
   }
 
-  /*
-    En tu tabla hay una columna de descripción/item
-    cuyo encabezado puede variar.
-  */
+
+  /* ITEM / DESCRIPTION */
+
   if (
     k === "" ||
     k.includes("item") ||
+    k.includes("description") ||
     k.includes("product name") ||
-    k.includes("description")
+    k.includes("producto comprado")
   ) {
     return "col-item";
   }
+
+
+  /* POB */
 
   if (k === "pob") {
     return "col-pob";
   }
 
+
+  /* # */
+
   if (k === "#") {
     return "col-source";
   }
+
+
+  /* PAYMENT */
 
   if (k.includes("payment")) {
     return "col-payment";
   }
 
-  if (
-    k.includes("shipping to es") ||
-    k.includes("shipping")
-  ) {
+
+  /* SHIPPING */
+
+  if (k.includes("shipping")) {
     return "col-shipping";
   }
+
+
+  /* STATUS */
 
   if (k.includes("status")) {
     return "col-status";
   }
 
+
+  /* PURCHASE DATE */
+
   if (
     k.includes("purchase date") ||
-    k.includes("purchase")
+    k === "purchase"
   ) {
     return "col-purchase-date";
   }
+
+
+  /* WAREHOUSE */
 
   if (k.includes("warehouse")) {
     return "col-warehouse";
   }
 
+
+  /* DEPARTURE */
+
   if (k.includes("departure")) {
     return "col-departure";
   }
 
+
+  /* ARRIVAL */
+
   if (k.includes("arrival")) {
     return "col-arrival";
   }
+
+
+  /* MONTH */
 
   if (
     k === "mes" ||
@@ -420,7 +539,14 @@ function getColumnClass(key) {
     return "col-month";
   }
 
-  return "";
+
+  /*
+    Cualquier columna que no reconozcamos
+    usa col-item para que también tenga
+    un ancho controlado en móvil.
+  */
+
+  return "col-item";
 }
 
 
@@ -435,35 +561,50 @@ function getStatusHTML(value) {
     .trim()
     .toUpperCase();
 
+
   let color = "#999";
 
 
   if (v === "DELIVERED") {
+
     color = "#2ecc71";
+
   }
 
   else if (v === "PURCHASED") {
+
     color = "#f1c40f";
+
   }
 
   else if (v === "IN WAREHOUSE KR") {
+
     color = "#9b59b6";
+
   }
 
   else if (v === "IN SPAIN") {
+
     color = "#3498db";
+
   }
 
   else if (v === "TO BUY") {
+
     color = "#e74c3c";
+
   }
 
   else if (v === "IN WAREHOUSE CH") {
+
     color = "#e67e22";
+
   }
 
   else if (v === "IN TRANSIT TO ES") {
+
     color = "#ff69b4";
+
   }
 
 
@@ -490,6 +631,7 @@ async function search() {
       .value
       .trim();
 
+
   const month =
     document
       .getElementById("month")
@@ -498,24 +640,36 @@ async function search() {
 
   if (!userId) {
 
-    document.getElementById("results").innerHTML =
+    document
+      .getElementById("results")
+      .innerHTML =
       "<div class='error'>Enter User ID</div>";
 
     return;
   }
 
 
-  document.getElementById("results").innerHTML =
+  document
+    .getElementById("results")
+    .innerHTML =
     "<div class='loading'>Loading orders...</div>";
 
 
   try {
 
-    const res = await fetch(
+    const url =
       API_URL +
       "?userId=" +
-      encodeURIComponent(userId)
-    );
+      encodeURIComponent(userId);
+
+
+    const res =
+      await fetch(url);
+
+
+    if (!res.ok) {
+      throw new Error("HTTP error");
+    }
 
 
     const data =
@@ -536,11 +690,16 @@ async function search() {
 
   catch (err) {
 
-    document.getElementById("results").innerHTML =
+    document
+      .getElementById("results")
+      .innerHTML =
       "<div class='error'>Error loading data</div>";
 
+
     console.error(err);
+
   }
+
 }
 
 
@@ -554,25 +713,27 @@ function renderTable(data, month) {
     document.getElementById("results");
 
 
-  /* FILTER MONTH */
+  /* MONTH FILTER */
 
   if (month) {
 
-    data = data.filter(row => {
+    data =
+      data.filter(row => {
 
-      const rowMonth =
-        (
-          row["MES"] ||
-          row["Month"] ||
-          ""
-        )
-        .toString()
-        .trim()
-        .toUpperCase();
+        const rowMonth =
+          (
+            row["MES"] ||
+            row["Month"] ||
+            ""
+          )
+          .toString()
+          .trim()
+          .toUpperCase();
 
-      return rowMonth === month;
 
-    });
+        return rowMonth === month;
+
+      });
 
   }
 
@@ -588,6 +749,7 @@ function renderTable(data, month) {
       "<div class='card'>No orders found</div>";
 
     return;
+
   }
 
 
@@ -595,18 +757,23 @@ function renderTable(data, month) {
     Object.keys(data[0]);
 
 
-  /* TABLE START */
-
   let html =
-    "<table><thead><tr>";
+    "<table>";
 
 
-  /* HEADERS */
+  /* =========================
+     TABLE HEADER
+  ========================= */
+
+  html +=
+    "<thead><tr>";
+
 
   keys.forEach(key => {
 
     const columnClass =
       getColumnClass(key);
+
 
     html += `
       <th class="${columnClass}">
@@ -618,14 +785,21 @@ function renderTable(data, month) {
 
 
   html +=
-    "</tr></thead><tbody>";
+    "</tr></thead>";
 
 
-  /* ROWS */
+  /* =========================
+     TABLE BODY
+  ========================= */
+
+  html +=
+    "<tbody>";
+
 
   data.forEach(row => {
 
-    html += "<tr>";
+    html +=
+      "<tr>";
 
 
     keys.forEach(key => {
@@ -633,13 +807,26 @@ function renderTable(data, month) {
       const columnClass =
         getColumnClass(key);
 
+
       let value =
-        row[key] ?? "-";
+        row[key];
 
 
       if (
-        key
-          .toLowerCase()
+        value === null ||
+        value === undefined ||
+        value === ""
+      ) {
+
+        value = "-";
+
+      }
+
+
+      /* STATUS */
+
+      if (
+        normalizeHeader(key)
           .includes("status")
       ) {
 
@@ -658,13 +845,18 @@ function renderTable(data, month) {
     });
 
 
-    html += "</tr>";
+    html +=
+      "</tr>";
 
   });
 
 
   html +=
-    "</tbody></table>";
+    "</tbody>";
+
+
+  html +=
+    "</table>";
 
 
   results.innerHTML =
@@ -684,7 +876,11 @@ document
     function(event) {
 
       if (event.key === "Enter") {
+
+        event.preventDefault();
+
         search();
+
       }
 
     }
