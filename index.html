@@ -4,16 +4,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
+
 body {
   margin: 0;
-  font-family: Arial;
+  font-family: Arial, sans-serif;
   background: #f4f4f4;
 }
 
+/* CONTENEDOR GENERAL */
 .container {
-  max-width: 1000px;
-  margin: auto;
+  width: 96%;
+  max-width: 1500px;
+  margin: 0 auto;
   padding: 20px;
+  box-sizing: border-box;
 }
 
 /* BUSCADOR */
@@ -55,7 +59,7 @@ button {
   font-size: 15px;
 }
 
-/* MENSAJES */
+/* CARD fallback */
 .card {
   background: white;
   padding: 15px;
@@ -64,6 +68,49 @@ button {
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
+/* TABLA */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  table-layout: auto;
+}
+
+th,
+td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+  font-size: 14px;
+  vertical-align: middle;
+
+  /* permite que la tabla se adapte */
+  white-space: normal;
+}
+
+th {
+  background: #111;
+  color: white;
+  white-space: nowrap;
+}
+
+/* STATUS */
+.status {
+  padding: 5px 10px;
+  border-radius: 20px;
+  color: white;
+  font-size: 12px;
+  display: inline-flex;
+
+  /* status siempre en una línea */
+  white-space: nowrap;
+  word-break: keep-all;
+  overflow-wrap: normal;
+}
+
+/* LOADING */
 .loading {
   text-align: center;
   padding: 20px;
@@ -77,126 +124,46 @@ button {
   border-radius: 8px;
 }
 
-/* =========================
-   DESKTOP TABLE
-   ========================= */
-
-.desktop-view {
-  display: block;
-}
-
-.mobile-view {
-  display: none;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: white;
-  border-radius: 10px;
-  overflow: hidden;
-  table-layout: auto;
-}
-
-th,
-td {
-  padding: 12px;
-  border-bottom: 1px solid #eee;
-  text-align: left;
-  font-size: 14px;
-  white-space: nowrap;
-  vertical-align: middle;
-}
-
-th {
-  background: #111;
-  color: white;
-}
-
-.status {
-  padding: 5px 10px;
-  border-radius: 20px;
-  color: white;
-  font-size: 12px;
-  display: inline-flex;
-  white-space: nowrap;
-  word-break: keep-all;
-  overflow-wrap: normal;
-}
-
-/* =========================
-   MOBILE
-   ========================= */
-
-.mobile-order {
-  background: white;
-  border-radius: 10px;
-  margin-bottom: 14px;
-  overflow: hidden;
-  border: 1px solid #e8e8e8;
-}
-
-.mobile-row {
-  display: grid;
-  grid-template-columns: 38% 62%;
-  border-bottom: 1px solid #eee;
-}
-
-.mobile-row:last-child {
-  border-bottom: none;
-}
-
-.mobile-label {
-  background: #f7f7f7;
-  padding: 10px;
-  font-size: 11px;
-  font-weight: bold;
-  word-break: break-word;
-}
-
-.mobile-value {
-  padding: 10px;
-  font-size: 12px;
-  min-width: 0;
-  word-break: break-word;
-}
-
-.mobile-value .status {
-  font-size: 10px;
-  padding: 4px 7px;
-}
-
-/* SOLO MÓVIL */
+/* MÓVIL */
 @media (max-width: 768px) {
 
   .container {
-    padding: 12px;
+    width: 100%;
+    padding: 10px;
   }
 
   .top {
     gap: 7px;
-    margin-bottom: 15px;
+    margin-bottom: 14px;
   }
 
   .top input,
   .top select {
+    padding: 9px;
+    font-size: 12px;
+  }
+
+  .top button {
     padding: 10px;
     font-size: 13px;
   }
 
-  .top button {
-    padding: 11px;
-    font-size: 14px;
+  th,
+  td {
+    padding: 5px 4px;
+    font-size: 9px;
   }
 
-  .desktop-view {
-    display: none;
+  th {
+    white-space: normal;
   }
 
-  .mobile-view {
-    display: block;
+  .status {
+    font-size: 8px;
+    padding: 3px 5px;
   }
 }
+
 </style>
 </head>
 
@@ -229,10 +196,56 @@ th {
 const API_URL =
 "https://script.google.com/macros/s/AKfycbz80y4d-Ot7gRRKQBr0HZ_iO4stEpMIAMC6NjPy5dOiwXRzHkPkzKsmFq97cPWcf9i_/exec";
 
+async function search() {
+
+  const userId =
+    document.getElementById("userid").value.trim();
+
+  const month =
+    document.getElementById("month").value;
+
+  if (!userId) {
+    document.getElementById("results").innerHTML =
+      "<div class='error'>Enter User ID</div>";
+    return;
+  }
+
+  document.getElementById("results").innerHTML =
+    "<div class='loading'>Loading orders...</div>";
+
+  try {
+
+    const res = await fetch(
+      API_URL +
+      "?userId=" +
+      encodeURIComponent(userId)
+    );
+
+    const data = await res.json();
+
+    if (!Array.isArray(data)) {
+      throw new Error("API error");
+    }
+
+    renderTable(data, month);
+
+  } catch (err) {
+
+    document.getElementById("results").innerHTML =
+      "<div class='error'>Error loading data</div>";
+
+    console.error(err);
+  }
+}
+
 
 function getStatusHTML(value) {
 
-  const v = (value || "").toString().trim().toUpperCase();
+  const v =
+    (value || "")
+      .toString()
+      .trim()
+      .toUpperCase();
 
   let color = "#999";
 
@@ -266,64 +279,21 @@ function getStatusHTML(value) {
 }
 
 
-async function search() {
-
-  const userId =
-    document.getElementById("userid").value.trim();
-
-  const month =
-    document.getElementById("month").value;
-
-  if (!userId) {
-    document.getElementById("results").innerHTML =
-      "<div class='error'>Enter User ID</div>";
-    return;
-  }
-
-  document.getElementById("results").innerHTML =
-    "<div class='loading'>Loading orders...</div>";
-
-  try {
-
-    const res = await fetch(
-      API_URL +
-      "?userId=" +
-      encodeURIComponent(userId)
-    );
-
-    const data = await res.json();
-
-    if (!Array.isArray(data)) {
-      throw new Error("API error");
-    }
-
-    renderOrders(data, month);
-
-  }
-  catch (err) {
-
-    document.getElementById("results").innerHTML =
-      "<div class='error'>Error loading data</div>";
-
-    console.error(err);
-  }
-}
-
-
-function renderOrders(data, month) {
-
-  const results =
-    document.getElementById("results");
+function renderTable(data, month) {
 
   if (month) {
 
     data = data.filter(row => {
 
       const rowMonth =
-        (row["MES"] || row["Month"] || "")
-          .toString()
-          .trim()
-          .toUpperCase();
+        (
+          row["MES"] ||
+          row["Month"] ||
+          ""
+        )
+        .toString()
+        .trim()
+        .toUpperCase();
 
       return rowMonth === month;
     });
@@ -331,7 +301,7 @@ function renderOrders(data, month) {
 
   if (!data || data.length === 0) {
 
-    results.innerHTML =
+    document.getElementById("results").innerHTML =
       "<div class='card'>No orders found</div>";
 
     return;
@@ -339,23 +309,18 @@ function renderOrders(data, month) {
 
   const keys = Object.keys(data[0]);
 
-
-  /* =========================
-     DESKTOP
-     ========================= */
-
-  let desktop =
-    "<div class='desktop-view'><table><tr>";
+  let html = "<table><tr>";
 
   keys.forEach(key => {
-    desktop += "<th>" + key + "</th>";
+    html += "<th>" + key + "</th>";
   });
 
-  desktop += "</tr>";
+  html += "</tr>";
+
 
   data.forEach(row => {
 
-    desktop += "<tr>";
+    html += "<tr>";
 
     keys.forEach(key => {
 
@@ -367,72 +332,24 @@ function renderOrders(data, month) {
           .toLowerCase()
           .includes("status")
       ) {
+
         value =
           getStatusHTML(value);
       }
 
-      desktop +=
+      html +=
         "<td>" +
         value +
         "</td>";
     });
 
-    desktop += "</tr>";
+    html += "</tr>";
   });
 
-  desktop +=
-    "</table></div>";
+  html += "</table>";
 
-
-  /* =========================
-     MOBILE
-     ========================= */
-
-  let mobile =
-    "<div class='mobile-view'>";
-
-  data.forEach(row => {
-
-    mobile +=
-      "<div class='mobile-order'>";
-
-    keys.forEach(key => {
-
-      let value =
-        row[key] ?? "-";
-
-      if (
-        key
-          .toLowerCase()
-          .includes("status")
-      ) {
-        value =
-          getStatusHTML(value);
-      }
-
-      mobile += `
-        <div class="mobile-row">
-
-          <div class="mobile-label">
-            ${key}
-          </div>
-
-          <div class="mobile-value">
-            ${value}
-          </div>
-
-        </div>
-      `;
-    });
-
-    mobile += "</div>";
-  });
-
-  mobile += "</div>";
-
-
-  results.innerHTML =
-    desktop + mobile;
+  document.getElementById("results").innerHTML =
+    html;
 }
 
 </script>
