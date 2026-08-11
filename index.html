@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 
 <head>
@@ -9,6 +8,10 @@
 >
 
 <style>
+
+/* =====================================================
+   GENERAL
+===================================================== */
 
 * {
   box-sizing: border-box;
@@ -34,17 +37,17 @@ body {
 }
 
 
-/* SEARCH */
+/* =====================================================
+   SEARCH
+===================================================== */
 
 .top {
   width: 100%;
   max-width: 700px;
-
   margin: 0 auto 10px auto;
 
   display: grid;
   grid-template-columns: 1fr 1fr;
-
   gap: 10px;
 }
 
@@ -54,12 +57,10 @@ body {
 
 .search-label {
   display: block;
-
   margin: 0 0 6px 2px;
 
   font-size: 12px;
   font-weight: 600;
-
   color: #555;
 }
 
@@ -105,7 +106,9 @@ body {
 }
 
 
-/* INFO + LIKE */
+/* =====================================================
+   INFO + LIKE
+===================================================== */
 
 .info-bar {
   width: 100%;
@@ -137,10 +140,14 @@ body {
   flex: 1;
 }
 
+.info-icon {
+  margin-right: 4px;
+}
+
 .like-area {
   display: flex;
-
   align-items: center;
+  justify-content: flex-end;
 
   gap: 6px;
 
@@ -161,6 +168,7 @@ body {
   border-radius: 50%;
 
   background: white;
+
   color: #555;
 
   cursor: pointer;
@@ -170,7 +178,9 @@ body {
 
 .like-button.liked {
   background: #fff0f3;
+
   border-color: #ffc5d0;
+
   color: #e63961;
 }
 
@@ -181,12 +191,16 @@ body {
 
 .like-count {
   color: #777;
+
   font-size: 10px;
+
   white-space: nowrap;
 }
 
 
-/* SUMMARY */
+/* =====================================================
+   RESULT SUMMARY
+===================================================== */
 
 .result-summary {
   max-width: 700px;
@@ -201,7 +215,9 @@ body {
 }
 
 
-/* MESSAGES */
+/* =====================================================
+   MESSAGES
+===================================================== */
 
 .card {
   background: white;
@@ -213,18 +229,20 @@ body {
   margin-bottom: 10px;
 
   box-shadow:
-    0 2px 8px
-    rgba(0,0,0,0.05);
+    0 2px 8px rgba(0,0,0,0.05);
 }
 
 .loading {
   text-align: center;
+
   padding: 20px;
+
   color: #666;
 }
 
 .error {
   background: #ffe6e6;
+
   color: #b30000;
 
   padding: 12px;
@@ -233,7 +251,9 @@ body {
 }
 
 
-/* STATUS */
+/* =====================================================
+   STATUS
+===================================================== */
 
 .status {
   display: inline-flex;
@@ -253,7 +273,9 @@ body {
 }
 
 
-/* DESKTOP */
+/* =====================================================
+   DESKTOP
+===================================================== */
 
 .desktop-view {
   display: block;
@@ -273,6 +295,8 @@ table {
   border-radius: 10px;
 
   overflow: hidden;
+
+  table-layout: auto;
 }
 
 th,
@@ -290,15 +314,18 @@ td {
 
 th {
   background: #111;
+
   color: white;
+
   white-space: nowrap;
 }
 
 
-/* ORDER */
+/* =====================================================
+   GROUPED ORDER
+===================================================== */
 
-.order-group,
-.single-order {
+.order-group {
   background: white;
 
   border: 1px solid #e5e5e5;
@@ -310,8 +337,7 @@ th {
   margin-bottom: 16px;
 }
 
-.order-number,
-.single-product {
+.order-number {
   background: #111;
 
   color: white;
@@ -340,7 +366,9 @@ th {
 }
 
 
-/* ITEMS */
+/* =====================================================
+   ITEMS
+===================================================== */
 
 .order-item {
   border-bottom: 1px solid #e8e8e8;
@@ -372,14 +400,22 @@ th {
   font-weight: 600;
 }
 
+.item-toggle:hover {
+  background: #fafafa;
+}
+
 .item-name {
   min-width: 0;
+
   overflow-wrap: anywhere;
 }
 
 .item-arrow {
   flex-shrink: 0;
+
   color: #777;
+
+  font-size: 12px;
 }
 
 .item-details {
@@ -392,18 +428,20 @@ th {
   display: block;
 }
 
-.item-extra,
-.single-extra {
+
+/* =====================================================
+   ITEM EXTRA DETAILS
+===================================================== */
+
+.item-extra {
   display: none;
 }
 
-.item-extra.open,
-.single-extra.open {
+.item-extra.open {
   display: block;
 }
 
-.item-more-button,
-.single-more {
+.item-more-button {
   width: 100%;
 
   padding: 10px;
@@ -424,7 +462,9 @@ th {
 }
 
 
-/* DETAILS */
+/* =====================================================
+   DETAIL ROW
+===================================================== */
 
 .detail-row {
   display: grid;
@@ -465,7 +505,9 @@ th {
 }
 
 
-/* ORDER SUMMARY */
+/* =====================================================
+   COMMON ORDER SUMMARY
+===================================================== */
 
 .order-common-summary {
   background: #fafafa;
@@ -486,7 +528,33 @@ th {
 }
 
 
-/* SINGLE ORDER */
+/* =====================================================
+   SINGLE ORDER
+===================================================== */
+
+.single-order {
+  background: white;
+
+  border: 1px solid #e5e5e5;
+
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  margin-bottom: 16px;
+}
+
+.single-product {
+  padding: 13px 14px;
+
+  background: #111;
+
+  color: white;
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
 
 .single-item-count {
   padding: 9px 14px 4px 14px;
@@ -496,6 +564,8 @@ th {
   font-size: 10px;
 
   font-weight: 700;
+
+  letter-spacing: 0.5px;
 }
 
 .single-item-name {
@@ -508,8 +578,36 @@ th {
   border-bottom: 1px solid #eee;
 }
 
+.single-extra {
+  display: none;
+}
 
-/* MOBILE */
+.single-extra.open {
+  display: block;
+}
+
+.single-more {
+  width: 100%;
+
+  padding: 11px;
+
+  background: #fafafa;
+
+  border: none;
+
+  border-top: 1px solid #eee;
+
+  color: #333;
+
+  font-size: 12px;
+
+  cursor: pointer;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media (max-width: 768px) {
 
@@ -526,6 +624,8 @@ th {
 
   .top {
     gap: 7px;
+
+    margin-bottom: 9px;
   }
 
   .search-label {
@@ -548,6 +648,8 @@ th {
   .info-bar {
     padding: 8px 9px;
 
+    gap: 7px;
+
     margin-bottom: 14px;
   }
 
@@ -557,9 +659,14 @@ th {
 
   .like-button {
     width: 28px;
+
     height: 28px;
 
     font-size: 15px;
+  }
+
+  .like-count {
+    font-size: 9px;
   }
 
   .desktop-view {
@@ -582,120 +689,136 @@ th {
 <div class="container">
 
 
-<div class="top">
+  <!-- =================================================
+       SEARCH
+  ================================================== -->
 
-  <div class="field-group">
-
-    <label
-      class="search-label"
-      for="userid"
-    >
-      Instagram User ID
-    </label>
-
-    <input
-      id="userid"
-      placeholder="Instagram User ID"
-      autocomplete="off"
-    >
-
-  </div>
+  <div class="top">
 
 
-  <div class="field-group">
+    <div class="field-group">
 
-    <label
-      class="search-label"
-      for="statusFilter"
-    >
-      Order Status
-    </label>
+      <label
+        class="search-label"
+        for="userid"
+      >
+        Instagram User ID
+      </label>
 
-    <select id="statusFilter">
+      <input
+        id="userid"
+        type="text"
+        placeholder="Instagram User ID"
+        autocomplete="off"
+      >
 
-      <option value="">
-        All Status
-      </option>
-
-      <option value="TO BUY">
-        To Buy
-      </option>
-
-      <option value="PURCHASED">
-        Purchased
-      </option>
-
-      <option value="IN WAREHOUSE CH">
-        In Warehouse CH
-      </option>
-
-      <option value="IN WAREHOUSE KR">
-        In Warehouse KR
-      </option>
-
-      <option value="IN TRANSIT TO ES">
-        In Transit to ES
-      </option>
-
-      <option value="IN SPAIN">
-        In Spain
-      </option>
-
-      <option value="DELIVERED">
-        Delivered
-      </option>
-
-    </select>
-
-  </div>
+    </div>
 
 
-  <button
-    id="searchButton"
-    type="button"
-  >
-    🔎 Search
-  </button>
+    <div class="field-group">
 
-</div>
+      <label
+        class="search-label"
+        for="statusFilter"
+      >
+        Order Status
+      </label>
 
+      <select id="statusFilter">
 
-<div class="info-bar">
+        <option value="">
+          All Status
+        </option>
 
-  <div class="info-message">
-    ⓘ Delivered orders remain visible for 30 days.
-  </div>
+        <option value="TO BUY">
+          To Buy
+        </option>
 
+        <option value="PURCHASED">
+          Purchased
+        </option>
 
-  <div class="like-area">
+        <option value="IN WAREHOUSE CH">
+          In Warehouse CH
+        </option>
+
+        <option value="IN WAREHOUSE KR">
+          In Warehouse KR
+        </option>
+
+        <option value="IN TRANSIT TO ES">
+          In Transit to ES
+        </option>
+
+        <option value="IN SPAIN">
+          In Spain
+        </option>
+
+        <option value="DELIVERED">
+          Delivered
+        </option>
+
+      </select>
+
+    </div>
+
 
     <button
-      id="likeButton"
-      class="like-button"
+      id="searchButton"
       type="button"
     >
-      ♡
+      🔎 Search
     </button>
-
-    <span
-      id="likeCount"
-      class="like-count"
-    >
-      Loading...
-    </span>
 
   </div>
 
-</div>
+
+  <!-- =================================================
+       INFO + LIKE
+  ================================================== -->
+
+  <div class="info-bar">
+
+    <div class="info-message">
+
+      <span class="info-icon">
+        ⓘ
+      </span>
+
+      Delivered orders remain visible for 30 days.
+
+    </div>
 
 
-<div
-  id="resultSummary"
-  class="result-summary"
-></div>
+    <div class="like-area">
+
+      <button
+        id="likeButton"
+        class="like-button"
+        type="button"
+      >
+        ♡
+      </button>
+
+      <span
+        id="likeCount"
+        class="like-count"
+      >
+        Loading...
+      </span>
+
+    </div>
+
+  </div>
 
 
-<div id="results"></div>
+  <div
+    id="resultSummary"
+    class="result-summary"
+  ></div>
+
+
+  <div id="results"></div>
 
 
 </div>
@@ -704,6 +827,10 @@ th {
 <script>
 
 
+/* =====================================================
+   API
+===================================================== */
+
 const API_URL =
 "https://script.google.com/macros/s/AKfycbz80y4d-Ot7gRRKQBr0HZ_iO4stEpMIAMC6NjPy5dOiwXRzHkPkzKsmFq97cPWcf9i_/exec";
 
@@ -711,7 +838,9 @@ const API_URL =
 let allOrders = [];
 
 
-/* NORMALIZE */
+/* =====================================================
+   NORMALIZE
+===================================================== */
 
 function normalizeHeader(key) {
 
@@ -723,15 +852,7 @@ function normalizeHeader(key) {
       /[👤📍📅🏢✈️📦🚩🗓️]/g,
       ""
     )
-    .normalize("NFD")
-    .replace(
-      /[\u0300-\u036f]/g,
-      ""
-    )
-    .replace(
-      /\s+/g,
-      " "
-    )
+    .replace(/\s+/g, " ")
     .trim();
 
 }
@@ -741,56 +862,41 @@ function normalizeStatus(value) {
 
   return (value || "")
     .toString()
-    .replace(
-      /\u00A0/g,
-      " "
-    )
-    .replace(
-      /\s+/g,
-      " "
-    )
+    .replace(/\u00A0/g, " ")
+    .replace(/\u200B/g, "")
+    .replace(/\u200C/g, "")
+    .replace(/\u200D/g, "")
+    .replace(/\s+/g, " ")
     .trim()
     .toUpperCase();
 
 }
 
 
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
 function escapeHTML(value) {
 
-  return String(
-    value ?? ""
-  )
-    .replace(
-      /&/g,
-      "&amp;"
-    )
-    .replace(
-      /</g,
-      "&lt;"
-    )
-    .replace(
-      />/g,
-      "&gt;"
-    )
-    .replace(
-      /"/g,
-      "&quot;"
-    )
-    .replace(
-      /'/g,
-      "&#039;"
-    );
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 
 }
 
 
-/* COLUMNS */
+/* =====================================================
+   COLUMN TYPES
+===================================================== */
 
 function isIdColumn(key) {
 
   return (
-    normalizeHeader(key)
-    === "id"
+    normalizeHeader(key) === "id"
   );
 
 }
@@ -801,10 +907,10 @@ function isUserIdColumn(key) {
   const k =
     normalizeHeader(key);
 
+
   return (
     k === "user id" ||
-    k === "userid" ||
-    k === "instagram user id"
+    k === "userid"
   );
 
 }
@@ -814,6 +920,7 @@ function isOrderIdColumn(key) {
 
   const k =
     normalizeHeader(key);
+
 
   return (
     k === "order id" ||
@@ -829,6 +936,7 @@ function isProductColumn(key) {
   const k =
     normalizeHeader(key);
 
+
   return (
     k === "producto" ||
     k === "product"
@@ -842,6 +950,7 @@ function isItemColumn(key) {
   const k =
     normalizeHeader(key);
 
+
   return (
     k === "item" ||
     k === "items"
@@ -853,9 +962,7 @@ function isItemColumn(key) {
 function isPaymentColumn(key) {
 
   return normalizeHeader(key)
-    .includes(
-      "payment"
-    );
+    .includes("payment");
 
 }
 
@@ -863,9 +970,7 @@ function isPaymentColumn(key) {
 function isShippingColumn(key) {
 
   return normalizeHeader(key)
-    .includes(
-      "shipping"
-    );
+    .includes("shipping");
 
 }
 
@@ -873,9 +978,7 @@ function isShippingColumn(key) {
 function isStatusColumn(key) {
 
   return normalizeHeader(key)
-    .includes(
-      "status"
-    );
+    .includes("status");
 
 }
 
@@ -884,6 +987,7 @@ function isMonthColumn(key) {
 
   const k =
     normalizeHeader(key);
+
 
   return (
     k === "mes" ||
@@ -896,9 +1000,7 @@ function isMonthColumn(key) {
 function isPurchaseDateColumn(key) {
 
   return normalizeHeader(key)
-    .includes(
-      "purchase"
-    );
+    .includes("purchase");
 
 }
 
@@ -908,13 +1010,10 @@ function isWarehouseColumn(key) {
   const k =
     normalizeHeader(key);
 
+
   return (
-    k.includes(
-      "warehouse"
-    ) &&
-    !k.includes(
-      "arrival"
-    )
+    k.includes("warehouse") &&
+    !k.includes("arrival")
   );
 
 }
@@ -923,9 +1022,7 @@ function isWarehouseColumn(key) {
 function isArrivalColumn(key) {
 
   return normalizeHeader(key)
-    .includes(
-      "arrival"
-    );
+    .includes("arrival");
 
 }
 
@@ -933,9 +1030,7 @@ function isArrivalColumn(key) {
 function isDepartureColumn(key) {
 
   return normalizeHeader(key)
-    .includes(
-      "departure"
-    );
+    .includes("departure");
 
 }
 
@@ -943,26 +1038,14 @@ function isDepartureColumn(key) {
 function isDeliveredDateColumn(key) {
 
   return normalizeHeader(key)
-    .includes(
-      "delivered date"
-    );
+    .includes("delivered date");
 
 }
 
 
-/* FECHA DE CREACION */
-
-function isCreationDateColumn(key) {
-
-  return (
-    normalizeHeader(key)
-    === "fecha de creacion"
-  );
-
-}
-
-
-/* VALUE */
+/* =====================================================
+   VALUE HELPER
+===================================================== */
 
 function getValueByTest(
   row,
@@ -978,9 +1061,7 @@ function getValueByTest(
 
 
   if (!key) {
-
     return "-";
-
   }
 
 
@@ -1004,67 +1085,9 @@ function getValueByTest(
 }
 
 
-/* DATE PARSER */
-
-function parseCreationDate(value) {
-
-  if (
-    !value ||
-    value === "-"
-  ) {
-
-    return 0;
-
-  }
-
-
-  const text =
-    String(value)
-      .trim();
-
-
-  /*
-   DD/MM/YYYY HH:mm:ss
-  */
-
-  const match =
-    text.match(
-      /^(\d{1,2})\/(\d{1,2})\/(\d{4})(?:\s+(\d{1,2}):(\d{2})(?::(\d{2}))?)?$/
-    );
-
-
-  if (!match) {
-
-    return 0;
-
-  }
-
-
-  return new Date(
-    Number(match[3]),
-    Number(match[2]) - 1,
-    Number(match[1]),
-    Number(match[4] || 0),
-    Number(match[5] || 0),
-    Number(match[6] || 0)
-  ).getTime();
-
-}
-
-
-function getCreationTime(row) {
-
-  return parseCreationDate(
-    getValueByTest(
-      row,
-      isCreationDateColumn
-    )
-  );
-
-}
-
-
-/* STATUS */
+/* =====================================================
+   STATUS
+===================================================== */
 
 function getOrderStatus(row) {
 
@@ -1080,13 +1103,13 @@ function getOrderStatus(row) {
 
 function getStatusHTML(value) {
 
-  const original =
+  const originalValue =
     value ?? "-";
 
 
   const v =
     normalizeStatus(
-      original
+      originalValue
     );
 
 
@@ -1163,14 +1186,16 @@ function getStatusHTML(value) {
       class="status"
       style="background:${color};"
     >
-      ${escapeHTML(original)}
+      ${escapeHTML(originalValue)}
     </span>
   `;
 
 }
 
 
-/* LIKE */
+/* =====================================================
+   LIKE
+===================================================== */
 
 function hasLiked() {
 
@@ -1197,22 +1222,32 @@ function hasLiked() {
 
 function saveLikedState(liked) {
 
-  if (liked) {
+  try {
 
-    localStorage
-      .setItem(
-        "allkpopOrderTrackingLiked",
-        "yes"
-      );
+    if (liked) {
+
+      localStorage
+        .setItem(
+          "allkpopOrderTrackingLiked",
+          "yes"
+        );
+
+    }
+
+    else {
+
+      localStorage
+        .removeItem(
+          "allkpopOrderTrackingLiked"
+        );
+
+    }
 
   }
 
-  else {
+  catch (error) {
 
-    localStorage
-      .removeItem(
-        "allkpopOrderTrackingLiked"
-      );
+    console.error(error);
 
   }
 
@@ -1222,22 +1257,20 @@ function saveLikedState(liked) {
 function updateLikeUI() {
 
   const button =
-    document.getElementById(
-      "likeButton"
-    );
+    document
+      .getElementById(
+        "likeButton"
+      );
 
 
-  if (
-    hasLiked()
-  ) {
+  if (hasLiked()) {
 
     button.textContent =
       "♥";
 
+
     button.classList
-      .add(
-        "liked"
-      );
+      .add("liked");
 
   }
 
@@ -1246,10 +1279,9 @@ function updateLikeUI() {
     button.textContent =
       "♡";
 
+
     button.classList
-      .remove(
-        "liked"
-      );
+      .remove("liked");
 
   }
 
@@ -1258,7 +1290,7 @@ function updateLikeUI() {
 
 function updateLikeCount(likes) {
 
-  const total =
+  const safeLikes =
     Math.max(
       0,
       Number(likes) || 0
@@ -1270,9 +1302,9 @@ function updateLikeCount(likes) {
       "likeCount"
     )
     .textContent =
-    total +
+    safeLikes +
     (
-      total === 1
+      safeLikes === 1
         ? " like"
         : " likes"
     );
@@ -1313,15 +1345,15 @@ async function loadLikes() {
 async function toggleLike() {
 
   const button =
-    document.getElementById(
-      "likeButton"
-    );
+    document
+      .getElementById(
+        "likeButton"
+      );
 
 
   if (
-    button.classList.contains(
-      "busy"
-    )
+    button.classList
+      .contains("busy")
   ) {
 
     return;
@@ -1329,13 +1361,18 @@ async function toggleLike() {
   }
 
 
-  button.classList.add(
-    "busy"
-  );
+  button.classList
+    .add("busy");
 
 
-  const liked =
+  const currentlyLiked =
     hasLiked();
+
+
+  const action =
+    currentlyLiked
+      ? "unlike"
+      : "like";
 
 
   try {
@@ -1344,11 +1381,7 @@ async function toggleLike() {
       await fetch(
         API_URL +
         "?action=" +
-        (
-          liked
-            ? "unlike"
-            : "like"
-        )
+        action
       );
 
 
@@ -1357,7 +1390,7 @@ async function toggleLike() {
 
 
     saveLikedState(
-      !liked
+      !currentlyLiked
     );
 
 
@@ -1370,39 +1403,60 @@ async function toggleLike() {
 
   }
 
+  catch (error) {
+
+    console.error(error);
+
+  }
+
   finally {
 
-    button.classList.remove(
-      "busy"
-    );
+    button.classList
+      .remove("busy");
 
   }
 
 }
 
 
-/* SEARCH */
+/* =====================================================
+   SEARCH
+===================================================== */
 
 async function search() {
 
   const results =
-    document.getElementById(
-      "results"
-    );
+    document
+      .getElementById(
+        "results"
+      );
+
+
+  const summary =
+    document
+      .getElementById(
+        "resultSummary"
+      );
 
 
   const userId =
-    document.getElementById(
-      "userid"
-    )
-    .value
-    .trim();
+    document
+      .getElementById(
+        "userid"
+      )
+      .value
+      .trim();
 
 
   if (!userId) {
 
     results.innerHTML =
       "<div class='error'>Enter your Instagram User ID</div>";
+
+
+    summary.innerHTML =
+      "";
+
 
     return;
 
@@ -1411,6 +1465,10 @@ async function search() {
 
   results.innerHTML =
     "<div class='loading'>Loading orders...</div>";
+
+
+  summary.innerHTML =
+    "";
 
 
   try {
@@ -1461,7 +1519,9 @@ async function search() {
 }
 
 
-/* FILTER */
+/* =====================================================
+   FILTER
+===================================================== */
 
 function applyStatusFilter() {
 
@@ -1479,14 +1539,12 @@ function applyStatusFilter() {
     [...allOrders];
 
 
-  if (
-    selectedStatus
-  ) {
+  if (selectedStatus) {
 
     filtered =
       allOrders.filter(
-        row =>
-          getOrderStatus(row)
+        order =>
+          getOrderStatus(order)
           === selectedStatus
       );
 
@@ -1500,7 +1558,9 @@ function applyStatusFilter() {
 }
 
 
-/* GROUP */
+/* =====================================================
+   GROUP BY ORDER ID
+===================================================== */
 
 function groupOrders(data) {
 
@@ -1518,8 +1578,14 @@ function groupOrders(data) {
             row,
             isOrderIdColumn
           )
-        ).trim();
+        )
+        .trim();
 
+
+      /*
+       * No ORDER ID:
+       * keep as separate item.
+       */
 
       if (
         !orderId ||
@@ -1534,7 +1600,9 @@ function groupOrders(data) {
 
 
       if (
-        !groups.has(orderId)
+        !groups.has(
+          orderId
+        )
       ) {
 
         groups.set(
@@ -1558,71 +1626,22 @@ function groupOrders(data) {
 }
 
 
-/* ORDER CREATION TIME */
-
-function getOrderCreationTime(
-  items
-) {
-
-  if (
-    !items ||
-    items.length === 0
-  ) {
-
-    return 0;
-
-  }
-
-
-  return Math.max(
-    ...items.map(
-      item =>
-        getCreationTime(
-          item
-        )
-    )
-  );
-
-}
-
-
-/* SORT GROUPS */
-
-function getSortedGroups(data) {
-
-  const groups =
-    groupOrders(
-      data
-    );
-
-
-  return Array
-    .from(
-      groups.entries()
-    )
-    .sort(
-      (a, b) =>
-
-        getOrderCreationTime(
-          b[1]
-        ) -
-
-        getOrderCreationTime(
-          a[1]
-        )
-    );
-
-}
-
-
-/* SUMMARY */
+/* =====================================================
+   SUMMARY
+===================================================== */
 
 function updateSummary(data) {
 
   const groups =
-    getSortedGroups(
-      data
-    );
+    groupOrders(data);
+
+
+  const orderCount =
+    groups.size;
+
+
+  const itemCount =
+    data.length;
 
 
   document
@@ -1630,16 +1649,16 @@ function updateSummary(data) {
       "resultSummary"
     )
     .textContent =
-    groups.length +
+    orderCount +
     (
-      groups.length === 1
+      orderCount === 1
         ? " order"
         : " orders"
     ) +
     " · " +
-    data.length +
+    itemCount +
     (
-      data.length === 1
+      itemCount === 1
         ? " item"
         : " items"
     );
@@ -1647,13 +1666,21 @@ function updateSummary(data) {
 }
 
 
-/* DETAIL */
+/* =====================================================
+   DETAIL ROW
+===================================================== */
 
 function createDetailRow(
   label,
   value,
   isStatus = false
 ) {
+
+  const displayValue =
+    isStatus
+      ? getStatusHTML(value)
+      : escapeHTML(value);
+
 
   return `
     <div class="detail-row">
@@ -1663,11 +1690,7 @@ function createDetailRow(
       </div>
 
       <div class="detail-value">
-        ${
-          isStatus
-            ? getStatusHTML(value)
-            : escapeHTML(value)
-        }
+        ${displayValue}
       </div>
 
     </div>
@@ -1676,12 +1699,13 @@ function createDetailRow(
 }
 
 
-/* MAIN DETAILS */
+/* =====================================================
+   MAIN ITEM DETAILS
+===================================================== */
 
 function buildItemMainDetails(row) {
 
-  let html =
-    "";
+  let html = "";
 
 
   html +=
@@ -1730,12 +1754,13 @@ function buildItemMainDetails(row) {
 }
 
 
-/* EXTRA */
+/* =====================================================
+   EXTRA ITEM DETAILS
+===================================================== */
 
 function buildItemExtraDetails(row) {
 
-  let html =
-    "";
+  let html = "";
 
 
   html +=
@@ -1770,20 +1795,20 @@ function buildItemExtraDetails(row) {
 
   html +=
     createDetailRow(
-      "DELIVERED DATE",
+      "DEPARTURE ES",
       getValueByTest(
         row,
-        isDeliveredDateColumn
+        isDepartureColumn
       )
     );
 
 
   html +=
     createDetailRow(
-      "DEPARTURE ES",
+      "DELIVERED DATE",
       getValueByTest(
         row,
-        isDepartureColumn
+        isDeliveredDateColumn
       )
     );
 
@@ -1793,12 +1818,24 @@ function buildItemExtraDetails(row) {
 }
 
 
-/* COMMON */
+/* =====================================================
+   CHECK COMMON VALUE
+===================================================== */
 
 function getCommonValue(
   items,
-  test
+  testFunction
 ) {
+
+  if (
+    !items ||
+    items.length === 0
+  ) {
+
+    return null;
+
+  }
+
 
   const values =
     items.map(
@@ -1806,78 +1843,86 @@ function getCommonValue(
         String(
           getValueByTest(
             row,
-            test
+            testFunction
           )
         ).trim()
     );
 
 
-  const first =
+  const firstValue =
     values[0];
 
 
-  return values.every(
-    value =>
-      value === first
-  )
-    ? first
-    : null;
+  const allSame =
+    values.every(
+      value =>
+        value === firstValue
+    );
+
+
+  if (!allSame) {
+    return null;
+  }
+
+
+  return firstValue;
 
 }
 
 
-/* ORDER SUMMARY */
+/* =====================================================
+   COMMON ORDER SUMMARY
+===================================================== */
 
 function buildOrderCommonSummary(
   items
 ) {
 
-  const payment =
+  const commonPayment =
     getCommonValue(
       items,
       isPaymentColumn
     );
 
 
-  const status =
+  const commonStatus =
     getCommonValue(
       items,
       isStatusColumn
     );
 
 
-  const month =
+  const commonMonth =
     getCommonValue(
       items,
       isMonthColumn
     );
 
 
-  let rows =
-    "";
+  let rows = "";
 
 
   if (
-    payment !== null
+    commonPayment !== null
   ) {
 
     rows +=
       createDetailRow(
         "PAYMENT",
-        payment
+        commonPayment
       );
 
   }
 
 
   if (
-    status !== null
+    commonStatus !== null
   ) {
 
     rows +=
       createDetailRow(
         "STATUS",
-        status,
+        commonStatus,
         true
       );
 
@@ -1885,22 +1930,20 @@ function buildOrderCommonSummary(
 
 
   if (
-    month !== null
+    commonMonth !== null
   ) {
 
     rows +=
       createDetailRow(
         "MONTH",
-        month
+        commonMonth
       );
 
   }
 
 
   if (!rows) {
-
     return "";
-
   }
 
 
@@ -1908,7 +1951,7 @@ function buildOrderCommonSummary(
     <div class="order-common-summary">
 
       <div class="order-summary-title">
-        ORDER SUMMARY
+        ORDER INFORMATION
       </div>
 
       ${rows}
@@ -1919,7 +1962,9 @@ function buildOrderCommonSummary(
 }
 
 
-/* SINGLE ORDER */
+/* =====================================================
+   SINGLE ORDER
+===================================================== */
 
 function renderSingleOrder(
   row,
@@ -1972,9 +2017,9 @@ function renderSingleOrder(
       </div>
 
       <button
+        type="button"
         class="single-more"
         data-target="${extraId}"
-        type="button"
       >
         Show more ▼
       </button>
@@ -1985,7 +2030,9 @@ function renderSingleOrder(
 }
 
 
-/* GROUPED ORDER */
+/* =====================================================
+   GROUPED ORDER
+===================================================== */
 
 function renderGroupedOrder(
   orderId,
@@ -2025,7 +2072,7 @@ function renderGroupedOrder(
 
 
       let title =
-        product;
+        "";
 
 
       if (
@@ -2040,16 +2087,32 @@ function renderGroupedOrder(
 
       }
 
+      else if (
+        product !== "-"
+      ) {
+
+        title =
+          product;
+
+      }
+
+      else {
+
+        title =
+          item;
+
+      }
+
 
       const detailsId =
-        "details-" +
+        "item-details-" +
         groupIndex +
         "-" +
         itemIndex;
 
 
       const extraId =
-        "extra-" +
+        "item-extra-" +
         groupIndex +
         "-" +
         itemIndex;
@@ -2059,8 +2122,8 @@ function renderGroupedOrder(
         <div class="order-item">
 
           <button
-            class="item-toggle"
             type="button"
+            class="item-toggle"
             data-target="${detailsId}"
           >
 
@@ -2082,6 +2145,7 @@ function renderGroupedOrder(
 
             ${buildItemMainDetails(row)}
 
+
             <div
               class="item-extra"
               id="${extraId}"
@@ -2091,10 +2155,11 @@ function renderGroupedOrder(
 
             </div>
 
+
             <button
+              type="button"
               class="item-more-button"
               data-target="${extraId}"
-              type="button"
             >
               Show more ▼
             </button>
@@ -2108,14 +2173,20 @@ function renderGroupedOrder(
   );
 
 
+  /*
+   * PAYMENT / STATUS / MONTH
+   * common to the whole order
+   */
+
   html +=
     buildOrderCommonSummary(
       items
     );
 
 
-  html +=
-    "</div>";
+  html += `
+    </div>
+  `;
 
 
   return html;
@@ -2123,14 +2194,17 @@ function renderGroupedOrder(
 }
 
 
-/* RENDER */
+/* =====================================================
+   RENDER
+===================================================== */
 
 function renderOrders(data) {
 
   const results =
-    document.getElementById(
-      "results"
-    );
+    document
+      .getElementById(
+        "results"
+      );
 
 
   if (
@@ -2155,9 +2229,7 @@ function renderOrders(data) {
   }
 
 
-  updateSummary(
-    data
-  );
+  updateSummary(data);
 
 
   const keys =
@@ -2166,24 +2238,49 @@ function renderOrders(data) {
     );
 
 
-  /* DESKTOP */
+  /* ===================================================
+     DESKTOP
+  =================================================== */
 
   const desktopKeys =
     keys.filter(
-      key =>
+      key => {
 
-        !isIdColumn(key) &&
-        !isUserIdColumn(key) &&
-        !isCreationDateColumn(key)
+        if (
+          isIdColumn(key)
+        ) {
+
+          return false;
+
+        }
+
+
+        if (
+          isUserIdColumn(key)
+        ) {
+
+          return false;
+
+        }
+
+
+        return true;
+
+      }
     );
 
 
   let desktop =
-    "<div class='desktop-view'><table><thead><tr>";
+    "<div class='desktop-view'>";
+
+
+  desktop +=
+    "<table><thead><tr>";
 
 
   desktopKeys.forEach(
     key => {
+
 
       let label =
         key;
@@ -2209,10 +2306,11 @@ function renderOrders(data) {
       }
 
 
-      desktop +=
-        "<th>" +
-        escapeHTML(label) +
-        "</th>";
+      desktop += `
+        <th>
+          ${escapeHTML(label)}
+        </th>
+      `;
 
     }
   );
@@ -2225,6 +2323,7 @@ function renderOrders(data) {
   data.forEach(
     row => {
 
+
       desktop +=
         "<tr>";
 
@@ -2232,8 +2331,10 @@ function renderOrders(data) {
       desktopKeys.forEach(
         key => {
 
+
           let value =
-            row[key] ?? "-";
+            row[key] ??
+            "-";
 
 
           if (
@@ -2257,10 +2358,11 @@ function renderOrders(data) {
           }
 
 
-          desktop +=
-            "<td>" +
-            value +
-            "</td>";
+          desktop += `
+            <td>
+              ${value}
+            </td>
+          `;
 
         }
       );
@@ -2277,10 +2379,12 @@ function renderOrders(data) {
     "</tbody></table></div>";
 
 
-  /* MOBILE */
+  /* ===================================================
+     MOBILE
+  =================================================== */
 
   const groups =
-    getSortedGroups(
+    groupOrders(
       data
     );
 
@@ -2289,12 +2393,21 @@ function renderOrders(data) {
     "<div class='mobile-view'>";
 
 
+  let groupIndex =
+    0;
+
+
   groups.forEach(
     (
-      [orderId, items],
-      index
+      items,
+      orderId
     ) => {
 
+
+      /*
+       * Two or more rows
+       * sharing same ORDER ID.
+       */
 
       if (
         items.length >= 2 &&
@@ -2307,20 +2420,27 @@ function renderOrders(data) {
           renderGroupedOrder(
             orderId,
             items,
-            index
+            groupIndex
           );
 
       }
+
+      /*
+       * Single item.
+       */
 
       else {
 
         mobile +=
           renderSingleOrder(
             items[0],
-            index
+            groupIndex
           );
 
       }
+
+
+      groupIndex++;
 
     }
   );
@@ -2340,10 +2460,14 @@ function renderOrders(data) {
 }
 
 
-/* TOGGLES */
+/* =====================================================
+   TOGGLES
+===================================================== */
 
 function activateToggles() {
 
+
+  /* ITEM OPEN / CLOSE */
 
   document
     .querySelectorAll(
@@ -2352,29 +2476,66 @@ function activateToggles() {
     .forEach(
       button => {
 
+
         button.addEventListener(
           "click",
           function() {
 
+
             const target =
-              document.getElementById(
-                this.dataset.target
-              );
+              document
+                .getElementById(
+                  this.dataset.target
+                );
 
 
-            target.classList.toggle(
-              "open"
-            );
+            if (!target) {
+              return;
+            }
 
 
-            this.querySelector(
-              ".item-arrow"
-            ).textContent =
-              target.classList.contains(
-                "open"
-              )
-                ? "▲"
-                : "▼";
+            const open =
+              target
+                .classList
+                .contains(
+                  "open"
+                );
+
+
+            const arrow =
+              this
+                .querySelector(
+                  ".item-arrow"
+                );
+
+
+            if (open) {
+
+              target
+                .classList
+                .remove(
+                  "open"
+                );
+
+
+              arrow.textContent =
+                "▼";
+
+            }
+
+            else {
+
+              target
+                .classList
+                .add(
+                  "open"
+                );
+
+
+              arrow.textContent =
+                "▲";
+
+            }
 
           }
         );
@@ -2383,34 +2544,138 @@ function activateToggles() {
     );
 
 
+  /* ITEM SHOW MORE */
+
   document
     .querySelectorAll(
-      ".item-more-button, .single-more"
+      ".item-more-button"
     )
     .forEach(
       button => {
+
 
         button.addEventListener(
           "click",
           function() {
 
+
             const target =
-              document.getElementById(
-                this.dataset.target
-              );
+              document
+                .getElementById(
+                  this.dataset.target
+                );
 
 
-            target.classList.toggle(
-              "open"
-            );
+            if (!target) {
+              return;
+            }
 
 
-            this.textContent =
-              target.classList.contains(
-                "open"
-              )
-                ? "Show less ▲"
-                : "Show more ▼";
+            const open =
+              target
+                .classList
+                .contains(
+                  "open"
+                );
+
+
+            if (open) {
+
+              target
+                .classList
+                .remove(
+                  "open"
+                );
+
+
+              this.textContent =
+                "Show more ▼";
+
+            }
+
+            else {
+
+              target
+                .classList
+                .add(
+                  "open"
+                );
+
+
+              this.textContent =
+                "Show less ▲";
+
+            }
+
+          }
+        );
+
+      }
+    );
+
+
+  /* SINGLE ORDER SHOW MORE */
+
+  document
+    .querySelectorAll(
+      ".single-more"
+    )
+    .forEach(
+      button => {
+
+
+        button.addEventListener(
+          "click",
+          function() {
+
+
+            const target =
+              document
+                .getElementById(
+                  this.dataset.target
+                );
+
+
+            if (!target) {
+              return;
+            }
+
+
+            const open =
+              target
+                .classList
+                .contains(
+                  "open"
+                );
+
+
+            if (open) {
+
+              target
+                .classList
+                .remove(
+                  "open"
+                );
+
+
+              this.textContent =
+                "Show more ▼";
+
+            }
+
+            else {
+
+              target
+                .classList
+                .add(
+                  "open"
+                );
+
+
+              this.textContent =
+                "Show less ▲";
+
+            }
 
           }
         );
@@ -2421,7 +2686,9 @@ function activateToggles() {
 }
 
 
-/* EVENTS */
+/* =====================================================
+   EVENTS
+===================================================== */
 
 document
   .getElementById(
@@ -2441,8 +2708,9 @@ document
     "change",
     function() {
 
+
       if (
-        allOrders.length
+        allOrders.length > 0
       ) {
 
         applyStatusFilter();
@@ -2461,9 +2729,12 @@ document
     "keydown",
     function(event) {
 
+
       if (
         event.key === "Enter"
       ) {
+
+        event.preventDefault();
 
         search();
 
@@ -2482,6 +2753,10 @@ document
     toggleLike
   );
 
+
+/* =====================================================
+   PAGE LOAD
+===================================================== */
 
 loadLikes();
 
