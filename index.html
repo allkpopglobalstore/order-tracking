@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
 <head>
 
@@ -35,58 +35,32 @@ body {
 
 
 /* =====================================================
-   SEARCH
+   BUSCADOR
 ===================================================== */
 
 .top {
   width: 100%;
   max-width: 700px;
-  margin: 0 auto 10px auto;
-
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  margin: 0 auto 22px auto;
 }
 
-.field-group {
-  min-width: 0;
-}
-
-.search-label {
-  display: block;
-  margin: 0 0 6px 2px;
-
-  font-size: 12px;
-  font-weight: 600;
-  color: #555;
-}
-
-.top input,
-.top select {
+.top input {
   width: 100%;
-  min-width: 0;
-
   padding: 14px;
-
   border: 1px solid #ccc;
   border-radius: 9px;
-
   background: white;
-
   font-size: 15px;
   outline: none;
 }
 
-.top input:focus,
-.top select:focus {
+.top input:focus {
   border-color: #777;
 }
 
 .top button {
-  grid-column: 1 / -1;
-
   width: 100%;
-
+  margin-top: 10px;
   padding: 14px 16px;
 
   background: black;
@@ -103,115 +77,13 @@ body {
 
 
 /* =====================================================
-   INFO + LIKE
-===================================================== */
-
-.info-bar {
-  width: 100%;
-  max-width: 700px;
-
-  margin: 0 auto 18px auto;
-  padding: 9px 12px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  gap: 12px;
-
-  background: white;
-
-  border: 1px solid #e6e6e6;
-  border-radius: 8px;
-}
-
-.info-message {
-  color: #666;
-  font-size: 11px;
-  line-height: 1.35;
-  flex: 1;
-}
-
-.info-icon {
-  margin-right: 4px;
-}
-
-.like-area {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-
-  gap: 6px;
-
-  flex-shrink: 0;
-}
-
-.like-button {
-  width: 30px;
-  height: 30px;
-
-  padding: 0;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border: 1px solid #ddd;
-  border-radius: 50%;
-
-  background: white;
-  color: #555;
-
-  cursor: pointer;
-
-  font-size: 16px;
-}
-
-.like-button.liked {
-  background: #fff0f3;
-  border-color: #ffc5d0;
-  color: #e63961;
-}
-
-.like-button.busy {
-  opacity: 0.6;
-  pointer-events: none;
-}
-
-.like-count {
-  color: #777;
-  font-size: 10px;
-  white-space: nowrap;
-}
-
-
-/* =====================================================
-   RESULT SUMMARY
-===================================================== */
-
-.result-summary {
-  max-width: 700px;
-
-  margin: 0 auto 16px auto;
-
-  font-size: 12px;
-  color: #666;
-
-  text-align: center;
-}
-
-
-/* =====================================================
-   MESSAGES
+   MENSAJES
 ===================================================== */
 
 .card {
   background: white;
-
   padding: 15px;
-
   border-radius: 10px;
-
   margin-bottom: 10px;
 
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
@@ -228,7 +100,6 @@ body {
   color: #b30000;
 
   padding: 12px;
-
   border-radius: 8px;
 }
 
@@ -239,6 +110,7 @@ body {
 
 .status {
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
 
@@ -251,6 +123,9 @@ body {
   font-size: 12px;
 
   white-space: nowrap;
+
+  word-break: keep-all;
+  overflow-wrap: normal;
 }
 
 
@@ -296,262 +171,117 @@ td {
 th {
   background: #111;
   color: white;
+
   white-space: nowrap;
 }
 
 
 /* =====================================================
-   GROUPED ORDER
+   MOBILE ORDERS
 ===================================================== */
 
-.order-group {
+.mobile-order {
   background: white;
 
-  border: 1px solid #e5e5e5;
+  border: 1px solid #e7e7e7;
 
   border-radius: 12px;
 
-  overflow: hidden;
-
   margin-bottom: 16px;
-}
 
-.order-number {
-  background: #111;
-  color: white;
-
-  padding: 12px 14px;
-
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.order-list-title {
-  padding: 10px 14px;
-
-  background: #f5f5f5;
-
-  border-bottom: 1px solid #e8e8e8;
-
-  font-size: 10px;
-  font-weight: 700;
-
-  color: #666;
-
-  letter-spacing: 0.7px;
+  overflow: hidden;
 }
 
 
-/* =====================================================
-   ITEMS
-===================================================== */
+/* FILA */
 
-.order-item {
-  border-bottom: 1px solid #e8e8e8;
-}
-
-.item-toggle {
-  width: 100%;
-
-  padding: 13px 14px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  gap: 10px;
-
-  background: white;
-
-  border: none;
-
-  cursor: pointer;
-
-  text-align: left;
-
-  color: #222;
-
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.item-toggle:hover {
-  background: #fafafa;
-}
-
-.item-name {
-  min-width: 0;
-  overflow-wrap: anywhere;
-}
-
-.item-arrow {
-  flex-shrink: 0;
-  color: #777;
-  font-size: 12px;
-}
-
-.item-details {
-  display: none;
-
-  border-top: 1px solid #eee;
-}
-
-.item-details.open {
-  display: block;
-}
-
-
-/* =====================================================
-   EXTRA ITEM DETAILS
-===================================================== */
-
-.item-extra {
-  display: none;
-}
-
-.item-extra.open {
-  display: block;
-}
-
-.item-more-button {
-  width: 100%;
-
-  padding: 10px;
-
-  background: #fafafa;
-
-  border: none;
-
-  border-top: 1px solid #eee;
-
-  color: #444;
-
-  font-size: 10px;
-
-  cursor: pointer;
-
-  text-align: center;
-}
-
-
-/* =====================================================
-   DETAILS
-===================================================== */
-
-.detail-row {
+.mobile-row {
   display: grid;
-  grid-template-columns: 40% 60%;
+
+  grid-template-columns: 38% 62%;
 
   border-bottom: 1px solid #eee;
 }
 
-.detail-label {
-  padding: 10px;
-
-  background: #f7f7f7;
-
-  color: #555;
-
-  font-size: 10px;
-  font-weight: 600;
+.mobile-row:last-child {
+  border-bottom: none;
 }
 
-.detail-value {
-  padding: 10px;
 
-  color: #222;
+/* LABEL */
+
+.mobile-label {
+  background: #f7f7f7;
+
+  padding: 11px 10px;
 
   font-size: 11px;
 
+  font-weight: 600;
+
+  color: #444;
+
+  display: flex;
+
+  align-items: center;
+}
+
+
+/* VALUE */
+
+.mobile-value {
+  padding: 11px 10px;
+
+  font-size: 12px;
+
+  color: #222;
+
   min-width: 0;
 
   overflow-wrap: anywhere;
 }
 
-.detail-value .status {
-  font-size: 9px;
-  padding: 3px 6px;
+
+/* PRODUCTO */
+
+.mobile-product .mobile-label {
+  background: #f3f3f3;
 }
 
-
-/* =====================================================
-   ORDER SUMMARY
-===================================================== */
-
-.order-common-summary {
-  background: #fafafa;
-
-  border-top: 2px solid #111;
-}
-
-.order-summary-title {
-  padding: 8px 14px 6px 14px;
-
-  color: #777;
-
-  font-size: 9px;
-  font-weight: 700;
-
-  letter-spacing: 0.6px;
-}
-
-
-/* =====================================================
-   SINGLE ORDER
-===================================================== */
-
-.single-order {
-  background: white;
-
-  border: 1px solid #e5e5e5;
-
-  border-radius: 12px;
-
-  overflow: hidden;
-
-  margin-bottom: 16px;
-}
-
-.single-product {
-  padding: 13px 14px;
-
-  background: #111;
-
-  color: white;
-
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.single-item-count {
-  padding: 9px 14px 4px 14px;
-
-  color: #777;
-
-  font-size: 10px;
-  font-weight: 700;
-
-  letter-spacing: 0.5px;
-}
-
-.single-item-name {
-  padding: 8px 14px 12px 14px;
-
-  font-size: 12px;
+.mobile-product .mobile-value {
   font-weight: 600;
 
-  border-bottom: 1px solid #eee;
+  font-size: 13px;
 }
 
-.single-extra {
+
+/* STATUS MOBILE */
+
+.mobile-value .status {
+  font-size: 10px;
+
+  padding: 4px 7px;
+}
+
+
+/* =====================================================
+   DETALLES OCULTOS
+===================================================== */
+
+.mobile-extra {
   display: none;
 }
 
-.single-extra.open {
+.mobile-extra.open {
   display: block;
 }
 
-.single-more {
+
+/* =====================================================
+   MOSTRAR MÁS
+===================================================== */
+
+.show-more-button {
   width: 100%;
 
   padding: 11px;
@@ -567,6 +297,12 @@ th {
   font-size: 12px;
 
   cursor: pointer;
+
+  text-align: center;
+}
+
+.show-more-button:hover {
+  background: #f3f3f3;
 }
 
 
@@ -582,140 +318,72 @@ th {
 
   .container {
     width: 100%;
+
     max-width: 100%;
 
     padding: 12px;
   }
 
+
+  /* BUSCADOR */
+
   .top {
-    gap: 7px;
-    margin-bottom: 9px;
+    margin-bottom: 16px;
   }
 
-  .search-label {
-    font-size: 10px;
-  }
+  .top input {
+    padding: 13px;
 
-  .top input,
-  .top select {
-    padding: 11px 9px;
-    font-size: 12px;
-  }
-
-  .top button {
-    padding: 12px;
     font-size: 14px;
   }
 
-  .info-bar {
-    padding: 8px 9px;
-    gap: 7px;
-    margin-bottom: 14px;
+  .top button {
+    margin-top: 8px;
+
+    padding: 12px;
+
+    font-size: 14px;
   }
 
-  .info-message {
-    font-size: 9px;
-  }
 
-  .like-button {
-    width: 28px;
-    height: 28px;
-    font-size: 15px;
-  }
-
-  .like-count {
-    font-size: 9px;
-  }
+  /* OCULTAR TABLA */
 
   .desktop-view {
     display: none;
   }
 
+
+  /* MOSTRAR PEDIDOS MOBILE */
+
   .mobile-view {
     display: block;
   }
+
 }
 
 </style>
+
 </head>
 
+
 <body>
+
 
 <div class="container">
 
 
   <!-- =================================================
-       SEARCH
+       BUSCADOR
   ================================================== -->
 
   <div class="top">
 
-    <div class="field-group">
-
-      <label
-        class="search-label"
-        for="userid"
-      >
-        Instagram User ID
-      </label>
-
-      <input
-        id="userid"
-        type="text"
-        placeholder="Instagram User ID"
-        autocomplete="off"
-      >
-
-    </div>
-
-
-    <div class="field-group">
-
-      <label
-        class="search-label"
-        for="statusFilter"
-      >
-        Order Status
-      </label>
-
-      <select id="statusFilter">
-
-        <option value="">
-          All Status
-        </option>
-
-        <option value="TO BUY">
-          To Buy
-        </option>
-
-        <option value="PURCHASED">
-          Purchased
-        </option>
-
-        <option value="IN WAREHOUSE CH">
-          In Warehouse CH
-        </option>
-
-        <option value="IN WAREHOUSE KR">
-          In Warehouse KR
-        </option>
-
-        <option value="IN TRANSIT TO ES">
-          In Transit to ES
-        </option>
-
-        <option value="IN SPAIN">
-          In Spain
-        </option>
-
-        <option value="DELIVERED">
-          Delivered
-        </option>
-
-      </select>
-
-    </div>
-
+    <input
+      id="userid"
+      type="text"
+      placeholder="Instagram User ID"
+      autocomplete="off"
+    >
 
     <button
       id="searchButton"
@@ -728,51 +396,8 @@ th {
 
 
   <!-- =================================================
-       INFO + LIKE
+       RESULTADOS
   ================================================== -->
-
-  <div class="info-bar">
-
-    <div class="info-message">
-
-      <span class="info-icon">
-        ⓘ
-      </span>
-
-      Delivered orders remain visible for 30 days.
-
-    </div>
-
-
-    <div class="like-area">
-
-      <button
-        id="likeButton"
-        class="like-button"
-        type="button"
-        aria-label="Like this page"
-        title="Like this page"
-      >
-        ♡
-      </button>
-
-      <span
-        id="likeCount"
-        class="like-count"
-      >
-        Loading...
-      </span>
-
-    </div>
-
-  </div>
-
-
-  <div
-    id="resultSummary"
-    class="result-summary"
-  ></div>
-
 
   <div id="results"></div>
 
@@ -791,11 +416,8 @@ const API_URL =
 "https://script.google.com/macros/s/AKfycbz80y4d-Ot7gRRKQBr0HZ_iO4stEpMIAMC6NjPy5dOiwXRzHkPkzKsmFq97cPWcf9i_/exec";
 
 
-let allOrders = [];
-
-
 /* =====================================================
-   NORMALIZE
+   NORMALIZAR ENCABEZADOS
 ===================================================== */
 
 function normalizeHeader(key) {
@@ -804,31 +426,15 @@ function normalizeHeader(key) {
     .toString()
     .trim()
     .toLowerCase()
-    .replace(
-      /[👤📍📅🏢✈️📦🚩🗓️]/g,
-      ""
-    )
+    .replace(/[👤📍📅🏢✈️📦🚩]/g, "")
     .replace(/\s+/g, " ")
     .trim();
-}
 
-
-function normalizeStatus(value) {
-
-  return (value || "")
-    .toString()
-    .replace(/\u00A0/g, " ")
-    .replace(/\u200B/g, "")
-    .replace(/\u200C/g, "")
-    .replace(/\u200D/g, "")
-    .replace(/\s+/g, " ")
-    .trim()
-    .toUpperCase();
 }
 
 
 /* =====================================================
-   ESCAPE
+   ESCAPAR HTML
 ===================================================== */
 
 function escapeHTML(value) {
@@ -839,200 +445,148 @@ function escapeHTML(value) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
+
 }
 
 
 /* =====================================================
-   COLUMNS
+   IDENTIFICAR COLUMNAS
 ===================================================== */
 
 function isIdColumn(key) {
 
-  return (
-    normalizeHeader(key) === "id"
-  );
+  const k = normalizeHeader(key);
+
+  return k === "id";
+
 }
 
 
 function isUserIdColumn(key) {
 
-  const k =
-    normalizeHeader(key);
+  const k = normalizeHeader(key);
 
   return (
     k === "user id" ||
-    k === "userid" ||
-    k === "instagram user id"
+    k === "userid"
   );
-}
 
-
-function isOrderIdColumn(key) {
-
-  const k =
-    normalizeHeader(key);
-
-  return (
-    k === "order id" ||
-    k === "orderid" ||
-    k === "order_id"
-  );
 }
 
 
 function isProductColumn(key) {
 
-  const k =
-    normalizeHeader(key);
+  return normalizeHeader(key) === "producto";
 
-  return (
-    k === "producto" ||
-    k === "product"
-  );
 }
 
 
 function isItemColumn(key) {
 
-  const k =
-    normalizeHeader(key);
+  const k = normalizeHeader(key);
 
   return (
+    k === "" ||
     k === "item" ||
-    k === "items"
+    k.includes("producto comprado") ||
+    k.includes("product name") ||
+    k.includes("description")
   );
+
 }
 
 
 function isPaymentColumn(key) {
 
-  return normalizeHeader(key)
-    .includes("payment");
+  return normalizeHeader(key).includes("payment");
+
 }
 
 
 function isShippingColumn(key) {
 
-  return normalizeHeader(key)
-    .includes("shipping");
+  return normalizeHeader(key).includes("shipping");
+
 }
 
 
 function isStatusColumn(key) {
 
-  return normalizeHeader(key)
-    .includes("status");
+  return normalizeHeader(key).includes("status");
+
 }
 
 
 function isMonthColumn(key) {
 
-  const k =
-    normalizeHeader(key);
+  const k = normalizeHeader(key);
 
   return (
     k === "mes" ||
     k === "month"
   );
-}
 
-
-function isPurchaseDateColumn(key) {
-
-  return normalizeHeader(key)
-    .includes("purchase");
-}
-
-
-function isWarehouseColumn(key) {
-
-  const k =
-    normalizeHeader(key);
-
-  return (
-    k.includes("warehouse") &&
-    !k.includes("arrival")
-  );
-}
-
-
-function isArrivalColumn(key) {
-
-  return normalizeHeader(key)
-    .includes("arrival");
-}
-
-
-function isDepartureColumn(key) {
-
-  return normalizeHeader(key)
-    .includes("departure");
-}
-
-
-function isDeliveredDateColumn(key) {
-
-  return normalizeHeader(key)
-    .includes("delivered date");
-}
-
-
-/*
-   IMPORTANT:
-
-   If FECHA DE CREACION still exists
-   physically in Google Sheets,
-   we ignore it completely.
-*/
-
-function isCreationDateColumn(key) {
-
-  const k =
-    normalizeHeader(key);
-
-  return (
-    k === "fecha de creacion" ||
-    k === "fecha de creación"
-  );
 }
 
 
 /* =====================================================
-   VALUE HELPER
+   LABEL MOBILE
 ===================================================== */
 
-function getValueByTest(
-  row,
-  testFunction
-) {
+function getMobileLabel(key) {
 
-  const key =
-    Object
-      .keys(row)
-      .find(
-        testFunction
-      );
-
-
-  if (!key) {
-    return "-";
+  if (isProductColumn(key)) {
+    return "PRODUCTO";
   }
 
-
-  const value =
-    row[key];
-
-
-  if (
-    value === null ||
-    value === undefined ||
-    value === ""
-  ) {
-    return "-";
+  if (isItemColumn(key)) {
+    return "ITEM";
   }
 
+  if (isPaymentColumn(key)) {
+    return "PAYMENT";
+  }
 
-  return value;
+  if (isShippingColumn(key)) {
+    return "SHIPPING TO ES";
+  }
+
+  if (isStatusColumn(key)) {
+    return "STATUS";
+  }
+
+  if (isMonthColumn(key)) {
+    return "MONTH";
+  }
+
+  const clean = normalizeHeader(key);
+
+  if (clean === "pob") {
+    return "POB";
+  }
+
+  if (clean === "#") {
+    return "#";
+  }
+
+  if (clean.includes("purchase")) {
+    return "PURCHASE DATE";
+  }
+
+  if (clean.includes("warehouse")) {
+    return "WAREHOUSE";
+  }
+
+  if (clean.includes("departure")) {
+    return "DEPARTURE";
+  }
+
+  if (clean.includes("arrival")) {
+    return "ARRIVAL";
+  }
+
+  return key || "DETAIL";
+
 }
 
 
@@ -1040,93 +594,59 @@ function getValueByTest(
    STATUS
 ===================================================== */
 
-function getOrderStatus(row) {
-
-  return normalizeStatus(
-    getValueByTest(
-      row,
-      isStatusColumn
-    )
-  );
-}
-
-
 function getStatusHTML(value) {
 
   const originalValue =
     value ?? "-";
 
-
   const v =
-    normalizeStatus(
-      originalValue
-    );
+    String(originalValue)
+      .trim()
+      .toUpperCase();
 
 
-  let color =
-    "#999";
+  let color = "#999";
 
 
-  if (
-    v === "DELIVERED"
-  ) {
+  if (v === "DELIVERED") {
 
-    color =
-      "#2ecc71";
+    color = "#2ecc71";
 
   }
 
-  else if (
-    v === "PURCHASED"
-  ) {
+  else if (v === "PURCHASED") {
 
-    color =
-      "#f1c40f";
+    color = "#f1c40f";
 
   }
 
-  else if (
-    v === "IN WAREHOUSE KR"
-  ) {
+  else if (v === "IN WAREHOUSE KR") {
 
-    color =
-      "#9b59b6";
+    color = "#9b59b6";
 
   }
 
-  else if (
-    v === "IN SPAIN"
-  ) {
+  else if (v === "IN SPAIN") {
 
-    color =
-      "#3498db";
+    color = "#3498db";
 
   }
 
-  else if (
-    v === "TO BUY"
-  ) {
+  else if (v === "TO BUY") {
 
-    color =
-      "#e74c3c";
+    color = "#e74c3c";
 
   }
 
-  else if (
-    v === "IN WAREHOUSE CH"
-  ) {
+  else if (v === "IN WAREHOUSE CH") {
 
-    color =
-      "#e67e22";
+    color = "#e67e22";
 
   }
 
-  else if (
-    v === "IN TRANSIT TO ES"
-  ) {
+  else if (v === "IN TRANSIT TO ES") {
 
-    color =
-      "#ff69b4";
+    color = "#ff69b4";
 
   }
 
@@ -1139,261 +659,23 @@ function getStatusHTML(value) {
       ${escapeHTML(originalValue)}
     </span>
   `;
+
 }
 
 
 /* =====================================================
-   LIKE
-===================================================== */
-
-function hasLiked() {
-
-  try {
-
-    return (
-      localStorage
-        .getItem(
-          "allkpopOrderTrackingLiked"
-        )
-      === "yes"
-    );
-
-  }
-
-  catch (error) {
-
-    return false;
-  }
-}
-
-
-function saveLikedState(liked) {
-
-  try {
-
-    if (liked) {
-
-      localStorage
-        .setItem(
-          "allkpopOrderTrackingLiked",
-          "yes"
-        );
-
-    }
-
-    else {
-
-      localStorage
-        .removeItem(
-          "allkpopOrderTrackingLiked"
-        );
-
-    }
-
-  }
-
-  catch (error) {
-
-    console.error(error);
-  }
-}
-
-
-function updateLikeUI() {
-
-  const button =
-    document
-      .getElementById(
-        "likeButton"
-      );
-
-
-  if (
-    hasLiked()
-  ) {
-
-    button.textContent =
-      "♥";
-
-    button.classList
-      .add("liked");
-
-    button.title =
-      "Remove like";
-
-  }
-
-  else {
-
-    button.textContent =
-      "♡";
-
-    button.classList
-      .remove("liked");
-
-    button.title =
-      "Like this page";
-  }
-}
-
-
-function updateLikeCount(likes) {
-
-  const safeLikes =
-    Math.max(
-      0,
-      Number(likes) || 0
-    );
-
-
-  document
-    .getElementById(
-      "likeCount"
-    )
-    .textContent =
-    safeLikes +
-    (
-      safeLikes === 1
-        ? " like"
-        : " likes"
-    );
-}
-
-
-async function loadLikes() {
-
-  try {
-
-    const response =
-      await fetch(
-        API_URL +
-        "?action=getLikes"
-      );
-
-
-    const data =
-      await response.json();
-
-
-    updateLikeCount(
-      data.likes
-    );
-
-  }
-
-  catch (error) {
-
-    console.error(error);
-
-
-    document
-      .getElementById(
-        "likeCount"
-      )
-      .textContent =
-      "";
-  }
-}
-
-
-async function toggleLike() {
-
-  const button =
-    document
-      .getElementById(
-        "likeButton"
-      );
-
-
-  if (
-    button.classList
-      .contains("busy")
-  ) {
-
-    return;
-  }
-
-
-  button.classList
-    .add("busy");
-
-
-  const currentlyLiked =
-    hasLiked();
-
-
-  const action =
-    currentlyLiked
-      ? "unlike"
-      : "like";
-
-
-  try {
-
-    const response =
-      await fetch(
-        API_URL +
-        "?action=" +
-        action
-      );
-
-
-    const data =
-      await response.json();
-
-
-    saveLikedState(
-      !currentlyLiked
-    );
-
-
-    updateLikeUI();
-
-
-    updateLikeCount(
-      data.likes
-    );
-
-  }
-
-  catch (error) {
-
-    console.error(error);
-  }
-
-  finally {
-
-    button.classList
-      .remove("busy");
-  }
-}
-
-
-/* =====================================================
-   SEARCH
+   BUSCAR
 ===================================================== */
 
 async function search() {
 
   const results =
-    document
-      .getElementById(
-        "results"
-      );
-
-
-  const summary =
-    document
-      .getElementById(
-        "resultSummary"
-      );
+    document.getElementById("results");
 
 
   const userId =
     document
-      .getElementById(
-        "userid"
-      )
+      .getElementById("userid")
       .value
       .trim();
 
@@ -1403,12 +685,8 @@ async function search() {
     results.innerHTML =
       "<div class='error'>Enter your Instagram User ID</div>";
 
-
-    summary.innerHTML =
-      "";
-
-
     return;
+
   }
 
 
@@ -1416,27 +694,22 @@ async function search() {
     "<div class='loading'>Loading orders...</div>";
 
 
-  summary.innerHTML =
-    "";
-
-
   try {
 
+    const url =
+      API_URL +
+      "?userId=" +
+      encodeURIComponent(userId);
+
+
     const response =
-      await fetch(
-        API_URL +
-        "?userId=" +
-        encodeURIComponent(
-          userId
-        )
-      );
+      await fetch(url);
 
 
     if (!response.ok) {
 
-      throw new Error(
-        "HTTP error"
-      );
+      throw new Error("HTTP error");
+
     }
 
 
@@ -1444,26 +717,14 @@ async function search() {
       await response.json();
 
 
-    if (
-      !Array.isArray(data)
-    ) {
+    if (!Array.isArray(data)) {
 
-      throw new Error(
-        "API error"
-      );
+      throw new Error("API error");
+
     }
 
 
-    /*
-       No sorting by creation date.
-       Use API / Sheet order.
-    */
-
-    allOrders =
-      data;
-
-
-    applyStatusFilter();
+    renderOrders(data);
 
   }
 
@@ -1475,665 +736,31 @@ async function search() {
     results.innerHTML =
       "<div class='error'>Error loading data</div>";
 
-
-    summary.innerHTML =
-      "";
-  }
-}
-
-
-/* =====================================================
-   FILTER
-===================================================== */
-
-function applyStatusFilter() {
-
-  const selectedStatus =
-    normalizeStatus(
-      document
-        .getElementById(
-          "statusFilter"
-        )
-        .value
-    );
-
-
-  let filtered =
-    [...allOrders];
-
-
-  if (
-    selectedStatus
-  ) {
-
-    filtered =
-      allOrders.filter(
-        order =>
-          getOrderStatus(order)
-          === selectedStatus
-      );
   }
 
-
-  renderOrders(
-    filtered
-  );
 }
 
 
 /* =====================================================
-   GROUP BY ORDER ID
+   FILA MOBILE
 ===================================================== */
 
-function groupOrders(data) {
-
-  const groups =
-    new Map();
-
-
-  data.forEach(
-    (row, index) => {
-
-
-      let orderId =
-        String(
-          getValueByTest(
-            row,
-            isOrderIdColumn
-          )
-        )
-        .trim();
-
-
-      /*
-         Missing ORDER ID:
-         do not combine with other rows.
-      */
-
-      if (
-        !orderId ||
-        orderId === "-"
-      ) {
-
-        orderId =
-          "__single__" +
-          index;
-      }
-
-
-      if (
-        !groups.has(
-          orderId
-        )
-      ) {
-
-        groups.set(
-          orderId,
-          []
-        );
-      }
-
-
-      groups
-        .get(orderId)
-        .push(row);
-    }
-  );
-
-
-  return groups;
-}
-
-
-/* =====================================================
-   RESULT SUMMARY
-===================================================== */
-
-function updateSummary(data) {
-
-  const groups =
-    groupOrders(data);
-
-
-  const orderCount =
-    groups.size;
-
-
-  const itemCount =
-    data.length;
-
-
-  document
-    .getElementById(
-      "resultSummary"
-    )
-    .textContent =
-    orderCount +
-    (
-      orderCount === 1
-        ? " order"
-        : " orders"
-    ) +
-    " · " +
-    itemCount +
-    (
-      itemCount === 1
-        ? " item"
-        : " items"
-    );
-}
-
-
-/* =====================================================
-   DETAIL ROW
-===================================================== */
-
-function createDetailRow(
-  label,
-  value,
-  isStatus = false
-) {
-
-  const displayValue =
-    isStatus
-      ? getStatusHTML(value)
-      : escapeHTML(value);
-
+function createMobileRow(label, value, extraClass = "") {
 
   return `
-    <div class="detail-row">
+    <div class="mobile-row ${extraClass}">
 
-      <div class="detail-label">
+      <div class="mobile-label">
         ${escapeHTML(label)}
       </div>
 
-      <div class="detail-value">
-        ${displayValue}
+      <div class="mobile-value">
+        ${value}
       </div>
 
     </div>
   `;
-}
 
-
-/* =====================================================
-   MAIN ITEM DETAILS
-===================================================== */
-
-function buildItemMainDetails(row) {
-
-  let html =
-    "";
-
-
-  html +=
-    createDetailRow(
-      "PAYMENT",
-      getValueByTest(
-        row,
-        isPaymentColumn
-      )
-    );
-
-
-  html +=
-    createDetailRow(
-      "SHIPPING TO ES",
-      getValueByTest(
-        row,
-        isShippingColumn
-      )
-    );
-
-
-  html +=
-    createDetailRow(
-      "STATUS",
-      getValueByTest(
-        row,
-        isStatusColumn
-      ),
-      true
-    );
-
-
-  html +=
-    createDetailRow(
-      "MONTH",
-      getValueByTest(
-        row,
-        isMonthColumn
-      )
-    );
-
-
-  return html;
-}
-
-
-/* =====================================================
-   EXTRA ITEM DETAILS
-===================================================== */
-
-function buildItemExtraDetails(row) {
-
-  let html =
-    "";
-
-
-  html +=
-    createDetailRow(
-      "PURCHASE DATE",
-      getValueByTest(
-        row,
-        isPurchaseDateColumn
-      )
-    );
-
-
-  html +=
-    createDetailRow(
-      "WAREHOUSE",
-      getValueByTest(
-        row,
-        isWarehouseColumn
-      )
-    );
-
-
-  html +=
-    createDetailRow(
-      "ARRIVAL WH",
-      getValueByTest(
-        row,
-        isArrivalColumn
-      )
-    );
-
-
-  html +=
-    createDetailRow(
-      "DEPARTURE ES",
-      getValueByTest(
-        row,
-        isDepartureColumn
-      )
-    );
-
-
-  html +=
-    createDetailRow(
-      "DELIVERED DATE",
-      getValueByTest(
-        row,
-        isDeliveredDateColumn
-      )
-    );
-
-
-  return html;
-}
-
-
-/* =====================================================
-   COMMON VALUE
-===================================================== */
-
-function getCommonValue(
-  items,
-  testFunction
-) {
-
-  if (
-    !items ||
-    items.length === 0
-  ) {
-
-    return null;
-  }
-
-
-  const values =
-    items.map(
-      row =>
-        String(
-          getValueByTest(
-            row,
-            testFunction
-          )
-        ).trim()
-    );
-
-
-  const firstValue =
-    values[0];
-
-
-  const allSame =
-    values.every(
-      value =>
-        value === firstValue
-    );
-
-
-  if (!allSame) {
-
-    return null;
-  }
-
-
-  return firstValue;
-}
-
-
-/* =====================================================
-   ORDER SUMMARY
-===================================================== */
-
-function buildOrderCommonSummary(items) {
-
-  const commonPayment =
-    getCommonValue(
-      items,
-      isPaymentColumn
-    );
-
-
-  const commonStatus =
-    getCommonValue(
-      items,
-      isStatusColumn
-    );
-
-
-  const commonMonth =
-    getCommonValue(
-      items,
-      isMonthColumn
-    );
-
-
-  let rows =
-    "";
-
-
-  if (
-    commonPayment !== null
-  ) {
-
-    rows +=
-      createDetailRow(
-        "PAYMENT",
-        commonPayment
-      );
-  }
-
-
-  if (
-    commonStatus !== null
-  ) {
-
-    rows +=
-      createDetailRow(
-        "STATUS",
-        commonStatus,
-        true
-      );
-  }
-
-
-  if (
-    commonMonth !== null
-  ) {
-
-    rows +=
-      createDetailRow(
-        "MONTH",
-        commonMonth
-      );
-  }
-
-
-  if (!rows) {
-
-    return "";
-  }
-
-
-  return `
-    <div class="order-common-summary">
-
-      <div class="order-summary-title">
-        ORDER SUMMARY
-      </div>
-
-      ${rows}
-
-    </div>
-  `;
-}
-
-
-/* =====================================================
-   SINGLE ORDER
-===================================================== */
-
-function renderSingleOrder(
-  row,
-  index
-) {
-
-  const product =
-    getValueByTest(
-      row,
-      isProductColumn
-    );
-
-
-  const item =
-    getValueByTest(
-      row,
-      isItemColumn
-    );
-
-
-  const extraId =
-    "single-extra-" +
-    index;
-
-
-  return `
-    <div class="single-order">
-
-      <div class="single-product">
-        ${escapeHTML(product)}
-      </div>
-
-      <div class="single-item-count">
-        1 ITEM
-      </div>
-
-      <div class="single-item-name">
-        • ${escapeHTML(item)}
-      </div>
-
-      ${buildItemMainDetails(row)}
-
-      <div
-        class="single-extra"
-        id="${extraId}"
-      >
-
-        ${buildItemExtraDetails(row)}
-
-      </div>
-
-      <button
-        type="button"
-        class="single-more"
-        data-target="${extraId}"
-      >
-        Show more ▼
-      </button>
-
-    </div>
-  `;
-}
-
-
-/* =====================================================
-   GROUPED ORDER
-===================================================== */
-
-function renderGroupedOrder(
-  orderId,
-  items,
-  groupIndex
-) {
-
-  let html = `
-    <div class="order-group">
-
-      <div class="order-number">
-        ORDER - ${escapeHTML(orderId)}
-      </div>
-
-      <div class="order-list-title">
-        ORDER LIST
-      </div>
-  `;
-
-
-  items.forEach(
-    (row, itemIndex) => {
-
-
-      const product =
-        getValueByTest(
-          row,
-          isProductColumn
-        );
-
-
-      const item =
-        getValueByTest(
-          row,
-          isItemColumn
-        );
-
-
-      let title =
-        "";
-
-
-      if (
-        product !== "-" &&
-        item !== "-"
-      ) {
-
-        title =
-          product +
-          " - " +
-          item;
-
-      }
-
-      else if (
-        product !== "-"
-      ) {
-
-        title =
-          product;
-
-      }
-
-      else {
-
-        title =
-          item;
-      }
-
-
-      const detailsId =
-        "item-details-" +
-        groupIndex +
-        "-" +
-        itemIndex;
-
-
-      const extraId =
-        "item-extra-" +
-        groupIndex +
-        "-" +
-        itemIndex;
-
-
-      html += `
-        <div class="order-item">
-
-          <button
-            type="button"
-            class="item-toggle"
-            data-target="${detailsId}"
-          >
-
-            <span class="item-name">
-              ${escapeHTML(title)}
-            </span>
-
-            <span class="item-arrow">
-              ▼
-            </span>
-
-          </button>
-
-
-          <div
-            class="item-details"
-            id="${detailsId}"
-          >
-
-            ${buildItemMainDetails(row)}
-
-
-            <div
-              class="item-extra"
-              id="${extraId}"
-            >
-
-              ${buildItemExtraDetails(row)}
-
-            </div>
-
-
-            <button
-              type="button"
-              class="item-more-button"
-              data-target="${extraId}"
-            >
-              Show more ▼
-            </button>
-
-          </div>
-
-        </div>
-      `;
-    }
-  );
-
-
-  html +=
-    buildOrderCommonSummary(
-      items
-    );
-
-
-  html += `
-    </div>
-  `;
-
-
-  return html;
 }
 
 
@@ -2144,553 +771,404 @@ function renderGroupedOrder(
 function renderOrders(data) {
 
   const results =
-    document
-      .getElementById(
-        "results"
-      );
+    document.getElementById("results");
 
 
-  if (
-    !data ||
-    data.length === 0
-  ) {
+  if (!data || data.length === 0) {
 
     results.innerHTML =
-      "<div class='card'>No orders found for this status</div>";
-
-
-    document
-      .getElementById(
-        "resultSummary"
-      )
-      .innerHTML =
-      "";
-
+      "<div class='card'>No orders found</div>";
 
     return;
+
   }
 
 
-  updateSummary(
-    data
-  );
-
-
   const keys =
-    Object.keys(
-      data[0]
-    );
+    Object.keys(data[0]);
 
 
   /* ===================================================
      DESKTOP
   =================================================== */
 
-  const desktopKeys =
-    keys.filter(
-      key => {
-
-
-        if (
-          isIdColumn(key)
-        ) {
-
-          return false;
-        }
-
-
-        if (
-          isUserIdColumn(key)
-        ) {
-
-          return false;
-        }
-
-
-        if (
-          isCreationDateColumn(key)
-        ) {
-
-          return false;
-        }
-
-
-        return true;
-      }
-    );
-
-
   let desktop =
     "<div class='desktop-view'>";
 
+  desktop +=
+    "<table>";
 
   desktop +=
-    "<table><thead><tr>";
+    "<thead><tr>";
 
 
-  desktopKeys.forEach(
-    key => {
+  keys.forEach(key => {
+
+    desktop += `
+      <th>
+        ${escapeHTML(key)}
+      </th>
+    `;
+
+  });
 
 
-      let label =
-        key;
+  desktop +=
+    "</tr></thead>";
 
 
-      if (
-        isItemColumn(key)
-      ) {
+  desktop +=
+    "<tbody>";
 
-        label =
-          "ITEM";
+
+  data.forEach(row => {
+
+    desktop +=
+      "<tr>";
+
+
+    keys.forEach(key => {
+
+      let value =
+        row[key] ?? "-";
+
+
+      if (isStatusColumn(key)) {
+
+        value =
+          getStatusHTML(value);
+
       }
 
+      else {
 
-      if (
-        isOrderIdColumn(key)
-      ) {
+        value =
+          escapeHTML(value);
 
-        label =
-          "ORDER ID";
       }
 
 
       desktop += `
-        <th>
-          ${escapeHTML(label)}
-        </th>
+        <td>
+          ${value}
+        </td>
       `;
-    }
-  );
+
+    });
+
+
+    desktop +=
+      "</tr>";
+
+  });
 
 
   desktop +=
-    "</tr></thead><tbody>";
-
-
-  data.forEach(
-    row => {
-
-
-      desktop +=
-        "<tr>";
-
-
-      desktopKeys.forEach(
-        key => {
-
-
-          let value =
-            row[key] ?? "-";
-
-
-          if (
-            isStatusColumn(key)
-          ) {
-
-            value =
-              getStatusHTML(
-                value
-              );
-
-          }
-
-          else {
-
-            value =
-              escapeHTML(
-                value
-              );
-          }
-
-
-          desktop += `
-            <td>
-              ${value}
-            </td>
-          `;
-        }
-      );
-
-
-      desktop +=
-        "</tr>";
-    }
-  );
+    "</tbody></table>";
 
 
   desktop +=
-    "</tbody></table></div>";
+    "</div>";
 
 
   /* ===================================================
      MOBILE
   =================================================== */
 
-  const groups =
-    groupOrders(
-      data
-    );
-
-
   let mobile =
     "<div class='mobile-view'>";
 
 
-  let groupIndex =
-    0;
+  data.forEach((row, orderIndex) => {
 
 
-  groups.forEach(
-    (items, orderId) => {
+    /* -----------------------------------------------
+       PRINCIPALES
+    ----------------------------------------------- */
+
+    const mainKeys =
+      keys.filter(key => {
+
+        return (
+
+          isProductColumn(key) ||
+
+          isItemColumn(key) ||
+
+          isPaymentColumn(key) ||
+
+          isShippingColumn(key) ||
+
+          isStatusColumn(key) ||
+
+          isMonthColumn(key)
+
+        );
+
+      });
 
 
-      /*
-         More than one item
-         with same ORDER ID
-      */
+    /* -----------------------------------------------
+       EXTRAS
+       NO ID
+       NO USER ID
+       NO CAMPOS PRINCIPALES
+    ----------------------------------------------- */
 
-      if (
-        items.length >= 2 &&
-        !orderId.startsWith(
-          "__single__"
-        )
-      ) {
+    const extraKeys =
+      keys.filter(key => {
 
-        mobile +=
-          renderGroupedOrder(
-            orderId,
-            items,
-            groupIndex
-          );
+        if (isIdColumn(key)) {
+          return false;
+        }
+
+        if (isUserIdColumn(key)) {
+          return false;
+        }
+
+        if (mainKeys.includes(key)) {
+          return false;
+        }
+
+        return true;
+
+      });
+
+
+    mobile += `
+      <div class="mobile-order">
+    `;
+
+
+    /* PRINCIPALES */
+
+    mainKeys.forEach(key => {
+
+      let value =
+        row[key] ?? "-";
+
+
+      if (isStatusColumn(key)) {
+
+        value =
+          getStatusHTML(value);
 
       }
-
-
-      /*
-         Single item
-      */
 
       else {
 
-        mobile +=
-          renderSingleOrder(
-            items[0],
-            groupIndex
-          );
+        value =
+          escapeHTML(value);
+
       }
 
 
-      groupIndex++;
+      const rowClass =
+        isProductColumn(key)
+          ? "mobile-product"
+          : "";
+
+
+      mobile +=
+        createMobileRow(
+          getMobileLabel(key),
+          value,
+          rowClass
+        );
+
+    });
+
+
+    /* EXTRAS */
+
+    if (extraKeys.length > 0) {
+
+
+      mobile += `
+        <div
+          class="mobile-extra"
+          id="extra-${orderIndex}"
+        >
+      `;
+
+
+      extraKeys.forEach(key => {
+
+        let value =
+          row[key] ?? "-";
+
+
+        if (isStatusColumn(key)) {
+
+          value =
+            getStatusHTML(value);
+
+        }
+
+        else {
+
+          value =
+            escapeHTML(value);
+
+        }
+
+
+        mobile +=
+          createMobileRow(
+            getMobileLabel(key),
+            value
+          );
+
+      });
+
+
+      mobile +=
+        "</div>";
+
+
+      mobile += `
+        <button
+          type="button"
+          class="show-more-button"
+          data-target="extra-${orderIndex}"
+        >
+          Mostrar más ▼
+        </button>
+      `;
+
     }
-  );
+
+
+    mobile +=
+      "</div>";
+
+  });
 
 
   mobile +=
     "</div>";
 
 
+  /* ===================================================
+     FINAL
+  =================================================== */
+
   results.innerHTML =
-    desktop +
-    mobile;
+    desktop + mobile;
 
 
-  activateToggles();
+  activateShowMoreButtons();
+
 }
 
 
 /* =====================================================
-   TOGGLES
+   MOSTRAR MÁS / MENOS
 ===================================================== */
 
-function activateToggles() {
+function activateShowMoreButtons() {
 
-
-  /* ITEM OPEN / CLOSE */
-
-  document
-    .querySelectorAll(
-      ".item-toggle"
-    )
-    .forEach(
-      button => {
-
-
-        button.addEventListener(
-          "click",
-          function() {
-
-
-            const target =
-              document
-                .getElementById(
-                  this.dataset.target
-                );
-
-
-            if (!target) {
-
-              return;
-            }
-
-
-            const open =
-              target
-                .classList
-                .contains(
-                  "open"
-                );
-
-
-            const arrow =
-              this
-                .querySelector(
-                  ".item-arrow"
-                );
-
-
-            if (open) {
-
-              target
-                .classList
-                .remove(
-                  "open"
-                );
-
-
-              arrow.textContent =
-                "▼";
-
-            }
-
-            else {
-
-              target
-                .classList
-                .add(
-                  "open"
-                );
-
-
-              arrow.textContent =
-                "▲";
-            }
-          }
-        );
-      }
+  const buttons =
+    document.querySelectorAll(
+      ".show-more-button"
     );
 
 
-  /* ITEM SHOW MORE */
+  buttons.forEach(button => {
 
-  document
-    .querySelectorAll(
-      ".item-more-button"
-    )
-    .forEach(
-      button => {
+    button.addEventListener(
+      "click",
+      function() {
 
-
-        button.addEventListener(
-          "click",
-          function() {
+        const targetId =
+          this.dataset.target;
 
 
-            const target =
-              document
-                .getElementById(
-                  this.dataset.target
-                );
+        const extra =
+          document.getElementById(
+            targetId
+          );
 
 
-            if (!target) {
-
-              return;
-            }
-
-
-            const open =
-              target
-                .classList
-                .contains(
-                  "open"
-                );
+        if (!extra) {
+          return;
+        }
 
 
-            if (open) {
-
-              target
-                .classList
-                .remove(
-                  "open"
-                );
+        const isOpen =
+          extra.classList.contains(
+            "open"
+          );
 
 
-              this.textContent =
-                "Show more ▼";
+        if (isOpen) {
 
-            }
-
-            else {
-
-              target
-                .classList
-                .add(
-                  "open"
-                );
+          extra.classList.remove(
+            "open"
+          );
 
 
-              this.textContent =
-                "Show less ▲";
-            }
-          }
-        );
+          this.textContent =
+            "Mostrar más ▼";
+
+        }
+
+        else {
+
+          extra.classList.add(
+            "open"
+          );
+
+
+          this.textContent =
+            "Mostrar menos ▲";
+
+        }
+
       }
     );
 
+  });
 
-  /* SINGLE SHOW MORE */
-
-  document
-    .querySelectorAll(
-      ".single-more"
-    )
-    .forEach(
-      button => {
-
-
-        button.addEventListener(
-          "click",
-          function() {
-
-
-            const target =
-              document
-                .getElementById(
-                  this.dataset.target
-                );
-
-
-            if (!target) {
-
-              return;
-            }
-
-
-            const open =
-              target
-                .classList
-                .contains(
-                  "open"
-                );
-
-
-            if (open) {
-
-              target
-                .classList
-                .remove(
-                  "open"
-                );
-
-
-              this.textContent =
-                "Show more ▼";
-
-            }
-
-            else {
-
-              target
-                .classList
-                .add(
-                  "open"
-                );
-
-
-              this.textContent =
-                "Show less ▲";
-            }
-          }
-        );
-      }
-    );
 }
 
 
 /* =====================================================
-   EVENTS
+   SEARCH BUTTON
 ===================================================== */
 
 document
-  .getElementById(
-    "searchButton"
-  )
+  .getElementById("searchButton")
   .addEventListener(
     "click",
     search
   );
 
 
-document
-  .getElementById(
-    "statusFilter"
-  )
-  .addEventListener(
-    "change",
-    function() {
-
-
-      if (
-        allOrders.length > 0
-      ) {
-
-        applyStatusFilter();
-      }
-    }
-  );
-
+/* =====================================================
+   ENTER = SEARCH
+===================================================== */
 
 document
-  .getElementById(
-    "userid"
-  )
+  .getElementById("userid")
   .addEventListener(
     "keydown",
     function(event) {
 
-
-      if (
-        event.key === "Enter"
-      ) {
+      if (event.key === "Enter") {
 
         event.preventDefault();
 
         search();
+
       }
+
     }
   );
 
 
-document
-  .getElementById(
-    "likeButton"
-  )
-  .addEventListener(
-    "click",
-    toggleLike
-  );
-
-
-/* =====================================================
-   PAGE LOAD
-===================================================== */
-
-loadLikes();
-
-updateLikeUI();
-
-
 </script>
+
 
 </body>
 </html>
