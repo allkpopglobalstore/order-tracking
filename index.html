@@ -1,14 +1,14 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html>
+
 <head>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1"
+>
 
 <style>
-
-/* =====================================================
-   GENERAL
-===================================================== */
 
 * {
   box-sizing: border-box;
@@ -34,33 +34,62 @@ body {
 }
 
 
-/* =====================================================
-   BUSCADOR
-===================================================== */
+/* SEARCH */
 
 .top {
   width: 100%;
   max-width: 700px;
-  margin: 0 auto 22px auto;
+
+  margin: 0 auto 10px auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 10px;
 }
 
-.top input {
+.field-group {
+  min-width: 0;
+}
+
+.search-label {
+  display: block;
+
+  margin: 0 0 6px 2px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  color: #555;
+}
+
+.top input,
+.top select {
   width: 100%;
+  min-width: 0;
+
   padding: 14px;
+
   border: 1px solid #ccc;
   border-radius: 9px;
+
   background: white;
+
   font-size: 15px;
+
   outline: none;
 }
 
-.top input:focus {
+.top input:focus,
+.top select:focus {
   border-color: #777;
 }
 
 .top button {
+  grid-column: 1 / -1;
+
   width: 100%;
-  margin-top: 10px;
+
   padding: 14px 16px;
 
   background: black;
@@ -76,17 +105,116 @@ body {
 }
 
 
-/* =====================================================
-   MENSAJES
-===================================================== */
+/* INFO + LIKE */
+
+.info-bar {
+  width: 100%;
+  max-width: 700px;
+
+  margin: 0 auto 18px auto;
+
+  padding: 9px 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  background: white;
+
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+}
+
+.info-message {
+  color: #666;
+
+  font-size: 11px;
+
+  line-height: 1.35;
+
+  flex: 1;
+}
+
+.like-area {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  flex-shrink: 0;
+}
+
+.like-button {
+  width: 30px;
+  height: 30px;
+
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #ddd;
+  border-radius: 50%;
+
+  background: white;
+  color: #555;
+
+  cursor: pointer;
+
+  font-size: 16px;
+}
+
+.like-button.liked {
+  background: #fff0f3;
+  border-color: #ffc5d0;
+  color: #e63961;
+}
+
+.like-button.busy {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.like-count {
+  color: #777;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+
+/* SUMMARY */
+
+.result-summary {
+  max-width: 700px;
+
+  margin: 0 auto 16px auto;
+
+  font-size: 12px;
+
+  color: #666;
+
+  text-align: center;
+}
+
+
+/* MESSAGES */
 
 .card {
   background: white;
+
   padding: 15px;
+
   border-radius: 10px;
+
   margin-bottom: 10px;
 
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-shadow:
+    0 2px 8px
+    rgba(0,0,0,0.05);
 }
 
 .loading {
@@ -100,13 +228,12 @@ body {
   color: #b30000;
 
   padding: 12px;
+
   border-radius: 8px;
 }
 
 
-/* =====================================================
-   STATUS
-===================================================== */
+/* STATUS */
 
 .status {
   display: inline-flex;
@@ -123,15 +250,10 @@ body {
   font-size: 12px;
 
   white-space: nowrap;
-
-  word-break: keep-all;
-  overflow-wrap: normal;
 }
 
 
-/* =====================================================
-   DESKTOP
-===================================================== */
+/* DESKTOP */
 
 .desktop-view {
   display: block;
@@ -151,8 +273,6 @@ table {
   border-radius: 10px;
 
   overflow: hidden;
-
-  table-layout: auto;
 }
 
 th,
@@ -171,120 +291,122 @@ td {
 th {
   background: #111;
   color: white;
-
   white-space: nowrap;
 }
 
 
-/* =====================================================
-   MOBILE ORDERS
-===================================================== */
+/* ORDER */
 
-.mobile-order {
+.order-group,
+.single-order {
   background: white;
 
-  border: 1px solid #e7e7e7;
+  border: 1px solid #e5e5e5;
 
   border-radius: 12px;
 
-  margin-bottom: 16px;
-
   overflow: hidden;
+
+  margin-bottom: 16px;
+}
+
+.order-number,
+.single-product {
+  background: #111;
+
+  color: white;
+
+  padding: 12px 14px;
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+.order-list-title {
+  padding: 10px 14px;
+
+  background: #f5f5f5;
+
+  border-bottom: 1px solid #e8e8e8;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  color: #666;
+
+  letter-spacing: 0.7px;
 }
 
 
-/* FILA */
+/* ITEMS */
 
-.mobile-row {
-  display: grid;
-
-  grid-template-columns: 38% 62%;
-
-  border-bottom: 1px solid #eee;
+.order-item {
+  border-bottom: 1px solid #e8e8e8;
 }
 
-.mobile-row:last-child {
-  border-bottom: none;
-}
+.item-toggle {
+  width: 100%;
 
-
-/* LABEL */
-
-.mobile-label {
-  background: #f7f7f7;
-
-  padding: 11px 10px;
-
-  font-size: 11px;
-
-  font-weight: 600;
-
-  color: #444;
+  padding: 13px 14px;
 
   display: flex;
-
   align-items: center;
-}
+  justify-content: space-between;
 
+  gap: 10px;
 
-/* VALUE */
+  background: white;
 
-.mobile-value {
-  padding: 11px 10px;
+  border: none;
 
-  font-size: 12px;
+  cursor: pointer;
+
+  text-align: left;
 
   color: #222;
 
-  min-width: 0;
+  font-size: 12px;
 
+  font-weight: 600;
+}
+
+.item-name {
+  min-width: 0;
   overflow-wrap: anywhere;
 }
 
-
-/* PRODUCTO */
-
-.mobile-product .mobile-label {
-  background: #f3f3f3;
+.item-arrow {
+  flex-shrink: 0;
+  color: #777;
 }
 
-.mobile-product .mobile-value {
-  font-weight: 600;
-
-  font-size: 13px;
-}
-
-
-/* STATUS MOBILE */
-
-.mobile-value .status {
-  font-size: 10px;
-
-  padding: 4px 7px;
-}
-
-
-/* =====================================================
-   DETALLES OCULTOS
-===================================================== */
-
-.mobile-extra {
+.item-details {
   display: none;
+
+  border-top: 1px solid #eee;
 }
 
-.mobile-extra.open {
+.item-details.open {
   display: block;
 }
 
+.item-extra,
+.single-extra {
+  display: none;
+}
 
-/* =====================================================
-   MOSTRAR MÁS
-===================================================== */
+.item-extra.open,
+.single-extra.open {
+  display: block;
+}
 
-.show-more-button {
+.item-more-button,
+.single-more {
   width: 100%;
 
-  padding: 11px;
+  padding: 10px;
 
   background: #fafafa;
 
@@ -292,23 +414,102 @@ th {
 
   border-top: 1px solid #eee;
 
-  color: #333;
+  color: #444;
 
-  font-size: 12px;
+  font-size: 10px;
 
   cursor: pointer;
 
   text-align: center;
 }
 
-.show-more-button:hover {
-  background: #f3f3f3;
+
+/* DETAILS */
+
+.detail-row {
+  display: grid;
+
+  grid-template-columns: 40% 60%;
+
+  border-bottom: 1px solid #eee;
+}
+
+.detail-label {
+  padding: 10px;
+
+  background: #f7f7f7;
+
+  color: #555;
+
+  font-size: 10px;
+
+  font-weight: 600;
+}
+
+.detail-value {
+  padding: 10px;
+
+  color: #222;
+
+  font-size: 11px;
+
+  min-width: 0;
+
+  overflow-wrap: anywhere;
+}
+
+.detail-value .status {
+  font-size: 9px;
+
+  padding: 3px 6px;
 }
 
 
-/* =====================================================
-   MOBILE
-===================================================== */
+/* ORDER SUMMARY */
+
+.order-common-summary {
+  background: #fafafa;
+
+  border-top: 2px solid #111;
+}
+
+.order-summary-title {
+  padding: 8px 14px 6px 14px;
+
+  color: #777;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.6px;
+}
+
+
+/* SINGLE ORDER */
+
+.single-item-count {
+  padding: 9px 14px 4px 14px;
+
+  color: #777;
+
+  font-size: 10px;
+
+  font-weight: 700;
+}
+
+.single-item-name {
+  padding: 8px 14px 12px 14px;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  border-bottom: 1px solid #eee;
+}
+
+
+/* MOBILE */
 
 @media (max-width: 768px) {
 
@@ -318,42 +519,52 @@ th {
 
   .container {
     width: 100%;
-
     max-width: 100%;
 
     padding: 12px;
   }
 
-
-  /* BUSCADOR */
-
   .top {
-    margin-bottom: 16px;
+    gap: 7px;
   }
 
-  .top input {
-    padding: 13px;
+  .search-label {
+    font-size: 10px;
+  }
 
-    font-size: 14px;
+  .top input,
+  .top select {
+    padding: 11px 9px;
+
+    font-size: 12px;
   }
 
   .top button {
-    margin-top: 8px;
-
     padding: 12px;
 
     font-size: 14px;
   }
 
+  .info-bar {
+    padding: 8px 9px;
 
-  /* OCULTAR TABLA */
+    margin-bottom: 14px;
+  }
+
+  .info-message {
+    font-size: 9px;
+  }
+
+  .like-button {
+    width: 28px;
+    height: 28px;
+
+    font-size: 15px;
+  }
 
   .desktop-view {
     display: none;
   }
-
-
-  /* MOSTRAR PEDIDOS MOBILE */
 
   .mobile-view {
     display: block;
@@ -368,38 +579,123 @@ th {
 
 <body>
 
-
 <div class="container">
 
 
-  <!-- =================================================
-       BUSCADOR
-  ================================================== -->
+<div class="top">
 
-  <div class="top">
+  <div class="field-group">
+
+    <label
+      class="search-label"
+      for="userid"
+    >
+      Instagram User ID
+    </label>
 
     <input
       id="userid"
-      type="text"
       placeholder="Instagram User ID"
       autocomplete="off"
     >
 
-    <button
-      id="searchButton"
-      type="button"
+  </div>
+
+
+  <div class="field-group">
+
+    <label
+      class="search-label"
+      for="statusFilter"
     >
-      🔎 Search
-    </button>
+      Order Status
+    </label>
+
+    <select id="statusFilter">
+
+      <option value="">
+        All Status
+      </option>
+
+      <option value="TO BUY">
+        To Buy
+      </option>
+
+      <option value="PURCHASED">
+        Purchased
+      </option>
+
+      <option value="IN WAREHOUSE CH">
+        In Warehouse CH
+      </option>
+
+      <option value="IN WAREHOUSE KR">
+        In Warehouse KR
+      </option>
+
+      <option value="IN TRANSIT TO ES">
+        In Transit to ES
+      </option>
+
+      <option value="IN SPAIN">
+        In Spain
+      </option>
+
+      <option value="DELIVERED">
+        Delivered
+      </option>
+
+    </select>
 
   </div>
 
 
-  <!-- =================================================
-       RESULTADOS
-  ================================================== -->
+  <button
+    id="searchButton"
+    type="button"
+  >
+    🔎 Search
+  </button>
 
-  <div id="results"></div>
+</div>
+
+
+<div class="info-bar">
+
+  <div class="info-message">
+    ⓘ Delivered orders remain visible for 30 days.
+  </div>
+
+
+  <div class="like-area">
+
+    <button
+      id="likeButton"
+      class="like-button"
+      type="button"
+    >
+      ♡
+    </button>
+
+    <span
+      id="likeCount"
+      class="like-count"
+    >
+      Loading...
+    </span>
+
+  </div>
+
+</div>
+
+
+<div
+  id="resultSummary"
+  class="result-summary"
+></div>
+
+
+<div id="results"></div>
 
 
 </div>
@@ -408,16 +704,14 @@ th {
 <script>
 
 
-/* =====================================================
-   API
-===================================================== */
-
 const API_URL =
 "https://script.google.com/macros/s/AKfycbz80y4d-Ot7gRRKQBr0HZ_iO4stEpMIAMC6NjPy5dOiwXRzHkPkzKsmFq97cPWcf9i_/exec";
 
-/* =====================================================
-   NORMALIZAR ENCABEZADOS
-===================================================== */
+
+let allOrders = [];
+
+
+/* NORMALIZE */
 
 function normalizeHeader(key) {
 
@@ -425,49 +719,106 @@ function normalizeHeader(key) {
     .toString()
     .trim()
     .toLowerCase()
-    .replace(/[👤📍📅🏢✈️📦🚩]/g, "")
-    .replace(/\s+/g, " ")
+    .replace(
+      /[👤📍📅🏢✈️📦🚩🗓️]/g,
+      ""
+    )
+    .normalize("NFD")
+    .replace(
+      /[\u0300-\u036f]/g,
+      ""
+    )
+    .replace(
+      /\s+/g,
+      " "
+    )
     .trim();
 
 }
 
 
-/* =====================================================
-   ESCAPAR HTML
-===================================================== */
+function normalizeStatus(value) {
 
-function escapeHTML(value) {
-
-  return String(value ?? "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
+  return (value || "")
+    .toString()
+    .replace(
+      /\u00A0/g,
+      " "
+    )
+    .replace(
+      /\s+/g,
+      " "
+    )
+    .trim()
+    .toUpperCase();
 
 }
 
 
-/* =====================================================
-   IDENTIFICAR COLUMNAS
-===================================================== */
+function escapeHTML(value) {
+
+  return String(
+    value ?? ""
+  )
+    .replace(
+      /&/g,
+      "&amp;"
+    )
+    .replace(
+      /</g,
+      "&lt;"
+    )
+    .replace(
+      />/g,
+      "&gt;"
+    )
+    .replace(
+      /"/g,
+      "&quot;"
+    )
+    .replace(
+      /'/g,
+      "&#039;"
+    );
+
+}
+
+
+/* COLUMNS */
 
 function isIdColumn(key) {
 
-  const k = normalizeHeader(key);
-
-  return k === "id";
+  return (
+    normalizeHeader(key)
+    === "id"
+  );
 
 }
 
 
 function isUserIdColumn(key) {
 
-  const k = normalizeHeader(key);
+  const k =
+    normalizeHeader(key);
 
   return (
     k === "user id" ||
-    k === "userid"
+    k === "userid" ||
+    k === "instagram user id"
+  );
+
+}
+
+
+function isOrderIdColumn(key) {
+
+  const k =
+    normalizeHeader(key);
+
+  return (
+    k === "order id" ||
+    k === "orderid" ||
+    k === "order_id"
   );
 
 }
@@ -475,21 +826,25 @@ function isUserIdColumn(key) {
 
 function isProductColumn(key) {
 
-  return normalizeHeader(key) === "producto";
+  const k =
+    normalizeHeader(key);
+
+  return (
+    k === "producto" ||
+    k === "product"
+  );
 
 }
 
 
 function isItemColumn(key) {
 
-  const k = normalizeHeader(key);
+  const k =
+    normalizeHeader(key);
 
   return (
-    k === "" ||
     k === "item" ||
-    k.includes("producto comprado") ||
-    k.includes("product name") ||
-    k.includes("description")
+    k === "items"
   );
 
 }
@@ -497,28 +852,38 @@ function isItemColumn(key) {
 
 function isPaymentColumn(key) {
 
-  return normalizeHeader(key).includes("payment");
+  return normalizeHeader(key)
+    .includes(
+      "payment"
+    );
 
 }
 
 
 function isShippingColumn(key) {
 
-  return normalizeHeader(key).includes("shipping");
+  return normalizeHeader(key)
+    .includes(
+      "shipping"
+    );
 
 }
 
 
 function isStatusColumn(key) {
 
-  return normalizeHeader(key).includes("status");
+  return normalizeHeader(key)
+    .includes(
+      "status"
+    );
 
 }
 
 
 function isMonthColumn(key) {
 
-  const k = normalizeHeader(key);
+  const k =
+    normalizeHeader(key);
 
   return (
     k === "mes" ||
@@ -528,124 +893,267 @@ function isMonthColumn(key) {
 }
 
 
-/* =====================================================
-   LABEL MOBILE
-===================================================== */
+function isPurchaseDateColumn(key) {
 
-function getMobileLabel(key) {
-
-  if (isProductColumn(key)) {
-    return "PRODUCTO";
-  }
-
-  if (isItemColumn(key)) {
-    return "ITEM";
-  }
-
-  if (isPaymentColumn(key)) {
-    return "PAYMENT";
-  }
-
-  if (isShippingColumn(key)) {
-    return "SHIPPING TO ES";
-  }
-
-  if (isStatusColumn(key)) {
-    return "STATUS";
-  }
-
-  if (isMonthColumn(key)) {
-    return "MONTH";
-  }
-
-  const clean = normalizeHeader(key);
-
-  if (clean === "pob") {
-    return "POB";
-  }
-
-  if (clean === "#") {
-    return "#";
-  }
-
-  if (clean.includes("purchase")) {
-    return "PURCHASE DATE";
-  }
-
-  if (clean.includes("warehouse")) {
-    return "WAREHOUSE";
-  }
-
-  if (clean.includes("departure")) {
-    return "DEPARTURE";
-  }
-
-  if (clean.includes("arrival")) {
-    return "ARRIVAL";
-  }
-
-  return key || "DETAIL";
+  return normalizeHeader(key)
+    .includes(
+      "purchase"
+    );
 
 }
 
 
-/* =====================================================
-   STATUS
-===================================================== */
+function isWarehouseColumn(key) {
+
+  const k =
+    normalizeHeader(key);
+
+  return (
+    k.includes(
+      "warehouse"
+    ) &&
+    !k.includes(
+      "arrival"
+    )
+  );
+
+}
+
+
+function isArrivalColumn(key) {
+
+  return normalizeHeader(key)
+    .includes(
+      "arrival"
+    );
+
+}
+
+
+function isDepartureColumn(key) {
+
+  return normalizeHeader(key)
+    .includes(
+      "departure"
+    );
+
+}
+
+
+function isDeliveredDateColumn(key) {
+
+  return normalizeHeader(key)
+    .includes(
+      "delivered date"
+    );
+
+}
+
+
+/* FECHA DE CREACION */
+
+function isCreationDateColumn(key) {
+
+  return (
+    normalizeHeader(key)
+    === "fecha de creacion"
+  );
+
+}
+
+
+/* VALUE */
+
+function getValueByTest(
+  row,
+  testFunction
+) {
+
+  const key =
+    Object
+      .keys(row)
+      .find(
+        testFunction
+      );
+
+
+  if (!key) {
+
+    return "-";
+
+  }
+
+
+  const value =
+    row[key];
+
+
+  if (
+    value === null ||
+    value === undefined ||
+    value === ""
+  ) {
+
+    return "-";
+
+  }
+
+
+  return value;
+
+}
+
+
+/* DATE PARSER */
+
+function parseCreationDate(value) {
+
+  if (
+    !value ||
+    value === "-"
+  ) {
+
+    return 0;
+
+  }
+
+
+  const text =
+    String(value)
+      .trim();
+
+
+  /*
+   DD/MM/YYYY HH:mm:ss
+  */
+
+  const match =
+    text.match(
+      /^(\d{1,2})\/(\d{1,2})\/(\d{4})(?:\s+(\d{1,2}):(\d{2})(?::(\d{2}))?)?$/
+    );
+
+
+  if (!match) {
+
+    return 0;
+
+  }
+
+
+  return new Date(
+    Number(match[3]),
+    Number(match[2]) - 1,
+    Number(match[1]),
+    Number(match[4] || 0),
+    Number(match[5] || 0),
+    Number(match[6] || 0)
+  ).getTime();
+
+}
+
+
+function getCreationTime(row) {
+
+  return parseCreationDate(
+    getValueByTest(
+      row,
+      isCreationDateColumn
+    )
+  );
+
+}
+
+
+/* STATUS */
+
+function getOrderStatus(row) {
+
+  return normalizeStatus(
+    getValueByTest(
+      row,
+      isStatusColumn
+    )
+  );
+
+}
+
 
 function getStatusHTML(value) {
 
-  const originalValue =
+  const original =
     value ?? "-";
 
+
   const v =
-    String(originalValue)
-      .trim()
-      .toUpperCase();
+    normalizeStatus(
+      original
+    );
 
 
-  let color = "#999";
+  let color =
+    "#999";
 
 
-  if (v === "DELIVERED") {
+  if (
+    v === "DELIVERED"
+  ) {
 
-    color = "#2ecc71";
-
-  }
-
-  else if (v === "PURCHASED") {
-
-    color = "#f1c40f";
+    color =
+      "#2ecc71";
 
   }
 
-  else if (v === "IN WAREHOUSE KR") {
+  else if (
+    v === "PURCHASED"
+  ) {
 
-    color = "#9b59b6";
-
-  }
-
-  else if (v === "IN SPAIN") {
-
-    color = "#3498db";
+    color =
+      "#f1c40f";
 
   }
 
-  else if (v === "TO BUY") {
+  else if (
+    v === "IN WAREHOUSE KR"
+  ) {
 
-    color = "#e74c3c";
-
-  }
-
-  else if (v === "IN WAREHOUSE CH") {
-
-    color = "#e67e22";
+    color =
+      "#9b59b6";
 
   }
 
-  else if (v === "IN TRANSIT TO ES") {
+  else if (
+    v === "IN SPAIN"
+  ) {
 
-    color = "#ff69b4";
+    color =
+      "#3498db";
+
+  }
+
+  else if (
+    v === "TO BUY"
+  ) {
+
+    color =
+      "#e74c3c";
+
+  }
+
+  else if (
+    v === "IN WAREHOUSE CH"
+  ) {
+
+    color =
+      "#e67e22";
+
+  }
+
+  else if (
+    v === "IN TRANSIT TO ES"
+  ) {
+
+    color =
+      "#ff69b4";
 
   }
 
@@ -655,28 +1163,240 @@ function getStatusHTML(value) {
       class="status"
       style="background:${color};"
     >
-      ${escapeHTML(originalValue)}
+      ${escapeHTML(original)}
     </span>
   `;
 
 }
 
 
-/* =====================================================
-   BUSCAR
-===================================================== */
+/* LIKE */
+
+function hasLiked() {
+
+  try {
+
+    return (
+      localStorage
+        .getItem(
+          "allkpopOrderTrackingLiked"
+        )
+      === "yes"
+    );
+
+  }
+
+  catch (error) {
+
+    return false;
+
+  }
+
+}
+
+
+function saveLikedState(liked) {
+
+  if (liked) {
+
+    localStorage
+      .setItem(
+        "allkpopOrderTrackingLiked",
+        "yes"
+      );
+
+  }
+
+  else {
+
+    localStorage
+      .removeItem(
+        "allkpopOrderTrackingLiked"
+      );
+
+  }
+
+}
+
+
+function updateLikeUI() {
+
+  const button =
+    document.getElementById(
+      "likeButton"
+    );
+
+
+  if (
+    hasLiked()
+  ) {
+
+    button.textContent =
+      "♥";
+
+    button.classList
+      .add(
+        "liked"
+      );
+
+  }
+
+  else {
+
+    button.textContent =
+      "♡";
+
+    button.classList
+      .remove(
+        "liked"
+      );
+
+  }
+
+}
+
+
+function updateLikeCount(likes) {
+
+  const total =
+    Math.max(
+      0,
+      Number(likes) || 0
+    );
+
+
+  document
+    .getElementById(
+      "likeCount"
+    )
+    .textContent =
+    total +
+    (
+      total === 1
+        ? " like"
+        : " likes"
+    );
+
+}
+
+
+async function loadLikes() {
+
+  try {
+
+    const response =
+      await fetch(
+        API_URL +
+        "?action=getLikes"
+      );
+
+
+    const data =
+      await response.json();
+
+
+    updateLikeCount(
+      data.likes
+    );
+
+  }
+
+  catch (error) {
+
+    console.error(error);
+
+  }
+
+}
+
+
+async function toggleLike() {
+
+  const button =
+    document.getElementById(
+      "likeButton"
+    );
+
+
+  if (
+    button.classList.contains(
+      "busy"
+    )
+  ) {
+
+    return;
+
+  }
+
+
+  button.classList.add(
+    "busy"
+  );
+
+
+  const liked =
+    hasLiked();
+
+
+  try {
+
+    const response =
+      await fetch(
+        API_URL +
+        "?action=" +
+        (
+          liked
+            ? "unlike"
+            : "like"
+        )
+      );
+
+
+    const data =
+      await response.json();
+
+
+    saveLikedState(
+      !liked
+    );
+
+
+    updateLikeUI();
+
+
+    updateLikeCount(
+      data.likes
+    );
+
+  }
+
+  finally {
+
+    button.classList.remove(
+      "busy"
+    );
+
+  }
+
+}
+
+
+/* SEARCH */
 
 async function search() {
 
   const results =
-    document.getElementById("results");
+    document.getElementById(
+      "results"
+    );
 
 
   const userId =
-    document
-      .getElementById("userid")
-      .value
-      .trim();
+    document.getElementById(
+      "userid"
+    )
+    .value
+    .trim();
 
 
   if (!userId) {
@@ -695,35 +1415,36 @@ async function search() {
 
   try {
 
-    const url =
-      API_URL +
-      "?userId=" +
-      encodeURIComponent(userId);
-
-
     const response =
-      await fetch(url);
-
-
-    if (!response.ok) {
-
-      throw new Error("HTTP error");
-
-    }
+      await fetch(
+        API_URL +
+        "?userId=" +
+        encodeURIComponent(
+          userId
+        )
+      );
 
 
     const data =
       await response.json();
 
 
-    if (!Array.isArray(data)) {
+    if (
+      !Array.isArray(data)
+    ) {
 
-      throw new Error("API error");
+      throw new Error(
+        "API error"
+      );
 
     }
 
 
-    renderOrders(data);
+    allOrders =
+      data;
+
+
+    applyStatusFilter();
 
   }
 
@@ -740,21 +1461,213 @@ async function search() {
 }
 
 
-/* =====================================================
-   FILA MOBILE
-===================================================== */
+/* FILTER */
 
-function createMobileRow(label, value, extraClass = "") {
+function applyStatusFilter() {
+
+  const selectedStatus =
+    normalizeStatus(
+      document
+        .getElementById(
+          "statusFilter"
+        )
+        .value
+    );
+
+
+  let filtered =
+    [...allOrders];
+
+
+  if (
+    selectedStatus
+  ) {
+
+    filtered =
+      allOrders.filter(
+        row =>
+          getOrderStatus(row)
+          === selectedStatus
+      );
+
+  }
+
+
+  renderOrders(
+    filtered
+  );
+
+}
+
+
+/* GROUP */
+
+function groupOrders(data) {
+
+  const groups =
+    new Map();
+
+
+  data.forEach(
+    (row, index) => {
+
+
+      let orderId =
+        String(
+          getValueByTest(
+            row,
+            isOrderIdColumn
+          )
+        ).trim();
+
+
+      if (
+        !orderId ||
+        orderId === "-"
+      ) {
+
+        orderId =
+          "__single__" +
+          index;
+
+      }
+
+
+      if (
+        !groups.has(orderId)
+      ) {
+
+        groups.set(
+          orderId,
+          []
+        );
+
+      }
+
+
+      groups
+        .get(orderId)
+        .push(row);
+
+    }
+  );
+
+
+  return groups;
+
+}
+
+
+/* ORDER CREATION TIME */
+
+function getOrderCreationTime(
+  items
+) {
+
+  if (
+    !items ||
+    items.length === 0
+  ) {
+
+    return 0;
+
+  }
+
+
+  return Math.max(
+    ...items.map(
+      item =>
+        getCreationTime(
+          item
+        )
+    )
+  );
+
+}
+
+
+/* SORT GROUPS */
+
+function getSortedGroups(data) {
+
+  const groups =
+    groupOrders(
+      data
+    );
+
+
+  return Array
+    .from(
+      groups.entries()
+    )
+    .sort(
+      (a, b) =>
+
+        getOrderCreationTime(
+          b[1]
+        ) -
+
+        getOrderCreationTime(
+          a[1]
+        )
+    );
+
+}
+
+
+/* SUMMARY */
+
+function updateSummary(data) {
+
+  const groups =
+    getSortedGroups(
+      data
+    );
+
+
+  document
+    .getElementById(
+      "resultSummary"
+    )
+    .textContent =
+    groups.length +
+    (
+      groups.length === 1
+        ? " order"
+        : " orders"
+    ) +
+    " · " +
+    data.length +
+    (
+      data.length === 1
+        ? " item"
+        : " items"
+    );
+
+}
+
+
+/* DETAIL */
+
+function createDetailRow(
+  label,
+  value,
+  isStatus = false
+) {
 
   return `
-    <div class="mobile-row ${extraClass}">
+    <div class="detail-row">
 
-      <div class="mobile-label">
+      <div class="detail-label">
         ${escapeHTML(label)}
       </div>
 
-      <div class="mobile-value">
-        ${value}
+      <div class="detail-value">
+        ${
+          isStatus
+            ? getStatusHTML(value)
+            : escapeHTML(value)
+        }
       </div>
 
     </div>
@@ -763,400 +1676,794 @@ function createMobileRow(label, value, extraClass = "") {
 }
 
 
-/* =====================================================
-   RENDER
-===================================================== */
+/* MAIN DETAILS */
+
+function buildItemMainDetails(row) {
+
+  let html =
+    "";
+
+
+  html +=
+    createDetailRow(
+      "PAYMENT",
+      getValueByTest(
+        row,
+        isPaymentColumn
+      )
+    );
+
+
+  html +=
+    createDetailRow(
+      "SHIPPING TO ES",
+      getValueByTest(
+        row,
+        isShippingColumn
+      )
+    );
+
+
+  html +=
+    createDetailRow(
+      "STATUS",
+      getValueByTest(
+        row,
+        isStatusColumn
+      ),
+      true
+    );
+
+
+  html +=
+    createDetailRow(
+      "MONTH",
+      getValueByTest(
+        row,
+        isMonthColumn
+      )
+    );
+
+
+  return html;
+
+}
+
+
+/* EXTRA */
+
+function buildItemExtraDetails(row) {
+
+  let html =
+    "";
+
+
+  html +=
+    createDetailRow(
+      "PURCHASE DATE",
+      getValueByTest(
+        row,
+        isPurchaseDateColumn
+      )
+    );
+
+
+  html +=
+    createDetailRow(
+      "WAREHOUSE",
+      getValueByTest(
+        row,
+        isWarehouseColumn
+      )
+    );
+
+
+  html +=
+    createDetailRow(
+      "ARRIVAL WH",
+      getValueByTest(
+        row,
+        isArrivalColumn
+      )
+    );
+
+
+  html +=
+    createDetailRow(
+      "DELIVERED DATE",
+      getValueByTest(
+        row,
+        isDeliveredDateColumn
+      )
+    );
+
+
+  html +=
+    createDetailRow(
+      "DEPARTURE ES",
+      getValueByTest(
+        row,
+        isDepartureColumn
+      )
+    );
+
+
+  return html;
+
+}
+
+
+/* COMMON */
+
+function getCommonValue(
+  items,
+  test
+) {
+
+  const values =
+    items.map(
+      row =>
+        String(
+          getValueByTest(
+            row,
+            test
+          )
+        ).trim()
+    );
+
+
+  const first =
+    values[0];
+
+
+  return values.every(
+    value =>
+      value === first
+  )
+    ? first
+    : null;
+
+}
+
+
+/* ORDER SUMMARY */
+
+function buildOrderCommonSummary(
+  items
+) {
+
+  const payment =
+    getCommonValue(
+      items,
+      isPaymentColumn
+    );
+
+
+  const status =
+    getCommonValue(
+      items,
+      isStatusColumn
+    );
+
+
+  const month =
+    getCommonValue(
+      items,
+      isMonthColumn
+    );
+
+
+  let rows =
+    "";
+
+
+  if (
+    payment !== null
+  ) {
+
+    rows +=
+      createDetailRow(
+        "PAYMENT",
+        payment
+      );
+
+  }
+
+
+  if (
+    status !== null
+  ) {
+
+    rows +=
+      createDetailRow(
+        "STATUS",
+        status,
+        true
+      );
+
+  }
+
+
+  if (
+    month !== null
+  ) {
+
+    rows +=
+      createDetailRow(
+        "MONTH",
+        month
+      );
+
+  }
+
+
+  if (!rows) {
+
+    return "";
+
+  }
+
+
+  return `
+    <div class="order-common-summary">
+
+      <div class="order-summary-title">
+        ORDER SUMMARY
+      </div>
+
+      ${rows}
+
+    </div>
+  `;
+
+}
+
+
+/* SINGLE ORDER */
+
+function renderSingleOrder(
+  row,
+  index
+) {
+
+  const product =
+    getValueByTest(
+      row,
+      isProductColumn
+    );
+
+
+  const item =
+    getValueByTest(
+      row,
+      isItemColumn
+    );
+
+
+  const extraId =
+    "single-extra-" +
+    index;
+
+
+  return `
+    <div class="single-order">
+
+      <div class="single-product">
+        ${escapeHTML(product)}
+      </div>
+
+      <div class="single-item-count">
+        1 ITEM
+      </div>
+
+      <div class="single-item-name">
+        • ${escapeHTML(item)}
+      </div>
+
+      ${buildItemMainDetails(row)}
+
+      <div
+        class="single-extra"
+        id="${extraId}"
+      >
+
+        ${buildItemExtraDetails(row)}
+
+      </div>
+
+      <button
+        class="single-more"
+        data-target="${extraId}"
+        type="button"
+      >
+        Show more ▼
+      </button>
+
+    </div>
+  `;
+
+}
+
+
+/* GROUPED ORDER */
+
+function renderGroupedOrder(
+  orderId,
+  items,
+  groupIndex
+) {
+
+  let html = `
+    <div class="order-group">
+
+      <div class="order-number">
+        ORDER - ${escapeHTML(orderId)}
+      </div>
+
+      <div class="order-list-title">
+        ORDER LIST
+      </div>
+  `;
+
+
+  items.forEach(
+    (row, itemIndex) => {
+
+
+      const product =
+        getValueByTest(
+          row,
+          isProductColumn
+        );
+
+
+      const item =
+        getValueByTest(
+          row,
+          isItemColumn
+        );
+
+
+      let title =
+        product;
+
+
+      if (
+        product !== "-" &&
+        item !== "-"
+      ) {
+
+        title =
+          product +
+          " - " +
+          item;
+
+      }
+
+
+      const detailsId =
+        "details-" +
+        groupIndex +
+        "-" +
+        itemIndex;
+
+
+      const extraId =
+        "extra-" +
+        groupIndex +
+        "-" +
+        itemIndex;
+
+
+      html += `
+        <div class="order-item">
+
+          <button
+            class="item-toggle"
+            type="button"
+            data-target="${detailsId}"
+          >
+
+            <span class="item-name">
+              ${escapeHTML(title)}
+            </span>
+
+            <span class="item-arrow">
+              ▼
+            </span>
+
+          </button>
+
+
+          <div
+            class="item-details"
+            id="${detailsId}"
+          >
+
+            ${buildItemMainDetails(row)}
+
+            <div
+              class="item-extra"
+              id="${extraId}"
+            >
+
+              ${buildItemExtraDetails(row)}
+
+            </div>
+
+            <button
+              class="item-more-button"
+              data-target="${extraId}"
+              type="button"
+            >
+              Show more ▼
+            </button>
+
+          </div>
+
+        </div>
+      `;
+
+    }
+  );
+
+
+  html +=
+    buildOrderCommonSummary(
+      items
+    );
+
+
+  html +=
+    "</div>";
+
+
+  return html;
+
+}
+
+
+/* RENDER */
 
 function renderOrders(data) {
 
   const results =
-    document.getElementById("results");
+    document.getElementById(
+      "results"
+    );
 
 
-  if (!data || data.length === 0) {
+  if (
+    !data ||
+    data.length === 0
+  ) {
 
     results.innerHTML =
-      "<div class='card'>No orders found</div>";
+      "<div class='card'>No orders found for this status</div>";
+
+
+    document
+      .getElementById(
+        "resultSummary"
+      )
+      .innerHTML =
+      "";
+
 
     return;
 
   }
 
 
+  updateSummary(
+    data
+  );
+
+
   const keys =
-    Object.keys(data[0]);
+    Object.keys(
+      data[0]
+    );
 
 
-  /* ===================================================
-     DESKTOP
-  =================================================== */
+  /* DESKTOP */
+
+  const desktopKeys =
+    keys.filter(
+      key =>
+
+        !isIdColumn(key) &&
+        !isUserIdColumn(key) &&
+        !isCreationDateColumn(key)
+    );
+
 
   let desktop =
-    "<div class='desktop-view'>";
-
-  desktop +=
-    "<table>";
-
-  desktop +=
-    "<thead><tr>";
+    "<div class='desktop-view'><table><thead><tr>";
 
 
-  keys.forEach(key => {
+  desktopKeys.forEach(
+    key => {
 
-    desktop += `
-      <th>
-        ${escapeHTML(key)}
-      </th>
-    `;
-
-  });
+      let label =
+        key;
 
 
-  desktop +=
-    "</tr></thead>";
+      if (
+        isItemColumn(key)
+      ) {
 
-
-  desktop +=
-    "<tbody>";
-
-
-  data.forEach(row => {
-
-    desktop +=
-      "<tr>";
-
-
-    keys.forEach(key => {
-
-      let value =
-        row[key] ?? "-";
-
-
-      if (isStatusColumn(key)) {
-
-        value =
-          getStatusHTML(value);
-
-      }
-
-      else {
-
-        value =
-          escapeHTML(value);
+        label =
+          "ITEM";
 
       }
 
 
-      desktop += `
-        <td>
-          ${value}
-        </td>
-      `;
+      if (
+        isOrderIdColumn(key)
+      ) {
 
-    });
+        label =
+          "ORDER ID";
+
+      }
 
 
-    desktop +=
-      "</tr>";
+      desktop +=
+        "<th>" +
+        escapeHTML(label) +
+        "</th>";
 
-  });
+    }
+  );
 
 
   desktop +=
-    "</tbody></table>";
+    "</tr></thead><tbody>";
+
+
+  data.forEach(
+    row => {
+
+      desktop +=
+        "<tr>";
+
+
+      desktopKeys.forEach(
+        key => {
+
+          let value =
+            row[key] ?? "-";
+
+
+          if (
+            isStatusColumn(key)
+          ) {
+
+            value =
+              getStatusHTML(
+                value
+              );
+
+          }
+
+          else {
+
+            value =
+              escapeHTML(
+                value
+              );
+
+          }
+
+
+          desktop +=
+            "<td>" +
+            value +
+            "</td>";
+
+        }
+      );
+
+
+      desktop +=
+        "</tr>";
+
+    }
+  );
 
 
   desktop +=
-    "</div>";
+    "</tbody></table></div>";
 
 
-  /* ===================================================
-     MOBILE
-  =================================================== */
+  /* MOBILE */
+
+  const groups =
+    getSortedGroups(
+      data
+    );
+
 
   let mobile =
     "<div class='mobile-view'>";
 
 
-  data.forEach((row, orderIndex) => {
+  groups.forEach(
+    (
+      [orderId, items],
+      index
+    ) => {
 
 
-    /* -----------------------------------------------
-       PRINCIPALES
-    ----------------------------------------------- */
+      if (
+        items.length >= 2 &&
+        !orderId.startsWith(
+          "__single__"
+        )
+      ) {
 
-    const mainKeys =
-      keys.filter(key => {
-
-        return (
-
-          isProductColumn(key) ||
-
-          isItemColumn(key) ||
-
-          isPaymentColumn(key) ||
-
-          isShippingColumn(key) ||
-
-          isStatusColumn(key) ||
-
-          isMonthColumn(key)
-
-        );
-
-      });
-
-
-    /* -----------------------------------------------
-       EXTRAS
-       NO ID
-       NO USER ID
-       NO CAMPOS PRINCIPALES
-    ----------------------------------------------- */
-
-    const extraKeys =
-      keys.filter(key => {
-
-        if (isIdColumn(key)) {
-          return false;
-        }
-
-        if (isUserIdColumn(key)) {
-          return false;
-        }
-
-        if (mainKeys.includes(key)) {
-          return false;
-        }
-
-        return true;
-
-      });
-
-
-    mobile += `
-      <div class="mobile-order">
-    `;
-
-
-    /* PRINCIPALES */
-
-    mainKeys.forEach(key => {
-
-      let value =
-        row[key] ?? "-";
-
-
-      if (isStatusColumn(key)) {
-
-        value =
-          getStatusHTML(value);
+        mobile +=
+          renderGroupedOrder(
+            orderId,
+            items,
+            index
+          );
 
       }
 
       else {
 
-        value =
-          escapeHTML(value);
+        mobile +=
+          renderSingleOrder(
+            items[0],
+            index
+          );
 
       }
 
-
-      const rowClass =
-        isProductColumn(key)
-          ? "mobile-product"
-          : "";
-
-
-      mobile +=
-        createMobileRow(
-          getMobileLabel(key),
-          value,
-          rowClass
-        );
-
-    });
-
-
-    /* EXTRAS */
-
-    if (extraKeys.length > 0) {
-
-
-      mobile += `
-        <div
-          class="mobile-extra"
-          id="extra-${orderIndex}"
-        >
-      `;
-
-
-      extraKeys.forEach(key => {
-
-        let value =
-          row[key] ?? "-";
-
-
-        if (isStatusColumn(key)) {
-
-          value =
-            getStatusHTML(value);
-
-        }
-
-        else {
-
-          value =
-            escapeHTML(value);
-
-        }
-
-
-        mobile +=
-          createMobileRow(
-            getMobileLabel(key),
-            value
-          );
-
-      });
-
-
-      mobile +=
-        "</div>";
-
-
-      mobile += `
-        <button
-          type="button"
-          class="show-more-button"
-          data-target="extra-${orderIndex}"
-        >
-          Mostrar más ▼
-        </button>
-      `;
-
     }
-
-
-    mobile +=
-      "</div>";
-
-  });
+  );
 
 
   mobile +=
     "</div>";
 
 
-  /* ===================================================
-     FINAL
-  =================================================== */
-
   results.innerHTML =
-    desktop + mobile;
+    desktop +
+    mobile;
 
 
-  activateShowMoreButtons();
+  activateToggles();
 
 }
 
 
-/* =====================================================
-   MOSTRAR MÁS / MENOS
-===================================================== */
+/* TOGGLES */
 
-function activateShowMoreButtons() {
-
-  const buttons =
-    document.querySelectorAll(
-      ".show-more-button"
-    );
+function activateToggles() {
 
 
-  buttons.forEach(button => {
+  document
+    .querySelectorAll(
+      ".item-toggle"
+    )
+    .forEach(
+      button => {
 
-    button.addEventListener(
-      "click",
-      function() {
+        button.addEventListener(
+          "click",
+          function() {
 
-        const targetId =
-          this.dataset.target;
-
-
-        const extra =
-          document.getElementById(
-            targetId
-          );
-
-
-        if (!extra) {
-          return;
-        }
+            const target =
+              document.getElementById(
+                this.dataset.target
+              );
 
 
-        const isOpen =
-          extra.classList.contains(
-            "open"
-          );
+            target.classList.toggle(
+              "open"
+            );
 
 
-        if (isOpen) {
+            this.querySelector(
+              ".item-arrow"
+            ).textContent =
+              target.classList.contains(
+                "open"
+              )
+                ? "▲"
+                : "▼";
 
-          extra.classList.remove(
-            "open"
-          );
-
-
-          this.textContent =
-            "Mostrar más ▼";
-
-        }
-
-        else {
-
-          extra.classList.add(
-            "open"
-          );
-
-
-          this.textContent =
-            "Mostrar menos ▲";
-
-        }
+          }
+        );
 
       }
     );
 
-  });
+
+  document
+    .querySelectorAll(
+      ".item-more-button, .single-more"
+    )
+    .forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          function() {
+
+            const target =
+              document.getElementById(
+                this.dataset.target
+              );
+
+
+            target.classList.toggle(
+              "open"
+            );
+
+
+            this.textContent =
+              target.classList.contains(
+                "open"
+              )
+                ? "Show less ▲"
+                : "Show more ▼";
+
+          }
+        );
+
+      }
+    );
 
 }
 
 
-/* =====================================================
-   SEARCH BUTTON
-===================================================== */
+/* EVENTS */
 
 document
-  .getElementById("searchButton")
+  .getElementById(
+    "searchButton"
+  )
   .addEventListener(
     "click",
     search
   );
 
 
-/* =====================================================
-   ENTER = SEARCH
-===================================================== */
+document
+  .getElementById(
+    "statusFilter"
+  )
+  .addEventListener(
+    "change",
+    function() {
+
+      if (
+        allOrders.length
+      ) {
+
+        applyStatusFilter();
+
+      }
+
+    }
+  );
+
 
 document
-  .getElementById("userid")
+  .getElementById(
+    "userid"
+  )
   .addEventListener(
     "keydown",
     function(event) {
 
-      if (event.key === "Enter") {
-
-        event.preventDefault();
+      if (
+        event.key === "Enter"
+      ) {
 
         search();
 
@@ -1166,8 +2473,23 @@ document
   );
 
 
+document
+  .getElementById(
+    "likeButton"
+  )
+  .addEventListener(
+    "click",
+    toggleLike
+  );
+
+
+loadLikes();
+
+updateLikeUI();
+
+
 </script>
 
-
 </body>
+
 </html>
