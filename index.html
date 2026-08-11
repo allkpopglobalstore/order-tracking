@@ -55,10 +55,8 @@ body {
 .search-label {
   display: block;
   margin: 0 0 6px 2px;
-
   font-size: 12px;
   font-weight: 600;
-
   color: #555;
 }
 
@@ -66,16 +64,11 @@ body {
 .top select {
   width: 100%;
   min-width: 0;
-
   padding: 14px;
-
   border: 1px solid #ccc;
   border-radius: 9px;
-
   background: white;
-
   font-size: 15px;
-
   outline: none;
 }
 
@@ -86,19 +79,13 @@ body {
 
 .top button {
   grid-column: 1 / -1;
-
   width: 100%;
-
   padding: 14px 16px;
-
   background: black;
   color: white;
-
   border: none;
   border-radius: 9px;
-
   cursor: pointer;
-
   font-size: 15px;
   font-weight: 600;
 }
@@ -111,9 +98,7 @@ body {
 .info-bar {
   width: 100%;
   max-width: 700px;
-
   margin: 0 auto 18px auto;
-
   padding: 9px 12px;
 
   display: flex;
@@ -123,7 +108,6 @@ body {
   gap: 12px;
 
   background: white;
-
   border: 1px solid #e6e6e6;
   border-radius: 8px;
 }
@@ -143,16 +127,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-
   gap: 6px;
-
   flex-shrink: 0;
 }
 
 .like-button {
   width: 30px;
   height: 30px;
-
   padding: 0;
 
   display: flex;
@@ -161,16 +142,10 @@ body {
 
   border: 1px solid #ddd;
   border-radius: 50%;
-
   background: white;
-
   color: #555;
-
   cursor: pointer;
-
   font-size: 16px;
-
-  line-height: 1;
 }
 
 .like-button.liked {
@@ -197,13 +172,9 @@ body {
 
 .result-summary {
   max-width: 700px;
-
   margin: 0 auto 16px auto;
-
   font-size: 12px;
-
   color: #666;
-
   text-align: center;
 }
 
@@ -214,15 +185,10 @@ body {
 
 .card {
   background: white;
-
   padding: 15px;
-
   border-radius: 10px;
-
   margin-bottom: 10px;
-
-  box-shadow:
-    0 2px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .loading {
@@ -234,7 +200,6 @@ body {
 .error {
   background: #ffe6e6;
   color: #b30000;
-
   padding: 12px;
   border-radius: 8px;
 }
@@ -246,18 +211,14 @@ body {
 
 .status {
   display: inline-flex;
-
   align-items: center;
   justify-content: center;
 
   padding: 5px 10px;
-
   border-radius: 20px;
 
   color: white;
-
   font-size: 12px;
-
   white-space: nowrap;
 }
 
@@ -276,28 +237,19 @@ body {
 
 table {
   width: 100%;
-
   border-collapse: collapse;
-
   background: white;
-
   border-radius: 10px;
-
   overflow: hidden;
-
   table-layout: auto;
 }
 
 th,
 td {
   padding: 12px 10px;
-
   border-bottom: 1px solid #eee;
-
   text-align: left;
-
   font-size: 14px;
-
   vertical-align: middle;
 }
 
@@ -309,42 +261,32 @@ th {
 
 
 /* =========================
-   MOBILE GROUP
+   GROUPED ORDER
 ========================= */
 
 .order-group {
   background: white;
-
   border: 1px solid #e5e5e5;
   border-radius: 12px;
-
   overflow: hidden;
-
   margin-bottom: 16px;
 }
 
 .order-number {
   background: #111;
   color: white;
-
   padding: 12px 14px;
-
   font-size: 13px;
   font-weight: 700;
 }
 
 .order-list-title {
   padding: 10px 14px;
-
   background: #f5f5f5;
-
   border-bottom: 1px solid #e8e8e8;
-
   font-size: 10px;
   font-weight: 700;
-
   color: #666;
-
   letter-spacing: 0.6px;
 }
 
@@ -358,51 +300,38 @@ th {
 
 .item-toggle {
   width: 100%;
-
   padding: 13px 14px;
 
   display: flex;
-
   align-items: center;
   justify-content: space-between;
 
   gap: 10px;
 
   background: white;
-
   border: none;
 
   color: #222;
-
   cursor: pointer;
 
   text-align: left;
-
   font-size: 12px;
   font-weight: 600;
 }
 
-.item-toggle:hover {
-  background: #fafafa;
-}
-
 .item-name {
   min-width: 0;
-
   overflow-wrap: anywhere;
 }
 
 .item-arrow {
   flex-shrink: 0;
-
   color: #777;
-
   font-size: 12px;
 }
 
 .item-details {
   display: none;
-
   border-top: 1px solid #eee;
 }
 
@@ -410,11 +339,73 @@ th {
   display: block;
 }
 
+
+/* =========================
+   SINGLE ORDER CARD
+========================= */
+
+.single-order {
+  background: white;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.single-product {
+  padding: 13px 14px;
+  background: #111;
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.single-item-count {
+  padding: 9px 14px 4px 14px;
+  font-size: 10px;
+  color: #777;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.single-item-name {
+  padding: 8px 14px 12px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  border-bottom: 1px solid #eee;
+}
+
+.single-main {
+  border-bottom: 1px solid #eee;
+}
+
+.single-extra {
+  display: none;
+}
+
+.single-extra.open {
+  display: block;
+}
+
+.single-more {
+  width: 100%;
+  padding: 11px;
+  background: #fafafa;
+  border: none;
+  border-top: 1px solid #eee;
+  color: #333;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+
+/* =========================
+   DETAIL ROW
+========================= */
+
 .detail-row {
   display: grid;
-
   grid-template-columns: 40% 60%;
-
   border-bottom: 1px solid #eee;
 }
 
@@ -424,24 +415,17 @@ th {
 
 .detail-label {
   padding: 10px;
-
   background: #f7f7f7;
-
   color: #555;
-
   font-size: 10px;
   font-weight: 600;
 }
 
 .detail-value {
   padding: 10px;
-
   color: #222;
-
   font-size: 11px;
-
   min-width: 0;
-
   overflow-wrap: anywhere;
 }
 
@@ -464,7 +448,6 @@ th {
   .container {
     width: 100%;
     max-width: 100%;
-
     padding: 12px;
   }
 
@@ -528,10 +511,7 @@ th {
 <div class="container">
 
 
-  <!-- SEARCH -->
-
   <div class="top">
-
 
     <div class="field-group">
 
@@ -610,8 +590,6 @@ th {
   </div>
 
 
-  <!-- INFO + LIKE -->
-
   <div class="info-bar">
 
     <div class="info-message">
@@ -631,8 +609,6 @@ th {
         id="likeButton"
         class="like-button"
         type="button"
-        aria-label="Like this page"
-        title="Like this page"
       >
         ♡
       </button>
@@ -706,10 +682,6 @@ function normalizeStatus(value) {
 }
 
 
-/* =========================
-   ESCAPE
-========================= */
-
 function escapeHTML(value) {
 
   return String(value ?? "")
@@ -727,11 +699,8 @@ function escapeHTML(value) {
 ========================= */
 
 function isIdColumn(key) {
-
   return normalizeHeader(key) === "id";
-
 }
-
 
 function isUserIdColumn(key) {
 
@@ -744,11 +713,6 @@ function isUserIdColumn(key) {
   );
 
 }
-
-
-/* =========================
-   ORDER ID
-========================= */
 
 function isOrderIdColumn(key) {
 
@@ -763,55 +727,32 @@ function isOrderIdColumn(key) {
 
 }
 
-
 function isProductColumn(key) {
-
-  return (
-    normalizeHeader(key) === "producto"
-  );
-
-}
-
-
-function isItemColumn(key) {
 
   const k =
     normalizeHeader(key);
 
   return (
-    k === "" ||
-    k === "item" ||
-    k.includes("producto comprado") ||
-    k.includes("product name") ||
-    k.includes("description")
+    k === "producto" ||
+    k === "product"
   );
 
 }
 
-
 function isPaymentColumn(key) {
-
   return normalizeHeader(key)
     .includes("payment");
-
 }
-
 
 function isShippingColumn(key) {
-
   return normalizeHeader(key)
     .includes("shipping");
-
 }
-
 
 function isStatusColumn(key) {
-
   return normalizeHeader(key)
     .includes("status");
-
 }
-
 
 function isMonthColumn(key) {
 
@@ -825,49 +766,163 @@ function isMonthColumn(key) {
 
 }
 
-
 function isPurchaseDateColumn(key) {
-
   return normalizeHeader(key)
     .includes("purchase");
-
 }
-
 
 function isWarehouseColumn(key) {
 
-  return normalizeHeader(key)
-    .includes("warehouse");
+  const k =
+    normalizeHeader(key);
+
+  return (
+    k.includes("warehouse") &&
+    !k.includes("arrival")
+  );
 
 }
-
-
-function isDepartureColumn(key) {
-
-  return normalizeHeader(key)
-    .includes("departure");
-
-}
-
 
 function isArrivalColumn(key) {
-
   return normalizeHeader(key)
     .includes("arrival");
+}
+
+function isDepartureColumn(key) {
+  return normalizeHeader(key)
+    .includes("departure");
+}
+
+function isDeliveredDateColumn(key) {
+  return normalizeHeader(key)
+    .includes("delivered date");
+}
+
+
+/* =========================
+   ITEM DETECTION
+========================= */
+
+function getProductKey(row) {
+
+  return Object
+    .keys(row)
+    .find(
+      key =>
+        isProductColumn(key)
+    ) || null;
 
 }
 
 
-function isDeliveredDateColumn(key) {
+function getItemKey(row) {
 
-  return normalizeHeader(key)
-    .includes("delivered date");
+  const keys =
+    Object.keys(row);
+
+
+  const known =
+    keys.find(
+      key => {
+
+        const k =
+          normalizeHeader(key);
+
+        return (
+          k === "item" ||
+          k === "items" ||
+          k.includes(
+            "producto comprado"
+          ) ||
+          k.includes(
+            "product name"
+          ) ||
+          k.includes(
+            "description"
+          ) ||
+          k.includes(
+            "item name"
+          )
+        );
+
+      }
+    );
+
+
+  if (
+    known !== undefined
+  ) {
+
+    return known;
+
+  }
+
+
+  const productKey =
+    getProductKey(row);
+
+
+  if (productKey) {
+
+    const productIndex =
+      keys.indexOf(
+        productKey
+      );
+
+
+    if (
+      productIndex !== -1 &&
+      productIndex + 1 <
+      keys.length
+    ) {
+
+      return keys[
+        productIndex + 1
+      ];
+
+    }
+
+  }
+
+
+  return null;
+
+}
+
+
+function getItemValue(row) {
+
+  const key =
+    getItemKey(row);
+
+
+  if (!key) {
+    return "-";
+  }
+
+
+  const value =
+    row[key];
+
+
+  if (
+    value === null ||
+    value === undefined ||
+    value === ""
+  ) {
+
+    return "-";
+
+  }
+
+
+  return value;
 
 }
 
 
 /* =========================
-   VALUE BY COLUMN TYPE
+   VALUE HELPERS
 ========================= */
 
 function getValueByTest(
@@ -909,35 +964,6 @@ function getValueByTest(
 
 
 /* =========================
-   LABEL DESKTOP
-========================= */
-
-function getDesktopLabel(key) {
-
-  if (
-    isItemColumn(key)
-  ) {
-
-    return "ITEM";
-
-  }
-
-
-  if (
-    isOrderIdColumn(key)
-  ) {
-
-    return "ORDER ID";
-
-  }
-
-
-  return key;
-
-}
-
-
-/* =========================
    STATUS
 ========================= */
 
@@ -969,45 +995,31 @@ function getStatusHTML(value) {
     "#999";
 
 
-  if (
-    v === "DELIVERED"
-  ) {
+  if (v === "DELIVERED") {
     color = "#2ecc71";
   }
 
-  else if (
-    v === "PURCHASED"
-  ) {
+  else if (v === "PURCHASED") {
     color = "#f1c40f";
   }
 
-  else if (
-    v === "IN WAREHOUSE KR"
-  ) {
+  else if (v === "IN WAREHOUSE KR") {
     color = "#9b59b6";
   }
 
-  else if (
-    v === "IN SPAIN"
-  ) {
+  else if (v === "IN SPAIN") {
     color = "#3498db";
   }
 
-  else if (
-    v === "TO BUY"
-  ) {
+  else if (v === "TO BUY") {
     color = "#e74c3c";
   }
 
-  else if (
-    v === "IN WAREHOUSE CH"
-  ) {
+  else if (v === "IN WAREHOUSE CH") {
     color = "#e67e22";
   }
 
-  else if (
-    v === "IN TRANSIT TO ES"
-  ) {
+  else if (v === "IN TRANSIT TO ES") {
     color = "#ff69b4";
   }
 
@@ -1409,18 +1421,13 @@ function groupOrders(data) {
         .trim();
 
 
-      /*
-       * If there is no ORDER ID,
-       * keep the item separate.
-       */
-
       if (
         !orderId ||
         orderId === "-"
       ) {
 
         orderId =
-          "NO-ORDER-ID-" +
+          "__single__" +
           index;
 
       }
@@ -1463,29 +1470,21 @@ function updateSummary(data) {
     groupOrders(data);
 
 
-  const realOrders =
-    groups.size;
-
-
-  const items =
-    data.length;
-
-
   document
     .getElementById(
       "resultSummary"
     )
     .textContent =
-    realOrders +
+    groups.size +
     (
-      realOrders === 1
+      groups.size === 1
         ? " order"
         : " orders"
     ) +
     " · " +
-    items +
+    data.length +
     (
-      items === 1
+      data.length === 1
         ? " item"
         : " items"
     );
@@ -1522,6 +1521,324 @@ function createDetailRow(
 
     </div>
   `;
+
+}
+
+
+/* =========================
+   MAIN DETAIL ROWS
+========================= */
+
+function buildMainDetails(row) {
+
+  let html = "";
+
+
+  html +=
+    createDetailRow(
+      "PAYMENT",
+      getValueByTest(
+        row,
+        isPaymentColumn
+      )
+    );
+
+
+  html +=
+    createDetailRow(
+      "SHIPPING TO ES",
+      getValueByTest(
+        row,
+        isShippingColumn
+      )
+    );
+
+
+  html +=
+    createDetailRow(
+      "STATUS",
+      getValueByTest(
+        row,
+        isStatusColumn
+      ),
+      true
+    );
+
+
+  html +=
+    createDetailRow(
+      "MONTH",
+      getValueByTest(
+        row,
+        isMonthColumn
+      )
+    );
+
+
+  return html;
+
+}
+
+
+/* =========================
+   EXTRA DETAIL ROWS
+========================= */
+
+function buildExtraDetails(row) {
+
+  let html = "";
+
+
+  html +=
+    createDetailRow(
+      "PURCHASE DATE",
+      getValueByTest(
+        row,
+        isPurchaseDateColumn
+      )
+    );
+
+
+  html +=
+    createDetailRow(
+      "WAREHOUSE",
+      getValueByTest(
+        row,
+        isWarehouseColumn
+      )
+    );
+
+
+  html +=
+    createDetailRow(
+      "ARRIVAL WH",
+      getValueByTest(
+        row,
+        isArrivalColumn
+      )
+    );
+
+
+  html +=
+    createDetailRow(
+      "DEPARTURE ES",
+      getValueByTest(
+        row,
+        isDepartureColumn
+      )
+    );
+
+
+  html +=
+    createDetailRow(
+      "DELIVERED DATE",
+      getValueByTest(
+        row,
+        isDeliveredDateColumn
+      )
+    );
+
+
+  return html;
+
+}
+
+
+/* =========================
+   SINGLE ORDER
+========================= */
+
+function renderSingleOrder(
+  row,
+  index
+) {
+
+  const product =
+    getValueByTest(
+      row,
+      isProductColumn
+    );
+
+
+  const item =
+    getItemValue(
+      row
+    );
+
+
+  const extraId =
+    "single-extra-" +
+    index;
+
+
+  return `
+    <div class="single-order">
+
+      <div class="single-product">
+        ${escapeHTML(product)}
+      </div>
+
+      <div class="single-item-count">
+        1 ITEM
+      </div>
+
+      <div class="single-item-name">
+        • ${escapeHTML(item)}
+      </div>
+
+      <div class="single-main">
+
+        ${buildMainDetails(row)}
+
+      </div>
+
+      <div
+        class="single-extra"
+        id="${extraId}"
+      >
+
+        ${buildExtraDetails(row)}
+
+      </div>
+
+      <button
+        type="button"
+        class="single-more"
+        data-target="${extraId}"
+      >
+        Show more ▼
+      </button>
+
+    </div>
+  `;
+
+}
+
+
+/* =========================
+   GROUPED ORDER
+========================= */
+
+function renderGroupedOrder(
+  orderId,
+  items,
+  groupIndex
+) {
+
+  let html = `
+    <div class="order-group">
+
+      <div class="order-number">
+        ORDER # ${escapeHTML(orderId)}
+      </div>
+
+      <div class="order-list-title">
+        ORDER LIST
+      </div>
+  `;
+
+
+  items.forEach(
+    (row, itemIndex) => {
+
+
+      const product =
+        getValueByTest(
+          row,
+          isProductColumn
+        );
+
+
+      const item =
+        getItemValue(
+          row
+        );
+
+
+      const detailsId =
+        "details-" +
+        groupIndex +
+        "-" +
+        itemIndex;
+
+
+      let title =
+        "";
+
+
+      if (
+        product !== "-" &&
+        item !== "-"
+      ) {
+
+        title =
+          product +
+          " - " +
+          item;
+
+      }
+
+      else if (
+        product !== "-"
+      ) {
+
+        title =
+          product;
+
+      }
+
+      else {
+
+        title =
+          item;
+
+      }
+
+
+      html += `
+        <div class="order-item">
+
+          <button
+            type="button"
+            class="item-toggle"
+            data-target="${detailsId}"
+          >
+
+            <span class="item-name">
+              ${escapeHTML(title)}
+            </span>
+
+            <span class="item-arrow">
+              ▼
+            </span>
+
+          </button>
+
+
+          <div
+            class="item-details"
+            id="${detailsId}"
+          >
+
+            ${buildMainDetails(row)}
+
+            ${buildExtraDetails(row)}
+
+          </div>
+
+        </div>
+      `;
+
+    }
+  );
+
+
+  html += `
+    </div>
+  `;
+
+
+  return html;
 
 }
 
@@ -1570,6 +1887,12 @@ function renderOrders(data) {
     );
 
 
+  const itemKey =
+    getItemKey(
+      data[0]
+    );
+
+
   /* =========================
      DESKTOP
   ========================= */
@@ -1607,11 +1930,34 @@ function renderOrders(data) {
   desktopKeys.forEach(
     key => {
 
+
+      let label =
+        key;
+
+
+      if (
+        key === itemKey
+      ) {
+
+        label =
+          "ITEM";
+
+      }
+
+
+      if (
+        isOrderIdColumn(key)
+      ) {
+
+        label =
+          "ORDER ID";
+
+      }
+
+
       desktop += `
         <th>
-          ${escapeHTML(
-            getDesktopLabel(key)
-          )}
+          ${escapeHTML(label)}
         </th>
       `;
 
@@ -1626,6 +1972,7 @@ function renderOrders(data) {
   data.forEach(
     row => {
 
+
       desktop +=
         "<tr>";
 
@@ -1633,8 +1980,10 @@ function renderOrders(data) {
       desktopKeys.forEach(
         key => {
 
+
           let value =
-            row[key] ?? "-";
+            row[key] ??
+            "-";
 
 
           if (
@@ -1680,7 +2029,7 @@ function renderOrders(data) {
 
 
   /* =========================
-     MOBILE GROUPED
+     MOBILE HYBRID
   ========================= */
 
   const groups =
@@ -1699,225 +2048,40 @@ function renderOrders(data) {
     (items, orderId) => {
 
 
-      let displayOrderId =
-        orderId;
-
+      /*
+       * MULTIPLE ITEMS WITH
+       * SAME ORDER ID
+       */
 
       if (
-        orderId.startsWith(
-          "NO-ORDER-ID-"
+        items.length >= 2 &&
+        !orderId.startsWith(
+          "__single__"
         )
       ) {
 
-        displayOrderId =
-          "-";
+        mobile +=
+          renderGroupedOrder(
+            orderId,
+            items,
+            groupIndex
+          );
 
       }
 
+      /*
+       * ONLY ONE ITEM
+       */
 
-      mobile += `
-        <div class="order-group">
+      else {
 
-          <div class="order-number">
-            ORDER ID ${escapeHTML(
-              displayOrderId
-            )}
-          </div>
+        mobile +=
+          renderSingleOrder(
+            items[0],
+            groupIndex
+          );
 
-          <div class="order-list-title">
-            ORDER LIST
-          </div>
-      `;
-
-
-      items.forEach(
-        (row, itemIndex) => {
-
-
-          const product =
-            getValueByTest(
-              row,
-              isProductColumn
-            );
-
-
-          const item =
-            getValueByTest(
-              row,
-              isItemColumn
-            );
-
-
-          let title = "";
-
-
-          if (
-            product !== "-" &&
-            item !== "-"
-          ) {
-
-            title =
-              product +
-              " - " +
-              item;
-
-          }
-
-          else if (
-            product !== "-"
-          ) {
-
-            title =
-              product;
-
-          }
-
-          else {
-
-            title =
-              item;
-
-          }
-
-
-          const detailsId =
-            "details-" +
-            groupIndex +
-            "-" +
-            itemIndex;
-
-
-          mobile += `
-            <div class="order-item">
-
-              <button
-                type="button"
-                class="item-toggle"
-                data-target="${detailsId}"
-              >
-
-                <span class="item-name">
-                  ${escapeHTML(title)}
-                </span>
-
-                <span class="item-arrow">
-                  ▼
-                </span>
-
-              </button>
-
-
-              <div
-                class="item-details"
-                id="${detailsId}"
-              >
-          `;
-
-
-          mobile +=
-            createDetailRow(
-              "PAYMENT",
-              getValueByTest(
-                row,
-                isPaymentColumn
-              )
-            );
-
-
-          mobile +=
-            createDetailRow(
-              "SHIPPING TO ES",
-              getValueByTest(
-                row,
-                isShippingColumn
-              )
-            );
-
-
-          mobile +=
-            createDetailRow(
-              "STATUS",
-              getValueByTest(
-                row,
-                isStatusColumn
-              ),
-              true
-            );
-
-
-          mobile +=
-            createDetailRow(
-              "PURCHASE DATE",
-              getValueByTest(
-                row,
-                isPurchaseDateColumn
-              )
-            );
-
-
-          mobile +=
-            createDetailRow(
-              "WAREHOUSE",
-              getValueByTest(
-                row,
-                isWarehouseColumn
-              )
-            );
-
-
-          mobile +=
-            createDetailRow(
-              "ARRIVAL WH",
-              getValueByTest(
-                row,
-                isArrivalColumn
-              )
-            );
-
-
-          mobile +=
-            createDetailRow(
-              "DELIVERED DATE",
-              getValueByTest(
-                row,
-                isDeliveredDateColumn
-              )
-            );
-
-
-          mobile +=
-            createDetailRow(
-              "DEPARTURE ES",
-              getValueByTest(
-                row,
-                isDepartureColumn
-              )
-            );
-
-
-          mobile +=
-            createDetailRow(
-              "MONTH",
-              getValueByTest(
-                row,
-                isMonthColumn
-              )
-            );
-
-
-          mobile += `
-              </div>
-
-            </div>
-          `;
-
-        }
-      );
-
-
-      mobile += `
-        </div>
-      `;
+      }
 
 
       groupIndex++;
@@ -1935,16 +2099,17 @@ function renderOrders(data) {
     mobile;
 
 
-  activateItemToggles();
+  activateToggles();
 
 }
 
 
 /* =========================
-   ITEM TOGGLE
+   TOGGLES
 ========================= */
 
-function activateItemToggles() {
+function activateToggles() {
+
 
   document
     .querySelectorAll(
@@ -1990,9 +2155,7 @@ function activateItemToggles() {
 
               target
                 .classList
-                .remove(
-                  "open"
-                );
+                .remove("open");
 
 
               arrow.textContent =
@@ -2004,13 +2167,75 @@ function activateItemToggles() {
 
               target
                 .classList
-                .add(
-                  "open"
-                );
+                .add("open");
 
 
               arrow.textContent =
                 "▲";
+
+            }
+
+          }
+        );
+
+      }
+    );
+
+
+  document
+    .querySelectorAll(
+      ".single-more"
+    )
+    .forEach(
+      button => {
+
+
+        button.addEventListener(
+          "click",
+          function() {
+
+
+            const target =
+              document
+                .getElementById(
+                  this.dataset.target
+                );
+
+
+            if (!target) {
+              return;
+            }
+
+
+            const open =
+              target
+                .classList
+                .contains(
+                  "open"
+                );
+
+
+            if (open) {
+
+              target
+                .classList
+                .remove("open");
+
+
+              this.textContent =
+                "Show more ▼";
+
+            }
+
+            else {
+
+              target
+                .classList
+                .add("open");
+
+
+              this.textContent =
+                "Show less ▲";
 
             }
 
