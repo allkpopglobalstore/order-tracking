@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 
 <head>
@@ -45,14 +44,10 @@ body {
 .top {
   width: 100%;
   max-width: 700px;
-
   margin: 0 auto 10px auto;
 
   display: grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
+  grid-template-columns: 1fr 1fr;
   gap: 10px;
 }
 
@@ -62,13 +57,10 @@ body {
 
 .search-label {
   display: block;
-
-  margin:
-    0 0 6px 2px;
+  margin: 0 0 6px 2px;
 
   font-size: 12px;
   font-weight: 600;
-
   color: #555;
 }
 
@@ -79,9 +71,7 @@ body {
 
   padding: 14px;
 
-  border:
-    1px solid #ccc;
-
+  border: 1px solid #ccc;
   border-radius: 9px;
 
   background: white;
@@ -97,26 +87,21 @@ body {
 }
 
 .top button {
-  grid-column:
-    1 / -1;
+  grid-column: 1 / -1;
 
   width: 100%;
 
-  padding:
-    14px 16px;
+  padding: 14px 16px;
 
   background: black;
-
   color: white;
 
   border: none;
-
   border-radius: 9px;
 
   cursor: pointer;
 
   font-size: 15px;
-
   font-weight: 600;
 }
 
@@ -129,26 +114,19 @@ body {
   width: 100%;
   max-width: 700px;
 
-  margin:
-    0 auto 18px auto;
+  margin: 0 auto 18px auto;
 
-  padding:
-    9px 12px;
+  padding: 9px 12px;
 
   display: flex;
-
   align-items: center;
-
-  justify-content:
-    space-between;
+  justify-content: space-between;
 
   gap: 12px;
 
   background: white;
 
-  border:
-    1px solid #e6e6e6;
-
+  border: 1px solid #e6e6e6;
   border-radius: 8px;
 }
 
@@ -168,11 +146,8 @@ body {
 
 .like-area {
   display: flex;
-
   align-items: center;
-
-  justify-content:
-    flex-end;
+  justify-content: flex-end;
 
   gap: 6px;
 
@@ -186,14 +161,10 @@ body {
   padding: 0;
 
   display: flex;
-
   align-items: center;
-
   justify-content: center;
 
-  border:
-    1px solid #ddd;
-
+  border: 1px solid #ddd;
   border-radius: 50%;
 
   background: white;
@@ -215,7 +186,6 @@ body {
 
 .like-button.busy {
   opacity: 0.6;
-
   pointer-events: none;
 }
 
@@ -235,8 +205,7 @@ body {
 .result-summary {
   max-width: 700px;
 
-  margin:
-    0 auto 16px auto;
+  margin: 0 auto 16px auto;
 
   font-size: 12px;
 
@@ -260,8 +229,7 @@ body {
   margin-bottom: 10px;
 
   box-shadow:
-    0 2px 8px
-    rgba(0,0,0,0.05);
+    0 2px 8px rgba(0,0,0,0.05);
 }
 
 .loading {
@@ -291,11 +259,9 @@ body {
   display: inline-flex;
 
   align-items: center;
-
   justify-content: center;
 
-  padding:
-    5px 10px;
+  padding: 5px 10px;
 
   border-radius: 20px;
 
@@ -322,8 +288,7 @@ body {
 table {
   width: 100%;
 
-  border-collapse:
-    collapse;
+  border-collapse: collapse;
 
   background: white;
 
@@ -336,11 +301,9 @@ table {
 
 th,
 td {
-  padding:
-    12px 10px;
+  padding: 12px 10px;
 
-  border-bottom:
-    1px solid #eee;
+  border-bottom: 1px solid #eee;
 
   text-align: left;
 
@@ -365,8 +328,7 @@ th {
 .order-group {
   background: white;
 
-  border:
-    1px solid #e5e5e5;
+  border: 1px solid #e5e5e5;
 
   border-radius: 12px;
 
@@ -380,8 +342,7 @@ th {
 
   color: white;
 
-  padding:
-    12px 14px;
+  padding: 12px 14px;
 
   font-size: 13px;
 
@@ -389,13 +350,11 @@ th {
 }
 
 .order-list-title {
-  padding:
-    10px 14px;
+  padding: 10px 14px;
 
   background: #f5f5f5;
 
-  border-bottom:
-    1px solid #e8e8e8;
+  border-bottom: 1px solid #e8e8e8;
 
   font-size: 10px;
 
@@ -403,8 +362,7 @@ th {
 
   color: #666;
 
-  letter-spacing:
-    0.7px;
+  letter-spacing: 0.7px;
 }
 
 
@@ -413,22 +371,17 @@ th {
 ===================================================== */
 
 .order-item {
-  border-bottom:
-    1px solid #e8e8e8;
+  border-bottom: 1px solid #e8e8e8;
 }
 
 .item-toggle {
   width: 100%;
 
-  padding:
-    13px 14px;
+  padding: 13px 14px;
 
   display: flex;
-
   align-items: center;
-
-  justify-content:
-    space-between;
+  justify-content: space-between;
 
   gap: 10px;
 
@@ -468,8 +421,7 @@ th {
 .item-details {
   display: none;
 
-  border-top:
-    1px solid #eee;
+  border-top: 1px solid #eee;
 }
 
 .item-details.open {
@@ -478,7 +430,7 @@ th {
 
 
 /* =====================================================
-   ITEM EXTRA
+   ITEM EXTRA DETAILS
 ===================================================== */
 
 .item-extra {
@@ -498,8 +450,7 @@ th {
 
   border: none;
 
-  border-top:
-    1px solid #eee;
+  border-top: 1px solid #eee;
 
   color: #444;
 
@@ -518,11 +469,9 @@ th {
 .detail-row {
   display: grid;
 
-  grid-template-columns:
-    40% 60%;
+  grid-template-columns: 40% 60%;
 
-  border-bottom:
-    1px solid #eee;
+  border-bottom: 1px solid #eee;
 }
 
 .detail-label {
@@ -552,25 +501,22 @@ th {
 .detail-value .status {
   font-size: 9px;
 
-  padding:
-    3px 6px;
+  padding: 3px 6px;
 }
 
 
 /* =====================================================
-   ORDER SUMMARY
+   COMMON ORDER SUMMARY
 ===================================================== */
 
 .order-common-summary {
   background: #fafafa;
 
-  border-top:
-    2px solid #111;
+  border-top: 2px solid #111;
 }
 
 .order-summary-title {
-  padding:
-    8px 14px 6px 14px;
+  padding: 8px 14px 6px 14px;
 
   color: #777;
 
@@ -578,8 +524,7 @@ th {
 
   font-weight: 700;
 
-  letter-spacing:
-    0.6px;
+  letter-spacing: 0.6px;
 }
 
 
@@ -590,8 +535,7 @@ th {
 .single-order {
   background: white;
 
-  border:
-    1px solid #e5e5e5;
+  border: 1px solid #e5e5e5;
 
   border-radius: 12px;
 
@@ -601,8 +545,7 @@ th {
 }
 
 .single-product {
-  padding:
-    13px 14px;
+  padding: 13px 14px;
 
   background: #111;
 
@@ -614,8 +557,7 @@ th {
 }
 
 .single-item-count {
-  padding:
-    9px 14px 4px 14px;
+  padding: 9px 14px 4px 14px;
 
   color: #777;
 
@@ -623,20 +565,17 @@ th {
 
   font-weight: 700;
 
-  letter-spacing:
-    0.5px;
+  letter-spacing: 0.5px;
 }
 
 .single-item-name {
-  padding:
-    8px 14px 12px 14px;
+  padding: 8px 14px 12px 14px;
 
   font-size: 12px;
 
   font-weight: 600;
 
-  border-bottom:
-    1px solid #eee;
+  border-bottom: 1px solid #eee;
 }
 
 .single-extra {
@@ -656,8 +595,7 @@ th {
 
   border: none;
 
-  border-top:
-    1px solid #eee;
+  border-top: 1px solid #eee;
 
   color: #333;
 
@@ -671,8 +609,7 @@ th {
    MOBILE
 ===================================================== */
 
-@media
-(max-width: 768px) {
+@media (max-width: 768px) {
 
   body {
     overflow-x: hidden;
@@ -697,8 +634,7 @@ th {
 
   .top input,
   .top select {
-    padding:
-      11px 9px;
+    padding: 11px 9px;
 
     font-size: 12px;
   }
@@ -710,8 +646,7 @@ th {
   }
 
   .info-bar {
-    padding:
-      8px 9px;
+    padding: 8px 9px;
 
     gap: 7px;
 
@@ -754,7 +689,9 @@ th {
 <div class="container">
 
 
-  <!-- SEARCH -->
+  <!-- =================================================
+       SEARCH
+  ================================================== -->
 
   <div class="top">
 
@@ -787,9 +724,7 @@ th {
         Order Status
       </label>
 
-      <select
-        id="statusFilter"
-      >
+      <select id="statusFilter">
 
         <option value="">
           All Status
@@ -838,7 +773,9 @@ th {
   </div>
 
 
-  <!-- INFO + LIKE -->
+  <!-- =================================================
+       INFO + LIKE
+  ================================================== -->
 
   <div class="info-bar">
 
@@ -915,10 +852,7 @@ function normalizeHeader(key) {
       /[👤📍📅🏢✈️📦🚩🗓️]/g,
       ""
     )
-    .replace(
-      /\s+/g,
-      " "
-    )
+    .replace(/\s+/g, " ")
     .trim();
 
 }
@@ -928,26 +862,11 @@ function normalizeStatus(value) {
 
   return (value || "")
     .toString()
-    .replace(
-      /\u00A0/g,
-      " "
-    )
-    .replace(
-      /\u200B/g,
-      ""
-    )
-    .replace(
-      /\u200C/g,
-      ""
-    )
-    .replace(
-      /\u200D/g,
-      ""
-    )
-    .replace(
-      /\s+/g,
-      " "
-    )
+    .replace(/\u00A0/g, " ")
+    .replace(/\u200B/g, "")
+    .replace(/\u200C/g, "")
+    .replace(/\u200D/g, "")
+    .replace(/\s+/g, " ")
     .trim()
     .toUpperCase();
 
@@ -955,34 +874,17 @@ function normalizeStatus(value) {
 
 
 /* =====================================================
-   ESCAPE
+   ESCAPE HTML
 ===================================================== */
 
 function escapeHTML(value) {
 
-  return String(
-    value ?? ""
-  )
-    .replace(
-      /&/g,
-      "&amp;"
-    )
-    .replace(
-      /</g,
-      "&lt;"
-    )
-    .replace(
-      />/g,
-      "&gt;"
-    )
-    .replace(
-      /"/g,
-      "&quot;"
-    )
-    .replace(
-      /'/g,
-      "&#039;"
-    );
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 
 }
 
@@ -994,8 +896,7 @@ function escapeHTML(value) {
 function isIdColumn(key) {
 
   return (
-    normalizeHeader(key)
-    === "id"
+    normalizeHeader(key) === "id"
   );
 
 }
@@ -1061,9 +962,7 @@ function isItemColumn(key) {
 function isPaymentColumn(key) {
 
   return normalizeHeader(key)
-    .includes(
-      "payment"
-    );
+    .includes("payment");
 
 }
 
@@ -1071,9 +970,7 @@ function isPaymentColumn(key) {
 function isShippingColumn(key) {
 
   return normalizeHeader(key)
-    .includes(
-      "shipping"
-    );
+    .includes("shipping");
 
 }
 
@@ -1081,9 +978,7 @@ function isShippingColumn(key) {
 function isStatusColumn(key) {
 
   return normalizeHeader(key)
-    .includes(
-      "status"
-    );
+    .includes("status");
 
 }
 
@@ -1105,9 +1000,7 @@ function isMonthColumn(key) {
 function isPurchaseDateColumn(key) {
 
   return normalizeHeader(key)
-    .includes(
-      "purchase"
-    );
+    .includes("purchase");
 
 }
 
@@ -1119,12 +1012,8 @@ function isWarehouseColumn(key) {
 
 
   return (
-    k.includes(
-      "warehouse"
-    ) &&
-    !k.includes(
-      "arrival"
-    )
+    k.includes("warehouse") &&
+    !k.includes("arrival")
   );
 
 }
@@ -1133,9 +1022,7 @@ function isWarehouseColumn(key) {
 function isArrivalColumn(key) {
 
   return normalizeHeader(key)
-    .includes(
-      "arrival"
-    );
+    .includes("arrival");
 
 }
 
@@ -1143,9 +1030,7 @@ function isArrivalColumn(key) {
 function isDepartureColumn(key) {
 
   return normalizeHeader(key)
-    .includes(
-      "departure"
-    );
+    .includes("departure");
 
 }
 
@@ -1153,29 +1038,7 @@ function isDepartureColumn(key) {
 function isDeliveredDateColumn(key) {
 
   return normalizeHeader(key)
-    .includes(
-      "delivered date"
-    );
-
-}
-
-
-/* =====================================================
-   CREATION DATE
-===================================================== */
-
-function isCreatedDateColumn(key) {
-
-  const k =
-    normalizeHeader(key);
-
-
-  return (
-    k ===
-      "fecha de creacion" ||
-    k ===
-      "fecha de creación"
-  );
+    .includes("delivered date");
 
 }
 
@@ -1198,9 +1061,7 @@ function getValueByTest(
 
 
   if (!key) {
-
     return "-";
-
   }
 
 
@@ -1220,145 +1081,6 @@ function getValueByTest(
 
 
   return value;
-
-}
-
-
-/* =====================================================
-   PARSE CREATION DATE
-===================================================== */
-
-function parseCreationDate(
-  value
-) {
-
-  if (
-    !value ||
-    value === "-"
-  ) {
-
-    return 0;
-
-  }
-
-
-  const text =
-    String(value)
-      .trim();
-
-
-  /*
-   * DD/MM/YYYY HH:mm:ss
-   */
-
-  const match =
-    text.match(
-      /^(\d{1,2})\/(\d{1,2})\/(\d{4})(?:\s+(\d{1,2}):(\d{2})(?::(\d{2}))?)?$/
-    );
-
-
-  if (match) {
-
-    const day =
-      Number(
-        match[1]
-      );
-
-
-    const month =
-      Number(
-        match[2]
-      ) - 1;
-
-
-    const year =
-      Number(
-        match[3]
-      );
-
-
-    const hour =
-      Number(
-        match[4] || 0
-      );
-
-
-    const minute =
-      Number(
-        match[5] || 0
-      );
-
-
-    const second =
-      Number(
-        match[6] || 0
-      );
-
-
-    return new Date(
-      year,
-      month,
-      day,
-      hour,
-      minute,
-      second
-    )
-      .getTime();
-
-  }
-
-
-  const fallback =
-    new Date(
-      text
-    )
-      .getTime();
-
-
-  return Number.isNaN(
-    fallback
-  )
-    ? 0
-    : fallback;
-
-}
-
-
-/* =====================================================
-   GET CREATION TIME
-===================================================== */
-
-function getCreationTime(row) {
-
-  return parseCreationDate(
-    getValueByTest(
-      row,
-      isCreatedDateColumn
-    )
-  );
-
-}
-
-
-/* =====================================================
-   SORT ROWS NEWEST FIRST
-===================================================== */
-
-function sortNewestFirst(
-  data
-) {
-
-  return [...data]
-    .sort(
-      (a, b) => {
-
-        return (
-          getCreationTime(b) -
-          getCreationTime(a)
-        );
-
-      }
-    );
 
 }
 
@@ -1464,9 +1186,7 @@ function getStatusHTML(value) {
       class="status"
       style="background:${color};"
     >
-      ${escapeHTML(
-        originalValue
-      )}
+      ${escapeHTML(originalValue)}
     </span>
   `;
 
@@ -1500,9 +1220,7 @@ function hasLiked() {
 }
 
 
-function saveLikedState(
-  liked
-) {
+function saveLikedState(liked) {
 
   try {
 
@@ -1529,9 +1247,7 @@ function saveLikedState(
 
   catch (error) {
 
-    console.error(
-      error
-    );
+    console.error(error);
 
   }
 
@@ -1547,18 +1263,14 @@ function updateLikeUI() {
       );
 
 
-  if (
-    hasLiked()
-  ) {
+  if (hasLiked()) {
 
     button.textContent =
       "♥";
 
 
     button.classList
-      .add(
-        "liked"
-      );
+      .add("liked");
 
   }
 
@@ -1569,18 +1281,14 @@ function updateLikeUI() {
 
 
     button.classList
-      .remove(
-        "liked"
-      );
+      .remove("liked");
 
   }
 
 }
 
 
-function updateLikeCount(
-  likes
-) {
+function updateLikeCount(likes) {
 
   const safeLikes =
     Math.max(
@@ -1616,8 +1324,7 @@ async function loadLikes() {
 
 
     const data =
-      await response
-        .json();
+      await response.json();
 
 
     updateLikeCount(
@@ -1628,9 +1335,7 @@ async function loadLikes() {
 
   catch (error) {
 
-    console.error(
-      error
-    );
+    console.error(error);
 
   }
 
@@ -1648,9 +1353,7 @@ async function toggleLike() {
 
   if (
     button.classList
-      .contains(
-        "busy"
-      )
+      .contains("busy")
   ) {
 
     return;
@@ -1659,9 +1362,7 @@ async function toggleLike() {
 
 
   button.classList
-    .add(
-      "busy"
-    );
+    .add("busy");
 
 
   const currentlyLiked =
@@ -1685,8 +1386,7 @@ async function toggleLike() {
 
 
     const data =
-      await response
-        .json();
+      await response.json();
 
 
     saveLikedState(
@@ -1705,18 +1405,14 @@ async function toggleLike() {
 
   catch (error) {
 
-    console.error(
-      error
-    );
+    console.error(error);
 
   }
 
   finally {
 
     button.classList
-      .remove(
-        "busy"
-      );
+      .remove("busy");
 
   }
 
@@ -1788,14 +1484,11 @@ async function search() {
 
 
     const data =
-      await response
-        .json();
+      await response.json();
 
 
     if (
-      !Array.isArray(
-        data
-      )
+      !Array.isArray(data)
     ) {
 
       throw new Error(
@@ -1805,14 +1498,8 @@ async function search() {
     }
 
 
-    /*
-     * Sort silently.
-     */
-
     allOrders =
-      sortNewestFirst(
-        data
-      );
+      data;
 
 
     applyStatusFilter();
@@ -1821,9 +1508,7 @@ async function search() {
 
   catch (error) {
 
-    console.error(
-      error
-    );
+    console.error(error);
 
 
     results.innerHTML =
@@ -1842,13 +1527,11 @@ function applyStatusFilter() {
 
   const selectedStatus =
     normalizeStatus(
-
       document
         .getElementById(
           "statusFilter"
         )
         .value
-
     );
 
 
@@ -1856,30 +1539,16 @@ function applyStatusFilter() {
     [...allOrders];
 
 
-  if (
-    selectedStatus
-  ) {
+  if (selectedStatus) {
 
     filtered =
-      allOrders
-        .filter(
-          order =>
-
-            getOrderStatus(
-              order
-            )
-            ===
-            selectedStatus
-
-        );
+      allOrders.filter(
+        order =>
+          getOrderStatus(order)
+          === selectedStatus
+      );
 
   }
-
-
-  filtered =
-    sortNewestFirst(
-      filtered
-    );
 
 
   renderOrders(
@@ -1890,33 +1559,17 @@ function applyStatusFilter() {
 
 
 /* =====================================================
-   GROUP ORDERS
+   GROUP BY ORDER ID
 ===================================================== */
 
-function groupOrders(
-  data
-) {
+function groupOrders(data) {
 
   const groups =
     new Map();
 
 
-  /*
-   * Rows are already sorted
-   * newest first.
-   */
-
-  const sortedData =
-    sortNewestFirst(
-      data
-    );
-
-
-  sortedData.forEach(
-    (
-      row,
-      index
-    ) => {
+  data.forEach(
+    (row, index) => {
 
 
       let orderId =
@@ -1928,6 +1581,11 @@ function groupOrders(
         )
         .trim();
 
+
+      /*
+       * No ORDER ID:
+       * keep as separate item.
+       */
 
       if (
         !orderId ||
@@ -1956,34 +1614,8 @@ function groupOrders(
 
 
       groups
-        .get(
-          orderId
-        )
-        .push(
-          row
-        );
-
-    }
-  );
-
-
-  /*
-   * Sort each group's items
-   * newest first.
-   */
-
-  groups.forEach(
-    (
-      items,
-      key
-    ) => {
-
-      groups.set(
-        key,
-        sortNewestFirst(
-          items
-        )
-      );
+        .get(orderId)
+        .push(row);
 
     }
   );
@@ -1995,90 +1627,17 @@ function groupOrders(
 
 
 /* =====================================================
-   GROUP CREATION TIME
-===================================================== */
-
-function getGroupCreationTime(
-  items
-) {
-
-  if (
-    !items ||
-    items.length === 0
-  ) {
-
-    return 0;
-
-  }
-
-
-  return Math.max(
-    ...items.map(
-      item =>
-        getCreationTime(
-          item
-        )
-    )
-  );
-
-}
-
-
-/* =====================================================
-   SORT GROUPS
-===================================================== */
-
-function getSortedGroups(
-  data
-) {
-
-  const groups =
-    groupOrders(
-      data
-    );
-
-
-  return Array
-    .from(
-      groups.entries()
-    )
-    .sort(
-      (
-        a,
-        b
-      ) => {
-
-        return (
-          getGroupCreationTime(
-            b[1]
-          ) -
-          getGroupCreationTime(
-            a[1]
-          )
-        );
-
-      }
-    );
-
-}
-
-
-/* =====================================================
    SUMMARY
 ===================================================== */
 
-function updateSummary(
-  data
-) {
+function updateSummary(data) {
 
   const groups =
-    getSortedGroups(
-      data
-    );
+    groupOrders(data);
 
 
   const orderCount =
-    groups.length;
+    groups.size;
 
 
   const itemCount =
@@ -2119,21 +1678,15 @@ function createDetailRow(
 
   const displayValue =
     isStatus
-      ? getStatusHTML(
-          value
-        )
-      : escapeHTML(
-          value
-        );
+      ? getStatusHTML(value)
+      : escapeHTML(value);
 
 
   return `
     <div class="detail-row">
 
       <div class="detail-label">
-        ${escapeHTML(
-          label
-        )}
+        ${escapeHTML(label)}
       </div>
 
       <div class="detail-value">
@@ -2147,12 +1700,10 @@ function createDetailRow(
 
 
 /* =====================================================
-   ITEM MAIN DETAILS
+   MAIN ITEM DETAILS
 ===================================================== */
 
-function buildItemMainDetails(
-  row
-) {
+function buildItemMainDetails(row) {
 
   let html = "";
 
@@ -2204,12 +1755,10 @@ function buildItemMainDetails(
 
 
 /* =====================================================
-   ITEM EXTRA DETAILS
+   EXTRA ITEM DETAILS
 ===================================================== */
 
-function buildItemExtraDetails(
-  row
-) {
+function buildItemExtraDetails(row) {
 
   let html = "";
 
@@ -2270,7 +1819,7 @@ function buildItemExtraDetails(
 
 
 /* =====================================================
-   COMMON VALUE
+   CHECK COMMON VALUE
 ===================================================== */
 
 function getCommonValue(
@@ -2296,8 +1845,7 @@ function getCommonValue(
             row,
             testFunction
           )
-        )
-          .trim()
+        ).trim()
     );
 
 
@@ -2313,9 +1861,7 @@ function getCommonValue(
 
 
   if (!allSame) {
-
     return null;
-
   }
 
 
@@ -2325,7 +1871,7 @@ function getCommonValue(
 
 
 /* =====================================================
-   ORDER SUMMARY
+   COMMON ORDER SUMMARY
 ===================================================== */
 
 function buildOrderCommonSummary(
@@ -2353,8 +1899,7 @@ function buildOrderCommonSummary(
     );
 
 
-  let rows =
-    "";
+  let rows = "";
 
 
   if (
@@ -2398,9 +1943,7 @@ function buildOrderCommonSummary(
 
 
   if (!rows) {
-
     return "";
-
   }
 
 
@@ -2408,7 +1951,7 @@ function buildOrderCommonSummary(
     <div class="order-common-summary">
 
       <div class="order-summary-title">
-        ORDER SUMMARY
+        ORDER INFORMATION
       </div>
 
       ${rows}
@@ -2451,9 +1994,7 @@ function renderSingleOrder(
     <div class="single-order">
 
       <div class="single-product">
-        ${escapeHTML(
-          product
-        )}
+        ${escapeHTML(product)}
       </div>
 
       <div class="single-item-count">
@@ -2461,23 +2002,17 @@ function renderSingleOrder(
       </div>
 
       <div class="single-item-name">
-        • ${escapeHTML(
-          item
-        )}
+        • ${escapeHTML(item)}
       </div>
 
-      ${buildItemMainDetails(
-        row
-      )}
+      ${buildItemMainDetails(row)}
 
       <div
         class="single-extra"
         id="${extraId}"
       >
 
-        ${buildItemExtraDetails(
-          row
-        )}
+        ${buildItemExtraDetails(row)}
 
       </div>
 
@@ -2509,9 +2044,7 @@ function renderGroupedOrder(
     <div class="order-group">
 
       <div class="order-number">
-        ORDER - ${escapeHTML(
-          orderId
-        )}
+        ORDER - ${escapeHTML(orderId)}
       </div>
 
       <div class="order-list-title">
@@ -2521,10 +2054,7 @@ function renderGroupedOrder(
 
 
   items.forEach(
-    (
-      row,
-      itemIndex
-    ) => {
+    (row, itemIndex) => {
 
 
       const product =
@@ -2598,9 +2128,7 @@ function renderGroupedOrder(
           >
 
             <span class="item-name">
-              ${escapeHTML(
-                title
-              )}
+              ${escapeHTML(title)}
             </span>
 
             <span class="item-arrow">
@@ -2615,9 +2143,7 @@ function renderGroupedOrder(
             id="${detailsId}"
           >
 
-            ${buildItemMainDetails(
-              row
-            )}
+            ${buildItemMainDetails(row)}
 
 
             <div
@@ -2625,9 +2151,7 @@ function renderGroupedOrder(
               id="${extraId}"
             >
 
-              ${buildItemExtraDetails(
-                row
-              )}
+              ${buildItemExtraDetails(row)}
 
             </div>
 
@@ -2649,6 +2173,11 @@ function renderGroupedOrder(
   );
 
 
+  /*
+   * PAYMENT / STATUS / MONTH
+   * common to the whole order
+   */
+
   html +=
     buildOrderCommonSummary(
       items
@@ -2669,9 +2198,7 @@ function renderGroupedOrder(
    RENDER
 ===================================================== */
 
-function renderOrders(
-  data
-) {
+function renderOrders(data) {
 
   const results =
     document
@@ -2702,19 +2229,7 @@ function renderOrders(
   }
 
 
-  /*
-   * Sort silently by creation date.
-   */
-
-  data =
-    sortNewestFirst(
-      data
-    );
-
-
-  updateSummary(
-    data
-  );
+  updateSummary(data);
 
 
   const keys =
@@ -2731,11 +2246,8 @@ function renderOrders(
     keys.filter(
       key => {
 
-
         if (
-          isIdColumn(
-            key
-          )
+          isIdColumn(key)
         ) {
 
           return false;
@@ -2744,25 +2256,7 @@ function renderOrders(
 
 
         if (
-          isUserIdColumn(
-            key
-          )
-        ) {
-
-          return false;
-
-        }
-
-
-        /*
-         * FECHA DE CREACION
-         * is internal only.
-         */
-
-        if (
-          isCreatedDateColumn(
-            key
-          )
+          isUserIdColumn(key)
         ) {
 
           return false;
@@ -2793,9 +2287,7 @@ function renderOrders(
 
 
       if (
-        isItemColumn(
-          key
-        )
+        isItemColumn(key)
       ) {
 
         label =
@@ -2805,9 +2297,7 @@ function renderOrders(
 
 
       if (
-        isOrderIdColumn(
-          key
-        )
+        isOrderIdColumn(key)
       ) {
 
         label =
@@ -2818,9 +2308,7 @@ function renderOrders(
 
       desktop += `
         <th>
-          ${escapeHTML(
-            label
-          )}
+          ${escapeHTML(label)}
         </th>
       `;
 
@@ -2850,9 +2338,7 @@ function renderOrders(
 
 
           if (
-            isStatusColumn(
-              key
-            )
+            isStatusColumn(key)
           ) {
 
             value =
@@ -2897,8 +2383,8 @@ function renderOrders(
      MOBILE
   =================================================== */
 
-  const sortedGroups =
-    getSortedGroups(
+  const groups =
+    groupOrders(
       data
     );
 
@@ -2911,22 +2397,16 @@ function renderOrders(
     0;
 
 
-  sortedGroups.forEach(
+  groups.forEach(
     (
-      entry
+      items,
+      orderId
     ) => {
 
 
-      const orderId =
-        entry[0];
-
-
-      const items =
-        entry[1];
-
-
       /*
-       * GROUPED ORDER
+       * Two or more rows
+       * sharing same ORDER ID.
        */
 
       if (
@@ -2945,9 +2425,8 @@ function renderOrders(
 
       }
 
-
       /*
-       * SINGLE ORDER
+       * Single item.
        */
 
       else {
@@ -2988,7 +2467,7 @@ function renderOrders(
 function activateToggles() {
 
 
-  /* ITEM */
+  /* ITEM OPEN / CLOSE */
 
   document
     .querySelectorAll(
@@ -3006,16 +2485,12 @@ function activateToggles() {
             const target =
               document
                 .getElementById(
-                  this
-                    .dataset
-                    .target
+                  this.dataset.target
                 );
 
 
             if (!target) {
-
               return;
-
             }
 
 
@@ -3087,16 +2562,12 @@ function activateToggles() {
             const target =
               document
                 .getElementById(
-                  this
-                    .dataset
-                    .target
+                  this.dataset.target
                 );
 
 
             if (!target) {
-
               return;
-
             }
 
 
@@ -3143,7 +2614,7 @@ function activateToggles() {
     );
 
 
-  /* SINGLE SHOW MORE */
+  /* SINGLE ORDER SHOW MORE */
 
   document
     .querySelectorAll(
@@ -3161,16 +2632,12 @@ function activateToggles() {
             const target =
               document
                 .getElementById(
-                  this
-                    .dataset
-                    .target
+                  this.dataset.target
                 );
 
 
             if (!target) {
-
               return;
-
             }
 
 
@@ -3264,13 +2731,10 @@ document
 
 
       if (
-        event.key ===
-        "Enter"
+        event.key === "Enter"
       ) {
 
-        event
-          .preventDefault();
-
+        event.preventDefault();
 
         search();
 
