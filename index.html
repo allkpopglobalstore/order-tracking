@@ -54,64 +54,39 @@ body {
 
 .search-label {
   display: block;
-
-  margin:
-    0 0 6px 2px;
-
+  margin: 0 0 6px 2px;
   font-size: 12px;
   font-weight: 600;
-
   color: #555;
 }
 
 .top input,
 .top select {
-
   width: 100%;
   min-width: 0;
-
   padding: 14px;
-
-  border:
-    1px solid #ccc;
-
+  border: 1px solid #ccc;
   border-radius: 9px;
-
   background: white;
-
   font-size: 15px;
-
   outline: none;
 }
 
 .top input:focus,
 .top select:focus {
-
   border-color: #777;
 }
 
 .top button {
-
-  grid-column:
-    1 / -1;
-
+  grid-column: 1 / -1;
   width: 100%;
-
-  padding:
-    14px 16px;
-
+  padding: 14px 16px;
   background: black;
-
   color: white;
-
   border: none;
-
   border-radius: 9px;
-
   cursor: pointer;
-
   font-size: 15px;
-
   font-weight: 600;
 }
 
@@ -121,142 +96,85 @@ body {
 ========================= */
 
 .info-bar {
-
   width: 100%;
   max-width: 700px;
-
-  margin:
-    0 auto 18px auto;
-
-  padding:
-    9px 12px;
+  margin: 0 auto 18px auto;
+  padding: 9px 12px;
 
   display: flex;
-
   align-items: center;
-
-  justify-content:
-    space-between;
+  justify-content: space-between;
 
   gap: 12px;
 
   background: white;
-
-  border:
-    1px solid #e6e6e6;
-
+  border: 1px solid #e6e6e6;
   border-radius: 8px;
 }
 
 .info-message {
-
   color: #666;
-
   font-size: 11px;
-
   line-height: 1.35;
-
   flex: 1;
 }
 
 .info-icon {
-
   margin-right: 4px;
 }
 
 .like-area {
-
   display: flex;
-
   align-items: center;
-
-  justify-content:
-    flex-end;
-
+  justify-content: flex-end;
   gap: 6px;
-
   flex-shrink: 0;
 }
 
 .like-button {
-
   width: 30px;
   height: 30px;
-
   padding: 0;
 
   display: flex;
-
   align-items: center;
-
   justify-content: center;
 
-  border:
-    1px solid #ddd;
-
+  border: 1px solid #ddd;
   border-radius: 50%;
-
   background: white;
-
   color: #555;
-
   cursor: pointer;
-
   font-size: 16px;
-
-  line-height: 1;
-
-  transition: 0.2s;
-}
-
-.like-button:hover {
-
-  background: #fff4f6;
-
-  border-color: #ffc5d0;
 }
 
 .like-button.liked {
-
   background: #fff0f3;
-
   border-color: #ffc5d0;
-
   color: #e63961;
 }
 
 .like-button.busy {
-
   opacity: 0.6;
-
   pointer-events: none;
 }
 
 .like-count {
-
   color: #777;
-
   font-size: 10px;
-
   white-space: nowrap;
 }
 
 
 /* =========================
-   RESULT SUMMARY
+   SUMMARY
 ========================= */
 
 .result-summary {
-
   max-width: 700px;
-
-  margin:
-    0 auto 16px auto;
-
+  margin: 0 auto 16px auto;
   font-size: 12px;
-
   color: #666;
-
   text-align: center;
 }
 
@@ -266,37 +184,23 @@ body {
 ========================= */
 
 .card {
-
   background: white;
-
   padding: 15px;
-
   border-radius: 10px;
-
   margin-bottom: 10px;
-
-  box-shadow:
-    0 2px 8px
-    rgba(0,0,0,0.05);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .loading {
-
   text-align: center;
-
   padding: 20px;
-
   color: #666;
 }
 
 .error {
-
   background: #ffe6e6;
-
   color: #b30000;
-
   padding: 12px;
-
   border-radius: 8px;
 }
 
@@ -306,22 +210,15 @@ body {
 ========================= */
 
 .status {
-
   display: inline-flex;
-
   align-items: center;
-
   justify-content: center;
 
-  padding:
-    5px 10px;
-
+  padding: 5px 10px;
   border-radius: 20px;
 
   color: white;
-
   font-size: 12px;
-
   white-space: nowrap;
 }
 
@@ -339,169 +236,202 @@ body {
 }
 
 table {
-
   width: 100%;
-
-  border-collapse:
-    collapse;
-
+  border-collapse: collapse;
   background: white;
-
   border-radius: 10px;
-
   overflow: hidden;
-
   table-layout: auto;
 }
 
 th,
 td {
-
-  padding:
-    12px 10px;
-
-  border-bottom:
-    1px solid #eee;
-
+  padding: 12px 10px;
+  border-bottom: 1px solid #eee;
   text-align: left;
-
   font-size: 14px;
-
   vertical-align: middle;
 }
 
 th {
-
   background: #111;
-
   color: white;
-
   white-space: nowrap;
 }
 
 
 /* =========================
-   MOBILE ORDER
+   GROUPED ORDER
 ========================= */
 
-.mobile-order {
-
+.order-group {
   background: white;
-
-  border:
-    1px solid #e7e7e7;
-
+  border: 1px solid #e5e5e5;
   border-radius: 12px;
-
-  margin-bottom: 16px;
-
   overflow: hidden;
+  margin-bottom: 16px;
 }
 
-.mobile-row {
-
-  display: grid;
-
-  grid-template-columns:
-    38% 62%;
-
-  border-bottom:
-    1px solid #eee;
+.order-number {
+  background: #111;
+  color: white;
+  padding: 12px 14px;
+  font-size: 13px;
+  font-weight: 700;
 }
 
-.mobile-row:last-child {
+.order-list-title {
+  padding: 10px 14px;
+  background: #f5f5f5;
+  border-bottom: 1px solid #e8e8e8;
+  font-size: 10px;
+  font-weight: 700;
+  color: #666;
+  letter-spacing: 0.6px;
+}
 
+.order-item {
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.order-item:last-child {
   border-bottom: none;
 }
 
-.mobile-label {
-
-  background: #f7f7f7;
-
-  padding:
-    11px 10px;
-
-  font-size: 11px;
-
-  font-weight: 600;
-
-  color: #444;
+.item-toggle {
+  width: 100%;
+  padding: 13px 14px;
 
   display: flex;
-
   align-items: center;
-}
+  justify-content: space-between;
 
-.mobile-value {
+  gap: 10px;
 
-  padding:
-    11px 10px;
-
-  font-size: 12px;
+  background: white;
+  border: none;
 
   color: #222;
+  cursor: pointer;
 
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.item-name {
   min-width: 0;
-
   overflow-wrap: anywhere;
 }
 
-.mobile-product
-.mobile-label {
-
-  background: #f1f1f1;
+.item-arrow {
+  flex-shrink: 0;
+  color: #777;
+  font-size: 12px;
 }
 
-.mobile-product
-.mobile-value {
-
-  font-weight: 600;
-
-  font-size: 13px;
+.item-details {
+  display: none;
+  border-top: 1px solid #eee;
 }
 
-.mobile-value
-.status {
-
-  font-size: 10px;
-
-  padding:
-    4px 7px;
+.item-details.open {
+  display: block;
 }
 
 
 /* =========================
-   SHOW MORE
+   SINGLE ORDER CARD
 ========================= */
 
-.mobile-extra {
+.single-order {
+  background: white;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.single-product {
+  padding: 13px 14px;
+  background: #111;
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.single-item-count {
+  padding: 9px 14px 4px 14px;
+  font-size: 10px;
+  color: #777;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.single-item-name {
+  padding: 8px 14px 12px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  border-bottom: 1px solid #eee;
+}
+
+.single-main {
+  border-bottom: 1px solid #eee;
+}
+
+.single-extra {
   display: none;
 }
 
-.mobile-extra.open {
+.single-extra.open {
   display: block;
 }
 
-.show-more-button {
-
+.single-more {
   width: 100%;
-
   padding: 11px;
-
   background: #fafafa;
-
   border: none;
-
-  border-top:
-    1px solid #eee;
-
+  border-top: 1px solid #eee;
   color: #333;
-
   font-size: 12px;
-
   cursor: pointer;
+}
 
-  text-align: center;
+
+/* =========================
+   DETAIL ROW
+========================= */
+
+.detail-row {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  border-bottom: 1px solid #eee;
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-label {
+  padding: 10px;
+  background: #f7f7f7;
+  color: #555;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.detail-value {
+  padding: 10px;
+  color: #222;
+  font-size: 11px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.detail-value .status {
+  font-size: 9px;
+  padding: 3px 6px;
 }
 
 
@@ -509,87 +439,63 @@ th {
    MOBILE
 ========================= */
 
-@media
-(max-width: 768px) {
+@media (max-width: 768px) {
 
   body {
-
     overflow-x: hidden;
   }
 
   .container {
-
     width: 100%;
-
     max-width: 100%;
-
     padding: 12px;
   }
 
   .top {
-
     gap: 7px;
-
     margin-bottom: 9px;
   }
 
   .search-label {
-
     font-size: 10px;
   }
 
   .top input,
   .top select {
-
-    padding:
-      11px 9px;
-
+    padding: 11px 9px;
     font-size: 12px;
   }
 
   .top button {
-
     padding: 12px;
-
     font-size: 14px;
   }
 
   .info-bar {
-
-    padding:
-      8px 9px;
-
+    padding: 8px 9px;
     gap: 7px;
-
     margin-bottom: 14px;
   }
 
   .info-message {
-
     font-size: 9px;
   }
 
   .like-button {
-
     width: 28px;
-
     height: 28px;
-
     font-size: 15px;
   }
 
   .like-count {
-
     font-size: 9px;
   }
 
   .desktop-view {
-
     display: none;
   }
 
   .mobile-view {
-
     display: block;
   }
 
@@ -606,7 +512,6 @@ th {
 
 
   <div class="top">
-
 
     <div class="field-group">
 
@@ -636,9 +541,7 @@ th {
         Order Status
       </label>
 
-      <select
-        id="statusFilter"
-      >
+      <select id="statusFilter">
 
         <option value="">
           All Status
@@ -684,14 +587,10 @@ th {
       🔎 Search
     </button>
 
-
   </div>
 
 
-  <!-- INFO + LIKE -->
-
   <div class="info-bar">
-
 
     <div class="info-message">
 
@@ -710,8 +609,6 @@ th {
         id="likeButton"
         class="like-button"
         type="button"
-        aria-label="Like this page"
-        title="Like this page"
       >
         ♡
       </button>
@@ -724,7 +621,6 @@ th {
       </span>
 
     </div>
-
 
   </div>
 
@@ -765,78 +661,35 @@ function normalizeHeader(key) {
       /[👤📍📅🏢✈️📦🚩🗓️]/g,
       ""
     )
-    .replace(
-      /\s+/g,
-      " "
-    )
+    .replace(/\s+/g, " ")
     .trim();
 
 }
 
 
-function normalizeStatus(
-  value
-) {
+function normalizeStatus(value) {
 
   return (value || "")
     .toString()
-    .replace(
-      /\u00A0/g,
-      " "
-    )
-    .replace(
-      /\u200B/g,
-      ""
-    )
-    .replace(
-      /\u200C/g,
-      ""
-    )
-    .replace(
-      /\u200D/g,
-      ""
-    )
-    .replace(
-      /\s+/g,
-      " "
-    )
+    .replace(/\u00A0/g, " ")
+    .replace(/\u200B/g, "")
+    .replace(/\u200C/g, "")
+    .replace(/\u200D/g, "")
+    .replace(/\s+/g, " ")
     .trim()
     .toUpperCase();
 
 }
 
 
-/* =========================
-   ESCAPE
-========================= */
+function escapeHTML(value) {
 
-function escapeHTML(
-  value
-) {
-
-  return String(
-    value ?? ""
-  )
-    .replace(
-      /&/g,
-      "&amp;"
-    )
-    .replace(
-      /</g,
-      "&lt;"
-    )
-    .replace(
-      />/g,
-      "&gt;"
-    )
-    .replace(
-      /"/g,
-      "&quot;"
-    )
-    .replace(
-      /'/g,
-      "&#039;"
-    );
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 
 }
 
@@ -846,14 +699,8 @@ function escapeHTML(
 ========================= */
 
 function isIdColumn(key) {
-
-  return (
-    normalizeHeader(key)
-    === "id"
-  );
-
+  return normalizeHeader(key) === "id";
 }
-
 
 function isUserIdColumn(key) {
 
@@ -867,68 +714,45 @@ function isUserIdColumn(key) {
 
 }
 
-
-function isProductColumn(key) {
-
-  return (
-    normalizeHeader(key)
-    === "producto"
-  );
-
-}
-
-
-function isItemColumn(key) {
+function isOrderIdColumn(key) {
 
   const k =
     normalizeHeader(key);
 
   return (
-
-    k === "" ||
-
-    k === "item" ||
-
-    k.includes(
-      "producto comprado"
-    ) ||
-
-    k.includes(
-      "product name"
-    ) ||
-
-    k.includes(
-      "description"
-    )
-
+    k === "order id" ||
+    k === "orderid" ||
+    k === "order_id"
   );
 
 }
 
+function isProductColumn(key) {
+
+  const k =
+    normalizeHeader(key);
+
+  return (
+    k === "producto" ||
+    k === "product"
+  );
+
+}
 
 function isPaymentColumn(key) {
-
   return normalizeHeader(key)
     .includes("payment");
-
 }
-
 
 function isShippingColumn(key) {
-
   return normalizeHeader(key)
     .includes("shipping");
-
 }
-
 
 function isStatusColumn(key) {
-
   return normalizeHeader(key)
     .includes("status");
-
 }
-
 
 function isMonthColumn(key) {
 
@@ -942,125 +766,199 @@ function isMonthColumn(key) {
 
 }
 
+function isPurchaseDateColumn(key) {
+  return normalizeHeader(key)
+    .includes("purchase");
+}
+
+function isWarehouseColumn(key) {
+
+  const k =
+    normalizeHeader(key);
+
+  return (
+    k.includes("warehouse") &&
+    !k.includes("arrival")
+  );
+
+}
+
+function isArrivalColumn(key) {
+  return normalizeHeader(key)
+    .includes("arrival");
+}
+
+function isDepartureColumn(key) {
+  return normalizeHeader(key)
+    .includes("departure");
+}
+
+function isDeliveredDateColumn(key) {
+  return normalizeHeader(key)
+    .includes("delivered date");
+}
+
 
 /* =========================
-   LABELS
+   ITEM DETECTION
 ========================= */
 
-function getDesktopLabel(key) {
+function getProductKey(row) {
 
-  if (
-    isItemColumn(key)
-  ) {
-
-    return "ITEM";
-
-  }
-
-  return key;
+  return Object
+    .keys(row)
+    .find(
+      key =>
+        isProductColumn(key)
+    ) || null;
 
 }
 
 
-function getMobileLabel(key) {
+function getItemKey(row) {
 
-  if (
-    isProductColumn(key)
-  ) {
-    return "PRODUCT";
-  }
+  const keys =
+    Object.keys(row);
 
 
-  if (
-    isItemColumn(key)
-  ) {
-    return "ITEM";
-  }
+  const known =
+    keys.find(
+      key => {
 
+        const k =
+          normalizeHeader(key);
 
-  if (
-    isPaymentColumn(key)
-  ) {
-    return "PAYMENT";
-  }
+        return (
+          k === "item" ||
+          k === "items" ||
+          k.includes(
+            "producto comprado"
+          ) ||
+          k.includes(
+            "product name"
+          ) ||
+          k.includes(
+            "description"
+          ) ||
+          k.includes(
+            "item name"
+          )
+        );
 
-
-  if (
-    isShippingColumn(key)
-  ) {
-    return "SHIPPING TO ES";
-  }
-
-
-  if (
-    isStatusColumn(key)
-  ) {
-    return "STATUS";
-  }
+      }
+    );
 
 
   if (
-    isMonthColumn(key)
+    known !== undefined
   ) {
-    return "MONTH";
+
+    return known;
+
   }
 
 
-  const clean =
-    normalizeHeader(key);
+  const productKey =
+    getProductKey(row);
+
+
+  if (productKey) {
+
+    const productIndex =
+      keys.indexOf(
+        productKey
+      );
+
+
+    if (
+      productIndex !== -1 &&
+      productIndex + 1 <
+      keys.length
+    ) {
+
+      return keys[
+        productIndex + 1
+      ];
+
+    }
+
+  }
+
+
+  return null;
+
+}
+
+
+function getItemValue(row) {
+
+  const key =
+    getItemKey(row);
+
+
+  if (!key) {
+    return "-";
+  }
+
+
+  const value =
+    row[key];
 
 
   if (
-    clean === "pob"
+    value === null ||
+    value === undefined ||
+    value === ""
   ) {
-    return "POB";
+
+    return "-";
+
   }
+
+
+  return value;
+
+}
+
+
+/* =========================
+   VALUE HELPERS
+========================= */
+
+function getValueByTest(
+  row,
+  testFunction
+) {
+
+  const key =
+    Object
+      .keys(row)
+      .find(
+        testFunction
+      );
+
+
+  if (!key) {
+    return "-";
+  }
+
+
+  const value =
+    row[key];
 
 
   if (
-    clean === "#"
+    value === null ||
+    value === undefined ||
+    value === ""
   ) {
-    return "#";
+
+    return "-";
+
   }
 
 
-  if (
-    clean.includes(
-      "purchase"
-    )
-  ) {
-    return "PURCHASE DATE";
-  }
-
-
-  if (
-    clean.includes(
-      "warehouse"
-    )
-  ) {
-    return "WAREHOUSE";
-  }
-
-
-  if (
-    clean.includes(
-      "departure"
-    )
-  ) {
-    return "DEPARTURE";
-  }
-
-
-  if (
-    clean.includes(
-      "arrival"
-    )
-  ) {
-    return "ARRIVAL";
-  }
-
-
-  return key || "DETAIL";
+  return value;
 
 }
 
@@ -1071,32 +969,17 @@ function getMobileLabel(key) {
 
 function getOrderStatus(row) {
 
-  const statusKey =
-    Object
-      .keys(row)
-      .find(
-        key =>
-          isStatusColumn(key)
-      );
-
-
-  if (!statusKey) {
-
-    return "";
-
-  }
-
-
   return normalizeStatus(
-    row[statusKey]
+    getValueByTest(
+      row,
+      isStatusColumn
+    )
   );
 
 }
 
 
-function getStatusHTML(
-  value
-) {
+function getStatusHTML(value) {
 
   const originalValue =
     value ?? "-";
@@ -1112,67 +995,32 @@ function getStatusHTML(
     "#999";
 
 
-  if (
-    v === "DELIVERED"
-  ) {
-
-    color =
-      "#2ecc71";
-
+  if (v === "DELIVERED") {
+    color = "#2ecc71";
   }
 
-  else if (
-    v === "PURCHASED"
-  ) {
-
-    color =
-      "#f1c40f";
-
+  else if (v === "PURCHASED") {
+    color = "#f1c40f";
   }
 
-  else if (
-    v === "IN WAREHOUSE KR"
-  ) {
-
-    color =
-      "#9b59b6";
-
+  else if (v === "IN WAREHOUSE KR") {
+    color = "#9b59b6";
   }
 
-  else if (
-    v === "IN SPAIN"
-  ) {
-
-    color =
-      "#3498db";
-
+  else if (v === "IN SPAIN") {
+    color = "#3498db";
   }
 
-  else if (
-    v === "TO BUY"
-  ) {
-
-    color =
-      "#e74c3c";
-
+  else if (v === "TO BUY") {
+    color = "#e74c3c";
   }
 
-  else if (
-    v === "IN WAREHOUSE CH"
-  ) {
-
-    color =
-      "#e67e22";
-
+  else if (v === "IN WAREHOUSE CH") {
+    color = "#e67e22";
   }
 
-  else if (
-    v === "IN TRANSIT TO ES"
-  ) {
-
-    color =
-      "#ff69b4";
-
+  else if (v === "IN TRANSIT TO ES") {
+    color = "#ff69b4";
   }
 
 
@@ -1181,9 +1029,7 @@ function getStatusHTML(
       class="status"
       style="background:${color};"
     >
-      ${escapeHTML(
-        originalValue
-      )}
+      ${escapeHTML(originalValue)}
     </span>
   `;
 
@@ -1191,7 +1037,7 @@ function getStatusHTML(
 
 
 /* =========================
-   LIKE STATE
+   LIKE
 ========================= */
 
 function hasLiked() {
@@ -1208,9 +1054,7 @@ function hasLiked() {
 
   }
 
-  catch (
-    error
-  ) {
+  catch (error) {
 
     return false;
 
@@ -1219,15 +1063,11 @@ function hasLiked() {
 }
 
 
-function saveLikedState(
-  liked
-) {
+function saveLikedState(liked) {
 
   try {
 
-    if (
-      liked
-    ) {
+    if (liked) {
 
       localStorage
         .setItem(
@@ -1248,22 +1088,14 @@ function saveLikedState(
 
   }
 
-  catch (
-    error
-  ) {
+  catch (error) {
 
-    console.error(
-      error
-    );
+    console.error(error);
 
   }
 
 }
 
-
-/* =========================
-   UPDATE LIKE UI
-========================= */
 
 function updateLikeUI() {
 
@@ -1274,28 +1106,13 @@ function updateLikeUI() {
       );
 
 
-  if (
-    hasLiked()
-  ) {
+  if (hasLiked()) {
 
     button.textContent =
       "♥";
 
-
     button.classList
-      .add(
-        "liked"
-      );
-
-
-    button.title =
-      "Remove like";
-
-
-    button.setAttribute(
-      "aria-label",
-      "Remove like"
-    );
+      .add("liked");
 
   }
 
@@ -1304,41 +1121,15 @@ function updateLikeUI() {
     button.textContent =
       "♡";
 
-
     button.classList
-      .remove(
-        "liked"
-      );
-
-
-    button.title =
-      "Like this page";
-
-
-    button.setAttribute(
-      "aria-label",
-      "Like this page"
-    );
+      .remove("liked");
 
   }
 
 }
 
 
-/* =========================
-   LIKE COUNT
-========================= */
-
-function updateLikeCount(
-  likes
-) {
-
-  const count =
-    document
-      .getElementById(
-        "likeCount"
-      );
-
+function updateLikeCount(likes) {
 
   const safeLikes =
     Math.max(
@@ -1347,7 +1138,11 @@ function updateLikeCount(
     );
 
 
-  count.textContent =
+  document
+    .getElementById(
+      "likeCount"
+    )
+    .textContent =
     safeLikes +
     (
       safeLikes === 1
@@ -1357,10 +1152,6 @@ function updateLikeCount(
 
 }
 
-
-/* =========================
-   LOAD LIKES
-========================= */
 
 async function loadLikes() {
 
@@ -1374,8 +1165,7 @@ async function loadLikes() {
 
 
     const data =
-      await response
-        .json();
+      await response.json();
 
 
     updateLikeCount(
@@ -1384,30 +1174,14 @@ async function loadLikes() {
 
   }
 
-  catch (
-    error
-  ) {
+  catch (error) {
 
-    console.error(
-      error
-    );
-
-
-    document
-      .getElementById(
-        "likeCount"
-      )
-      .textContent =
-      "";
+    console.error(error);
 
   }
 
 }
 
-
-/* =========================
-   TOGGLE LIKE
-========================= */
 
 async function toggleLike() {
 
@@ -1420,20 +1194,14 @@ async function toggleLike() {
 
   if (
     button.classList
-      .contains(
-        "busy"
-      )
+      .contains("busy")
   ) {
-
     return;
-
   }
 
 
   button.classList
-    .add(
-      "busy"
-    );
+    .add("busy");
 
 
   const currentlyLiked =
@@ -1457,13 +1225,8 @@ async function toggleLike() {
 
 
     const data =
-      await response
-        .json();
+      await response.json();
 
-
-    /*
-     * Save opposite state
-     */
 
     saveLikedState(
       !currentlyLiked
@@ -1479,22 +1242,16 @@ async function toggleLike() {
 
   }
 
-  catch (
-    error
-  ) {
+  catch (error) {
 
-    console.error(
-      error
-    );
+    console.error(error);
 
   }
 
   finally {
 
     button.classList
-      .remove(
-        "busy"
-      );
+      .remove("busy");
 
   }
 
@@ -1530,9 +1287,7 @@ async function search() {
       .trim();
 
 
-  if (
-    !userId
-  ) {
+  if (!userId) {
 
     results.innerHTML =
       "<div class='error'>Enter your Instagram User ID</div>";
@@ -1557,39 +1312,22 @@ async function search() {
 
   try {
 
-
-    const url =
-      API_URL +
-      "?userId=" +
-      encodeURIComponent(
-        userId
-      );
-
-
     const response =
-      await fetch(url);
-
-
-    if (
-      !response.ok
-    ) {
-
-      throw new Error(
-        "HTTP error"
+      await fetch(
+        API_URL +
+        "?userId=" +
+        encodeURIComponent(
+          userId
+        )
       );
-
-    }
 
 
     const data =
-      await response
-        .json();
+      await response.json();
 
 
     if (
-      !Array.isArray(
-        data
-      )
+      !Array.isArray(data)
     ) {
 
       throw new Error(
@@ -1599,12 +1337,6 @@ async function search() {
     }
 
 
-    /*
-     * Apps Script removes
-     * delivered orders only
-     * after 30 days.
-     */
-
     allOrders =
       data;
 
@@ -1613,22 +1345,13 @@ async function search() {
 
   }
 
-  catch (
-    error
-  ) {
+  catch (error) {
 
-
-    console.error(
-      error
-    );
+    console.error(error);
 
 
     results.innerHTML =
       "<div class='error'>Error loading data</div>";
-
-
-    summary.innerHTML =
-      "";
 
   }
 
@@ -1643,13 +1366,11 @@ function applyStatusFilter() {
 
   const selectedStatus =
     normalizeStatus(
-
       document
         .getElementById(
           "statusFilter"
         )
         .value
-
     );
 
 
@@ -1657,23 +1378,14 @@ function applyStatusFilter() {
     [...allOrders];
 
 
-  if (
-    selectedStatus
-  ) {
-
+  if (selectedStatus) {
 
     filtered =
-      allOrders
-        .filter(
-          order =>
-
-            getOrderStatus(
-              order
-            )
-            ===
-            selectedStatus
-
-        );
+      allOrders.filter(
+        order =>
+          getOrderStatus(order)
+          === selectedStatus
+      );
 
   }
 
@@ -1682,12 +1394,68 @@ function applyStatusFilter() {
     filtered
   );
 
+}
 
-  updateResultSummary(
-    filtered.length,
-    allOrders.length,
-    selectedStatus
+
+/* =========================
+   GROUP BY ORDER ID
+========================= */
+
+function groupOrders(data) {
+
+  const groups =
+    new Map();
+
+
+  data.forEach(
+    (row, index) => {
+
+
+      let orderId =
+        String(
+          getValueByTest(
+            row,
+            isOrderIdColumn
+          )
+        )
+        .trim();
+
+
+      if (
+        !orderId ||
+        orderId === "-"
+      ) {
+
+        orderId =
+          "__single__" +
+          index;
+
+      }
+
+
+      if (
+        !groups.has(
+          orderId
+        )
+      ) {
+
+        groups.set(
+          orderId,
+          []
+        );
+
+      }
+
+
+      groups
+        .get(orderId)
+        .push(row);
+
+    }
   );
+
+
+  return groups;
 
 }
 
@@ -1696,83 +1464,59 @@ function applyStatusFilter() {
    SUMMARY
 ========================= */
 
-function updateResultSummary(
-  visible,
-  total,
-  status
-) {
+function updateSummary(data) {
 
-  const summary =
-    document
-      .getElementById(
-        "resultSummary"
-      );
+  const groups =
+    groupOrders(data);
 
 
-  if (
-    total === 0
-  ) {
-
-    summary.innerHTML =
-      "";
-
-    return;
-
-  }
-
-
-  if (
-    !status
-  ) {
-
-    summary.textContent =
-      total +
-      (
-        total === 1
-          ? " order"
-          : " orders"
-      );
-
-  }
-
-  else {
-
-    summary.textContent =
-      visible +
-      " of " +
-      total +
-      " orders";
-
-  }
+  document
+    .getElementById(
+      "resultSummary"
+    )
+    .textContent =
+    groups.size +
+    (
+      groups.size === 1
+        ? " order"
+        : " orders"
+    ) +
+    " · " +
+    data.length +
+    (
+      data.length === 1
+        ? " item"
+        : " items"
+    );
 
 }
 
 
 /* =========================
-   MOBILE ROW
+   DETAIL ROW
 ========================= */
 
-function createMobileRow(
+function createDetailRow(
   label,
   value,
-  extraClass = ""
+  isStatus = false
 ) {
 
-  return `
-    <div
-      class="mobile-row ${extraClass}"
-    >
+  const displayValue =
+    isStatus
+      ? getStatusHTML(value)
+      : escapeHTML(value);
 
-      <div
-        class="mobile-label"
-      >
+
+  return `
+    <div class="detail-row">
+
+      <div class="detail-label">
         ${escapeHTML(label)}
       </div>
 
-      <div
-        class="mobile-value"
-      >
-        ${value}
+      <div class="detail-value">
+        ${displayValue}
       </div>
 
     </div>
@@ -1782,12 +1526,328 @@ function createMobileRow(
 
 
 /* =========================
+   MAIN DETAIL ROWS
+========================= */
+
+function buildMainDetails(row) {
+
+  let html = "";
+
+
+  html +=
+    createDetailRow(
+      "PAYMENT",
+      getValueByTest(
+        row,
+        isPaymentColumn
+      )
+    );
+
+
+  html +=
+    createDetailRow(
+      "SHIPPING TO ES",
+      getValueByTest(
+        row,
+        isShippingColumn
+      )
+    );
+
+
+  html +=
+    createDetailRow(
+      "STATUS",
+      getValueByTest(
+        row,
+        isStatusColumn
+      ),
+      true
+    );
+
+
+  html +=
+    createDetailRow(
+      "MONTH",
+      getValueByTest(
+        row,
+        isMonthColumn
+      )
+    );
+
+
+  return html;
+
+}
+
+
+/* =========================
+   EXTRA DETAIL ROWS
+========================= */
+
+function buildExtraDetails(row) {
+
+  let html = "";
+
+
+  html +=
+    createDetailRow(
+      "PURCHASE DATE",
+      getValueByTest(
+        row,
+        isPurchaseDateColumn
+      )
+    );
+
+
+  html +=
+    createDetailRow(
+      "WAREHOUSE",
+      getValueByTest(
+        row,
+        isWarehouseColumn
+      )
+    );
+
+
+  html +=
+    createDetailRow(
+      "ARRIVAL WH",
+      getValueByTest(
+        row,
+        isArrivalColumn
+      )
+    );
+
+
+  html +=
+    createDetailRow(
+      "DEPARTURE ES",
+      getValueByTest(
+        row,
+        isDepartureColumn
+      )
+    );
+
+
+  html +=
+    createDetailRow(
+      "DELIVERED DATE",
+      getValueByTest(
+        row,
+        isDeliveredDateColumn
+      )
+    );
+
+
+  return html;
+
+}
+
+
+/* =========================
+   SINGLE ORDER
+========================= */
+
+function renderSingleOrder(
+  row,
+  index
+) {
+
+  const product =
+    getValueByTest(
+      row,
+      isProductColumn
+    );
+
+
+  const item =
+    getItemValue(
+      row
+    );
+
+
+  const extraId =
+    "single-extra-" +
+    index;
+
+
+  return `
+    <div class="single-order">
+
+      <div class="single-product">
+        ${escapeHTML(product)}
+      </div>
+
+      <div class="single-item-count">
+        1 ITEM
+      </div>
+
+      <div class="single-item-name">
+        • ${escapeHTML(item)}
+      </div>
+
+      <div class="single-main">
+
+        ${buildMainDetails(row)}
+
+      </div>
+
+      <div
+        class="single-extra"
+        id="${extraId}"
+      >
+
+        ${buildExtraDetails(row)}
+
+      </div>
+
+      <button
+        type="button"
+        class="single-more"
+        data-target="${extraId}"
+      >
+        Show more ▼
+      </button>
+
+    </div>
+  `;
+
+}
+
+
+/* =========================
+   GROUPED ORDER
+========================= */
+
+function renderGroupedOrder(
+  orderId,
+  items,
+  groupIndex
+) {
+
+  let html = `
+    <div class="order-group">
+
+      <div class="order-number">
+        ORDER # ${escapeHTML(orderId)}
+      </div>
+
+      <div class="order-list-title">
+        ORDER LIST
+      </div>
+  `;
+
+
+  items.forEach(
+    (row, itemIndex) => {
+
+
+      const product =
+        getValueByTest(
+          row,
+          isProductColumn
+        );
+
+
+      const item =
+        getItemValue(
+          row
+        );
+
+
+      const detailsId =
+        "details-" +
+        groupIndex +
+        "-" +
+        itemIndex;
+
+
+      let title =
+        "";
+
+
+      if (
+        product !== "-" &&
+        item !== "-"
+      ) {
+
+        title =
+          product +
+          " - " +
+          item;
+
+      }
+
+      else if (
+        product !== "-"
+      ) {
+
+        title =
+          product;
+
+      }
+
+      else {
+
+        title =
+          item;
+
+      }
+
+
+      html += `
+        <div class="order-item">
+
+          <button
+            type="button"
+            class="item-toggle"
+            data-target="${detailsId}"
+          >
+
+            <span class="item-name">
+              ${escapeHTML(title)}
+            </span>
+
+            <span class="item-arrow">
+              ▼
+            </span>
+
+          </button>
+
+
+          <div
+            class="item-details"
+            id="${detailsId}"
+          >
+
+            ${buildMainDetails(row)}
+
+            ${buildExtraDetails(row)}
+
+          </div>
+
+        </div>
+      `;
+
+    }
+  );
+
+
+  html += `
+    </div>
+  `;
+
+
+  return html;
+
+}
+
+
+/* =========================
    RENDER
 ========================= */
 
-function renderOrders(
-  data
-) {
+function renderOrders(data) {
 
   const results =
     document
@@ -1805,13 +1865,30 @@ function renderOrders(
       "<div class='card'>No orders found for this status</div>";
 
 
+    document
+      .getElementById(
+        "resultSummary"
+      )
+      .innerHTML =
+      "";
+
+
     return;
 
   }
 
 
+  updateSummary(data);
+
+
   const keys =
     Object.keys(
+      data[0]
+    );
+
+
+  const itemKey =
+    getItemKey(
       data[0]
     );
 
@@ -1830,13 +1907,11 @@ function renderOrders(
           return false;
         }
 
-
         if (
           isUserIdColumn(key)
         ) {
           return false;
         }
-
 
         return true;
 
@@ -1849,36 +1924,49 @@ function renderOrders(
 
 
   desktop +=
-    "<table>";
+    "<table><thead><tr>";
 
 
-  desktop +=
-    "<thead><tr>";
+  desktopKeys.forEach(
+    key => {
 
 
-  desktopKeys
-    .forEach(
-      key => {
+      let label =
+        key;
 
 
-        desktop += `
-          <th>
-            ${escapeHTML(
-              getDesktopLabel(key)
-            )}
-          </th>
-        `;
+      if (
+        key === itemKey
+      ) {
+
+        label =
+          "ITEM";
 
       }
-    );
+
+
+      if (
+        isOrderIdColumn(key)
+      ) {
+
+        label =
+          "ORDER ID";
+
+      }
+
+
+      desktop += `
+        <th>
+          ${escapeHTML(label)}
+        </th>
+      `;
+
+    }
+  );
 
 
   desktop +=
-    "</tr></thead>";
-
-
-  desktop +=
-    "<tbody>";
+    "</tr></thead><tbody>";
 
 
   data.forEach(
@@ -1889,47 +1977,44 @@ function renderOrders(
         "<tr>";
 
 
-      desktopKeys
-        .forEach(
-          key => {
+      desktopKeys.forEach(
+        key => {
 
 
-            let value =
-              row[key] ??
-              "-";
+          let value =
+            row[key] ??
+            "-";
 
 
-            if (
-              isStatusColumn(
-                key
-              )
-            ) {
+          if (
+            isStatusColumn(key)
+          ) {
 
-              value =
-                getStatusHTML(
-                  value
-                );
-
-            }
-
-            else {
-
-              value =
-                escapeHTML(
-                  value
-                );
-
-            }
-
-
-            desktop += `
-              <td>
-                ${value}
-              </td>
-            `;
+            value =
+              getStatusHTML(
+                value
+              );
 
           }
-        );
+
+          else {
+
+            value =
+              escapeHTML(
+                value
+              );
+
+          }
+
+
+          desktop += `
+            <td>
+              ${value}
+            </td>
+          `;
+
+        }
+      );
 
 
       desktop +=
@@ -1940,221 +2025,66 @@ function renderOrders(
 
 
   desktop +=
-    "</tbody></table>";
-
-
-  desktop +=
-    "</div>";
+    "</tbody></table></div>";
 
 
   /* =========================
-     MOBILE
+     MOBILE HYBRID
   ========================= */
+
+  const groups =
+    groupOrders(data);
+
 
   let mobile =
     "<div class='mobile-view'>";
 
 
-  data.forEach(
-    (
-      row,
-      orderIndex
-    ) => {
+  let groupIndex =
+    0;
 
 
-      const mainKeys =
-        keys.filter(
-          key => {
-
-            return (
-
-              isProductColumn(
-                key
-              ) ||
-
-              isItemColumn(
-                key
-              ) ||
-
-              isPaymentColumn(
-                key
-              ) ||
-
-              isShippingColumn(
-                key
-              ) ||
-
-              isStatusColumn(
-                key
-              ) ||
-
-              isMonthColumn(
-                key
-              )
-
-            );
-
-          }
-        );
+  groups.forEach(
+    (items, orderId) => {
 
 
-      const extraKeys =
-        keys.filter(
-          key => {
-
-
-            if (
-              isIdColumn(key)
-            ) {
-              return false;
-            }
-
-
-            if (
-              isUserIdColumn(key)
-            ) {
-              return false;
-            }
-
-
-            if (
-              mainKeys
-                .includes(
-                  key
-                )
-            ) {
-              return false;
-            }
-
-
-            return true;
-
-          }
-        );
-
-
-      mobile += `
-        <div
-          class="mobile-order"
-        >
-      `;
-
-
-      mainKeys
-        .forEach(
-          key => {
-
-
-            let value =
-              row[key] ??
-              "-";
-
-
-            if (
-              isStatusColumn(
-                key
-              )
-            ) {
-
-              value =
-                getStatusHTML(
-                  value
-                );
-
-            }
-
-            else {
-
-              value =
-                escapeHTML(
-                  value
-                );
-
-            }
-
-
-            const rowClass =
-              isProductColumn(
-                key
-              )
-                ? "mobile-product"
-                : "";
-
-
-            mobile +=
-              createMobileRow(
-                getMobileLabel(
-                  key
-                ),
-                value,
-                rowClass
-              );
-
-          }
-        );
-
+      /*
+       * MULTIPLE ITEMS WITH
+       * SAME ORDER ID
+       */
 
       if (
-        extraKeys.length >
-        0
+        items.length >= 2 &&
+        !orderId.startsWith(
+          "__single__"
+        )
       ) {
 
-
-        mobile += `
-          <div
-            class="mobile-extra"
-            id="extra-${orderIndex}"
-          >
-        `;
-
-
-        extraKeys
-          .forEach(
-            key => {
-
-
-              let value =
-                row[key] ??
-                "-";
-
-
-              value =
-                escapeHTML(
-                  value
-                );
-
-
-              mobile +=
-                createMobileRow(
-                  getMobileLabel(
-                    key
-                  ),
-                  value
-                );
-
-            }
+        mobile +=
+          renderGroupedOrder(
+            orderId,
+            items,
+            groupIndex
           );
 
+      }
+
+      /*
+       * ONLY ONE ITEM
+       */
+
+      else {
 
         mobile +=
-          "</div>";
-
-
-        mobile += `
-          <button
-            type="button"
-            class="show-more-button"
-            data-target="extra-${orderIndex}"
-          >
-            Show more ▼
-          </button>
-        `;
+          renderSingleOrder(
+            items[0],
+            groupIndex
+          );
 
       }
 
 
-      mobile +=
-        "</div>";
+      groupIndex++;
 
     }
   );
@@ -2169,93 +2099,148 @@ function renderOrders(
     mobile;
 
 
-  activateShowMoreButtons();
+  activateToggles();
 
 }
 
 
 /* =========================
-   SHOW MORE
+   TOGGLES
 ========================= */
 
-function activateShowMoreButtons() {
-
-  const buttons =
-    document
-      .querySelectorAll(
-        ".show-more-button"
-      );
+function activateToggles() {
 
 
-  buttons
+  document
+    .querySelectorAll(
+      ".item-toggle"
+    )
     .forEach(
       button => {
 
 
-        button
-          .addEventListener(
-            "click",
-            function() {
+        button.addEventListener(
+          "click",
+          function() {
 
 
-              const target =
-                document
-                  .getElementById(
-                    this
-                      .dataset
-                      .target
-                  );
+            const target =
+              document
+                .getElementById(
+                  this.dataset.target
+                );
 
 
-              if (
-                !target
-              ) {
-                return;
-              }
+            if (!target) {
+              return;
+            }
 
 
-              const isOpen =
-                target
-                  .classList
-                  .contains(
-                    "open"
-                  );
+            const open =
+              target
+                .classList
+                .contains(
+                  "open"
+                );
 
 
-              if (
-                isOpen
-              ) {
-
-                target
-                  .classList
-                  .remove(
-                    "open"
-                  );
+            const arrow =
+              this
+                .querySelector(
+                  ".item-arrow"
+                );
 
 
-                this
-                  .textContent =
-                  "Show more ▼";
+            if (open) {
 
-              }
-
-              else {
-
-                target
-                  .classList
-                  .add(
-                    "open"
-                  );
+              target
+                .classList
+                .remove("open");
 
 
-                this
-                  .textContent =
-                  "Show less ▲";
-
-              }
+              arrow.textContent =
+                "▼";
 
             }
-          );
+
+            else {
+
+              target
+                .classList
+                .add("open");
+
+
+              arrow.textContent =
+                "▲";
+
+            }
+
+          }
+        );
+
+      }
+    );
+
+
+  document
+    .querySelectorAll(
+      ".single-more"
+    )
+    .forEach(
+      button => {
+
+
+        button.addEventListener(
+          "click",
+          function() {
+
+
+            const target =
+              document
+                .getElementById(
+                  this.dataset.target
+                );
+
+
+            if (!target) {
+              return;
+            }
+
+
+            const open =
+              target
+                .classList
+                .contains(
+                  "open"
+                );
+
+
+            if (open) {
+
+              target
+                .classList
+                .remove("open");
+
+
+              this.textContent =
+                "Show more ▼";
+
+            }
+
+            else {
+
+              target
+                .classList
+                .add("open");
+
+
+              this.textContent =
+                "Show less ▲";
+
+            }
+
+          }
+        );
 
       }
     );
@@ -2286,8 +2271,7 @@ document
     function() {
 
       if (
-        allOrders.length >
-        0
+        allOrders.length > 0
       ) {
 
         applyStatusFilter();
@@ -2307,12 +2291,10 @@ document
     function(event) {
 
       if (
-        event.key ===
-        "Enter"
+        event.key === "Enter"
       ) {
 
-        event
-          .preventDefault();
+        event.preventDefault();
 
         search();
 
@@ -2332,9 +2314,7 @@ document
   );
 
 
-/* =========================
-   PAGE LOAD
-========================= */
+/* PAGE LOAD */
 
 loadLikes();
 
