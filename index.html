@@ -1,11 +1,8 @@
+<!DOCTYPE html>
 <html>
-
 <head>
 
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1"
->
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
 
@@ -77,7 +74,6 @@ body {
   background: white;
 
   font-size: 15px;
-
   outline: none;
 }
 
@@ -115,7 +111,6 @@ body {
   max-width: 700px;
 
   margin: 0 auto 18px auto;
-
   padding: 9px 12px;
 
   display: flex;
@@ -132,11 +127,8 @@ body {
 
 .info-message {
   color: #666;
-
   font-size: 11px;
-
   line-height: 1.35;
-
   flex: 1;
 }
 
@@ -168,7 +160,6 @@ body {
   border-radius: 50%;
 
   background: white;
-
   color: #555;
 
   cursor: pointer;
@@ -178,9 +169,7 @@ body {
 
 .like-button.liked {
   background: #fff0f3;
-
   border-color: #ffc5d0;
-
   color: #e63961;
 }
 
@@ -191,9 +180,7 @@ body {
 
 .like-count {
   color: #777;
-
   font-size: 10px;
-
   white-space: nowrap;
 }
 
@@ -208,7 +195,6 @@ body {
   margin: 0 auto 16px auto;
 
   font-size: 12px;
-
   color: #666;
 
   text-align: center;
@@ -228,21 +214,17 @@ body {
 
   margin-bottom: 10px;
 
-  box-shadow:
-    0 2px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .loading {
   text-align: center;
-
   padding: 20px;
-
   color: #666;
 }
 
 .error {
   background: #ffe6e6;
-
   color: #b30000;
 
   padding: 12px;
@@ -257,7 +239,6 @@ body {
 
 .status {
   display: inline-flex;
-
   align-items: center;
   justify-content: center;
 
@@ -314,9 +295,7 @@ td {
 
 th {
   background: #111;
-
   color: white;
-
   white-space: nowrap;
 }
 
@@ -339,13 +318,11 @@ th {
 
 .order-number {
   background: #111;
-
   color: white;
 
   padding: 12px 14px;
 
   font-size: 13px;
-
   font-weight: 700;
 }
 
@@ -357,7 +334,6 @@ th {
   border-bottom: 1px solid #e8e8e8;
 
   font-size: 10px;
-
   font-weight: 700;
 
   color: #666;
@@ -396,7 +372,6 @@ th {
   color: #222;
 
   font-size: 12px;
-
   font-weight: 600;
 }
 
@@ -406,15 +381,12 @@ th {
 
 .item-name {
   min-width: 0;
-
   overflow-wrap: anywhere;
 }
 
 .item-arrow {
   flex-shrink: 0;
-
   color: #777;
-
   font-size: 12px;
 }
 
@@ -430,7 +402,7 @@ th {
 
 
 /* =====================================================
-   ITEM EXTRA DETAILS
+   EXTRA ITEM DETAILS
 ===================================================== */
 
 .item-extra {
@@ -463,12 +435,11 @@ th {
 
 
 /* =====================================================
-   DETAIL ROW
+   DETAILS
 ===================================================== */
 
 .detail-row {
   display: grid;
-
   grid-template-columns: 40% 60%;
 
   border-bottom: 1px solid #eee;
@@ -482,7 +453,6 @@ th {
   color: #555;
 
   font-size: 10px;
-
   font-weight: 600;
 }
 
@@ -500,13 +470,12 @@ th {
 
 .detail-value .status {
   font-size: 9px;
-
   padding: 3px 6px;
 }
 
 
 /* =====================================================
-   COMMON ORDER SUMMARY
+   ORDER SUMMARY
 ===================================================== */
 
 .order-common-summary {
@@ -521,7 +490,6 @@ th {
   color: #777;
 
   font-size: 9px;
-
   font-weight: 700;
 
   letter-spacing: 0.6px;
@@ -552,7 +520,6 @@ th {
   color: white;
 
   font-size: 13px;
-
   font-weight: 700;
 }
 
@@ -562,7 +529,6 @@ th {
   color: #777;
 
   font-size: 10px;
-
   font-weight: 700;
 
   letter-spacing: 0.5px;
@@ -572,7 +538,6 @@ th {
   padding: 8px 14px 12px 14px;
 
   font-size: 12px;
-
   font-weight: 600;
 
   border-bottom: 1px solid #eee;
@@ -624,7 +589,6 @@ th {
 
   .top {
     gap: 7px;
-
     margin-bottom: 9px;
   }
 
@@ -635,21 +599,17 @@ th {
   .top input,
   .top select {
     padding: 11px 9px;
-
     font-size: 12px;
   }
 
   .top button {
     padding: 12px;
-
     font-size: 14px;
   }
 
   .info-bar {
     padding: 8px 9px;
-
     gap: 7px;
-
     margin-bottom: 14px;
   }
 
@@ -659,9 +619,7 @@ th {
 
   .like-button {
     width: 28px;
-
     height: 28px;
-
     font-size: 15px;
   }
 
@@ -676,13 +634,10 @@ th {
   .mobile-view {
     display: block;
   }
-
 }
 
 </style>
-
 </head>
-
 
 <body>
 
@@ -694,7 +649,6 @@ th {
   ================================================== -->
 
   <div class="top">
-
 
     <div class="field-group">
 
@@ -796,6 +750,8 @@ th {
         id="likeButton"
         class="like-button"
         type="button"
+        aria-label="Like this page"
+        title="Like this page"
       >
         ♡
       </button>
@@ -854,7 +810,6 @@ function normalizeHeader(key) {
     )
     .replace(/\s+/g, " ")
     .trim();
-
 }
 
 
@@ -869,12 +824,11 @@ function normalizeStatus(value) {
     .replace(/\s+/g, " ")
     .trim()
     .toUpperCase();
-
 }
 
 
 /* =====================================================
-   ESCAPE HTML
+   ESCAPE
 ===================================================== */
 
 function escapeHTML(value) {
@@ -885,12 +839,11 @@ function escapeHTML(value) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
-
 }
 
 
 /* =====================================================
-   COLUMN TYPES
+   COLUMNS
 ===================================================== */
 
 function isIdColumn(key) {
@@ -898,7 +851,6 @@ function isIdColumn(key) {
   return (
     normalizeHeader(key) === "id"
   );
-
 }
 
 
@@ -907,12 +859,11 @@ function isUserIdColumn(key) {
   const k =
     normalizeHeader(key);
 
-
   return (
     k === "user id" ||
-    k === "userid"
+    k === "userid" ||
+    k === "instagram user id"
   );
-
 }
 
 
@@ -921,13 +872,11 @@ function isOrderIdColumn(key) {
   const k =
     normalizeHeader(key);
 
-
   return (
     k === "order id" ||
     k === "orderid" ||
     k === "order_id"
   );
-
 }
 
 
@@ -936,12 +885,10 @@ function isProductColumn(key) {
   const k =
     normalizeHeader(key);
 
-
   return (
     k === "producto" ||
     k === "product"
   );
-
 }
 
 
@@ -950,12 +897,10 @@ function isItemColumn(key) {
   const k =
     normalizeHeader(key);
 
-
   return (
     k === "item" ||
     k === "items"
   );
-
 }
 
 
@@ -963,7 +908,6 @@ function isPaymentColumn(key) {
 
   return normalizeHeader(key)
     .includes("payment");
-
 }
 
 
@@ -971,7 +915,6 @@ function isShippingColumn(key) {
 
   return normalizeHeader(key)
     .includes("shipping");
-
 }
 
 
@@ -979,7 +922,6 @@ function isStatusColumn(key) {
 
   return normalizeHeader(key)
     .includes("status");
-
 }
 
 
@@ -988,12 +930,10 @@ function isMonthColumn(key) {
   const k =
     normalizeHeader(key);
 
-
   return (
     k === "mes" ||
     k === "month"
   );
-
 }
 
 
@@ -1001,7 +941,6 @@ function isPurchaseDateColumn(key) {
 
   return normalizeHeader(key)
     .includes("purchase");
-
 }
 
 
@@ -1010,12 +949,10 @@ function isWarehouseColumn(key) {
   const k =
     normalizeHeader(key);
 
-
   return (
     k.includes("warehouse") &&
     !k.includes("arrival")
   );
-
 }
 
 
@@ -1023,7 +960,6 @@ function isArrivalColumn(key) {
 
   return normalizeHeader(key)
     .includes("arrival");
-
 }
 
 
@@ -1031,7 +967,6 @@ function isDepartureColumn(key) {
 
   return normalizeHeader(key)
     .includes("departure");
-
 }
 
 
@@ -1039,7 +974,26 @@ function isDeliveredDateColumn(key) {
 
   return normalizeHeader(key)
     .includes("delivered date");
+}
 
+
+/*
+   IMPORTANT:
+
+   If FECHA DE CREACION still exists
+   physically in Google Sheets,
+   we ignore it completely.
+*/
+
+function isCreationDateColumn(key) {
+
+  const k =
+    normalizeHeader(key);
+
+  return (
+    k === "fecha de creacion" ||
+    k === "fecha de creación"
+  );
 }
 
 
@@ -1074,14 +1028,11 @@ function getValueByTest(
     value === undefined ||
     value === ""
   ) {
-
     return "-";
-
   }
 
 
   return value;
-
 }
 
 
@@ -1097,7 +1048,6 @@ function getOrderStatus(row) {
       isStatusColumn
     )
   );
-
 }
 
 
@@ -1189,7 +1139,6 @@ function getStatusHTML(value) {
       ${escapeHTML(originalValue)}
     </span>
   `;
-
 }
 
 
@@ -1214,9 +1163,7 @@ function hasLiked() {
   catch (error) {
 
     return false;
-
   }
-
 }
 
 
@@ -1248,9 +1195,7 @@ function saveLikedState(liked) {
   catch (error) {
 
     console.error(error);
-
   }
-
 }
 
 
@@ -1263,14 +1208,18 @@ function updateLikeUI() {
       );
 
 
-  if (hasLiked()) {
+  if (
+    hasLiked()
+  ) {
 
     button.textContent =
       "♥";
 
-
     button.classList
       .add("liked");
+
+    button.title =
+      "Remove like";
 
   }
 
@@ -1279,12 +1228,12 @@ function updateLikeUI() {
     button.textContent =
       "♡";
 
-
     button.classList
       .remove("liked");
 
+    button.title =
+      "Like this page";
   }
-
 }
 
 
@@ -1308,7 +1257,6 @@ function updateLikeCount(likes) {
         ? " like"
         : " likes"
     );
-
 }
 
 
@@ -1337,8 +1285,14 @@ async function loadLikes() {
 
     console.error(error);
 
-  }
 
+    document
+      .getElementById(
+        "likeCount"
+      )
+      .textContent =
+      "";
+  }
 }
 
 
@@ -1357,7 +1311,6 @@ async function toggleLike() {
   ) {
 
     return;
-
   }
 
 
@@ -1406,16 +1359,13 @@ async function toggleLike() {
   catch (error) {
 
     console.error(error);
-
   }
 
   finally {
 
     button.classList
       .remove("busy");
-
   }
-
 }
 
 
@@ -1459,7 +1409,6 @@ async function search() {
 
 
     return;
-
   }
 
 
@@ -1483,6 +1432,14 @@ async function search() {
       );
 
 
+    if (!response.ok) {
+
+      throw new Error(
+        "HTTP error"
+      );
+    }
+
+
     const data =
       await response.json();
 
@@ -1494,9 +1451,13 @@ async function search() {
       throw new Error(
         "API error"
       );
-
     }
 
+
+    /*
+       No sorting by creation date.
+       Use API / Sheet order.
+    */
 
     allOrders =
       data;
@@ -1514,8 +1475,10 @@ async function search() {
     results.innerHTML =
       "<div class='error'>Error loading data</div>";
 
-  }
 
+    summary.innerHTML =
+      "";
+  }
 }
 
 
@@ -1539,7 +1502,9 @@ function applyStatusFilter() {
     [...allOrders];
 
 
-  if (selectedStatus) {
+  if (
+    selectedStatus
+  ) {
 
     filtered =
       allOrders.filter(
@@ -1547,14 +1512,12 @@ function applyStatusFilter() {
           getOrderStatus(order)
           === selectedStatus
       );
-
   }
 
 
   renderOrders(
     filtered
   );
-
 }
 
 
@@ -1583,9 +1546,9 @@ function groupOrders(data) {
 
 
       /*
-       * No ORDER ID:
-       * keep as separate item.
-       */
+         Missing ORDER ID:
+         do not combine with other rows.
+      */
 
       if (
         !orderId ||
@@ -1595,7 +1558,6 @@ function groupOrders(data) {
         orderId =
           "__single__" +
           index;
-
       }
 
 
@@ -1609,25 +1571,22 @@ function groupOrders(data) {
           orderId,
           []
         );
-
       }
 
 
       groups
         .get(orderId)
         .push(row);
-
     }
   );
 
 
   return groups;
-
 }
 
 
 /* =====================================================
-   SUMMARY
+   RESULT SUMMARY
 ===================================================== */
 
 function updateSummary(data) {
@@ -1662,7 +1621,6 @@ function updateSummary(data) {
         ? " item"
         : " items"
     );
-
 }
 
 
@@ -1695,7 +1653,6 @@ function createDetailRow(
 
     </div>
   `;
-
 }
 
 
@@ -1705,7 +1662,8 @@ function createDetailRow(
 
 function buildItemMainDetails(row) {
 
-  let html = "";
+  let html =
+    "";
 
 
   html +=
@@ -1750,7 +1708,6 @@ function buildItemMainDetails(row) {
 
 
   return html;
-
 }
 
 
@@ -1760,7 +1717,8 @@ function buildItemMainDetails(row) {
 
 function buildItemExtraDetails(row) {
 
-  let html = "";
+  let html =
+    "";
 
 
   html +=
@@ -1814,12 +1772,11 @@ function buildItemExtraDetails(row) {
 
 
   return html;
-
 }
 
 
 /* =====================================================
-   CHECK COMMON VALUE
+   COMMON VALUE
 ===================================================== */
 
 function getCommonValue(
@@ -1833,7 +1790,6 @@ function getCommonValue(
   ) {
 
     return null;
-
   }
 
 
@@ -1861,22 +1817,20 @@ function getCommonValue(
 
 
   if (!allSame) {
+
     return null;
   }
 
 
   return firstValue;
-
 }
 
 
 /* =====================================================
-   COMMON ORDER SUMMARY
+   ORDER SUMMARY
 ===================================================== */
 
-function buildOrderCommonSummary(
-  items
-) {
+function buildOrderCommonSummary(items) {
 
   const commonPayment =
     getCommonValue(
@@ -1899,7 +1853,8 @@ function buildOrderCommonSummary(
     );
 
 
-  let rows = "";
+  let rows =
+    "";
 
 
   if (
@@ -1911,7 +1866,6 @@ function buildOrderCommonSummary(
         "PAYMENT",
         commonPayment
       );
-
   }
 
 
@@ -1925,7 +1879,6 @@ function buildOrderCommonSummary(
         commonStatus,
         true
       );
-
   }
 
 
@@ -1938,11 +1891,11 @@ function buildOrderCommonSummary(
         "MONTH",
         commonMonth
       );
-
   }
 
 
   if (!rows) {
+
     return "";
   }
 
@@ -1951,14 +1904,13 @@ function buildOrderCommonSummary(
     <div class="order-common-summary">
 
       <div class="order-summary-title">
-        ORDER INFORMATION
+        ORDER SUMMARY
       </div>
 
       ${rows}
 
     </div>
   `;
-
 }
 
 
@@ -2026,7 +1978,6 @@ function renderSingleOrder(
 
     </div>
   `;
-
 }
 
 
@@ -2100,7 +2051,6 @@ function renderGroupedOrder(
 
         title =
           item;
-
       }
 
 
@@ -2168,15 +2118,9 @@ function renderGroupedOrder(
 
         </div>
       `;
-
     }
   );
 
-
-  /*
-   * PAYMENT / STATUS / MONTH
-   * common to the whole order
-   */
 
   html +=
     buildOrderCommonSummary(
@@ -2190,7 +2134,6 @@ function renderGroupedOrder(
 
 
   return html;
-
 }
 
 
@@ -2225,11 +2168,12 @@ function renderOrders(data) {
 
 
     return;
-
   }
 
 
-  updateSummary(data);
+  updateSummary(
+    data
+  );
 
 
   const keys =
@@ -2246,12 +2190,12 @@ function renderOrders(data) {
     keys.filter(
       key => {
 
+
         if (
           isIdColumn(key)
         ) {
 
           return false;
-
         }
 
 
@@ -2260,12 +2204,18 @@ function renderOrders(data) {
         ) {
 
           return false;
+        }
 
+
+        if (
+          isCreationDateColumn(key)
+        ) {
+
+          return false;
         }
 
 
         return true;
-
       }
     );
 
@@ -2292,7 +2242,6 @@ function renderOrders(data) {
 
         label =
           "ITEM";
-
       }
 
 
@@ -2302,7 +2251,6 @@ function renderOrders(data) {
 
         label =
           "ORDER ID";
-
       }
 
 
@@ -2311,7 +2259,6 @@ function renderOrders(data) {
           ${escapeHTML(label)}
         </th>
       `;
-
     }
   );
 
@@ -2333,8 +2280,7 @@ function renderOrders(data) {
 
 
           let value =
-            row[key] ??
-            "-";
+            row[key] ?? "-";
 
 
           if (
@@ -2354,7 +2300,6 @@ function renderOrders(data) {
               escapeHTML(
                 value
               );
-
           }
 
 
@@ -2363,14 +2308,12 @@ function renderOrders(data) {
               ${value}
             </td>
           `;
-
         }
       );
 
 
       desktop +=
         "</tr>";
-
     }
   );
 
@@ -2398,16 +2341,13 @@ function renderOrders(data) {
 
 
   groups.forEach(
-    (
-      items,
-      orderId
-    ) => {
+    (items, orderId) => {
 
 
       /*
-       * Two or more rows
-       * sharing same ORDER ID.
-       */
+         More than one item
+         with same ORDER ID
+      */
 
       if (
         items.length >= 2 &&
@@ -2425,9 +2365,10 @@ function renderOrders(data) {
 
       }
 
+
       /*
-       * Single item.
-       */
+         Single item
+      */
 
       else {
 
@@ -2436,12 +2377,10 @@ function renderOrders(data) {
             items[0],
             groupIndex
           );
-
       }
 
 
       groupIndex++;
-
     }
   );
 
@@ -2456,7 +2395,6 @@ function renderOrders(data) {
 
 
   activateToggles();
-
 }
 
 
@@ -2490,6 +2428,7 @@ function activateToggles() {
 
 
             if (!target) {
+
               return;
             }
 
@@ -2534,12 +2473,9 @@ function activateToggles() {
 
               arrow.textContent =
                 "▲";
-
             }
-
           }
         );
-
       }
     );
 
@@ -2567,6 +2503,7 @@ function activateToggles() {
 
 
             if (!target) {
+
               return;
             }
 
@@ -2604,17 +2541,14 @@ function activateToggles() {
 
               this.textContent =
                 "Show less ▲";
-
             }
-
           }
         );
-
       }
     );
 
 
-  /* SINGLE ORDER SHOW MORE */
+  /* SINGLE SHOW MORE */
 
   document
     .querySelectorAll(
@@ -2637,6 +2571,7 @@ function activateToggles() {
 
 
             if (!target) {
+
               return;
             }
 
@@ -2674,15 +2609,11 @@ function activateToggles() {
 
               this.textContent =
                 "Show less ▲";
-
             }
-
           }
         );
-
       }
     );
-
 }
 
 
@@ -2714,9 +2645,7 @@ document
       ) {
 
         applyStatusFilter();
-
       }
-
     }
   );
 
@@ -2737,9 +2666,7 @@ document
         event.preventDefault();
 
         search();
-
       }
-
     }
   );
 
@@ -2766,5 +2693,4 @@ updateLikeUI();
 </script>
 
 </body>
-
 </html>
